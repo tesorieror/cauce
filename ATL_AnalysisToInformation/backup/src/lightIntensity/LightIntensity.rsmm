@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rsmm:SystemInformationFlowReferenceSpace xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:rsmm="rsmm" name="somm-diagram" id="1">
+  <referentialSpaces name="The System" ongoingReferenceDependencies="10 21 25" id="2"/>
+  <referentialSpaces name="PDA" ongoingReferenceDependencies="12 13 19" incomingReferenceDependency="10" id="9"/>
+  <referentialSpaces name="PDAScreen" ongoingReferenceDependencies="17 18" incomingReferenceDependency="19" id="14"/>
+  <referentialSpaces name="Room" ongoingReferenceDependencies="22 23 27" incomingReferenceDependency="21" id="20"/>
+  <spaceToSpaceReferenceDependencies cardinality="999" parent="2" id="10" child="9"/>
+  <spaceToSpaceReferenceDependencies cardinality="1" parent="9" id="19" child="14"/>
+  <spaceToSpaceReferenceDependencies cardinality="2" parent="2" id="21" child="20"/>
+  <spaceToEntityReferenceDependencies cardinality="1" parent="9" id="12" child="3"/>
+  <spaceToEntityReferenceDependencies cardinality="1" parent="9" id="13" child="11"/>
+  <spaceToEntityReferenceDependencies cardinality="1" parent="14" id="17" child="16"/>
+  <spaceToEntityReferenceDependencies cardinality="1" parent="14" id="18" child="15"/>
+  <spaceToEntityReferenceDependencies cardinality="3" parent="20" id="22" child="5"/>
+  <spaceToEntityReferenceDependencies cardinality="1" parent="20" id="23" child="7"/>
+  <spaceToEntityReferenceDependencies cardinality="1" parent="2" id="25" child="24"/>
+  <spaceToEntityReferenceDependencies cardinality="1" parent="20" id="27" child="26"/>
+  <entityReferences name="PDAApplication" incomingReferenceDependency="12" id="3" entity="PDA"/>
+  <entityReferences name="Blind" incomingReferenceDependency="22" id="5" entity="Blind"/>
+  <entityReferences name="LightSensor" incomingReferenceDependency="23" id="7" entity="LightSensor"/>
+  <entityReferences name="GPS" incomingReferenceDependency="13" id="11" entity="GPS"/>
+  <entityReferences name="SetButton" incomingReferenceDependency="18" id="15" entity="SetButton"/>
+  <entityReferences name="SetEntry" incomingReferenceDependency="17" id="16" entity="SetEntry"/>
+  <entityReferences name="LocationManager" incomingReferenceDependency="25" id="24" entity="LocationManager"/>
+  <entityReferences name="BlindManager" incomingReferenceDependency="27" id="26" entity="BlindManager"/>
+</rsmm:SystemInformationFlowReferenceSpace>

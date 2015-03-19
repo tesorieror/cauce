@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.tesoriero.cauce.space/src" modelPluginID="org.tesoriero.cauce.space"
+    modelName="Space" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="7.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>space.ecore</foreignModel>
+  <genPackages prefix="Spmm" disposableProviderFactory="true" ecorePackage="space.ecore#/">
+    <genClasses ecoreClass="space.ecore#//Universe">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute space.ecore#//Universe/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute space.ecore#//Universe/id"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference space.ecore#//Universe/groupings"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference space.ecore#//Universe/generalizations"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference space.ecore#//Universe/contentions"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference space.ecore#//Universe/representations"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference space.ecore#//Universe/virtualSpaces"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference space.ecore#//Universe/physicalSpaces"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference space.ecore#//Universe/locationUnits"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="space.ecore#//Space">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute space.ecore#//Space/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute space.ecore#//Space/id"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference space.ecore#//Space/groupBy"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference space.ecore#//Space/generalizedBy"/>
+    </genClasses>
+    <genClasses ecoreClass="space.ecore#//VirtualSpace">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference space.ecore#//VirtualSpace/universe"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference space.ecore#//VirtualSpace/contains"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference space.ecore#//VirtualSpace/generalizes"/>
+    </genClasses>
+    <genClasses ecoreClass="space.ecore#//PhysicalSpace">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference space.ecore#//PhysicalSpace/universe"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference space.ecore#//PhysicalSpace/representedBy"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference space.ecore#//PhysicalSpace/innerSpaces"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference space.ecore#//PhysicalSpace/container"/>
+    </genClasses>
+    <genClasses ecoreClass="space.ecore#//LocationUnit">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference space.ecore#//LocationUnit/identifications"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference space.ecore#//LocationUnit/universe"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference space.ecore#//LocationUnit/represents"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute space.ecore#//LocationUnit/name"/>
+    </genClasses>
+    <genClasses ecoreClass="space.ecore#//Identification">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference space.ecore#//Identification/locationUnit"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute space.ecore#//Identification/technology"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute space.ecore#//Identification/content"/>
+    </genClasses>
+    <genClasses ecoreClass="space.ecore#//Grouping">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference space.ecore#//Grouping/universe"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference space.ecore#//Grouping/child"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference space.ecore#//Grouping/parent"/>
+    </genClasses>
+    <genClasses ecoreClass="space.ecore#//Generalization">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference space.ecore#//Generalization/universe"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference space.ecore#//Generalization/parent"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference space.ecore#//Generalization/generalizes"/>
+    </genClasses>
+    <genClasses ecoreClass="space.ecore#//Contention">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference space.ecore#//Contention/universe"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference space.ecore#//Contention/parent"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference space.ecore#//Contention/child"/>
+    </genClasses>
+    <genClasses ecoreClass="space.ecore#//Representation">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference space.ecore#//Representation/universe"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference space.ecore#//Representation/represents"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference space.ecore#//Representation/representedBy"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="space.ecore#//SpaceRelationship">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute space.ecore#//SpaceRelationship/id"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

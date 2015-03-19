@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rsmm:SystemInformationFlowReferenceSpace xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:rsmm="rsmm">
+  <referentialSpaces name="TheSystem" ongoingReferenceDependencies="6 9" id="1"/>
+  <referentialSpaces name="Participant" ongoingReferenceDependencies="5 7" incomingReferenceDependency="6" id="4"/>
+  <spaceToSpaceReferenceDependencies cardinality="4" parent="1" id="6" child="4"/>
+  <spaceToEntityReferenceDependencies cardinality="1" parent="4" id="5" child="3"/>
+  <spaceToEntityReferenceDependencies cardinality="1" parent="4" id="7" child="2"/>
+  <spaceToEntityReferenceDependencies cardinality="1" parent="1" id="9" child="8"/>
+  <entityReferences name="Guest" incomingReferenceDependency="7" id="2" entity="Guest"/>
+  <entityReferences name="RFIDReader" incomingReferenceDependency="5" id="3" entity="RFIDReader"/>
+  <entityReferences name="Reception" incomingReferenceDependency="9" id="8" entity="Reception"/>
+</rsmm:SystemInformationFlowReferenceSpace>

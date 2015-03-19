@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ifmm:SystemInformaitonFlow xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ifmm="ifmm" id="1" name="somm-diagram">
+  <entities id="3" name="RFIDReader" ongoingInformationFlows="//@edges.0 //@edges.1"/>
+  <entities id="4" name="Guest" incomingInformationFlows="//@edges.2 //@edges.3"/>
+  <entities id="7" name="Reception"/>
+  <entities id="12" name="LocationManager"/>
+  <informationFlows xsi:type="ifmm:BroadcastInformationFlow" id="8" name="RFIDReader_to_Guest-Reading" source="//@edges.0" target="//@edges.2">
+    <data definition="readerID"/>
+    <data definition="userID"/>
+  </informationFlows>
+  <informationFlows xsi:type="ifmm:BroadcastInformationFlow" id="9" name="RFIDReader_to_Reception-NotReading" source="//@edges.1" target="//@edges.3">
+    <data definition="readerID"/>
+  </informationFlows>
+  <informationFlows xsi:type="ifmm:PointToPointInformationFlow" id="10" name="Guest_toReception-LoginAdmin"/>
+  <informationFlows xsi:type="ifmm:PointToPointInformationFlow" id="11" name="Guest_to_Receptiom-LoginUser">
+    <outputData definition="readerID"/>
+  </informationFlows>
+  <edges xsi:type="ifmm:EntityToBroadcastInformationFlowEdge" source="3" target="8"/>
+  <edges xsi:type="ifmm:EntityToBroadcastInformationFlowEdge" source="3" target="9"/>
+  <edges xsi:type="ifmm:BroadcastInformationFlowToEntityEdge" target="4" source="8"/>
+  <edges xsi:type="ifmm:BroadcastInformationFlowToEntityEdge" target="4" source="9"/>
+</ifmm:SystemInformaitonFlow>

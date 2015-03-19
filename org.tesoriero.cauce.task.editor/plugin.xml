@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated task -->
+      <wizard
+            id="tamm.presentation.TammModelWizardID"
+            name="%_UI_TammModelWizard_label"
+            class="tamm.presentation.TammModelWizard"
+            category="org.tesoriero.cauce.model.category.ID"
+            icon="icons/full/obj16/TammModelFile.gif">
+         <description>%_UI_TammModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated task -->
+      <editor
+            id="tamm.presentation.TammEditorID"
+            name="%_UI_TammEditor_label"
+            icon="icons/full/obj16/TammModelFile.gif"
+            extensions="tamm"
+            class="tamm.presentation.TammEditor"
+            contributorClass="tamm.presentation.TammActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

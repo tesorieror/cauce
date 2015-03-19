@@ -1,0 +1,1077 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+
+   <extension point="org.eclipse.team.core.fileTypes" id="repo-ftype">
+      <?gmfgen generated="true"?>
+      <fileTypes type="text" extension="ecmmdiag"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser" id="resource-factory">
+      <?gmfgen generated="true"?>
+      <parser
+         type="ecmmdiag"
+         class="org.eclipse.gmf.runtime.emf.core.resources.GMFResourceFactory">
+      </parser>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors" id="gmf-editor">
+      <?gmfgen generated="true"?>
+      <editor
+         id="ecmm.diagram.part.EntityContextDiagramEditorID"
+         name="%editorName"
+         icon="icons/obj16/EcmmDiagramFile.gif"
+         extensions="ecmmdiag"
+         default="true"
+         class="ecmm.diagram.part.EntityContextDiagramEditor"
+         matchingStrategy="ecmm.diagram.part.EntityContextMatchingStrategy"
+         contributorClass="ecmm.diagram.part.EntityContextDiagramActionBarContributor">
+      </editor>
+   </extension>
+   
+   <extension point="org.eclipse.ui.contexts" id="ui-context">
+      <?gmfgen generated="true"?>
+      <context
+         description="%context.description"
+         id="ecmm.diagram.ui.diagramContext"
+         name="%context.name"
+         parentId="org.eclipse.gmf.runtime.diagram.ui.diagramContext">
+      </context>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards" id="creation-wizard">
+      <?gmfgen generated="false"?>
+  	  <wizard
+  	     name="%newWizardName"
+  	     icon="icons/obj16/EcmmDiagramFile.gif"
+  	     category="org.tesoriero.cauce.diagram.category.ID"
+  	     class="ecmm.diagram.part.EntityContextCreationWizard"
+  	     id="ecmm.diagram.part.EntityContextCreationWizardID">
+  	  	 <description>%newWizardDesc</description>  
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.popupMenus" id="init-diagram-action">
+      <?gmfgen generated="true"?>
+      <objectContribution
+            id="org.tesoriero.cauce.entityContext.diagram.InitDiagram"
+            nameFilter="*.ecmm"
+            objectClass="org.eclipse.core.resources.IFile">
+         <action
+               label="%initDiagramActionLabel"
+               class="ecmm.diagram.part.EntityContextInitDiagramFileAction"
+               menubarPath="additions"
+               enablesFor="1"
+               id="org.tesoriero.cauce.entityContext.diagram.InitDiagramAction">
+         </action>
+      </objectContribution>
+   </extension>
+	
+   <extension point="org.eclipse.gmf.runtime.common.ui.services.action.globalActionHandlerProviders" id="global-actions">
+      <?gmfgen generated="true"?>
+      <GlobalActionHandlerProvider
+         class="org.eclipse.gmf.runtime.diagram.ui.providers.DiagramGlobalActionHandlerProvider"
+         id="EntityContextPresentation">
+         <Priority name="Lowest"/>
+         <ViewId id="ecmm.diagram.part.EntityContextDiagramEditorID">
+            <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart">
+               <GlobalActionId actionId="delete"/>
+            </ElementType>
+            <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.DiagramEditPart">
+               <GlobalActionId actionId="save"/>
+            </ElementType>
+            <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart">
+               <GlobalActionId actionId="save">
+               </GlobalActionId>
+            </ElementType>        
+         </ViewId>
+      </GlobalActionHandlerProvider>
+      <GlobalActionHandlerProvider
+         class="org.eclipse.gmf.runtime.diagram.ui.providers.ide.providers.DiagramIDEGlobalActionHandlerProvider"
+         id="EntityContextPresentationIDE">
+         <Priority name="Lowest"/>
+         <ViewId id="ecmm.diagram.part.EntityContextDiagramEditorID">
+            <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart">
+               <GlobalActionId actionId="bookmark"/>
+            </ElementType>
+         </ViewId>
+      </GlobalActionHandlerProvider>
+      <GlobalActionHandlerProvider
+            class="org.eclipse.gmf.runtime.diagram.ui.render.providers.DiagramUIRenderGlobalActionHandlerProvider"
+            id="EntityContextRender">
+         <Priority name="Lowest"/>
+         <ViewId id="ecmm.diagram.part.EntityContextDiagramEditorID">
+            <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart">
+               <GlobalActionId actionId="cut"/>
+               <GlobalActionId actionId="copy"/>
+               <GlobalActionId actionId="paste"/>
+            </ElementType>
+         </ViewId>
+      </GlobalActionHandlerProvider>
+   </extension>
+
+
+   <extension point="org.eclipse.gmf.runtime.common.ui.services.markerNavigationProviders" id="markers-navigation">
+      <?gmfgen generated="true"?>
+      <MarkerNavigationProvider class="ecmm.diagram.providers.EntityContextMarkerNavigationProvider">
+         <MarkerType name="org.tesoriero.cauce.entityContext.diagram.diagnostic"/>
+         <Priority name="Lowest"/>
+      </MarkerNavigationProvider>
+   </extension>
+
+   <extension id="diagnostic" name="EntityContext Plugin problems" point="org.eclipse.core.resources.markers">
+      <?gmfgen generated="true"?>
+      <super type="org.eclipse.core.resources.problemmarker"/>
+      <super type="org.eclipse.gmf.runtime.common.ui.services.marker"/>
+      <persistent value="true"/>
+   </extension>   
+
+   <extension id="validationDecoratorProvider" name="ValidationDecorations" point="org.eclipse.gmf.runtime.diagram.ui.decoratorProviders">
+      <?gmfgen generated="true"?>
+      <decoratorProvider class="ecmm.diagram.providers.EntityContextValidationDecoratorProvider">
+         <Priority name="High"/>
+         <object class="org.eclipse.gmf.runtime.diagram.ui.editparts.IPrimaryEditPart(org.eclipse.gmf.runtime.diagram.ui)" id="PRIMARY_VIEW"/>
+         <context decoratorTargets="PRIMARY_VIEW"/>
+      </decoratorProvider>
+   </extension>
+
+   <extension point="org.eclipse.core.runtime.preferences" id="prefs">
+      <?gmfgen generated="true"?>
+      <initializer class="ecmm.diagram.preferences.DiagramPreferenceInitializer"/>
+   </extension>
+
+   <extension point="org.eclipse.ui.preferencePages" id="prefpages">
+      <?gmfgen generated="true"?>
+      <page
+            id="org.tesoriero.cauce.entityContext.diagram.general"
+            name="%prefpage.org.tesoriero.cauce.entityContext.diagram.general"
+            class="ecmm.diagram.preferences.DiagramGeneralPreferencePage">
+      </page>
+      <page
+            id="org.tesoriero.cauce.entityContext.diagram.appearance"
+            name="%prefpage.org.tesoriero.cauce.entityContext.diagram.appearance"
+            category="org.tesoriero.cauce.entityContext.diagram.general"
+            class="ecmm.diagram.preferences.DiagramAppearancePreferencePage">
+      </page>
+      <page
+            id="org.tesoriero.cauce.entityContext.diagram.connections"
+            name="%prefpage.org.tesoriero.cauce.entityContext.diagram.connections"
+            category="org.tesoriero.cauce.entityContext.diagram.general"
+            class="ecmm.diagram.preferences.DiagramConnectionsPreferencePage">
+      </page>
+      <page
+            id="org.tesoriero.cauce.entityContext.diagram.printing"
+            name="%prefpage.org.tesoriero.cauce.entityContext.diagram.printing"
+            category="org.tesoriero.cauce.entityContext.diagram.general"
+            class="ecmm.diagram.preferences.DiagramPrintingPreferencePage">
+      </page>
+      <page
+            id="org.tesoriero.cauce.entityContext.diagram.rulersAndGrid"
+            name="%prefpage.org.tesoriero.cauce.entityContext.diagram.rulersAndGrid"
+            category="org.tesoriero.cauce.entityContext.diagram.general"
+            class="ecmm.diagram.preferences.DiagramRulersAndGridPreferencePage">
+      </page>
+   </extension>
+
+   <extension point="org.eclipse.ui.views.properties.tabbed.propertyContributor" id="prop-contrib">
+      <?gmfgen generated="true"?>
+      <propertyContributor
+            contributorId="org.tesoriero.cauce.entityContext.diagram"
+            labelProvider="ecmm.diagram.sheet.EntityContextSheetLabelProvider">
+         <propertyCategory category="domain"/>
+         <propertyCategory category="visual"/>
+         <propertyCategory category="extra"/>
+      </propertyContributor>
+   </extension>
+
+   <extension point="org.eclipse.ui.views.properties.tabbed.propertyTabs" id="proptabs">
+      <?gmfgen generated="true"?>   
+      <propertyTabs contributorId="org.tesoriero.cauce.entityContext.diagram">
+         <propertyTab
+             category="visual"
+             id="property.tab.AppearancePropertySection"
+             label="%tab.appearance"/>
+          <propertyTab
+             category="visual"
+             id="property.tab.DiagramPropertySection"
+             label="%tab.diagram"/>
+          <propertyTab
+             category="domain"
+             id="property.tab.domain"
+             label="%tab.domain"/>
+      </propertyTabs>
+   </extension>
+
+   <extension point="org.eclipse.ui.views.properties.tabbed.propertySections" id="propsections">
+      <?gmfgen generated="true"?>   
+      <propertySections contributorId="org.tesoriero.cauce.entityContext.diagram">
+         <propertySection id="property.section.ConnectorAppearancePropertySection" 
+            filter="org.eclipse.gmf.runtime.diagram.ui.properties.filters.ConnectionEditPartPropertySectionFilter" 
+            class="org.eclipse.gmf.runtime.diagram.ui.properties.sections.appearance.ConnectionAppearancePropertySection" 
+            tab="property.tab.AppearancePropertySection">
+         </propertySection>
+         <propertySection id="property.section.ShapeColorAndFontPropertySection" 
+            filter="org.eclipse.gmf.runtime.diagram.ui.properties.filters.ShapeEditPartPropertySectionFilter" 
+            class="org.eclipse.gmf.runtime.diagram.ui.properties.sections.appearance.ShapeColorsAndFontsPropertySection" 
+            tab="property.tab.AppearancePropertySection">
+         </propertySection> 
+         <propertySection id="property.section.DiagramColorsAndFontsPropertySection" 
+            filter="org.eclipse.gmf.runtime.diagram.ui.properties.filters.DiagramEditPartPropertySectionFilter" 
+            class="org.eclipse.gmf.runtime.diagram.ui.properties.sections.appearance.DiagramColorsAndFontsPropertySection" 
+            tab="property.tab.AppearancePropertySection">
+         </propertySection>     
+         <propertySection id="property.section.RulerGridPropertySection" 
+            filter="org.eclipse.gmf.runtime.diagram.ui.properties.filters.DiagramEditPartPropertySectionFilter" 
+            class="org.eclipse.gmf.runtime.diagram.ui.properties.sections.grid.RulerGridPropertySection" 
+            tab="property.tab.DiagramPropertySection">
+         </propertySection>     
+         <propertySection
+            id="property.section.domain" 
+            tab="property.tab.domain"
+            class="ecmm.diagram.sheet.EntityContextPropertySection">
+            <input type="org.eclipse.gmf.runtime.notation.View"/>
+            <input type="org.eclipse.gef.EditPart"/>
+            <input type="ecmm.diagram.navigator.EntityContextAbstractNavigatorItem"/>
+         </propertySection>
+      </propertySections>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.diagram.core.viewProviders" id="view-provider">
+      <?gmfgen generated="true"?>
+      <viewProvider class="ecmm.diagram.providers.EntityContextViewProvider">
+         <Priority name="Lowest"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Diagram" semanticHints="EntityContext"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="2001,3001,3002,3003,3004,3005,3006,3007,3008,3009,3010"/>
+      </viewProvider>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.diagram.ui.editpartProviders" id="ep-provider">
+      <?gmfgen generated="true"?>
+      <editpartProvider class="ecmm.diagram.providers.EntityContextEditPartProvider">
+         <Priority name="Lowest"/>
+         <object class="org.eclipse.gmf.runtime.notation.Diagram" id="generated-diagram">
+            <method name="getType()" value="EntityContext"/>
+         </object>
+         <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-nodes">
+            <method name="getType()" value="2001,3001,3002,3003,3004,3005,3006,3007,3008,3009,3010"/>
+         </object>
+         <object class="org.eclipse.gmf.runtime.notation.Edge" id="generated-links">
+            <method name="getType()" value=""/>
+         </object>
+         <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-labels">
+            <method name="getType()" value="5019,5020,5001,5002,5003,5004,5005,5006,5007,5008,5009,5010,5016,5017,5011,5012,5013,5014,5015,5018"/>
+         </object>
+         <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-compartments">
+            <method name="getType()" value="7001,7002,7003,7004,7005,7006"/>
+         </object>
+         <context views="generated-diagram,generated-nodes,generated-links,generated-labels,generated-compartments"/>
+      </editpartProvider>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.emf.ui.modelingAssistantProviders" id="modelassist-provider">
+      <?gmfgen generated="true"?>
+      <modelingAssistantProvider class="ecmm.diagram.providers.EntityContextModelingAssistantProvider">
+         <Priority name="Lowest"/>
+         <object class="ecmm.diagram.edit.parts.SystemContextEditPart" id="SystemContext_1000"/>
+         <object class="ecmm.diagram.edit.parts.EntityContextEditPart" id="EntityContext_2001"/>
+         <object class="ecmm.diagram.edit.parts.HolderMemoryEditPart" id="HolderMemory_3001"/>
+         <object class="ecmm.diagram.edit.parts.LogicMemoryEditPart" id="LogicMemory_3002"/>
+         <object class="ecmm.diagram.edit.parts.TimeMemoryEditPart" id="TimeMemory_3003"/>
+         <object class="ecmm.diagram.edit.parts.StackMemoryEditPart" id="StackMemory_3004"/>
+         <object class="ecmm.diagram.edit.parts.DictionaryMemoryEditPart" id="DictionaryMemory_3005"/>
+         <object class="ecmm.diagram.edit.parts.ContextSituationEditPart" id="ContextSituation_3006"/>
+         <object class="ecmm.diagram.edit.parts.MemoryContextConditionEditPart" id="MemoryContextCondition_3007"/>
+         <object class="ecmm.diagram.edit.parts.SensingContextConditionEditPart" id="SensingContextCondition_3008"/>
+         <object class="ecmm.diagram.edit.parts.ContextActionEditPart" id="ContextAction_3009"/>
+         <object class="ecmm.diagram.edit.parts.VariableDataDefinitionEditPart" id="VariableDataDefinition_3010"/>
+         <context elements="SystemContext_1000,EntityContext_2001,HolderMemory_3001,LogicMemory_3002,TimeMemory_3003,StackMemory_3004,DictionaryMemory_3005,ContextSituation_3006,MemoryContextCondition_3007,SensingContextCondition_3008,ContextAction_3009,VariableDataDefinition_3010"/>
+      </modelingAssistantProvider>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.common.ui.services.iconProviders" id="icon-provider">
+      <?gmfgen generated="true"?>
+      <IconProvider class="ecmm.diagram.providers.EntityContextIconProvider">
+         <Priority name="Low"/>
+      </IconProvider>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.common.ui.services.parserProviders" id="parser-provider">
+      <?gmfgen generated="true"?>
+      <ParserProvider class="ecmm.diagram.providers.EntityContextParserProvider">
+         <Priority name="Lowest"/>
+      </ParserProvider>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.emf.type.core.elementTypes" id="element-types">
+      <?gmfgen generated="true"?>
+      <metamodel nsURI="http://tesoriero.org/cauce/entityContext/1.0">
+         <metamodelType
+               id="org.tesoriero.cauce.entityContext.diagram.SystemContext_1000"
+               name="%metatype.name.SystemContext_1000"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="SystemContext"
+               edithelper="ecmm.diagram.edit.helpers.SystemContextEditHelper">
+            <param name="semanticHint" value="1000"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://tesoriero.org/cauce/entityContext/1.0">
+         <metamodelType
+               id="org.tesoriero.cauce.entityContext.diagram.EntityContext_2001"
+               name="%metatype.name.EntityContext_2001"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="EntityContext"
+               edithelper="ecmm.diagram.edit.helpers.EntityContextEditHelper">
+            <param name="semanticHint" value="2001"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://tesoriero.org/cauce/entityContext/1.0">
+         <metamodelType
+               id="org.tesoriero.cauce.entityContext.diagram.HolderMemory_3001"
+               name="%metatype.name.HolderMemory_3001"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="HolderMemory"
+               edithelper="ecmm.diagram.edit.helpers.HolderMemoryEditHelper">
+            <param name="semanticHint" value="3001"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://tesoriero.org/cauce/entityContext/1.0">
+         <metamodelType
+               id="org.tesoriero.cauce.entityContext.diagram.LogicMemory_3002"
+               name="%metatype.name.LogicMemory_3002"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="LogicMemory"
+               edithelper="ecmm.diagram.edit.helpers.LogicMemoryEditHelper">
+            <param name="semanticHint" value="3002"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://tesoriero.org/cauce/entityContext/1.0">
+         <metamodelType
+               id="org.tesoriero.cauce.entityContext.diagram.TimeMemory_3003"
+               name="%metatype.name.TimeMemory_3003"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="TimeMemory"
+               edithelper="ecmm.diagram.edit.helpers.TimeMemoryEditHelper">
+            <param name="semanticHint" value="3003"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://tesoriero.org/cauce/entityContext/1.0">
+         <metamodelType
+               id="org.tesoriero.cauce.entityContext.diagram.StackMemory_3004"
+               name="%metatype.name.StackMemory_3004"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="StackMemory"
+               edithelper="ecmm.diagram.edit.helpers.StackMemoryEditHelper">
+            <param name="semanticHint" value="3004"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://tesoriero.org/cauce/entityContext/1.0">
+         <metamodelType
+               id="org.tesoriero.cauce.entityContext.diagram.DictionaryMemory_3005"
+               name="%metatype.name.DictionaryMemory_3005"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="DictionaryMemory"
+               edithelper="ecmm.diagram.edit.helpers.DictionaryMemoryEditHelper">
+            <param name="semanticHint" value="3005"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://tesoriero.org/cauce/entityContext/1.0">
+         <metamodelType
+               id="org.tesoriero.cauce.entityContext.diagram.ContextSituation_3006"
+               name="%metatype.name.ContextSituation_3006"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="ContextSituation"
+               edithelper="ecmm.diagram.edit.helpers.ContextSituationEditHelper">
+            <param name="semanticHint" value="3006"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://tesoriero.org/cauce/entityContext/1.0">
+         <metamodelType
+               id="org.tesoriero.cauce.entityContext.diagram.MemoryContextCondition_3007"
+               name="%metatype.name.MemoryContextCondition_3007"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="MemoryContextCondition"
+               edithelper="ecmm.diagram.edit.helpers.MemoryContextConditionEditHelper">
+            <param name="semanticHint" value="3007"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://tesoriero.org/cauce/entityContext/1.0">
+         <metamodelType
+               id="org.tesoriero.cauce.entityContext.diagram.SensingContextCondition_3008"
+               name="%metatype.name.SensingContextCondition_3008"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="SensingContextCondition"
+               edithelper="ecmm.diagram.edit.helpers.SensingContextConditionEditHelper">
+            <param name="semanticHint" value="3008"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://tesoriero.org/cauce/entityContext/1.0">
+         <metamodelType
+               id="org.tesoriero.cauce.entityContext.diagram.ContextAction_3009"
+               name="%metatype.name.ContextAction_3009"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="ContextAction"
+               edithelper="ecmm.diagram.edit.helpers.ContextActionEditHelper">
+            <param name="semanticHint" value="3009"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://tesoriero.org/cauce/entityContext/1.0">
+         <metamodelType
+               id="org.tesoriero.cauce.entityContext.diagram.VariableDataDefinition_3010"
+               name="%metatype.name.VariableDataDefinition_3010"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="VariableDataDefinition"
+               edithelper="ecmm.diagram.edit.helpers.VariableDataDefinitionEditHelper">
+            <param name="semanticHint" value="3010"/>
+         </metamodelType>
+      </metamodel>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.emf.type.core.elementTypeBindings" id="element-types-bindings">
+      <?gmfgen generated="true"?>
+      <clientContext id="org.tesoriero.cauce.entityContext.diagram.TypeContext">
+         <enablement>
+            <test
+               property="org.eclipse.gmf.runtime.emf.core.editingDomain"
+               value="org.tesoriero.cauce.entityContext.diagram.EditingDomain"/>
+         </enablement>
+      </clientContext> 
+      <binding context="org.tesoriero.cauce.entityContext.diagram.TypeContext">
+         <elementType ref="org.tesoriero.cauce.entityContext.diagram.SystemContext_1000"/>
+         <elementType ref="org.tesoriero.cauce.entityContext.diagram.EntityContext_2001"/>
+         <elementType ref="org.tesoriero.cauce.entityContext.diagram.HolderMemory_3001"/>
+         <elementType ref="org.tesoriero.cauce.entityContext.diagram.LogicMemory_3002"/>
+         <elementType ref="org.tesoriero.cauce.entityContext.diagram.TimeMemory_3003"/>
+         <elementType ref="org.tesoriero.cauce.entityContext.diagram.StackMemory_3004"/>
+         <elementType ref="org.tesoriero.cauce.entityContext.diagram.DictionaryMemory_3005"/>
+         <elementType ref="org.tesoriero.cauce.entityContext.diagram.ContextSituation_3006"/>
+         <elementType ref="org.tesoriero.cauce.entityContext.diagram.MemoryContextCondition_3007"/>
+         <elementType ref="org.tesoriero.cauce.entityContext.diagram.SensingContextCondition_3008"/>
+         <elementType ref="org.tesoriero.cauce.entityContext.diagram.ContextAction_3009"/>
+         <elementType ref="org.tesoriero.cauce.entityContext.diagram.VariableDataDefinition_3010"/>
+         <advice ref="org.eclipse.gmf.runtime.diagram.core.advice.notationDepdendents"/>
+      </binding>
+   </extension>
+	   <extension point="org.eclipse.core.expressions.propertyTesters" id="navigator-proptest.isURIEditorInput">
+      <?gmfgen generated="true"?>
+       <propertyTester
+           id="org.tesoriero.cauce.entityContext.diagram.URIEditorInputPropertyTester"
+           type="org.eclipse.emf.common.ui.URIEditorInput"
+           namespace="org.tesoriero.cauce.entityContext.diagram"
+           properties="isURIEditorInput"
+           class="ecmm.diagram.part.EntityContextUriEditorInputTester">
+       </propertyTester>
+   </extension>
+
+	   <extension point="org.eclipse.ui.navigator.viewer" id="navigator-viewbinding">
+      <?gmfgen generated="true"?>
+      <viewerContentBinding viewerId="org.eclipse.ui.navigator.ProjectExplorer">
+         <includes>
+            <contentExtension pattern="org.tesoriero.cauce.entityContext.diagram.resourceContent"/>
+			<contentExtension pattern="org.tesoriero.cauce.entityContext.diagram.domainResourceContent"/>
+            <contentExtension pattern="org.tesoriero.cauce.entityContext.diagram.navigatorLinkHelper"/>
+         </includes>
+      </viewerContentBinding>
+      <viewerActionBinding viewerId="org.eclipse.ui.navigator.ProjectExplorer">
+         <includes>
+            <actionExtension pattern="org.tesoriero.cauce.entityContext.diagram.navigatorActionProvider"/>
+         </includes>
+      </viewerActionBinding>
+   </extension>
+
+   <extension point="org.eclipse.ui.navigator.navigatorContent" id="navigator-content">
+      <?gmfgen generated="true"?>
+      <navigatorContent
+            id="org.tesoriero.cauce.entityContext.diagram.resourceContent" 
+            name="%navigatorContentName" 
+            priority="normal" 
+            contentProvider="ecmm.diagram.navigator.EntityContextNavigatorContentProvider" 
+            labelProvider="ecmm.diagram.navigator.EntityContextNavigatorLabelProvider"
+            icon="icons/obj16/EcmmDiagramFile.gif"
+            activeByDefault="true">
+         <triggerPoints>
+            <or>
+	           <and>
+    	          <instanceof value="org.eclipse.core.resources.IFile"/>
+        	      <test property="org.eclipse.core.resources.extension" value="ecmmdiag"/>
+               </and>
+               <instanceof value="ecmm.diagram.navigator.EntityContextAbstractNavigatorItem"/>
+            </or>
+         </triggerPoints>
+         <possibleChildren>
+            <or>
+         	   <instanceof value="ecmm.diagram.navigator.EntityContextAbstractNavigatorItem"/>
+            </or>
+         </possibleChildren>
+         <commonSorter 
+               id="org.tesoriero.cauce.entityContext.diagram.navigatorSorter" 
+               class="ecmm.diagram.navigator.EntityContextNavigatorSorter">
+            <parentExpression>
+               <or>
+	              <and>
+    	             <instanceof value="org.eclipse.core.resources.IFile"/>
+        	         <test property="org.eclipse.core.resources.extension" value="ecmmdiag"/>
+                  </and>
+                  <instanceof value="ecmm.diagram.navigator.EntityContextAbstractNavigatorItem"/>
+               </or>
+            </parentExpression>
+         </commonSorter>
+      </navigatorContent>
+      <navigatorContent
+            id="org.tesoriero.cauce.entityContext.diagram.domainResourceContent" 
+            name="%domainNavigatorContentName" 
+            priority="normal" 
+            contentProvider="ecmm.diagram.navigator.EntityContextDomainNavigatorContentProvider" 
+            labelProvider="ecmm.diagram.navigator.EntityContextDomainNavigatorLabelProvider"
+            icon="icons/obj16/EcmmDiagramFile.gif"
+            activeByDefault="true">
+         <triggerPoints>
+            <or>
+	           <and>
+    	          <instanceof value="org.eclipse.core.resources.IFile"/>
+        	      <test property="org.eclipse.core.resources.extension" value="ecmm"/>
+               </and>
+               <instanceof value="ecmm.diagram.navigator.EntityContextDomainNavigatorItem"/>
+            </or>
+         </triggerPoints>
+         <possibleChildren>
+            <instanceof value="ecmm.diagram.navigator.EntityContextDomainNavigatorItem"/>
+         </possibleChildren>
+      </navigatorContent>
+      <actionProvider
+            id="org.tesoriero.cauce.entityContext.diagram.navigatorActionProvider"
+            class="ecmm.diagram.navigator.EntityContextNavigatorActionProvider">
+         <enablement>
+            <or>
+               <instanceof value="ecmm.diagram.navigator.EntityContextAbstractNavigatorItem"/>
+            </or>
+         </enablement>
+      </actionProvider>
+   </extension>
+   
+	   <extension point="org.eclipse.ui.navigator.linkHelper" id="navigator-linkhelper">
+      <?gmfgen generated="true"?>
+      <linkHelper
+            id="org.tesoriero.cauce.entityContext.diagram.navigatorLinkHelper"
+            class="ecmm.diagram.navigator.EntityContextNavigatorLinkHelper">
+         <editorInputEnablement>
+            <and>
+               <instanceof value="org.eclipse.emf.common.ui.URIEditorInput"/>
+               <test property="org.tesoriero.cauce.entityContext.diagram.isURIEditorInput"/>
+            </and>
+         </editorInputEnablement>
+         <selectionEnablement>
+            <instanceof value="ecmm.diagram.navigator.EntityContextAbstractNavigatorItem"/>
+         </selectionEnablement>
+      </linkHelper>
+   </extension>
+   <extension point="org.eclipse.emf.validation.constraintProviders">
+      <?gmfgen generated="true"?>
+            <category id="EntityContextDiagramAuditContainer" mandatory="false" name="EntityContextDiagramAuditContainer">
+         <![CDATA[EntityContextDiagramAuditContainer]]>
+      </category>
+      <category id="EntityContextDiagramAuditContainer/SystemCotnextAuditContainer" mandatory="false" name="SystemCotnextAuditContainer">
+         <![CDATA[SystemCotnextAuditContainer]]>
+      </category>
+      <category id="EntityContextDiagramAuditContainer/EntityContextAuditContainer" mandatory="false" name="EntityContextAuditContainer">
+         <![CDATA[EntityContextAuditContainer]]>
+      </category>
+      <category id="EntityContextDiagramAuditContainer/VariableDataDefinitionAuditContainer" mandatory="false" name="VariableDataDefinitionAuditContainer">
+         <![CDATA[VariableDataDefinitionAuditContainer]]>
+      </category>
+      <category id="EntityContextDiagramAuditContainer/ContextConditionAuditContainer" mandatory="false" name="ContextConditionAuditContainer">
+         <![CDATA[ContextConditionAuditContainer]]>
+      </category>
+      <category id="EntityContextDiagramAuditContainer/SensingContextConditionAuditContainer" mandatory="false" name="SensingContextConditionAuditContainer">
+         <![CDATA[SensingContextConditionAuditContainer]]>
+      </category>
+      <category id="EntityContextDiagramAuditContainer/MemoryContextConditionAuditContainer" mandatory="false" name="MemoryContextConditionAuditContainer">
+         <![CDATA[MemoryContextConditionAuditContainer]]>
+      </category>
+      <category id="EntityContextDiagramAuditContainer/ContextSituationAuditContainer" mandatory="false" name="ContextSituationAuditContainer">
+         <![CDATA[ContextSituationAuditContainer]]>
+      </category>
+      <category id="EntityContextDiagramAuditContainer/ContextActionAuditContainer" mandatory="false" name="ContextActionAuditContainer">
+         <![CDATA[ContextActionAuditContainer]]>
+      </category>
+      <category id="EntityContextDiagramAuditContainer/ContextMemoryAuditContainer" mandatory="false" name="ContextMemoryAuditContainer">
+         <![CDATA[ContextMemoryAuditContainer]]>
+      </category>
+      <constraintProvider cache="true">
+         <package namespaceUri="http://tesoriero.org/cauce/entityContext/1.0"/>
+               <constraints categories="EntityContextDiagramAuditContainer">
+                  </constraints>
+         <constraints categories="EntityContextDiagramAuditContainer/SystemCotnextAuditContainer">
+                  <constraint id="SystemContextNameNotNullAuditRule"
+            lang="Java" class="ecmm.diagram.providers.EntityContextValidationProvider$Adapter1"
+            name="SystemContextNameNotNullAuditRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            
+            <description><![CDATA[SystemContextNameNotNullAuditRule]]></description>
+            <message><![CDATA[SystemContext name must not be null]]></message>
+            <target class="ecmm.SystemContext"/>
+         </constraint>
+                  </constraints>
+         <constraints categories="EntityContextDiagramAuditContainer/EntityContextAuditContainer">
+                  <constraint id="EntityContextIdNotNullAuditRule"
+            lang="Java" class="ecmm.diagram.providers.EntityContextValidationProvider$Adapter2"
+            name="EntityContextIdNotNullAuditRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            
+            <description><![CDATA[EntityContextIdNotNullAuditRule]]></description>
+            <message><![CDATA[EntityContext ID must not be null]]></message>
+            <target class="ecmm.EntityContext"/>
+         </constraint>
+                  <constraint id="EntityContextEntityNotNullAuditRule"
+            lang="Java" class="ecmm.diagram.providers.EntityContextValidationProvider$Adapter3"
+            name="EntityContextEntityNotNullAuditRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            
+            <description><![CDATA[EntityContextEntityNotNullAuditRule]]></description>
+            <message><![CDATA[EntityContext entity must not be null]]></message>
+            <target class="ecmm.EntityContext"/>
+         </constraint>
+                  <constraint id="EntityContextIdUniqueAuditRule"
+            lang="OCL"
+            name="EntityContextIdUniqueAuditRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            <![CDATA[system.entities->forAll(e | 
+ ((e<>self) implies (e.id<>self.id)) and
+ e.situations->forAll(s | s.id<>self.id) and
+ e.situations->forAll(s | 
+  s.sensingConditions->forAll(sc| sc.id<>self.id) and 
+  s.memoryConditions->forAll(mc|mc.id<>self.id) and
+  s.actions->forAll(a|a.id<>self.id) 
+ ) and
+ e.variables->forAll(v | v.id<>self.id) and
+ e.state->forAll(st | st.id<>self.id)
+)]]>
+            <description><![CDATA[EntityContextIdUniqueAuditRule]]></description>
+            <message><![CDATA[EntityContext ID must be unique]]></message>
+            <target class="ecmm.EntityContext"/>
+         </constraint>
+                  <constraint id="EntityContextNameUniqueAuditRule"
+            lang="OCL"
+            name="EntityContextNameUniqueAuditRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            <![CDATA[system.entities->forAll(e| (e<>self) implies (e.entity<>self.entity))]]>
+            <description><![CDATA[EntityContextNameUniqueAuditRule]]></description>
+            <message><![CDATA[EntityContext name must be unique]]></message>
+            <target class="ecmm.EntityContext"/>
+         </constraint>
+                  </constraints>
+         <constraints categories="EntityContextDiagramAuditContainer/VariableDataDefinitionAuditContainer">
+                  <constraint id="VariableDataDefinitionNameNotNullAuditRule"
+            lang="Java" class="ecmm.diagram.providers.EntityContextValidationProvider$Adapter6"
+            name="VariableDataDefinitionNameNotNullAuditRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            
+            <description><![CDATA[VariableDataDefinitionNameNotNullAuditRule]]></description>
+            <message><![CDATA[VariableDataDefinition name must not be null]]></message>
+            <target class="ecmm.VariableDataDefinition"/>
+         </constraint>
+                  <constraint id="VariableDataDefinitionDefinitionNotNullAuditRule"
+            lang="Java" class="ecmm.diagram.providers.EntityContextValidationProvider$Adapter7"
+            name="VariableDataDefinitionDefinitionNotNullAuditRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            
+            <description><![CDATA[VariableDataDefinitionDefinitionNotNullAuditRule]]></description>
+            <message><![CDATA[VariableDataDefinition definition must not be null]]></message>
+            <target class="ecmm.VariableDataDefinition"/>
+         </constraint>
+                  <constraint id="VariableDataDefinitionIdNotNullAuditRule"
+            lang="Java" class="ecmm.diagram.providers.EntityContextValidationProvider$Adapter8"
+            name="VariableDataDefinitionIdNotNullAuditRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            
+            <description><![CDATA[VariableDataDefinitionIdNotNullAuditRule]]></description>
+            <message><![CDATA[VariableDataDefinition ID must not be null]]></message>
+            <target class="ecmm.VariableDataDefinition"/>
+         </constraint>
+                  <constraint id="VariableDataDefinitionNameUniqueAuditRule"
+            lang="OCL"
+            name="VariableDataDefinitionNameUniqueAuditRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            <![CDATA[entityContext.variables->forAll(v| (v<>self) implies(v.name<>self.name))]]>
+            <description><![CDATA[VariableDataDefinitionNameUniqueAuditRule]]></description>
+            <message><![CDATA[VariableDataDefinition name must be unique in the entity context]]></message>
+            <target class="ecmm.VariableDataDefinition"/>
+         </constraint>
+                  <constraint id="VariableDataDefinitionIdUniqueAuditRule"
+            lang="OCL"
+            name="VariableDataDefinitionIdUniqueAuditRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            <![CDATA[entityContext.system.entities->forAll(e | 
+ (e.id<>self.id) and
+ e.situations->forAll(s | s.id<>self.id) and
+ e.situations->forAll(s | 
+  s.sensingConditions->forAll(sc| sc.id<>self.id) and 
+  s.memoryConditions->forAll(mc|mc.id<>self.id) and
+  s.actions->forAll(a|a.id<>self.id) 
+ ) and
+ e.variables->forAll(v | (v<>self) implies (v.id<>self.id)) and
+ e.state->forAll(st | st.id<>self.id)
+)
+]]>
+            <description><![CDATA[VariableDataDefinitionIdUniqueAuditRule]]></description>
+            <message><![CDATA[VariableDataDefinition ID must be unique]]></message>
+            <target class="ecmm.VariableDataDefinition"/>
+         </constraint>
+                  </constraints>
+         <constraints categories="EntityContextDiagramAuditContainer/ContextConditionAuditContainer">
+                  <constraint id="ContextConditionIdNotNullAuditRule"
+            lang="Java" class="ecmm.diagram.providers.EntityContextValidationProvider$Adapter11"
+            name="ContextConditionIdNotNullAuditRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            
+            <description><![CDATA[ContextConditionIdNotNullAuditRule]]></description>
+            <message><![CDATA[ContextCondition ID must not be null]]></message>
+            <target class="ecmm.ContextCondition"/>
+         </constraint>
+                  </constraints>
+         <constraints categories="EntityContextDiagramAuditContainer/SensingContextConditionAuditContainer">
+                  <constraint id="SensingContextConditionInformationFlowNotNullAuditRule"
+            lang="Java" class="ecmm.diagram.providers.EntityContextValidationProvider$Adapter12"
+            name="SensingContextConditionInformationFlowNotNullAuditRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            
+            <description><![CDATA[SensingContextConditionInformationFlowNotNullAuditRule]]></description>
+            <message><![CDATA[SensingContextCondition InformationFlow must not be null]]></message>
+            <target class="ecmm.SensingContextCondition"/>
+         </constraint>
+                  <constraint id="SensingContextConditionIdUniqueAuditRule"
+            lang="OCL"
+            name="SensingContextConditionIdUniqueAuditRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            <![CDATA[situation.entityContext.system.entities->forAll(e | 
+ (e.id<>self.id) and
+ e.situations->forAll(s | s.id<>self.id) and
+ e.situations->forAll(s | 
+  s.sensingConditions->forAll(sc| (sc<>self) implies (sc.id<>self.id)) and 
+  s.memoryConditions->forAll(mc|mc.id<>self.id) and
+  s.actions->forAll(a|a.id<>self.id) 
+ ) and
+ e.variables->forAll(v |  (v.id<>self.id)) and
+ e.state->forAll(st | st.id<>self.id)
+)
+]]>
+            <description><![CDATA[SensingContextConditionIdUniqueAuditRule]]></description>
+            <message><![CDATA[SensingContextCondition ID must be unique]]></message>
+            <target class="ecmm.SensingContextCondition"/>
+         </constraint>
+                  </constraints>
+         <constraints categories="EntityContextDiagramAuditContainer/MemoryContextConditionAuditContainer">
+                  <constraint id="MemoryContextConditionExpressionNotNullAuditRule"
+            lang="Java" class="ecmm.diagram.providers.EntityContextValidationProvider$Adapter14"
+            name="MemoryContextConditionExpressionNotNullAuditRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            
+            <description><![CDATA[MemoryContextConditionExpressionNotNullAuditRule]]></description>
+            <message><![CDATA[MemoryContextCondition expression must not be null]]></message>
+            <target class="ecmm.MemoryContextCondition"/>
+         </constraint>
+                  <constraint id="MemoryConditionIdUniqueAuditRule"
+            lang="OCL"
+            name="MemoryConditionIdUniqueAuditRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            <![CDATA[situation.entityContext.system.entities->forAll(e | 
+ (e.id<>self.id) and
+ e.situations->forAll(s | s.id<>self.id) and
+ e.situations->forAll(s | 
+  s.sensingConditions->forAll(sc|  (sc.id<>self.id)) and 
+  s.memoryConditions->forAll(mc| (mc<>self) implies (mc.id<>self.id)) and
+  s.actions->forAll(a|a.id<>self.id) 
+ ) and
+ e.variables->forAll(v |  (v.id<>self.id)) and
+ e.state->forAll(st | st.id<>self.id)
+)
+]]>
+            <description><![CDATA[MemoryConditionIdUniqueAuditRule]]></description>
+            <message><![CDATA[MemoryCondition ID must be unique]]></message>
+            <target class="ecmm.MemoryContextCondition"/>
+         </constraint>
+                  </constraints>
+         <constraints categories="EntityContextDiagramAuditContainer/ContextSituationAuditContainer">
+                  <constraint id="ContextSituationIdUniqueAuditRule"
+            lang="OCL"
+            name="ContextSituationIdUniqueAuditRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            <![CDATA[entityContext.system.entities->forAll(e | 
+ (e.id<>self.id) and
+ e.situations->forAll(s | (s<>self) implies (s.id<>self.id)) and
+ e.situations->forAll(s | 
+  s.sensingConditions->forAll(sc|  (sc.id<>self.id)) and 
+  s.memoryConditions->forAll(mc|  (mc.id<>self.id)) and
+  s.actions->forAll(a|a.id<>self.id) 
+ ) and
+ e.variables->forAll(v |  (v.id<>self.id)) and
+ e.state->forAll(st | st.id<>self.id)
+)
+]]>
+            <description><![CDATA[ContextSituationIdUniqueAuditRule]]></description>
+            <message><![CDATA[ContextSituation ID must be unique]]></message>
+            <target class="ecmm.ContextSituation"/>
+         </constraint>
+                  <constraint id="ContextSituationNameNotNullAuditRule"
+            lang="Java" class="ecmm.diagram.providers.EntityContextValidationProvider$Adapter17"
+            name="ContextSituationNameNotNullAuditRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            
+            <description><![CDATA[ContextSituationNameNotNullAuditRule]]></description>
+            <message><![CDATA[ContextSituation name must not be null]]></message>
+            <target class="ecmm.ContextSituation"/>
+         </constraint>
+                  <constraint id="ContextSituationIdNotNullAuditRule"
+            lang="Java" class="ecmm.diagram.providers.EntityContextValidationProvider$Adapter18"
+            name="ContextSituationIdNotNullAuditRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            
+            <description><![CDATA[ContextSituationIdNotNullAuditRule]]></description>
+            <message><![CDATA[ContextSituation ID must not be null]]></message>
+            <target class="ecmm.ContextSituation"/>
+         </constraint>
+                  <constraint id="ContextSituationNameUniqueAuditRule"
+            lang="OCL"
+            name="ContextSituationNameUniqueAuditRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            <![CDATA[entityContext.situations->forAll(s| (s<>self) implies (s.name<>self.name))]]>
+            <description><![CDATA[ContextSituationNameUniqueAuditRule]]></description>
+            <message><![CDATA[ContextSituation name must be unique on this entity]]></message>
+            <target class="ecmm.ContextSituation"/>
+         </constraint>
+                  </constraints>
+         <constraints categories="EntityContextDiagramAuditContainer/ContextActionAuditContainer">
+                  <constraint id="ContextActionExpressionNotNullAuditRule"
+            lang="Java" class="ecmm.diagram.providers.EntityContextValidationProvider$Adapter20"
+            name="ContextActionExpressionNotNullAuditRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            
+            <description><![CDATA[ContextActionExpressionNotNullAuditRule]]></description>
+            <message><![CDATA[ContextAction expression must not be null]]></message>
+            <target class="ecmm.ContextAction"/>
+         </constraint>
+                  <constraint id="ContextActionIdUniqueAuditRule"
+            lang="OCL"
+            name="ContextActionIdUniqueAuditRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            <![CDATA[situation.entityContext.system.entities->forAll(e | 
+ (e.id<>self.id) and
+ e.situations->forAll(s |  (s.id<>self.id)) and
+ e.situations->forAll(s | 
+  s.sensingConditions->forAll(sc|  (sc.id<>self.id)) and 
+  s.memoryConditions->forAll(mc|  (mc.id<>self.id)) and
+  s.actions->forAll(a | (a<>self) implies (a.id<>self.id)) 
+ ) and
+ e.variables->forAll(v |  (v.id<>self.id)) and
+ e.state->forAll(st | st.id<>self.id)
+)
+]]>
+            <description><![CDATA[ContextActionIdUniqueAuditRule]]></description>
+            <message><![CDATA[ContextAction ID must be unique]]></message>
+            <target class="ecmm.ContextAction"/>
+         </constraint>
+                  <constraint id="ContextActionIdNotNullAuditRule"
+            lang="Java" class="ecmm.diagram.providers.EntityContextValidationProvider$Adapter22"
+            name="ContextActionIdNotNullAuditRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            
+            <description><![CDATA[ContextActionIdNotNullAuditRule]]></description>
+            <message><![CDATA[ContextAction ID must not be null]]></message>
+            <target class="ecmm.ContextAction"/>
+         </constraint>
+                  <constraint id="ContextActionMemoryNameNotNullAuditRule"
+            lang="Java" class="ecmm.diagram.providers.EntityContextValidationProvider$Adapter23"
+            name="ContextActionMemoryNameNotNullAuditRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            
+            <description><![CDATA[ContextActionMemoryNameNotNullAuditRule]]></description>
+            <message><![CDATA[ContextAction memory name must not be null]]></message>
+            <target class="ecmm.ContextAction"/>
+         </constraint>
+                  <constraint id="ContextActionMemoryNameValidAuditRule"
+            lang="OCL"
+            name="ContextActionMemoryNameValidAuditRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            <![CDATA[situation.entityContext.state->collect(name)->includes(self.memoryName)]]>
+            <description><![CDATA[ContextActionMemoryNameValidAuditRule]]></description>
+            <message><![CDATA[ContextAction memory name not valid]]></message>
+            <target class="ecmm.ContextAction"/>
+         </constraint>
+                  </constraints>
+         <constraints categories="EntityContextDiagramAuditContainer/ContextMemoryAuditContainer">
+                  <constraint id="ContextMemoryNameNotNullAuditRule"
+            lang="Java" class="ecmm.diagram.providers.EntityContextValidationProvider$Adapter25"
+            name="ContextMemoryNameNotNullAuditRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            
+            <description><![CDATA[ContextMemoryNameNotNullAuditRule]]></description>
+            <message><![CDATA[ContextMemory name must not be null]]></message>
+            <target class="ecmm.ContextMemory"/>
+         </constraint>
+                  <constraint id="ContextMemoryNameUniqueAuditRule"
+            lang="OCL"
+            name="ContextMemoryNameUniqueAuditRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            <![CDATA[entityContext.state->forAll(s | (s<>self) implies (s.name<>self.name))]]>
+            <description><![CDATA[ContextMemoryNameUniqueAuditRule]]></description>
+            <message><![CDATA[ContextMemory name must be unique on this entity]]></message>
+            <target class="ecmm.ContextMemory"/>
+         </constraint>
+                  <constraint id="ContextMemoryIdNotNullAuditRule"
+            lang="Java" class="ecmm.diagram.providers.EntityContextValidationProvider$Adapter27"
+            name="ContextMemoryIdNotNullAuditRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            
+            <description><![CDATA[ContextMemoryIdNotNullAuditRule]]></description>
+            <message><![CDATA[ContextMemory ID must not be null]]></message>
+            <target class="ecmm.ContextMemory"/>
+         </constraint>
+                  <constraint id="ContextMemoryIdUniqueAuditRule"
+            lang="OCL"
+            name="ContextMemoryIdUniqueAuditRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            <![CDATA[entityContext.system.entities->forAll(e | 
+ (e.id<>self.id) and
+ e.situations->forAll(s |  (s.id<>self.id)) and
+ e.situations->forAll(s | 
+  s.sensingConditions->forAll(sc|  (sc.id<>self.id)) and 
+  s.memoryConditions->forAll(mc|  (mc.id<>self.id)) and
+  s.actions->forAll(a | (a.id<>self.id)) 
+ ) and
+ e.variables->forAll(v |  (v.id<>self.id)) and
+ e.state->forAll(st | (st<>self) implies (st.id<>self.id))
+)
+]]>
+            <description><![CDATA[ContextMemoryIdUniqueAuditRule]]></description>
+            <message><![CDATA[ContextMemory ID must be unique]]></message>
+            <target class="ecmm.ContextMemory"/>
+         </constraint>
+                  </constraints>
+      </constraintProvider>
+   </extension>
+
+   <extension point="org.eclipse.emf.validation.constraintBindings">
+      <?gmfgen generated="true"?>
+      <clientContext default="false" id="org.tesoriero.cauce.entityContext.diagramDefaultCtx">
+         <selector class="ecmm.diagram.providers.EntityContextValidationProvider$DefaultCtx"/>
+      </clientContext>
+      <binding context="org.tesoriero.cauce.entityContext.diagramDefaultCtx">
+                  <constraint ref="org.tesoriero.cauce.entityContext.diagram.SystemContextNameNotNullAuditRule"/>
+                  <constraint ref="org.tesoriero.cauce.entityContext.diagram.EntityContextIdNotNullAuditRule"/>
+                  <constraint ref="org.tesoriero.cauce.entityContext.diagram.EntityContextEntityNotNullAuditRule"/>
+                  <constraint ref="org.tesoriero.cauce.entityContext.diagram.EntityContextIdUniqueAuditRule"/>
+                  <constraint ref="org.tesoriero.cauce.entityContext.diagram.EntityContextNameUniqueAuditRule"/>
+                  <constraint ref="org.tesoriero.cauce.entityContext.diagram.VariableDataDefinitionNameNotNullAuditRule"/>
+                  <constraint ref="org.tesoriero.cauce.entityContext.diagram.VariableDataDefinitionDefinitionNotNullAuditRule"/>
+                  <constraint ref="org.tesoriero.cauce.entityContext.diagram.VariableDataDefinitionIdNotNullAuditRule"/>
+                  <constraint ref="org.tesoriero.cauce.entityContext.diagram.VariableDataDefinitionNameUniqueAuditRule"/>
+                  <constraint ref="org.tesoriero.cauce.entityContext.diagram.VariableDataDefinitionIdUniqueAuditRule"/>
+                  <constraint ref="org.tesoriero.cauce.entityContext.diagram.ContextConditionIdNotNullAuditRule"/>
+                  <constraint ref="org.tesoriero.cauce.entityContext.diagram.SensingContextConditionInformationFlowNotNullAuditRule"/>
+                  <constraint ref="org.tesoriero.cauce.entityContext.diagram.SensingContextConditionIdUniqueAuditRule"/>
+                  <constraint ref="org.tesoriero.cauce.entityContext.diagram.MemoryContextConditionExpressionNotNullAuditRule"/>
+                  <constraint ref="org.tesoriero.cauce.entityContext.diagram.MemoryConditionIdUniqueAuditRule"/>
+                  <constraint ref="org.tesoriero.cauce.entityContext.diagram.ContextSituationIdUniqueAuditRule"/>
+                  <constraint ref="org.tesoriero.cauce.entityContext.diagram.ContextSituationNameNotNullAuditRule"/>
+                  <constraint ref="org.tesoriero.cauce.entityContext.diagram.ContextSituationIdNotNullAuditRule"/>
+                  <constraint ref="org.tesoriero.cauce.entityContext.diagram.ContextSituationNameUniqueAuditRule"/>
+                  <constraint ref="org.tesoriero.cauce.entityContext.diagram.ContextActionExpressionNotNullAuditRule"/>
+                  <constraint ref="org.tesoriero.cauce.entityContext.diagram.ContextActionIdUniqueAuditRule"/>
+                  <constraint ref="org.tesoriero.cauce.entityContext.diagram.ContextActionIdNotNullAuditRule"/>
+                  <constraint ref="org.tesoriero.cauce.entityContext.diagram.ContextActionMemoryNameNotNullAuditRule"/>
+                  <constraint ref="org.tesoriero.cauce.entityContext.diagram.ContextActionMemoryNameValidAuditRule"/>
+                  <constraint ref="org.tesoriero.cauce.entityContext.diagram.ContextMemoryNameNotNullAuditRule"/>
+                  <constraint ref="org.tesoriero.cauce.entityContext.diagram.ContextMemoryNameUniqueAuditRule"/>
+                  <constraint ref="org.tesoriero.cauce.entityContext.diagram.ContextMemoryIdNotNullAuditRule"/>
+                  <constraint ref="org.tesoriero.cauce.entityContext.diagram.ContextMemoryIdUniqueAuditRule"/>
+               </binding>
+
+   </extension>
+
+
+   <extension point="org.eclipse.emf.validation.ui.UIRegisteredClientContext">
+      <?gmfgen generated="true"?>
+      <clientContext id="org.tesoriero.cauce.entityContext.diagramDefaultCtx"/>
+   </extension>
+
+   <extension point="org.eclipse.ui.commands" id="update-cmd">
+      <?gmfgen generated="true"?>
+      <command
+         categoryId="org.eclipse.ui.category.edit"
+         defaultHandler="ecmm.diagram.part.EntityContextDiagramUpdateCommand"
+         description="%update.diagram.description"
+         id="ecmm.diagram.updateDiagram"
+         name="%update.diagram.name"/>
+   </extension>
+   
+   <extension point="org.eclipse.ui.bindings" id="update-cmd-binding">
+      <?gmfgen generated="true"?>
+      <key 
+         commandId="ecmm.diagram.updateDiagram"
+         contextId="ecmm.diagram.ui.diagramContext"
+         schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+         sequence="F5"/>
+   </extension>
+
+   <extension point="org.eclipse.ui.menus" id="context-menus">
+      <?gmfgen generated="true"?>
+      <!-- menuContribution locationURI="menu:org.eclipse.ui.main.menu?after=">
+      </menuContribution>
+      <menuContribution locationURI="toolbar:org.eclipse.ui.main.toolbar?after=">
+      </menuContribution -->
+      <menuContribution locationURI="popup:org.eclipse.gmf.runtime.diagram.ui.DiagramEditorContextMenu">
+         <command commandId="org.tesoriero.cauce.entityContext.diagram.LoadResourceAction">
+            <visibleWhen>
+               <and>
+                  <with variable="activePartId"><equals value="ecmm.diagram.part.EntityContextDiagramEditorID"/></with>
+                  <with variable="selection"><iterate ifEmpty="false"> 
+                     <instanceof value="ecmm.diagram.edit.parts.SystemContextEditPart"/>
+                  </iterate></with>
+               </and>
+            </visibleWhen>
+         </command>
+      </menuContribution>
+   </extension>
+
+   <extension point="org.eclipse.ui.commands" id="menu-commands">
+      <?gmfgen generated="true"?>
+      <category id="ecmm.diagram.part.EntityContextDiagramEditorID" name="%cmdcategory.name" description="%cmdcategory.desc"/>
+      <command id="org.tesoriero.cauce.entityContext.diagram.LoadResourceAction"
+         name="Load Resource"
+         categoryId="ecmm.diagram.part.EntityContextDiagramEditorID"
+         defaultHandler="ecmm.diagram.part.LoadResourceAction"/>
+   </extension>
+
+   <extension point="org.eclipse.ui.handlers" id="menu-handlers">
+      <?gmfgen generated="true"?>
+   </extension>
+
+   <!-- optionally, specify keybindings -->
+</plugin>

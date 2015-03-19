@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<ifmm:SystemInformaitonFlow xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ifmm="ifmm" id="1" name="somm-diagram">
+  <entities id="2" name="Guest" incomingInformationFlows="//@edges.1 //@edges.3 //@edges.5 //@edges.7 //@edges.9 //@edges.11 //@edges.13 //@edges.15"/>
+  <entities id="3" name="UserChair" ongoingInformationFlows="//@edges.16"/>
+  <entities id="4" name="AdminChair" ongoingInformationFlows="//@edges.18"/>
+  <entities id="5" name="Chair" ongoingInformationFlows="//@edges.0" incomingInformationFlows="//@edges.17 //@edges.19"/>
+  <entities id="7" name="DeleteControl" ongoingInformationFlows="//@edges.2"/>
+  <entities id="9" name="CreateControl" ongoingInformationFlows="//@edges.4"/>
+  <entities id="11" name="JoinControl" ongoingInformationFlows="//@edges.6"/>
+  <entities id="13" name="PrintControl" ongoingInformationFlows="//@edges.8"/>
+  <entities id="15" name="SaveControl" ongoingInformationFlows="//@edges.10"/>
+  <entities id="17" name="ExitSessionControl" ongoingInformationFlows="//@edges.12"/>
+  <entities id="19" name="Canvas" ongoingInformationFlows="//@edges.14"/>
+  <informationFlows xsi:type="ifmm:PointToPointInformationFlow" id="6" name="Chair2GuestEvent" source="//@edges.0" target="//@edges.1">
+    <outputData definition="leave+take"/>
+  </informationFlows>
+  <informationFlows xsi:type="ifmm:PointToPointInformationFlow" id="8" name="DeleteControl2GuestEvent" source="//@edges.2" target="//@edges.3">
+    <outputData definition="released"/>
+  </informationFlows>
+  <informationFlows xsi:type="ifmm:PointToPointInformationFlow" id="10" name="CreateControl2GuestEvent" source="//@edges.4" target="//@edges.5">
+    <outputData definition="released"/>
+  </informationFlows>
+  <informationFlows xsi:type="ifmm:PointToPointInformationFlow" id="12" name="JoinControl2GuestEvent" source="//@edges.6" target="//@edges.7">
+    <outputData definition="released"/>
+  </informationFlows>
+  <informationFlows xsi:type="ifmm:PointToPointInformationFlow" id="14" name="PrintControl2GuestEvent" source="//@edges.8" target="//@edges.9">
+    <outputData definition="released"/>
+  </informationFlows>
+  <informationFlows xsi:type="ifmm:PointToPointInformationFlow" id="16" name="SaveControl2GuestEvent" source="//@edges.10" target="//@edges.11">
+    <outputData definition="released"/>
+  </informationFlows>
+  <informationFlows xsi:type="ifmm:PointToPointInformationFlow" id="18" name="ExitSessionControl2GuestEvent" source="//@edges.12" target="//@edges.13">
+    <outputData definition="released"/>
+  </informationFlows>
+  <informationFlows xsi:type="ifmm:PointToPointInformationFlow" id="20" name="Canvas2GuestEvent" source="//@edges.14" target="//@edges.15">
+    <outputData definition="pressed+released+move"/>
+  </informationFlows>
+  <informationFlows xsi:type="ifmm:PointToPointInformationFlow" id="21" name="UserChair-Chair" source="//@edges.16" target="//@edges.17">
+    <outputData definition="take+leave"/>
+  </informationFlows>
+  <informationFlows xsi:type="ifmm:PointToPointInformationFlow" id="22" name="AdminChair-Chair" source="//@edges.18" target="//@edges.19">
+    <outputData definition="take+leave"/>
+  </informationFlows>
+  <edges xsi:type="ifmm:EntityToPointToPointInformationFlowEdge" source="5" target="6"/>
+  <edges xsi:type="ifmm:PointToPointInformationFlowToEntityEdge" target="2" source="6"/>
+  <edges xsi:type="ifmm:EntityToPointToPointInformationFlowEdge" source="7" target="8"/>
+  <edges xsi:type="ifmm:PointToPointInformationFlowToEntityEdge" target="2" source="8"/>
+  <edges xsi:type="ifmm:EntityToPointToPointInformationFlowEdge" source="9" target="10"/>
+  <edges xsi:type="ifmm:PointToPointInformationFlowToEntityEdge" target="2" source="10"/>
+  <edges xsi:type="ifmm:EntityToPointToPointInformationFlowEdge" source="11" target="12"/>
+  <edges xsi:type="ifmm:PointToPointInformationFlowToEntityEdge" target="2" source="12"/>
+  <edges xsi:type="ifmm:EntityToPointToPointInformationFlowEdge" source="13" target="14"/>
+  <edges xsi:type="ifmm:PointToPointInformationFlowToEntityEdge" target="2" source="14"/>
+  <edges xsi:type="ifmm:EntityToPointToPointInformationFlowEdge" source="15" target="16"/>
+  <edges xsi:type="ifmm:PointToPointInformationFlowToEntityEdge" target="2" source="16"/>
+  <edges xsi:type="ifmm:EntityToPointToPointInformationFlowEdge" source="17" target="18"/>
+  <edges xsi:type="ifmm:PointToPointInformationFlowToEntityEdge" target="2" source="18"/>
+  <edges xsi:type="ifmm:EntityToPointToPointInformationFlowEdge" source="19" target="20"/>
+  <edges xsi:type="ifmm:PointToPointInformationFlowToEntityEdge" target="2" source="20"/>
+  <edges xsi:type="ifmm:EntityToPointToPointInformationFlowEdge" source="3" target="21"/>
+  <edges xsi:type="ifmm:PointToPointInformationFlowToEntityEdge" target="5" source="21"/>
+  <edges xsi:type="ifmm:EntityToPointToPointInformationFlowEdge" source="4" target="22"/>
+  <edges xsi:type="ifmm:PointToPointInformationFlowToEntityEdge" target="5" source="22"/>
+</ifmm:SystemInformaitonFlow>

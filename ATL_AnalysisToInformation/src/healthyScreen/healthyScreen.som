@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<som:Society xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:som="som">
+  <relaizations target="1" source="3" id="5"/>
+  <relaizations target="2" source="4" id="6"/>
+  <individuals realizes="5" id="3" name="aPDA"/>
+  <individuals realizes="6" id="4" name="aCardiacPulseSensor"/>
+  <roles isRealizedByIndividual="5" id="1" name="PDA"/>
+  <roles isRealizedByIndividual="6" id="2" name="CardiacPulseSensor"/>
+</som:Society>

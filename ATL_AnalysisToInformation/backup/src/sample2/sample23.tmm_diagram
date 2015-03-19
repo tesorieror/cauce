@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.1/notation" xmlns:task-meta-model="task-meta-model" xmi:id="_wa_p4WxtEd6Q_PAvhajZQA" type="Tmm" measurementUnit="Pixel">
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_wa_p4mxtEd6Q_PAvhajZQA"/>
+  <element xmi:type="task-meta-model:ContextAwareSystem" href="sample2.tmm#/"/>
+</notation:Diagram>

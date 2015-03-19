@@ -1,0 +1,561 @@
+-- Important NOTE!
+-- Events starting in uppercase are avoided, because they are considered part of a hierarchy of them
+module AnalysisToTransformationModule; -- Module Template
+
+create 	RSModel : RSMetamodel, IFModel : IFMetamodel, ECModel:ECMetamodel 
+		from 
+		SoModel : SoMetamodel, TaModel: TaMetamodel, SpModel: SpMetamodel;
+
+uses SocialModelLibrary;
+--uses RegularExpressions;
+uses TaskModelLibrary;
+uses SpaceModelLibrary;
+
+helper def: rsCounter : Integer = 1;
+
+helper def: ifCounter : Integer = 1;
+
+helper def: ecCounter : Integer = 1;
+
+entrypoint rule Main(){   
+	using{
+	}
+	do{
+		'Working...Done'->toString()->println();		
+	}
+}	
+
+rule SocietyToSystem{	
+	from 
+			society : SoMetamodel!Society
+	to
+			systemRS : RSMetamodel!SystemInformationFlowReferenceSpace
+			(name <- society.name),
+			rootRS : RSMetamodel!ReferentialSpace
+			(name<-society.name+'Space', system<-society),
+			systemIF : IFMetamodel!SystemInformaitonFlow
+			(name <- society.name),
+			systemEC : ECMetamodel!SystemContext
+			(name <- society.name)
+	do{		
+		systemRS.id <- thisModule.rsCounter;
+		thisModule.rsCounter <- thisModule.rsCounter + 1;
+		rootRS.id <- thisModule.rsCounter;
+		thisModule.rsCounter <- thisModule.rsCounter + 1;
+		systemIF.id <- thisModule.ifCounter;
+		thisModule.ifCounter <- thisModule.ifCounter + 1;
+--TODO
+--		Change ECMM to support id	
+--		systemEC.id <- thisModule.ecCounter;
+--		thisModule.ecCounter <- thisModule.ecCounter + 1;	
+	}
+}
+
+rule RoleToEntity{	
+	from 
+			role : SoMetamodel!Role (role.children.size()=0)
+	to
+			--RSMM
+			entityReference : RSMetamodel!ContextAwareEntityReference
+			(name <- role.name, system<-role.society, entity<- role.name),
+			incomingReferenceDependency: RSMetamodel!SpaceToEntityReferenceDependency
+			(system <- role.society, child<-role, parent <- thisModule.resolveTemp(role.society, 'rootRS'), cardinality<-999),
+			--IFMM
+			entity : IFMetamodel!ContextAwareEntity
+			(name <- role.name, system<-thisModule.resolveTemp(role.society, 'systemIF')),
+			--ECMM
+			entityContext : ECMetamodel!EntityContext
+			(entity <- role.name, system<-thisModule.resolveTemp(role.society, 'systemEC')),
+			----Memories
+			roleMemory: ECMetamodel!HolderMemory			
+			(name <- role.name+'.role', entityContext<-thisModule.resolveTemp(role, 'entityContext')),
+			initMemory: ECMetamodel!TimeMemory
+			(name <- role.name+'.init', entityContext<-thisModule.resolveTemp(role, 'entityContext')),
+			----Init Situation
+			initSituation:ECMetamodel!ContextSituation
+			(name<-'init-'+role.name, entityContext<-thisModule.resolveTemp(role, 'entityContext')),
+			------Init condition
+			initCondition:ECMetamodel!MemoryContextCondition
+			(expression <- 'off', situation<-thisModule.resolveTemp(role, 'initSituation'), contextMemory<-initMemory),
+			------Init actions
+			initAction: ECMetamodel!ContextAction
+			(expression <- '(on,0)', situation<-thisModule.resolveTemp(role, 'initSituation'), memory<-initMemory),
+			initRoleAction: ECMetamodel!ContextAction
+			(expression <- role.name, situation<-thisModule.resolveTemp(role, 'initSituation'), memory<-roleMemory)--,
+			----Variable definitions
+--			roleVariableDefinition: ECMetamodel!VariableDataDefinition
+--			(name <- 'Role', entityContext<-thisModule.resolveTemp(role, 'entityContext'), definition<-role->getRoleVaraibleDefinition())--,			
+	do{		
+		--RSMM
+		entityReference.id <- thisModule.rsCounter;
+		thisModule.rsCounter <- thisModule.rsCounter + 1;
+		incomingReferenceDependency.id <- thisModule.rsCounter;
+		thisModule.rsCounter <- thisModule.rsCounter + 1;
+		--IFMM
+		entity.id <- thisModule.ifCounter;
+		thisModule.ifCounter <- thisModule.ifCounter + 1;
+		--ECMM
+		entityContext.id <- thisModule.ecCounter;
+		thisModule.ecCounter <- thisModule.ecCounter + 1;
+		----Memories
+		initMemory.id <- thisModule.ecCounter;
+		thisModule.ecCounter <- thisModule.ecCounter + 1;		
+		roleMemory.id <- thisModule.ecCounter;
+		thisModule.ecCounter <- thisModule.ecCounter + 1;		
+		----Situations
+		initSituation.id <- thisModule.ecCounter;
+		thisModule.ecCounter <- thisModule.ecCounter + 1;		
+		----Conditions
+		initCondition.id <- thisModule.ecCounter;
+		thisModule.ecCounter <- thisModule.ecCounter + 1;
+		----Actions
+		initAction.id <- thisModule.ecCounter;
+		thisModule.ecCounter <- thisModule.ecCounter + 1;
+		initRoleAction.id <- thisModule.ecCounter;
+		thisModule.ecCounter <- thisModule.ecCounter + 1;
+		----Varaible definition
+--		roleVariableDefinition.id <- thisModule.ecCounter;
+--		thisModule.ecCounter <- thisModule.ecCounter + 1;		
+	}
+}
+
+
+rule TaskToSituation{	
+	from 
+		simpleTask : TaMetamodel!SimpleTask(simpleTask->getInvolvedEntities()->size()=1)
+	to
+		--ECMM
+		----Situations
+		situationTaskAlone: ECMetamodel!ContextSituation
+		(name<-simpleTask.name, entityContext<-thisModule.resolveTemp(simpleTask->getEntity(), 'entityContext')),
+		----Conditions
+		memoryContextTaskAlone: ECMetamodel!MemoryContextCondition
+		(situation<-situationTaskAlone
+			, expression<-simpleTask->getRoles()->any(x|true).name
+			, contextMemory<-thisModule.resolveTemp(simpleTask->getInvolvedEntities()->any(x|true), 'roleMemory')
+		)		
+	do{
+		--ECMM
+		situationTaskAlone.id <- thisModule.ecCounter;
+		thisModule.ecCounter <- thisModule.ecCounter + 1;
+		memoryContextTaskAlone.id <- thisModule.ecCounter;
+		thisModule.ecCounter <- thisModule.ecCounter + 1;
+		
+	}
+}
+
+rule TaskToPointToPointInformationFlows{	
+	from 
+		simpleTask : TaMetamodel!SimpleTask
+		(simpleTask->isPointToPointInformationFlow())
+	to
+--IFMM
+		pointToPointInformationFlow: IFMetamodel!PointToPointInformationFlow
+		(name<-simpleTask.name, system<-thisModule.resolveTemp(thisModule->getSociety(), 'systemIF')
+			, outputData<-outputVariables
+			, inputData<-inputVariables),
+		entityToPointToPoint: IFMetamodel!EntityToPointToPointInformationFlowEdge
+		(source<-thisModule.resolveTemp(simpleTask->getInformationFlow().source, 'entity') 
+			, target<-pointToPointInformationFlow
+			, system<-thisModule.resolveTemp(thisModule->getSociety(), 'systemIF')
+		), 
+		pointToPointToEntity: IFMetamodel!PointToPointInformationFlowToEntityEdge			
+		(source<-pointToPointInformationFlow
+			, target<-thisModule.resolveTemp(simpleTask->getInformationFlow().target, 'entity') 
+			, system<-thisModule.resolveTemp(thisModule->getSociety(), 'systemIF')
+		),
+		--Output Variables
+		outputVariables: distinct IFMetamodel!OutputData
+		foreach(oData in simpleTask->getOutputVaraibles())
+			(definition<-oData),
+		--Input Variables
+		inputVariables: distinct IFMetamodel!InputData
+		foreach(iData in simpleTask->getInputVaraibles())
+			(definition<-iData),	
+		--ECMM			
+		situationP2PTask: ECMetamodel!ContextSituation
+		(name<-simpleTask.name+'Event'		
+		, entityContext<-thisModule.resolveTemp(simpleTask->getInformationFlow().target, 'entityContext')),
+		
+		conditionP2PTaskSource: ECMetamodel!MemoryContextCondition
+		(situation<-situationP2PTask,
+			expression<-simpleTask->getInformationFlow().source.name,
+			contextMemory<-thisModule.resolveTemp(simpleTask->getInformationFlow().source, 'roleMemory')),
+			
+		conditionP2PTaskTarget: ECMetamodel!MemoryContextCondition
+		(situation<-situationP2PTask,
+			expression<-simpleTask->getInformationFlow().target.name,
+			contextMemory<-thisModule.resolveTemp(simpleTask->getInformationFlow().target, 'roleMemory')),
+
+		sensingP2PTask: ECMetamodel!SensingContextCondition
+		(situation<-situationP2PTask,
+			informationflow<-simpleTask.name)
+			
+	do{
+		--IFMM
+		pointToPointInformationFlow.id <- thisModule.ifCounter;
+		thisModule.ifCounter <- thisModule.ifCounter + 1;
+		--ECMM
+		situationP2PTask.id <- thisModule.ecCounter;
+		thisModule.ecCounter <- thisModule.ecCounter + 1;		
+		conditionP2PTaskSource.id <- thisModule.ecCounter;
+		thisModule.ecCounter <- thisModule.ecCounter + 1;		
+		conditionP2PTaskTarget.id <- thisModule.ecCounter;
+		thisModule.ecCounter <- thisModule.ecCounter + 1;			
+		sensingP2PTask.id <- thisModule.ecCounter;
+		thisModule.ecCounter <- thisModule.ecCounter + 1;			
+	}
+}
+
+rule TaskToBroadcastInformationFlows{	
+	from 
+		simpleTask : TaMetamodel!SimpleTask
+		(simpleTask->isBroadcastInformationFlow())
+	to
+		--IFMM
+		broadcastInformationFlow: IFMetamodel!BroadcastInformationFlow
+		(name<-simpleTask.name, system<-thisModule.resolveTemp(thisModule->getSociety(), 'systemIF')
+			, data<-outputVariables),
+		entityToBroadcast: IFMetamodel!EntityToBroadcastInformationFlowEdge
+		(source<-thisModule->resolveTemp(simpleTask->getInformationFlow().source, 'entity')		
+			, target<-broadcastInformationFlow
+			, system<-thisModule.resolveTemp(thisModule->getSociety(), 'systemIF')
+		), 
+		broadcastToEntity: IFMetamodel!BroadcastInformationFlowToEntityEdge			
+		(source<-broadcastInformationFlow 
+		, target<-thisModule->resolveTemp(simpleTask->getInformationFlow().target, 'entity')		
+		, system<-thisModule.resolveTemp(thisModule->getSociety(), 'systemIF')
+		),
+		--Output Variables
+		outputVariables: distinct IFMetamodel!OutputData
+		foreach(oData in simpleTask->getOutputVaraibles())
+			(definition<-oData),
+		--ECMM			
+		situationBroadcastTask: ECMetamodel!ContextSituation
+		(name<-simpleTask.name+'Event'
+		, entityContext<-thisModule.resolveTemp(simpleTask->getInformationFlow().target, 'entityContext')),
+
+		conditionBroadcastTaskSource: ECMetamodel!MemoryContextCondition
+		(situation<-situationBroadcastTask,
+			expression<-simpleTask->getInformationFlow().source.name,
+			contextMemory<-thisModule.resolveTemp(simpleTask->getInformationFlow().source, 'roleMemory')),
+			
+		conditionBroadcastTaskTarget: ECMetamodel!MemoryContextCondition
+		(situation<-situationBroadcastTask,
+			expression<-simpleTask->getInformationFlow().target.name,
+			contextMemory<-thisModule.resolveTemp(simpleTask->getInformationFlow().target, 'roleMemory')),
+
+		sensingBroadcastTask: ECMetamodel!SensingContextCondition
+		(situation<-situationBroadcastTask,
+			informationflow<-simpleTask.name)		
+		
+	do{
+		--IFMM
+		broadcastInformationFlow.id <- thisModule.ifCounter;
+		thisModule.ifCounter <- thisModule.ifCounter + 1;
+		--ECMM
+		situationBroadcastTask.id <- thisModule.ecCounter;
+		thisModule.ecCounter <- thisModule.ecCounter + 1;
+		conditionBroadcastTaskSource.id <- thisModule.ecCounter;
+		thisModule.ecCounter <- thisModule.ecCounter + 1;		
+		conditionBroadcastTaskTarget.id <- thisModule.ecCounter;
+		thisModule.ecCounter <- thisModule.ecCounter + 1;			
+		sensingBroadcastTask.id <- thisModule.ecCounter;
+		thisModule.ecCounter <- thisModule.ecCounter + 1;			
+	}
+}
+
+rule SpaceToEntity{	
+	from 
+		space : SpMetamodel!Space
+		(space->isEntity() and space.generalizedBy->forAll(g| g.parent->isEntity()) and (space.generalizedBy->size()>0))
+	to
+		--IFMM
+		spaceEntity: IFMetamodel!ContextAwareEntity
+		(name <- space.name, system<-thisModule.resolveTemp(thisModule->getSociety(), 'systemIF')),
+		--ECMM
+		spaceEntityContext: ECMetamodel!EntityContext
+		(entity<- space.name, system<-thisModule.resolveTemp(thisModule->getSociety(), 'systemEC')),
+		----Memories
+		spaceRoleMemory: ECMetamodel!HolderMemory			
+		(name <- space.name+'.role', entityContext<-spaceEntityContext),
+		spaceInitMemory: ECMetamodel!TimeMemory
+		(name <- space.name+'.init', entityContext<-spaceEntityContext),
+		----Init Situation
+		spaceInitSituation: ECMetamodel!ContextSituation
+		(name<-'init-'+space.name, entityContext<-spaceEntityContext),
+		------Init condition
+		spaceInitCondition: ECMetamodel!MemoryContextCondition
+		(expression <- 'off', situation<-spaceInitSituation, contextMemory<-spaceInitMemory),
+		------Init actions
+		spaceInitAction: ECMetamodel!ContextAction
+		(expression <- '(on,0)', situation<-spaceInitSituation, memory<-spaceInitMemory),
+		spaceInitRoleAction: ECMetamodel!ContextAction
+		(expression <- space.name, situation<-spaceInitSituation, memory<-spaceRoleMemory),
+		
+		--RSMM
+		entityReferenceFromSpace: RSMetamodel!ContextAwareEntityReference
+		(name <- space.name, entity<-space.name, system<-thisModule.resolveTemp(thisModule->getSociety(), 'systemRS')),
+		
+		entityReferenceDependencyFromSpace: RSMetamodel!SpaceToEntityReferenceDependency
+		(child<-entityReferenceFromSpace
+			, cardinality<-999
+			, system<-thisModule.resolveTemp(thisModule->getSociety(), 'systemRS')
+			, parent<-thisModule.resolveTemp(thisModule->getSociety(), 'rootRS'))
+		
+	do{
+		--IFMM
+		spaceEntity.id <- thisModule.ifCounter;
+		thisModule.ifCounter <- thisModule.ifCounter + 1;
+		
+		--ECMM
+		spaceEntityContext.id <- thisModule.ecCounter;
+		thisModule.ecCounter <- thisModule.ecCounter + 1;	
+		spaceRoleMemory.id <- thisModule.ecCounter;
+		thisModule.ecCounter <- thisModule.ecCounter + 1;		
+		spaceInitMemory.id <- thisModule.ecCounter;
+		thisModule.ecCounter <- thisModule.ecCounter + 1;		
+		spaceInitSituation.id <- thisModule.ecCounter;
+		thisModule.ecCounter <- thisModule.ecCounter + 1;
+		spaceInitCondition.id <- thisModule.ecCounter;
+		thisModule.ecCounter <- thisModule.ecCounter + 1;		
+		spaceInitAction.id <- thisModule.ecCounter;
+		thisModule.ecCounter <- thisModule.ecCounter + 1;		
+		spaceInitRoleAction.id <- thisModule.ecCounter;
+		thisModule.ecCounter <- thisModule.ecCounter + 1;		
+		
+		--RSMM
+		entityReferenceFromSpace.id <- thisModule.rsCounter;
+		thisModule.rsCounter <- thisModule.rsCounter + 1;		
+		entityReferenceDependencyFromSpace.id <- thisModule.rsCounter;
+		thisModule.rsCounter <- thisModule.rsCounter + 1;		
+	}
+}
+
+
+rule SpaceToEntityHierarchy{	
+	from 
+		space : SpMetamodel!Space
+		(space->isEntity() and space.generalizedBy->forAll(g| not g.parent->isEntity()))
+	to
+		--IFMM
+		spaceEntityHierarchy: IFMetamodel!ContextAwareEntity
+		(name <- space.name, system<-thisModule.resolveTemp(thisModule->getSociety(), 'systemIF')),
+		
+		spacePointToPointInformationFlows: distinct IFMetamodel!PointToPointInformationFlow
+		foreach(iFlow in space->getSpaceInformationFlows())
+		(name<-space.name+'2'+iFlow.entity+'Event'
+			, system<-thisModule.resolveTemp(thisModule->getSociety(), 'systemIF')
+			, outputData<-spaceOutputVariablesHierarchy
+--			, inputData<-inputVariables
+		),
+		entityToPointToPointHierarchy: distinct IFMetamodel!EntityToPointToPointInformationFlowEdge
+		foreach(iFlow in space->getSpaceInformationFlows())
+		(source<-spaceEntityHierarchy
+			,target<-spacePointToPointInformationFlows
+			,system<-thisModule.resolveTemp(thisModule->getSociety(), 'systemIF')
+		), 
+		pointToPointToEntityHierarchy: distinct IFMetamodel!PointToPointInformationFlowToEntityEdge
+		foreach(iFlow in space->getSpaceInformationFlows())
+		(source<-spacePointToPointInformationFlows
+			, target<-thisModule.resolveTemp(iFlow.entity->toRole(), 'entity') 
+			, system<-thisModule.resolveTemp(thisModule->getSociety(), 'systemIF')
+		),
+		spaceOutputVariablesHierarchy: distinct IFMetamodel!OutputData
+		foreach(oData in space->getOutputData())		
+			(definition<-oData),
+			
+		--ECMM
+		spaceEntityContextHierarchy: ECMetamodel!EntityContext
+		(entity<-space.name
+			, system<-thisModule.resolveTemp(thisModule->getSociety(), 'systemEC')
+		),
+		----Memories
+		spaceRoleMemoryHierarchy: ECMetamodel!HolderMemory			
+		(name <- space.name+'.role', entityContext<-spaceEntityContextHierarchy),
+		spaceInitMemoryHierarchy: ECMetamodel!TimeMemory
+		(name <- space.name+'.init', entityContext<-spaceEntityContextHierarchy),
+		----Init Situation
+		spaceInitSituationHierarchy: ECMetamodel!ContextSituation
+		(name<-'init-'+space.name, entityContext<-spaceEntityContextHierarchy),
+		------Init condition
+		spaceInitConditionHierarchy:ECMetamodel!MemoryContextCondition
+		(expression <- 'off', situation<-spaceInitSituationHierarchy, contextMemory<-spaceInitMemoryHierarchy),
+		------Init actions
+		spaceInitActionHierarchy: ECMetamodel!ContextAction
+		(expression <- '(on,0)', situation<-spaceInitSituationHierarchy, memory<-spaceInitMemoryHierarchy),
+		initRoleActionHierarchy: ECMetamodel!ContextAction
+		(expression <- space.name, situation<-spaceInitSituationHierarchy, memory<-spaceRoleMemoryHierarchy),
+		
+		----Events		
+		spaceEventSituationHierarchy: distinct ECMetamodel!ContextSituation
+		foreach(iFlow in space->getSpaceInformationFlows())
+		(name<-space.name+'Event' 
+			, entityContext<-thisModule.resolveTemp(iFlow.entity->toRole(), 'entityContext')
+		),
+		
+		conditionEventSourceHierarchy: distinct ECMetamodel!MemoryContextCondition
+		foreach(iFlow in space->getSpaceInformationFlows())
+		(situation<-spaceEventSituationHierarchy->any(x|x.name=space.name+'Event' and x.entityContext.entity=iFlow.entity),
+			expression<-space.name,
+			contextMemory<-spaceRoleMemoryHierarchy),
+
+		conditionEventTargetHierarchy: distinct ECMetamodel!MemoryContextCondition
+		foreach(iFlow in space->getSpaceInformationFlows())
+		(situation<-spaceEventSituationHierarchy->any(x|x.name=space.name+'Event'  and x.entityContext.entity=iFlow.entity),
+			expression<-iFlow.entity,
+			contextMemory<-spaceRoleMemoryHierarchy),			
+
+		sensingEventHierarchy: distinct ECMetamodel!SensingContextCondition
+		foreach(iFlow in space->getSpaceInformationFlows())
+		(situation<-spaceEventSituationHierarchy->any(x|x.name=space.name+'Event'  and x.entityContext.entity=iFlow.entity),
+			informationflow<-space.name+'Event'),		
+		
+			
+		--RSMM
+		entityReferenceFromSpaceHierarchy: RSMetamodel!ContextAwareEntityReference
+		(name <- space.name, entity<-space.name, system<-thisModule.resolveTemp(thisModule->getSociety(), 'systemRS')),
+		
+		entityReferenceDependencyFromSpaceHierarchy: RSMetamodel!SpaceToEntityReferenceDependency
+		(child<-entityReferenceFromSpaceHierarchy
+			, cardinality<-999
+			, system<-thisModule.resolveTemp(thisModule->getSociety(), 'systemRS')
+			, parent<-thisModule.resolveTemp(thisModule->getSociety(), 'rootRS'))
+			
+		
+	do{
+		--IFMM
+		spaceEntityHierarchy.id <- thisModule.ifCounter;
+		thisModule.ifCounter <- thisModule.ifCounter + 1;
+		
+		for(p2pif in spacePointToPointInformationFlows){
+			p2pif.id <- thisModule.ifCounter;
+			thisModule.ifCounter <- thisModule.ifCounter + 1;
+		}
+		--ECMM
+		spaceEntityContextHierarchy.id <- thisModule.ecCounter;
+		thisModule.ecCounter <- thisModule.ecCounter + 1;
+		
+		spaceRoleMemoryHierarchy.id <- thisModule.ecCounter;
+		thisModule.ecCounter <- thisModule.ecCounter + 1;
+		
+		spaceInitMemoryHierarchy.id <- thisModule.ecCounter;
+		thisModule.ecCounter <- thisModule.ecCounter + 1;
+		
+		spaceInitSituationHierarchy.id <- thisModule.ecCounter;
+		thisModule.ecCounter <- thisModule.ecCounter + 1;
+		
+		spaceInitConditionHierarchy.id <- thisModule.ecCounter;
+		thisModule.ecCounter <- thisModule.ecCounter + 1;
+		
+		spaceInitActionHierarchy.id <- thisModule.ecCounter;
+		thisModule.ecCounter <- thisModule.ecCounter + 1;
+		
+		initRoleActionHierarchy.id <- thisModule.ecCounter;
+		thisModule.ecCounter <- thisModule.ecCounter + 1;
+		---- Events
+		for(e in spaceEventSituationHierarchy){
+			e.id <- thisModule.ecCounter;		
+			thisModule.ecCounter <- thisModule.ecCounter + 1;
+		}
+		
+		for(e in conditionEventSourceHierarchy){
+			e.id <- thisModule.ecCounter;		
+			thisModule.ecCounter <- thisModule.ecCounter + 1;
+		}
+		
+		for(e in conditionEventTargetHierarchy){
+			e.id <- thisModule.ecCounter;		
+			thisModule.ecCounter <- thisModule.ecCounter + 1;
+		}
+		
+		for(e in conditionEventSourceHierarchy){
+			e.id <- thisModule.ecCounter;		
+			thisModule.ecCounter <- thisModule.ecCounter + 1;
+		}
+		
+		--RSMM
+		entityReferenceFromSpaceHierarchy.id <- thisModule.rsCounter;
+		thisModule.rsCounter <- thisModule.rsCounter + 1;		
+		entityReferenceDependencyFromSpaceHierarchy.id <- thisModule.rsCounter;
+		thisModule.rsCounter <- thisModule.rsCounter + 1;	
+	}
+}
+
+rule SpaceGeneralizationToInformationFlow{
+	from 
+		spaceGeneralization: SpMetamodel!Generalization
+		(spaceGeneralization.generalizes->isEntity() and spaceGeneralization.parent->isEntity())
+	to
+		--IFMM
+		spaceInformationFlow:IFMetamodel!PointToPointInformationFlow
+		(name<- spaceGeneralization.generalizes.name+'-'+spaceGeneralization.parent.name 
+			, system<-thisModule->getSystemInformationFlow()
+			, outputData<-spaceOutputVariables
+		),
+
+		spaceEntityToPointToPoint: IFMetamodel!EntityToPointToPointInformationFlowEdge
+		(source<-spaceGeneralization.generalizes
+			, target<-spaceInformationFlow
+			, system<-thisModule->getSystemInformationFlow()
+		), 
+		spacePointToPointToEntity: IFMetamodel!PointToPointInformationFlowToEntityEdge			
+		(source<-spaceInformationFlow
+			, target<-spaceGeneralization.parent 
+			, system<-thisModule->getSystemInformationFlow()
+		),
+		spaceOutputVariables: distinct IFMetamodel!OutputData
+		foreach(oData in spaceGeneralization->getOutputData())
+			(definition<-oData),
+			
+		--ECMM	
+		----Events		
+		generalizationEventSituation: ECMetamodel!ContextSituation
+		(name<-spaceGeneralization.generalizes.name+'Event' 
+			, entityContext<-thisModule.resolveTemp(spaceGeneralization.parent, 'spaceEntityContextHierarchy')
+		),
+		generalizationEventSource: ECMetamodel!MemoryContextCondition
+		(situation<-generalizationEventSituation,
+			expression<-spaceGeneralization.generalizes.name,
+			contextMemory<-thisModule.resolveTemp(spaceGeneralization.generalizes, 'spaceRoleMemory')),
+			
+		generalizationEventTarget: ECMetamodel!MemoryContextCondition
+		(situation<-generalizationEventSituation,
+			expression<-spaceGeneralization.parent.name,
+			contextMemory<-thisModule.resolveTemp(spaceGeneralization.parent, 'spaceRoleMemoryHierarchy')),
+			
+		generalizationSensingEvent: ECMetamodel!SensingContextCondition
+		(situation<-generalizationEventSituation,
+			informationflow<-spaceGeneralization.generalizes.name+'-'+spaceGeneralization.parent.name)		
+		
+	do{
+		--IFMM
+		spaceInformationFlow.id <- thisModule.ifCounter;
+		thisModule.ifCounter <- thisModule.ifCounter + 1;	
+
+--		TODO ADD		
+--		spaceEntityToPointToPoint.id <- thisModule.ifCounter;
+--		thisModule.ifCounter <- thisModule.ifCounter + 1;	
+		
+--		spacePointToPointToEntity.id <- thisModule.ifCounter;
+--		thisModule.ifCounter <- thisModule.ifCounter + 1;	
+		--ECMM
+
+		generalizationEventSituation.id <- thisModule.ecCounter;
+		thisModule.ecCounter <- thisModule.ecCounter + 1;
+		
+		generalizationEventSource.id <- thisModule.ecCounter;
+		thisModule.ecCounter <- thisModule.ecCounter + 1;
+		
+		generalizationEventTarget.id <- thisModule.ecCounter;
+		thisModule.ecCounter <- thisModule.ecCounter + 1;
+		
+		generalizationSensingEvent.id <- thisModule.ecCounter;
+		thisModule.ecCounter <- thisModule.ecCounter + 1;		
+		
+	}			
+}
+
+helper def:getSystemInformationFlow(): IFMetamdoel!SystemInformaitonFlow = 
+	thisModule.resolveTemp(thisModule->getSociety(), 'systemIF');
+

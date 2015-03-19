@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<task-meta-model:ContextAwareSystem xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:task-meta-model="task-meta-model">
+  <finalConditions id="16" socialExpression="aCardiacPulseSensor" incoming="//@splitTaskToOutputConditions.2"/>
+  <finalConditions id="31" socialExpression="aPDA" incoming="//@joinTaskToOutputConditions.1"/>
+  <preConditions id="4" socialExpression="aCardiacPulseSensor" incoming="//@splitTaskToOutputConditions.0" ongoing="//@preConditionToSystemTasks.0"/>
+  <preConditions id="8" socialExpression="aPDA" incoming="//@splitTaskToOutputConditions.1" ongoing="//@preConditionToSystemTasks.1"/>
+  <preConditions id="12" socialExpression="aPDA, aCardiacPulseSensor" dataExpression="aCardiacPulseSensor(cp)" incoming="//@joinTaskToOutputConditions.0" ongoing="//@preConditionToSystemTasks.2"/>
+  <preConditions id="17" socialExpression="aPDA" dataExpression="" incoming="//@splitTaskToOutputConditions.3" ongoing="//@preConditionToSystemTasks.3"/>
+  <preConditions id="21" socialExpression="aPDA" logicExpression="aPDA(cp)>=60 and aPDA(cp)&lt;=110" incoming="//@splitTaskToOutputConditions.5" ongoing="//@preConditionToSystemTasks.6"/>
+  <preConditions id="22" socialExpression="aPDA" logicExpression="aPDA(cp)&lt;60" incoming="//@splitTaskToOutputConditions.4" ongoing="//@preConditionToSystemTasks.5"/>
+  <preConditions id="23" socialExpression="aPDA" logicExpression="aPDA(cp)>110" incoming="//@splitTaskToOutputConditions.6" ongoing="//@preConditionToSystemTasks.4"/>
+  <postConditions id="6" socialExpression="aCardiacPulseSensor" dataExpression="CardiacPulseSensor(cp)" ongoing="//@inputConditionToJoinTasks.0" incoming="//@systemTaskToPostConditions.0"/>
+  <postConditions id="9" socialExpression="aPDA" ongoing="//@inputConditionToJoinTasks.1" incoming="//@systemTaskToPostConditions.1"/>
+  <postConditions id="13" socialExpression="aPDA, aCardiacPulseSensor" dataExpression="aPDA(cp)" ongoing="//@inputConditionToSplitTasks.2" incoming="//@systemTaskToPostConditions.2"/>
+  <postConditions id="19" socialExpression="aPDA" dataExpression="*" ongoing="//@inputConditionToSplitTasks.3" incoming="//@systemTaskToPostConditions.3"/>
+  <postConditions id="27" socialExpression="aPDA" ongoing="//@inputConditionToJoinTasks.4" incoming="//@systemTaskToPostConditions.6"/>
+  <postConditions id="28" socialExpression="aPDA" ongoing="//@inputConditionToJoinTasks.3" incoming="//@systemTaskToPostConditions.5"/>
+  <postConditions id="29" socialExpression="aPDA" ongoing="//@inputConditionToJoinTasks.2" incoming="//@systemTaskToPostConditions.4"/>
+  <initialConditions id="1" socialExpression="CardiacPulseSensor" ongoing="//@inputConditionToSplitTasks.0"/>
+  <initialConditions id="2" socialExpression="PDA" ongoing="//@inputConditionToSplitTasks.1"/>
+  <routeTasks xsi:type="task-meta-model:AndSplit" id="3" incoming="//@inputConditionToSplitTasks.0" ongoing="//@splitTaskToOutputConditions.0"/>
+  <routeTasks xsi:type="task-meta-model:AndSplit" id="7" incoming="//@inputConditionToSplitTasks.1" ongoing="//@splitTaskToOutputConditions.1"/>
+  <routeTasks xsi:type="task-meta-model:AndJoin" id="11" incoming="//@inputConditionToJoinTasks.0 //@inputConditionToJoinTasks.1" ongoing="//@joinTaskToOutputConditions.0"/>
+  <routeTasks xsi:type="task-meta-model:AndSplit" id="15" incoming="//@inputConditionToSplitTasks.2" ongoing="//@splitTaskToOutputConditions.2 //@splitTaskToOutputConditions.3"/>
+  <routeTasks xsi:type="task-meta-model:OrSplit" id="20" incoming="//@inputConditionToSplitTasks.3" ongoing="//@splitTaskToOutputConditions.4 //@splitTaskToOutputConditions.5 //@splitTaskToOutputConditions.6"/>
+  <routeTasks xsi:type="task-meta-model:OrJoin" id="30" incoming="//@inputConditionToJoinTasks.2 //@inputConditionToJoinTasks.3 //@inputConditionToJoinTasks.4" ongoing="//@joinTaskToOutputConditions.1"/>
+  <systemTasks xsi:type="task-meta-model:SkipTask" id="5" incoming="//@preConditionToSystemTasks.0" ongoing="//@systemTaskToPostConditions.0"/>
+  <systemTasks xsi:type="task-meta-model:SkipTask" id="10" incoming="//@preConditionToSystemTasks.1" ongoing="//@systemTaskToPostConditions.1"/>
+  <systemTasks xsi:type="task-meta-model:SimpleTask" id="14" incoming="//@preConditionToSystemTasks.2" ongoing="//@systemTaskToPostConditions.2" name="GetCardiacPulse"/>
+  <systemTasks xsi:type="task-meta-model:SkipTask" id="18" incoming="//@preConditionToSystemTasks.3" ongoing="//@systemTaskToPostConditions.3"/>
+  <systemTasks xsi:type="task-meta-model:SimpleTask" id="24" incoming="//@preConditionToSystemTasks.4" ongoing="//@systemTaskToPostConditions.6" name="SetPastelColors"/>
+  <systemTasks xsi:type="task-meta-model:SimpleTask" id="25" incoming="//@preConditionToSystemTasks.5" ongoing="//@systemTaskToPostConditions.4" name="SetSolidColors"/>
+  <systemTasks xsi:type="task-meta-model:SkipTask" id="26" incoming="//@preConditionToSystemTasks.6" ongoing="//@systemTaskToPostConditions.5"/>
+  <inputConditionToJoinTasks source="6" target="//@routeTasks.2"/>
+  <inputConditionToJoinTasks source="9" target="//@routeTasks.2"/>
+  <inputConditionToJoinTasks source="29" target="//@routeTasks.5"/>
+  <inputConditionToJoinTasks source="28" target="//@routeTasks.5"/>
+  <inputConditionToJoinTasks source="27" target="//@routeTasks.5"/>
+  <inputConditionToSplitTasks source="1" target="//@routeTasks.0"/>
+  <inputConditionToSplitTasks source="2" target="//@routeTasks.1"/>
+  <inputConditionToSplitTasks source="13" target="//@routeTasks.3"/>
+  <inputConditionToSplitTasks source="19" target="//@routeTasks.4"/>
+  <joinTaskToOutputConditions target="12" source="//@routeTasks.2"/>
+  <joinTaskToOutputConditions target="31" source="//@routeTasks.5"/>
+  <splitTaskToOutputConditions target="4" source="//@routeTasks.0"/>
+  <splitTaskToOutputConditions target="8" source="//@routeTasks.1"/>
+  <splitTaskToOutputConditions target="16" source="//@routeTasks.3"/>
+  <splitTaskToOutputConditions target="17" source="//@routeTasks.3"/>
+  <splitTaskToOutputConditions target="22" source="//@routeTasks.4"/>
+  <splitTaskToOutputConditions target="21" source="//@routeTasks.4"/>
+  <splitTaskToOutputConditions target="23" source="//@routeTasks.4"/>
+  <preConditionToSystemTasks source="4" target="//@systemTasks.0"/>
+  <preConditionToSystemTasks source="8" target="//@systemTasks.1"/>
+  <preConditionToSystemTasks source="12" target="//@systemTasks.2"/>
+  <preConditionToSystemTasks source="17" target="//@systemTasks.3"/>
+  <preConditionToSystemTasks source="23" target="//@systemTasks.4"/>
+  <preConditionToSystemTasks source="22" target="//@systemTasks.5"/>
+  <preConditionToSystemTasks source="21" target="//@systemTasks.6"/>
+  <systemTaskToPostConditions source="//@systemTasks.0" target="6"/>
+  <systemTaskToPostConditions source="//@systemTasks.1" target="9"/>
+  <systemTaskToPostConditions source="//@systemTasks.2" target="13"/>
+  <systemTaskToPostConditions source="//@systemTasks.3" target="19"/>
+  <systemTaskToPostConditions source="//@systemTasks.5" target="29"/>
+  <systemTaskToPostConditions source="//@systemTasks.6" target="28"/>
+  <systemTaskToPostConditions source="//@systemTasks.4" target="27"/>
+</task-meta-model:ContextAwareSystem>

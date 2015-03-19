@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>mofscript-gen-InformationLayerToCode.m2t</name>
+	<comment></comment>
+	<projects>
+	</projects>
+	<buildSpec>
+	</buildSpec>
+	<natures>
+	</natures>
+	<linkedResources>
+		<link>
+			<name>ConnectionConnection.java</name>
+			<type>1</type>
+			<location>C:/temp/src/connections/ConnectionConnection.java</location>
+		</link>
+		<link>
+			<name>DeviceADevice.java</name>
+			<type>1</type>
+			<location>C:/temp/src/devices/DeviceADevice.java</location>
+		</link>
+		<link>
+			<name>DeviceBDevice.java</name>
+			<type>1</type>
+			<location>C:/temp/src/devices/DeviceBDevice.java</location>
+		</link>
+		<link>
+			<name>EntityAEntity.java</name>
+			<type>1</type>
+			<location>C:/temp/src/entities/EntityAEntity.java</location>
+		</link>
+		<link>
+			<name>EntityBEntity.java</name>
+			<type>1</type>
+			<location>C:/temp/src/entities/EntityBEntity.java</location>
+		</link>
+		<link>
+			<name>FInformationFlow.java</name>
+			<type>1</type>
+			<location>C:/temp/src/flows/FInformationFlow.java</location>
+		</link>
+	</linkedResources>
+</projectDescription>

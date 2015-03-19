@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.1/notation" xmlns:rsmm="rsmm" xmi:id="_4IeqQJhwEd68nPbmw8j94g" type="Rsmm" measurementUnit="Pixel">
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_4IeqQZhwEd68nPbmw8j94g"/>
+  <element xmi:type="rsmm:SystemInformationFlowReferenceSpace" href="healthyScreen.rsmm#1"/>
+</notation:Diagram>

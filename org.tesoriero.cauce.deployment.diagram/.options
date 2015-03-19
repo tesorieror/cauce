@@ -1,0 +1,7 @@
+# Tracing options for the org.tesoriero.cauce.deployment.diagram plug-in
+
+# Common issues
+org.tesoriero.cauce.deployment.diagram/debug=false
+
+# Visual IDs
+org.tesoriero.cauce.deployment.diagram/debug/visualID=false

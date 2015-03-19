@@ -1,0 +1,7 @@
+# Tracing options for the org.tesoriero.cauce.space.diagram plug-in
+
+# Common issues
+org.tesoriero.cauce.space.diagram/debug=false
+
+# Visual IDs
+org.tesoriero.cauce.space.diagram/debug/visualID=false

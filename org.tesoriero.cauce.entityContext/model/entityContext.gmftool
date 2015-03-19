@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gmftool:ToolRegistry
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:gmftool="http://www.eclipse.org/gmf/2005/ToolDefinition">
+  <palette
+      title="ecmmPalette">
+    <tools
+        xsi:type="gmftool:ToolGroup"
+        title="ecmm">
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="EntityContext"
+          description="Create new EntityContext">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:PaletteSeparator"/>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="LogicMemory"
+          description="Create new LogicMemory">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="DictionaryMemory"
+          description="Create new DictionaryMemory">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="HolderMemory"
+          description="Create new HolderMemory">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="StackMemory"
+          description="Create new StackMemory">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="TimeMemory"
+          description="Create new TimeMemory">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:PaletteSeparator"/>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="ContextSituation"
+          description="Create new ContextSituation">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:PaletteSeparator"/>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="SensingContextCondition"
+          description="Create new SensingContextCondition">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="MemoryContextCondition"
+          description="Create new MemoryContextCondition">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:PaletteSeparator"/>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="ContextAction"
+          description="Create new ContextAction">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:PaletteSeparator"/>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="VariableDataDefinition"
+          description="Create new VariableDataDefinition">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+    </tools>
+  </palette>
+</gmftool:ToolRegistry>

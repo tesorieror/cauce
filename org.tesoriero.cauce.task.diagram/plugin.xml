@@ -1,0 +1,1074 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+
+   <extension point="org.eclipse.team.core.fileTypes" id="repo-ftype">
+      <?gmfgen generated="true"?>
+      <fileTypes type="text" extension="tammdiag"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser" id="resource-factory">
+      <?gmfgen generated="true"?>
+      <parser
+         type="tammdiag"
+         class="org.eclipse.gmf.runtime.emf.core.resources.GMFResourceFactory">
+      </parser>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors" id="gmf-editor">
+      <?gmfgen generated="true"?>
+      <editor
+         id="tamm.diagram.part.TaskDiagramEditorID"
+         name="%editorName"
+         icon="icons/obj16/TammDiagramFile.gif"
+         extensions="tammdiag"
+         default="true"
+         class="tamm.diagram.part.TaskDiagramEditor"
+         matchingStrategy="tamm.diagram.part.TaskMatchingStrategy"
+         contributorClass="tamm.diagram.part.TaskDiagramActionBarContributor">
+      </editor>
+   </extension>
+   
+   <extension point="org.eclipse.ui.contexts" id="ui-context">
+      <?gmfgen generated="true"?>
+      <context
+         description="%context.description"
+         id="tamm.diagram.ui.diagramContext"
+         name="%context.name"
+         parentId="org.eclipse.gmf.runtime.diagram.ui.diagramContext">
+      </context>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards" id="creation-wizard">
+      <?gmfgen generated="false"?>
+  	  <wizard
+  	     name="%newWizardName"
+  	     icon="icons/obj16/TammDiagramFile.gif"
+  	     category="org.tesoriero.cauce.diagram.category.ID"
+  	     class="tamm.diagram.part.TaskCreationWizard"
+  	     id="tamm.diagram.part.TaskCreationWizardID">
+  	  	 <description>%newWizardDesc</description>  
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.popupMenus" id="init-diagram-action">
+      <?gmfgen generated="true"?>
+      <objectContribution
+            id="org.tesoriero.cauce.task.diagram.InitDiagram"
+            nameFilter="*.tamm"
+            objectClass="org.eclipse.core.resources.IFile">
+         <action
+               label="%initDiagramActionLabel"
+               class="tamm.diagram.part.TaskInitDiagramFileAction"
+               menubarPath="additions"
+               enablesFor="1"
+               id="org.tesoriero.cauce.task.diagram.InitDiagramAction">
+         </action>
+      </objectContribution>
+   </extension>
+	
+   <extension point="org.eclipse.gmf.runtime.common.ui.services.action.globalActionHandlerProviders" id="global-actions">
+      <?gmfgen generated="true"?>
+      <GlobalActionHandlerProvider
+         class="org.eclipse.gmf.runtime.diagram.ui.providers.DiagramGlobalActionHandlerProvider"
+         id="TaskPresentation">
+         <Priority name="Lowest"/>
+         <ViewId id="tamm.diagram.part.TaskDiagramEditorID">
+            <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart">
+               <GlobalActionId actionId="delete"/>
+            </ElementType>
+            <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.DiagramEditPart">
+               <GlobalActionId actionId="save"/>
+            </ElementType>
+            <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart">
+               <GlobalActionId actionId="save">
+               </GlobalActionId>
+            </ElementType>        
+         </ViewId>
+      </GlobalActionHandlerProvider>
+      <GlobalActionHandlerProvider
+         class="org.eclipse.gmf.runtime.diagram.ui.providers.ide.providers.DiagramIDEGlobalActionHandlerProvider"
+         id="TaskPresentationIDE">
+         <Priority name="Lowest"/>
+         <ViewId id="tamm.diagram.part.TaskDiagramEditorID">
+            <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart">
+               <GlobalActionId actionId="bookmark"/>
+            </ElementType>
+         </ViewId>
+      </GlobalActionHandlerProvider>
+      <GlobalActionHandlerProvider
+            class="org.eclipse.gmf.runtime.diagram.ui.render.providers.DiagramUIRenderGlobalActionHandlerProvider"
+            id="TaskRender">
+         <Priority name="Lowest"/>
+         <ViewId id="tamm.diagram.part.TaskDiagramEditorID">
+            <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart">
+               <GlobalActionId actionId="cut"/>
+               <GlobalActionId actionId="copy"/>
+               <GlobalActionId actionId="paste"/>
+            </ElementType>
+         </ViewId>
+      </GlobalActionHandlerProvider>
+   </extension>
+
+
+   <extension point="org.eclipse.gmf.runtime.common.ui.services.markerNavigationProviders" id="markers-navigation">
+      <?gmfgen generated="true"?>
+      <MarkerNavigationProvider class="tamm.diagram.providers.TaskMarkerNavigationProvider">
+         <MarkerType name="org.tesoriero.cauce.task.diagram.diagnostic"/>
+         <Priority name="Lowest"/>
+      </MarkerNavigationProvider>
+   </extension>
+
+   <extension id="diagnostic" name="Task Plugin problems" point="org.eclipse.core.resources.markers">
+      <?gmfgen generated="true"?>
+      <super type="org.eclipse.core.resources.problemmarker"/>
+      <super type="org.eclipse.gmf.runtime.common.ui.services.marker"/>
+      <persistent value="true"/>
+   </extension>   
+
+   <extension id="validationDecoratorProvider" name="ValidationDecorations" point="org.eclipse.gmf.runtime.diagram.ui.decoratorProviders">
+      <?gmfgen generated="true"?>
+      <decoratorProvider class="tamm.diagram.providers.TaskValidationDecoratorProvider">
+         <Priority name="High"/>
+         <object class="org.eclipse.gmf.runtime.diagram.ui.editparts.IPrimaryEditPart(org.eclipse.gmf.runtime.diagram.ui)" id="PRIMARY_VIEW"/>
+         <context decoratorTargets="PRIMARY_VIEW"/>
+      </decoratorProvider>
+   </extension>
+
+   <extension point="org.eclipse.core.runtime.preferences" id="prefs">
+      <?gmfgen generated="true"?>
+      <initializer class="tamm.diagram.preferences.DiagramPreferenceInitializer"/>
+   </extension>
+
+   <extension point="org.eclipse.ui.preferencePages" id="prefpages">
+      <?gmfgen generated="true"?>
+      <page
+            id="org.tesoriero.cauce.task.diagram.general"
+            name="%prefpage.org.tesoriero.cauce.task.diagram.general"
+            class="tamm.diagram.preferences.DiagramGeneralPreferencePage">
+      </page>
+      <page
+            id="org.tesoriero.cauce.task.diagram.appearance"
+            name="%prefpage.org.tesoriero.cauce.task.diagram.appearance"
+            category="org.tesoriero.cauce.task.diagram.general"
+            class="tamm.diagram.preferences.DiagramAppearancePreferencePage">
+      </page>
+      <page
+            id="org.tesoriero.cauce.task.diagram.connections"
+            name="%prefpage.org.tesoriero.cauce.task.diagram.connections"
+            category="org.tesoriero.cauce.task.diagram.general"
+            class="tamm.diagram.preferences.DiagramConnectionsPreferencePage">
+      </page>
+      <page
+            id="org.tesoriero.cauce.task.diagram.printing"
+            name="%prefpage.org.tesoriero.cauce.task.diagram.printing"
+            category="org.tesoriero.cauce.task.diagram.general"
+            class="tamm.diagram.preferences.DiagramPrintingPreferencePage">
+      </page>
+      <page
+            id="org.tesoriero.cauce.task.diagram.rulersAndGrid"
+            name="%prefpage.org.tesoriero.cauce.task.diagram.rulersAndGrid"
+            category="org.tesoriero.cauce.task.diagram.general"
+            class="tamm.diagram.preferences.DiagramRulersAndGridPreferencePage">
+      </page>
+   </extension>
+
+   <extension point="org.eclipse.ui.views.properties.tabbed.propertyContributor" id="prop-contrib">
+      <?gmfgen generated="true"?>
+      <propertyContributor
+            contributorId="org.tesoriero.cauce.task.diagram"
+            labelProvider="tamm.diagram.sheet.TaskSheetLabelProvider">
+         <propertyCategory category="domain"/>
+         <propertyCategory category="visual"/>
+         <propertyCategory category="extra"/>
+      </propertyContributor>
+   </extension>
+
+   <extension point="org.eclipse.ui.views.properties.tabbed.propertyTabs" id="proptabs">
+      <?gmfgen generated="true"?>   
+      <propertyTabs contributorId="org.tesoriero.cauce.task.diagram">
+         <propertyTab
+             category="visual"
+             id="property.tab.AppearancePropertySection"
+             label="%tab.appearance"/>
+          <propertyTab
+             category="visual"
+             id="property.tab.DiagramPropertySection"
+             label="%tab.diagram"/>
+          <propertyTab
+             category="domain"
+             id="property.tab.domain"
+             label="%tab.domain"/>
+      </propertyTabs>
+   </extension>
+
+   <extension point="org.eclipse.ui.views.properties.tabbed.propertySections" id="propsections">
+      <?gmfgen generated="true"?>   
+      <propertySections contributorId="org.tesoriero.cauce.task.diagram">
+         <propertySection id="property.section.ConnectorAppearancePropertySection" 
+            filter="org.eclipse.gmf.runtime.diagram.ui.properties.filters.ConnectionEditPartPropertySectionFilter" 
+            class="org.eclipse.gmf.runtime.diagram.ui.properties.sections.appearance.ConnectionAppearancePropertySection" 
+            tab="property.tab.AppearancePropertySection">
+         </propertySection>
+         <propertySection id="property.section.ShapeColorAndFontPropertySection" 
+            filter="org.eclipse.gmf.runtime.diagram.ui.properties.filters.ShapeEditPartPropertySectionFilter" 
+            class="org.eclipse.gmf.runtime.diagram.ui.properties.sections.appearance.ShapeColorsAndFontsPropertySection" 
+            tab="property.tab.AppearancePropertySection">
+         </propertySection> 
+         <propertySection id="property.section.DiagramColorsAndFontsPropertySection" 
+            filter="org.eclipse.gmf.runtime.diagram.ui.properties.filters.DiagramEditPartPropertySectionFilter" 
+            class="org.eclipse.gmf.runtime.diagram.ui.properties.sections.appearance.DiagramColorsAndFontsPropertySection" 
+            tab="property.tab.AppearancePropertySection">
+         </propertySection>     
+         <propertySection id="property.section.RulerGridPropertySection" 
+            filter="org.eclipse.gmf.runtime.diagram.ui.properties.filters.DiagramEditPartPropertySectionFilter" 
+            class="org.eclipse.gmf.runtime.diagram.ui.properties.sections.grid.RulerGridPropertySection" 
+            tab="property.tab.DiagramPropertySection">
+         </propertySection>     
+         <propertySection
+            id="property.section.domain" 
+            tab="property.tab.domain"
+            class="tamm.diagram.sheet.TaskPropertySection">
+            <input type="org.eclipse.gmf.runtime.notation.View"/>
+            <input type="org.eclipse.gef.EditPart"/>
+            <input type="tamm.diagram.navigator.TaskAbstractNavigatorItem"/>
+         </propertySection>
+      </propertySections>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.diagram.core.viewProviders" id="view-provider">
+      <?gmfgen generated="true"?>
+      <viewProvider class="tamm.diagram.providers.TaskViewProvider">
+         <Priority name="Lowest"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Diagram" semanticHints="Task"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="2001,2002,2003,2004,2005,2006,2007,2008,2009,2010"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints="4001,4002,4003,4004,4005,4006"/>
+      </viewProvider>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.diagram.ui.editpartProviders" id="ep-provider">
+      <?gmfgen generated="true"?>
+      <editpartProvider class="tamm.diagram.providers.TaskEditPartProvider">
+         <Priority name="Lowest"/>
+         <object class="org.eclipse.gmf.runtime.notation.Diagram" id="generated-diagram">
+            <method name="getType()" value="Task"/>
+         </object>
+         <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-nodes">
+            <method name="getType()" value="2001,2002,2003,2004,2005,2006,2007,2008,2009,2010"/>
+         </object>
+         <object class="org.eclipse.gmf.runtime.notation.Edge" id="generated-links">
+            <method name="getType()" value="4001,4002,4003,4004,4005,4006"/>
+         </object>
+         <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-labels">
+            <method name="getType()" value="5001,5002,5003,5004,5005,5006,5007,5008,5009,5010,5011,5012,5013,5014,5015,5016,5017,5018,5019,5020,5021"/>
+         </object>
+         <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-compartments">
+            <method name="getType()" value=""/>
+         </object>
+         <context views="generated-diagram,generated-nodes,generated-links,generated-labels,generated-compartments"/>
+      </editpartProvider>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.emf.ui.modelingAssistantProviders" id="modelassist-provider">
+      <?gmfgen generated="true"?>
+      <modelingAssistantProvider class="tamm.diagram.providers.TaskModelingAssistantProvider">
+         <Priority name="Lowest"/>
+         <object class="tamm.diagram.edit.parts.ContextAwareSystemEditPart" id="ContextAwareSystem_1000"/>
+         <object class="tamm.diagram.edit.parts.AndSplitEditPart" id="AndSplit_2001"/>
+         <object class="tamm.diagram.edit.parts.PreConditionEditPart" id="PreCondition_2002"/>
+         <object class="tamm.diagram.edit.parts.PostConditionEditPart" id="PostCondition_2003"/>
+         <object class="tamm.diagram.edit.parts.SkipTaskEditPart" id="SkipTask_2004"/>
+         <object class="tamm.diagram.edit.parts.FinalConditionEditPart" id="FinalCondition_2005"/>
+         <object class="tamm.diagram.edit.parts.AndJoinEditPart" id="AndJoin_2006"/>
+         <object class="tamm.diagram.edit.parts.InitialConditionEditPart" id="InitialCondition_2007"/>
+         <object class="tamm.diagram.edit.parts.SimpleTaskEditPart" id="SimpleTask_2008"/>
+         <object class="tamm.diagram.edit.parts.OrSplitEditPart" id="OrSplit_2009"/>
+         <object class="tamm.diagram.edit.parts.OrJoinEditPart" id="OrJoin_2010"/>
+         <context elements="ContextAwareSystem_1000,AndSplit_2001,PreCondition_2002,PostCondition_2003,SkipTask_2004,FinalCondition_2005,AndJoin_2006,InitialCondition_2007,SimpleTask_2008,OrSplit_2009,OrJoin_2010,"/>
+      </modelingAssistantProvider>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.common.ui.services.iconProviders" id="icon-provider">
+      <?gmfgen generated="true"?>
+      <IconProvider class="tamm.diagram.providers.TaskIconProvider">
+         <Priority name="Low"/>
+      </IconProvider>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.common.ui.services.parserProviders" id="parser-provider">
+      <?gmfgen generated="true"?>
+      <ParserProvider class="tamm.diagram.providers.TaskParserProvider">
+         <Priority name="Lowest"/>
+      </ParserProvider>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.emf.type.core.elementTypes" id="element-types">
+      <?gmfgen generated="true"?>
+      <metamodel nsURI="http://tesoriero.org/cauce/task/1.0">
+         <metamodelType
+               id="org.tesoriero.cauce.task.diagram.ContextAwareSystem_1000"
+               name="%metatype.name.ContextAwareSystem_1000"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="ContextAwareSystem"
+               edithelper="tamm.diagram.edit.helpers.ContextAwareSystemEditHelper">
+            <param name="semanticHint" value="1000"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://tesoriero.org/cauce/task/1.0">
+         <metamodelType
+               id="org.tesoriero.cauce.task.diagram.AndSplit_2001"
+               name="%metatype.name.AndSplit_2001"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="AndSplit"
+               edithelper="tamm.diagram.edit.helpers.AndSplitEditHelper">
+            <param name="semanticHint" value="2001"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://tesoriero.org/cauce/task/1.0">
+         <metamodelType
+               id="org.tesoriero.cauce.task.diagram.PreCondition_2002"
+               name="%metatype.name.PreCondition_2002"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="PreCondition"
+               edithelper="tamm.diagram.edit.helpers.PreConditionEditHelper">
+            <param name="semanticHint" value="2002"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://tesoriero.org/cauce/task/1.0">
+         <metamodelType
+               id="org.tesoriero.cauce.task.diagram.PostCondition_2003"
+               name="%metatype.name.PostCondition_2003"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="PostCondition"
+               edithelper="tamm.diagram.edit.helpers.PostConditionEditHelper">
+            <param name="semanticHint" value="2003"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://tesoriero.org/cauce/task/1.0">
+         <metamodelType
+               id="org.tesoriero.cauce.task.diagram.SkipTask_2004"
+               name="%metatype.name.SkipTask_2004"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="SkipTask"
+               edithelper="tamm.diagram.edit.helpers.SkipTaskEditHelper">
+            <param name="semanticHint" value="2004"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://tesoriero.org/cauce/task/1.0">
+         <metamodelType
+               id="org.tesoriero.cauce.task.diagram.FinalCondition_2005"
+               name="%metatype.name.FinalCondition_2005"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="FinalCondition"
+               edithelper="tamm.diagram.edit.helpers.FinalConditionEditHelper">
+            <param name="semanticHint" value="2005"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://tesoriero.org/cauce/task/1.0">
+         <metamodelType
+               id="org.tesoriero.cauce.task.diagram.AndJoin_2006"
+               name="%metatype.name.AndJoin_2006"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="AndJoin"
+               edithelper="tamm.diagram.edit.helpers.AndJoinEditHelper">
+            <param name="semanticHint" value="2006"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://tesoriero.org/cauce/task/1.0">
+         <metamodelType
+               id="org.tesoriero.cauce.task.diagram.InitialCondition_2007"
+               name="%metatype.name.InitialCondition_2007"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="InitialCondition"
+               edithelper="tamm.diagram.edit.helpers.InitialConditionEditHelper">
+            <param name="semanticHint" value="2007"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://tesoriero.org/cauce/task/1.0">
+         <metamodelType
+               id="org.tesoriero.cauce.task.diagram.SimpleTask_2008"
+               name="%metatype.name.SimpleTask_2008"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="SimpleTask"
+               edithelper="tamm.diagram.edit.helpers.SimpleTaskEditHelper">
+            <param name="semanticHint" value="2008"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://tesoriero.org/cauce/task/1.0">
+         <metamodelType
+               id="org.tesoriero.cauce.task.diagram.OrSplit_2009"
+               name="%metatype.name.OrSplit_2009"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="OrSplit"
+               edithelper="tamm.diagram.edit.helpers.OrSplitEditHelper">
+            <param name="semanticHint" value="2009"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://tesoriero.org/cauce/task/1.0">
+         <metamodelType
+               id="org.tesoriero.cauce.task.diagram.OrJoin_2010"
+               name="%metatype.name.OrJoin_2010"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="OrJoin"
+               edithelper="tamm.diagram.edit.helpers.OrJoinEditHelper">
+            <param name="semanticHint" value="2010"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://tesoriero.org/cauce/task/1.0">
+         <metamodelType
+               id="org.tesoriero.cauce.task.diagram.InputConditionToJoinTask_4001"
+               name="%metatype.name.InputConditionToJoinTask_4001"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="InputConditionToJoinTask"
+               edithelper="tamm.diagram.edit.helpers.InputConditionToJoinTaskEditHelper">
+            <param name="semanticHint" value="4001"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://tesoriero.org/cauce/task/1.0">
+         <metamodelType
+               id="org.tesoriero.cauce.task.diagram.InputConditionToSplitTask_4002"
+               name="%metatype.name.InputConditionToSplitTask_4002"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="InputConditionToSplitTask"
+               edithelper="tamm.diagram.edit.helpers.InputConditionToSplitTaskEditHelper">
+            <param name="semanticHint" value="4002"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://tesoriero.org/cauce/task/1.0">
+         <metamodelType
+               id="org.tesoriero.cauce.task.diagram.JoinTaskToOutputCondition_4003"
+               name="%metatype.name.JoinTaskToOutputCondition_4003"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="JoinTaskToOutputCondition"
+               edithelper="tamm.diagram.edit.helpers.JoinTaskToOutputConditionEditHelper">
+            <param name="semanticHint" value="4003"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://tesoriero.org/cauce/task/1.0">
+         <metamodelType
+               id="org.tesoriero.cauce.task.diagram.SplitTaskToOutputCondition_4004"
+               name="%metatype.name.SplitTaskToOutputCondition_4004"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="SplitTaskToOutputCondition"
+               edithelper="tamm.diagram.edit.helpers.SplitTaskToOutputConditionEditHelper">
+            <param name="semanticHint" value="4004"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://tesoriero.org/cauce/task/1.0">
+         <metamodelType
+               id="org.tesoriero.cauce.task.diagram.PreConditionToSystemTask_4005"
+               name="%metatype.name.PreConditionToSystemTask_4005"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="PreConditionToSystemTask"
+               edithelper="tamm.diagram.edit.helpers.PreConditionToSystemTaskEditHelper">
+            <param name="semanticHint" value="4005"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://tesoriero.org/cauce/task/1.0">
+         <metamodelType
+               id="org.tesoriero.cauce.task.diagram.SystemTaskToPostCondition_4006"
+               name="%metatype.name.SystemTaskToPostCondition_4006"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="SystemTaskToPostCondition"
+               edithelper="tamm.diagram.edit.helpers.SystemTaskToPostConditionEditHelper">
+            <param name="semanticHint" value="4006"/>
+         </metamodelType>
+      </metamodel>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.emf.type.core.elementTypeBindings" id="element-types-bindings">
+      <?gmfgen generated="true"?>
+      <clientContext id="org.tesoriero.cauce.task.diagram.TypeContext">
+         <enablement>
+            <test
+               property="org.eclipse.gmf.runtime.emf.core.editingDomain"
+               value="org.tesoriero.cauce.task.diagram.EditingDomain"/>
+         </enablement>
+      </clientContext> 
+      <binding context="org.tesoriero.cauce.task.diagram.TypeContext">
+         <elementType ref="org.tesoriero.cauce.task.diagram.ContextAwareSystem_1000"/>
+         <elementType ref="org.tesoriero.cauce.task.diagram.AndSplit_2001"/>
+         <elementType ref="org.tesoriero.cauce.task.diagram.PreCondition_2002"/>
+         <elementType ref="org.tesoriero.cauce.task.diagram.PostCondition_2003"/>
+         <elementType ref="org.tesoriero.cauce.task.diagram.SkipTask_2004"/>
+         <elementType ref="org.tesoriero.cauce.task.diagram.FinalCondition_2005"/>
+         <elementType ref="org.tesoriero.cauce.task.diagram.AndJoin_2006"/>
+         <elementType ref="org.tesoriero.cauce.task.diagram.InitialCondition_2007"/>
+         <elementType ref="org.tesoriero.cauce.task.diagram.SimpleTask_2008"/>
+         <elementType ref="org.tesoriero.cauce.task.diagram.OrSplit_2009"/>
+         <elementType ref="org.tesoriero.cauce.task.diagram.OrJoin_2010"/>
+         <elementType ref="org.tesoriero.cauce.task.diagram.InputConditionToJoinTask_4001"/>
+         <elementType ref="org.tesoriero.cauce.task.diagram.InputConditionToSplitTask_4002"/>
+         <elementType ref="org.tesoriero.cauce.task.diagram.JoinTaskToOutputCondition_4003"/>
+         <elementType ref="org.tesoriero.cauce.task.diagram.SplitTaskToOutputCondition_4004"/>
+         <elementType ref="org.tesoriero.cauce.task.diagram.PreConditionToSystemTask_4005"/>
+         <elementType ref="org.tesoriero.cauce.task.diagram.SystemTaskToPostCondition_4006"/>
+         <advice ref="org.eclipse.gmf.runtime.diagram.core.advice.notationDepdendents"/>
+      </binding>
+   </extension>
+	   <extension point="org.eclipse.core.expressions.propertyTesters" id="navigator-proptest.isURIEditorInput">
+      <?gmfgen generated="true"?>
+       <propertyTester
+           id="org.tesoriero.cauce.task.diagram.URIEditorInputPropertyTester"
+           type="org.eclipse.emf.common.ui.URIEditorInput"
+           namespace="org.tesoriero.cauce.task.diagram"
+           properties="isURIEditorInput"
+           class="tamm.diagram.part.TaskUriEditorInputTester">
+       </propertyTester>
+   </extension>
+
+	   <extension point="org.eclipse.ui.navigator.viewer" id="navigator-viewbinding">
+      <?gmfgen generated="true"?>
+      <viewerContentBinding viewerId="org.eclipse.ui.navigator.ProjectExplorer">
+         <includes>
+            <contentExtension pattern="org.tesoriero.cauce.task.diagram.resourceContent"/>
+			<contentExtension pattern="org.tesoriero.cauce.task.diagram.domainResourceContent"/>
+            <contentExtension pattern="org.tesoriero.cauce.task.diagram.navigatorLinkHelper"/>
+         </includes>
+      </viewerContentBinding>
+      <viewerActionBinding viewerId="org.eclipse.ui.navigator.ProjectExplorer">
+         <includes>
+            <actionExtension pattern="org.tesoriero.cauce.task.diagram.navigatorActionProvider"/>
+         </includes>
+      </viewerActionBinding>
+   </extension>
+
+   <extension point="org.eclipse.ui.navigator.navigatorContent" id="navigator-content">
+      <?gmfgen generated="true"?>
+      <navigatorContent
+            id="org.tesoriero.cauce.task.diagram.resourceContent" 
+            name="%navigatorContentName" 
+            priority="normal" 
+            contentProvider="tamm.diagram.navigator.TaskNavigatorContentProvider" 
+            labelProvider="tamm.diagram.navigator.TaskNavigatorLabelProvider"
+            icon="icons/obj16/TammDiagramFile.gif"
+            activeByDefault="true">
+         <triggerPoints>
+            <or>
+	           <and>
+    	          <instanceof value="org.eclipse.core.resources.IFile"/>
+        	      <test property="org.eclipse.core.resources.extension" value="tammdiag"/>
+               </and>
+               <instanceof value="tamm.diagram.navigator.TaskAbstractNavigatorItem"/>
+            </or>
+         </triggerPoints>
+         <possibleChildren>
+            <or>
+         	   <instanceof value="tamm.diagram.navigator.TaskAbstractNavigatorItem"/>
+            </or>
+         </possibleChildren>
+         <commonSorter 
+               id="org.tesoriero.cauce.task.diagram.navigatorSorter" 
+               class="tamm.diagram.navigator.TaskNavigatorSorter">
+            <parentExpression>
+               <or>
+	              <and>
+    	             <instanceof value="org.eclipse.core.resources.IFile"/>
+        	         <test property="org.eclipse.core.resources.extension" value="tammdiag"/>
+                  </and>
+                  <instanceof value="tamm.diagram.navigator.TaskAbstractNavigatorItem"/>
+               </or>
+            </parentExpression>
+         </commonSorter>
+      </navigatorContent>
+      <navigatorContent
+            id="org.tesoriero.cauce.task.diagram.domainResourceContent" 
+            name="%domainNavigatorContentName" 
+            priority="normal" 
+            contentProvider="tamm.diagram.navigator.TaskDomainNavigatorContentProvider" 
+            labelProvider="tamm.diagram.navigator.TaskDomainNavigatorLabelProvider"
+            icon="icons/obj16/TammDiagramFile.gif"
+            activeByDefault="true">
+         <triggerPoints>
+            <or>
+	           <and>
+    	          <instanceof value="org.eclipse.core.resources.IFile"/>
+        	      <test property="org.eclipse.core.resources.extension" value="tamm"/>
+               </and>
+               <instanceof value="tamm.diagram.navigator.TaskDomainNavigatorItem"/>
+            </or>
+         </triggerPoints>
+         <possibleChildren>
+            <instanceof value="tamm.diagram.navigator.TaskDomainNavigatorItem"/>
+         </possibleChildren>
+      </navigatorContent>
+      <actionProvider
+            id="org.tesoriero.cauce.task.diagram.navigatorActionProvider"
+            class="tamm.diagram.navigator.TaskNavigatorActionProvider">
+         <enablement>
+            <or>
+               <instanceof value="tamm.diagram.navigator.TaskAbstractNavigatorItem"/>
+            </or>
+         </enablement>
+      </actionProvider>
+   </extension>
+   
+	   <extension point="org.eclipse.ui.navigator.linkHelper" id="navigator-linkhelper">
+      <?gmfgen generated="true"?>
+      <linkHelper
+            id="org.tesoriero.cauce.task.diagram.navigatorLinkHelper"
+            class="tamm.diagram.navigator.TaskNavigatorLinkHelper">
+         <editorInputEnablement>
+            <and>
+               <instanceof value="org.eclipse.emf.common.ui.URIEditorInput"/>
+               <test property="org.tesoriero.cauce.task.diagram.isURIEditorInput"/>
+            </and>
+         </editorInputEnablement>
+         <selectionEnablement>
+            <instanceof value="tamm.diagram.navigator.TaskAbstractNavigatorItem"/>
+         </selectionEnablement>
+      </linkHelper>
+   </extension>
+   <extension point="org.eclipse.emf.validation.constraintProviders">
+      <?gmfgen generated="true"?>
+            <category id="RootContainer" mandatory="false" name="RootAuditContainer">
+         <![CDATA[Root Container]]>
+      </category>
+      <category id="RootContainer/TaskMetamodelAuditContainer" mandatory="false" name="TaskMetamodelAuditContainer">
+         <![CDATA[TaskMetamodelAuditContainer]]>
+      </category>
+      <category id="RootContainer/ConditionAuditContainer" mandatory="false" name="ConditionAuditContainer">
+         <![CDATA[ConditionAuditContainer]]>
+      </category>
+      <category id="RootContainer/TaskAuditContainer" mandatory="false" name="TaskAuditContainer">
+         <![CDATA[TaskAuditContainer]]>
+      </category>
+      <category id="RootContainer/ConditionAuditContainer/TaskOutputConditionAuditContainer" mandatory="false" name="TaskOutputConditionAuditContainer">
+         <![CDATA[TaskOutputConditionAuditContainer]]>
+      </category>
+      <category id="RootContainer/ConditionAuditContainer/TaskInputConditionAuditContainer" mandatory="false" name="TaskInputConditionAuditContainer">
+         <![CDATA[TaskInputConditionAuditContainer]]>
+      </category>
+      <category id="RootContainer/TaskAuditContainer/JoinAuditContainer" mandatory="false" name="JoinAuditContainer">
+         <![CDATA[JoinAuditContainer]]>
+      </category>
+      <category id="RootContainer/TaskAuditContainer/SplitAuditContainer" mandatory="false" name="SplitAuditContainer">
+         <![CDATA[SplitAuditContainer]]>
+      </category>
+      <category id="RootContainer/TaskAuditContainer/SystemTaskAuditContainer" mandatory="false" name="SystemTaskAuditContainer">
+         <![CDATA[SystemTaskAuditContainer]]>
+      </category>
+      <category id="RootContainer/TaskAuditContainer/RouteTaskAuditContainer" mandatory="false" name="RouteTaskAuditContainer">
+         <![CDATA[RouteTaskAuditContainer]]>
+      </category>
+      <category id="RootContainer/ConditionAuditContainer/TaskOutputConditionAuditContainer/PreConditionAuditContainer" mandatory="false" name="PreConditionAuditContainer">
+         <![CDATA[PreConditionAuditContainer]]>
+      </category>
+      <category id="RootContainer/ConditionAuditContainer/TaskInputConditionAuditContainer/PostConditionAuditContainer" mandatory="false" name="PostConditionAuditContainer">
+         <![CDATA[PostConditionAuditContainer]]>
+      </category>
+      <constraintProvider cache="true">
+         <package namespaceUri="http://tesoriero.org/cauce/task/1.0"/>
+               <constraints categories="RootContainer">
+                  </constraints>
+         <constraints categories="RootContainer/TaskMetamodelAuditContainer">
+                  <constraint id="ContexstAwareSystemNameNotNullAuditRule"
+            lang="Java" class="tamm.diagram.providers.TaskValidationProvider$Adapter1"
+            name="ContexstAwareSystemNameNotNullAuditRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            
+            <description><![CDATA[ContexstAwareSystemNameNotNullAuditRule]]></description>
+            <message><![CDATA[ContexstAwareSystem name must not be null]]></message>
+            <target class="tamm.ContextAwareSystem"/>
+         </constraint>
+                  </constraints>
+         <constraints categories="RootContainer/ConditionAuditContainer">
+                  <constraint id="ConditionSocialExpressionNotNullAuditRule"
+            lang="Java" class="tamm.diagram.providers.TaskValidationProvider$Adapter2"
+            name="ConditionSocialExpressionNotNullAuditRule"
+            mode="Batch"
+            severity="WARNING" statusCode="200">
+            
+            <description><![CDATA[ConditionSocialExpressionNotNullAuditRule]]></description>
+            <message><![CDATA[Condition socialExpression must not be null]]></message>
+            <target class="tamm.Condition"/>
+         </constraint>
+                  <constraint id="ConditionSpaceExpressionNotNullAuditRule"
+            lang="Java" class="tamm.diagram.providers.TaskValidationProvider$Adapter3"
+            name="ConditionSpaceExpressionNotNullAuditRule"
+            mode="Batch"
+            severity="WARNING" statusCode="200">
+            
+            <description><![CDATA[ConditionSpaceExpressionNotNullAuditRule]]></description>
+            <message><![CDATA[Condition spaceExpression must not be null]]></message>
+            <target class="tamm.Condition"/>
+         </constraint>
+                  <constraint id="ConditionTaskExpressionNotNullAuditRule"
+            lang="Java" class="tamm.diagram.providers.TaskValidationProvider$Adapter4"
+            name="ConditionTaskExpressionNotNullAuditRule"
+            mode="Batch"
+            severity="WARNING" statusCode="200">
+            
+            <description><![CDATA[ConditionTaskExpressionNotNullAuditRule]]></description>
+            <message><![CDATA[Condition taskExpression must not be null]]></message>
+            <target class="tamm.Condition"/>
+         </constraint>
+                  <constraint id="ConditionLogicExpressionNotNullAuditRule"
+            lang="Java" class="tamm.diagram.providers.TaskValidationProvider$Adapter5"
+            name="ConditionLogicExpressionNotNullAuditRule"
+            mode="Batch"
+            severity="WARNING" statusCode="200">
+            
+            <description><![CDATA[ConditionLogicExpressionNotNullAuditRule]]></description>
+            <message><![CDATA[Condition logicExpression must not be null]]></message>
+            <target class="tamm.Condition"/>
+         </constraint>
+                  <constraint id="ConditionDataExpressionNotNullAuditRule"
+            lang="Java" class="tamm.diagram.providers.TaskValidationProvider$Adapter6"
+            name="ConditionDataExpressionNotNullAuditRule"
+            mode="Batch"
+            severity="WARNING" statusCode="200">
+            
+            <description><![CDATA[ConditionDataExpressionNotNullAuditRule]]></description>
+            <message><![CDATA[Condition dataExpression must not be null]]></message>
+            <target class="tamm.Condition"/>
+         </constraint>
+                  <constraint id="ConditionIdNotNullAuditRule"
+            lang="Java" class="tamm.diagram.providers.TaskValidationProvider$Adapter7"
+            name="ConditionIdNotNullAuditRule"
+            mode="Batch"
+            severity="WARNING" statusCode="200">
+            
+            <description><![CDATA[ConditionIdNotNullAuditRule]]></description>
+            <message><![CDATA[Condition ID must not be null]]></message>
+            <target class="tamm.Condition"/>
+         </constraint>
+                  <constraint id="PreConditionIdUniqueAuditRule"
+            lang="OCL"
+            name="PreConditionIdUniqueAuditRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            <![CDATA[system.routeTasks->forAll(t| (t.id<>self.id)) and 
+system.systemTasks->forAll(t|   (t.id<>self.id)) and 
+system.preConditions->forAll(c| (c<>self) implies (c.id<>self.id)) and 
+system.postConditions->forAll(c| (c.id<>self.id)) and 
+system.initialConditions->forAll(c| (c.id<>self.id)) and 
+system.finalConditions->forAll(c| (c.id<>self.id)) ]]>
+            <description><![CDATA[PreConditionIdUniqueAuditRule]]></description>
+            <message><![CDATA[PreCondition ID must be unique]]></message>
+            <target class="tamm.PreCondition"/>
+         </constraint>
+                  <constraint id="PostConditionIdUniqueAuditRule"
+            lang="OCL"
+            name="PostConditionIdUniqueAuditRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            <![CDATA[system.routeTasks->forAll(t| (t.id<>self.id)) and
+system.systemTasks->forAll(t|   (t.id<>self.id)) and
+system.preConditions->forAll(c| (c<>self) implies (c.id<>self.id)) and
+system.postConditions->forAll(c| (c<>self) implies (c.id<>self.id)) and
+system.initialConditions->forAll(c| (c.id<>self.id)) and
+system.finalConditions->forAll(c| (c.id<>self.id))]]>
+            <description><![CDATA[PostConditionIdUniqueAuditRule]]></description>
+            <message><![CDATA[PostCondition ID must be unique]]></message>
+            <target class="tamm.PostCondition"/>
+         </constraint>
+                  <constraint id="InitialConditionIdUniqueAuditRule"
+            lang="OCL"
+            name="InitialConditionIdUniqueAuditRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            <![CDATA[system.routeTasks->forAll(t| (t.id<>self.id)) and
+system.systemTasks->forAll(t|   (t.id<>self.id)) and
+system.preConditions->forAll(c| (c<>self) implies (c.id<>self.id)) and
+system.postConditions->forAll(c| (c.id<>self.id)) and
+system.initialConditions->forAll(c| (c<>self) implies (c.id<>self.id)) and
+system.finalConditions->forAll(c| (c.id<>self.id))]]>
+            <description><![CDATA[InitialConditionIdUniqueAuditRule]]></description>
+            <message><![CDATA[InitialCondition ID must be unique]]></message>
+            <target class="tamm.InitialCondition"/>
+         </constraint>
+                  <constraint id="FinalConditionIdUniqueAuditRule"
+            lang="OCL"
+            name="FinalConditionIdUniqueAuditRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            <![CDATA[system.routeTasks->forAll(t| (t.id<>self.id)) and
+system.systemTasks->forAll(t|   (t.id<>self.id)) and
+system.preConditions->forAll(c| (c.id<>self.id)) and
+system.postConditions->forAll(c| (c.id<>self.id)) and
+system.initialConditions->forAll(c| (c<>self) implies (c.id<>self.id)) and
+system.finalConditions->forAll(c| (c<>self) implies (c.id<>self.id))]]>
+            <description><![CDATA[FinalConditionIdUniqueAuditRule]]></description>
+            <message><![CDATA[FinalCondition ID must be unique]]></message>
+            <target class="tamm.FinalCondition"/>
+         </constraint>
+                  </constraints>
+         <constraints categories="RootContainer/TaskAuditContainer">
+                  <constraint id="TaskIdNotNullAuditRule"
+            lang="Java" class="tamm.diagram.providers.TaskValidationProvider$Adapter12"
+            name="TaskIdNotNullAuditRule"
+            mode="Batch"
+            severity="WARNING" statusCode="200">
+            
+            <description><![CDATA[TaskIdNotNullAuditRule]]></description>
+            <message><![CDATA[Task ID must not be null]]></message>
+            <target class="tamm.Task"/>
+         </constraint>
+                  </constraints>
+         <constraints categories="RootContainer/ConditionAuditContainer/TaskOutputConditionAuditContainer">
+                  <constraint id="TaskOutputConditionIncomingNotNullAuditRule"
+            lang="OCL"
+            name="TaskOutputConditionIncomingNotNullAuditRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            <![CDATA[not incoming.oclIsUndefined()]]>
+            <description><![CDATA[TaskOutputConditionIncomingNotNullAuditRule]]></description>
+            <message><![CDATA[TaskOutputCondition incoming edge must not be null]]></message>
+            <target class="tamm.TaskOutputCondition"/>
+         </constraint>
+                  </constraints>
+         <constraints categories="RootContainer/ConditionAuditContainer/TaskInputConditionAuditContainer">
+                  <constraint id="TaskInputConditionOngoingNotNullAuditRule"
+            lang="OCL"
+            name="TaskInputConditionOngoingNotNullAuditRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            <![CDATA[not ongoing.oclIsUndefined()]]>
+            <description><![CDATA[TaskInputConditionOngoingNotNullAuditRule]]></description>
+            <message><![CDATA[TaskInputCondition ongoing edge must not be null]]></message>
+            <target class="tamm.TaskInputCondition"/>
+         </constraint>
+                  </constraints>
+         <constraints categories="RootContainer/TaskAuditContainer/JoinAuditContainer">
+                  <constraint id="JoinIncomingGreaterThanZeroAuditRule"
+            lang="OCL"
+            name="JoinIncomingGreaterThanZeroAuditRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            <![CDATA[incoming->size()>0]]>
+            <description><![CDATA[JoinIncomingGreaterThanZeroAuditRule]]></description>
+            <message><![CDATA[Join incoming eadges must be greater than 0]]></message>
+            <target class="tamm.Join"/>
+         </constraint>
+                  <constraint id="JoinOngoingNotNullAuditRule"
+            lang="OCL"
+            name="JoinOngoingNotNullAuditRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            <![CDATA[not ongoing.oclIsUndefined()]]>
+            <description><![CDATA[JoinOngoingNotNullAuditRule]]></description>
+            <message><![CDATA[Join ongoing edge must not be null]]></message>
+            <target class="tamm.Join"/>
+         </constraint>
+                  </constraints>
+         <constraints categories="RootContainer/TaskAuditContainer/SplitAuditContainer">
+                  <constraint id="SplitOngoingGreaterThanZeroAuditRule"
+            lang="OCL"
+            name="SplitOngoingGreaterThanZeroAuditRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            <![CDATA[ongoing->size()>0]]>
+            <description><![CDATA[SplitOngoingGreaterThanZeroAuditRule]]></description>
+            <message><![CDATA[Split ongoing eadges must be greater than 0]]></message>
+            <target class="tamm.Split"/>
+         </constraint>
+                  <constraint id="SplitIncomingNotNullAuditRule"
+            lang="OCL"
+            name="SplitIncomingNotNullAuditRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            <![CDATA[not incoming.oclIsUndefined()]]>
+            <description><![CDATA[SplitIncomingNotNullAuditRule]]></description>
+            <message><![CDATA[Split incoming edge must not be null]]></message>
+            <target class="tamm.Split"/>
+         </constraint>
+                  </constraints>
+         <constraints categories="RootContainer/TaskAuditContainer/SystemTaskAuditContainer">
+                  <constraint id="SystemTaskIncomingNotNullAuditRule"
+            lang="OCL"
+            name="SystemTaskIncomingNotNullAuditRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            <![CDATA[not incoming.oclIsUndefined()]]>
+            <description><![CDATA[SystemTaskIncomingNotNullAuditRule]]></description>
+            <message><![CDATA[SystemTask incoming edge must not be null]]></message>
+            <target class="tamm.SystemTask"/>
+         </constraint>
+                  <constraint id="SystemTaskOngoingNotNullAuditRule"
+            lang="OCL"
+            name="SystemTaskOngoingNotNullAuditRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            <![CDATA[not ongoing.oclIsUndefined()]]>
+            <description><![CDATA[SystemTaskOngoingNotNullAuditRule]]></description>
+            <message><![CDATA[SystemTask ongoing edge must not be null]]></message>
+            <target class="tamm.SystemTask"/>
+         </constraint>
+                  <constraint id="SimpleTaskNameNotNullAuditRule"
+            lang="Java" class="tamm.diagram.providers.TaskValidationProvider$Adapter21"
+            name="SimpleTaskNameNotNullAuditRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            
+            <description><![CDATA[SimpleTaskNameNotNullAuditRule]]></description>
+            <message><![CDATA[SimpleTask name must not be null]]></message>
+            <target class="tamm.SimpleTask"/>
+         </constraint>
+                  <constraint id="SimpleTaskNameUniqueAuditRule"
+            lang="OCL"
+            name="SimpleTaskNameUniqueAuditRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            <![CDATA[system.systemTasks->forAll(t | (t.oclIsTypeOf(SimpleTask) and t<>self) implies (self.oclAsType(SimpleTask).name<>t.oclAsType(SimpleTask).name))]]>
+            <description><![CDATA[SimpleTaskNameUniqueAuditRule]]></description>
+            <message><![CDATA[SimpleTask name must be unique]]></message>
+            <target class="tamm.SimpleTask"/>
+         </constraint>
+                  <constraint id="SystemTaskIdUniqueAuditRule"
+            lang="OCL"
+            name="SystemTaskIdUniqueAuditRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            <![CDATA[system.routeTasks->forAll(t| (t.id<>self.id)) and
+system.systemTasks->forAll(t|  (t<>self) implies (t.id<>self.id)) and
+system.preConditions->forAll(c| (c.id<>self.id)) and
+system.postConditions->forAll(c| (c.id<>self.id)) and
+system.initialConditions->forAll(c| (c.id<>self.id)) and
+system.finalConditions->forAll(c| (c.id<>self.id))]]>
+            <description><![CDATA[SystemTaskIdUniqueAuditRule]]></description>
+            <message><![CDATA[SystemTask ID must be unique]]></message>
+            <target class="tamm.SystemTask"/>
+         </constraint>
+                  </constraints>
+         <constraints categories="RootContainer/TaskAuditContainer/RouteTaskAuditContainer">
+                  <constraint id="RouteTaskIdUniqueAuditRule"
+            lang="OCL"
+            name="RouteTaskIdUniqueAuditRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            <![CDATA[system.routeTasks->forAll(t| (t<>self) implies (t.id<>self.id)) and
+system.systemTasks->forAll(t| (t.id<>self.id)) and
+system.preConditions->forAll(c| (c.id<>self.id)) and
+system.postConditions->forAll(c| (c.id<>self.id)) and
+system.initialConditions->forAll(c| (c.id<>self.id)) and
+system.finalConditions->forAll(c| (c.id<>self.id))]]>
+            <description><![CDATA[RouteTaskIdUniqueAuditRule]]></description>
+            <message><![CDATA[RouteTask ID must be unique]]></message>
+            <target class="tamm.RouteTask"/>
+         </constraint>
+                  </constraints>
+         <constraints categories="RootContainer/ConditionAuditContainer/TaskOutputConditionAuditContainer/PreConditionAuditContainer">
+                  <constraint id="PreConditionOngoingNotNullAuditRule"
+            lang="OCL"
+            name="PreConditionOngoingNotNullAuditRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            <![CDATA[not ongoing->oclIsUndefined()]]>
+            <description><![CDATA[PreConditionOngoingNotNullAuditRule]]></description>
+            <message><![CDATA[PreCondition ongoing edge must not be null]]></message>
+            <target class="tamm.PreCondition"/>
+         </constraint>
+                  </constraints>
+         <constraints categories="RootContainer/ConditionAuditContainer/TaskInputConditionAuditContainer/PostConditionAuditContainer">
+                  <constraint id="PostConditionIncomingNotNullAuditRule"
+            lang="OCL"
+            name="PostConditionIncomingNotNullAuditRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            <![CDATA[not incoming->oclIsUndefined()]]>
+            <description><![CDATA[PostConditionIncomingNotNullAuditRule]]></description>
+            <message><![CDATA[PostCondition incoming edge must not be null]]></message>
+            <target class="tamm.PostCondition"/>
+         </constraint>
+                  </constraints>
+      </constraintProvider>
+   </extension>
+
+   <extension point="org.eclipse.emf.validation.constraintBindings">
+      <?gmfgen generated="true"?>
+      <clientContext default="false" id="org.tesoriero.cauce.task.diagramDefaultCtx">
+         <selector class="tamm.diagram.providers.TaskValidationProvider$DefaultCtx"/>
+      </clientContext>
+      <binding context="org.tesoriero.cauce.task.diagramDefaultCtx">
+                  <constraint ref="org.tesoriero.cauce.task.diagram.ContexstAwareSystemNameNotNullAuditRule"/>
+                  <constraint ref="org.tesoriero.cauce.task.diagram.ConditionSocialExpressionNotNullAuditRule"/>
+                  <constraint ref="org.tesoriero.cauce.task.diagram.ConditionSpaceExpressionNotNullAuditRule"/>
+                  <constraint ref="org.tesoriero.cauce.task.diagram.ConditionTaskExpressionNotNullAuditRule"/>
+                  <constraint ref="org.tesoriero.cauce.task.diagram.ConditionLogicExpressionNotNullAuditRule"/>
+                  <constraint ref="org.tesoriero.cauce.task.diagram.ConditionDataExpressionNotNullAuditRule"/>
+                  <constraint ref="org.tesoriero.cauce.task.diagram.ConditionIdNotNullAuditRule"/>
+                  <constraint ref="org.tesoriero.cauce.task.diagram.PreConditionIdUniqueAuditRule"/>
+                  <constraint ref="org.tesoriero.cauce.task.diagram.PostConditionIdUniqueAuditRule"/>
+                  <constraint ref="org.tesoriero.cauce.task.diagram.InitialConditionIdUniqueAuditRule"/>
+                  <constraint ref="org.tesoriero.cauce.task.diagram.FinalConditionIdUniqueAuditRule"/>
+                  <constraint ref="org.tesoriero.cauce.task.diagram.TaskIdNotNullAuditRule"/>
+                  <constraint ref="org.tesoriero.cauce.task.diagram.TaskOutputConditionIncomingNotNullAuditRule"/>
+                  <constraint ref="org.tesoriero.cauce.task.diagram.TaskInputConditionOngoingNotNullAuditRule"/>
+                  <constraint ref="org.tesoriero.cauce.task.diagram.JoinIncomingGreaterThanZeroAuditRule"/>
+                  <constraint ref="org.tesoriero.cauce.task.diagram.JoinOngoingNotNullAuditRule"/>
+                  <constraint ref="org.tesoriero.cauce.task.diagram.SplitOngoingGreaterThanZeroAuditRule"/>
+                  <constraint ref="org.tesoriero.cauce.task.diagram.SplitIncomingNotNullAuditRule"/>
+                  <constraint ref="org.tesoriero.cauce.task.diagram.SystemTaskIncomingNotNullAuditRule"/>
+                  <constraint ref="org.tesoriero.cauce.task.diagram.SystemTaskOngoingNotNullAuditRule"/>
+                  <constraint ref="org.tesoriero.cauce.task.diagram.SimpleTaskNameNotNullAuditRule"/>
+                  <constraint ref="org.tesoriero.cauce.task.diagram.SimpleTaskNameUniqueAuditRule"/>
+                  <constraint ref="org.tesoriero.cauce.task.diagram.SystemTaskIdUniqueAuditRule"/>
+                  <constraint ref="org.tesoriero.cauce.task.diagram.RouteTaskIdUniqueAuditRule"/>
+                  <constraint ref="org.tesoriero.cauce.task.diagram.PreConditionOngoingNotNullAuditRule"/>
+                  <constraint ref="org.tesoriero.cauce.task.diagram.PostConditionIncomingNotNullAuditRule"/>
+               </binding>
+
+   </extension>
+
+
+   <extension point="org.eclipse.emf.validation.ui.UIRegisteredClientContext">
+      <?gmfgen generated="true"?>
+      <clientContext id="org.tesoriero.cauce.task.diagramDefaultCtx"/>
+   </extension>
+
+   <extension point="org.eclipse.ui.commands" id="update-cmd">
+      <?gmfgen generated="true"?>
+      <command
+         categoryId="org.eclipse.ui.category.edit"
+         defaultHandler="tamm.diagram.part.TaskDiagramUpdateCommand"
+         description="%update.diagram.description"
+         id="tamm.diagram.updateDiagram"
+         name="%update.diagram.name"/>
+   </extension>
+   
+   <extension point="org.eclipse.ui.bindings" id="update-cmd-binding">
+      <?gmfgen generated="true"?>
+      <key 
+         commandId="tamm.diagram.updateDiagram"
+         contextId="tamm.diagram.ui.diagramContext"
+         schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+         sequence="F5"/>
+   </extension>
+
+   <extension point="org.eclipse.ui.menus" id="context-menus">
+      <?gmfgen generated="true"?>
+      <!-- menuContribution locationURI="menu:org.eclipse.ui.main.menu?after=">
+      </menuContribution>
+      <menuContribution locationURI="toolbar:org.eclipse.ui.main.toolbar?after=">
+      </menuContribution -->
+      <menuContribution locationURI="popup:org.eclipse.gmf.runtime.diagram.ui.DiagramEditorContextMenu">
+         <command commandId="org.tesoriero.cauce.task.diagram.LoadResourceAction">
+            <visibleWhen>
+               <and>
+                  <with variable="activePartId"><equals value="tamm.diagram.part.TaskDiagramEditorID"/></with>
+                  <with variable="selection"><iterate ifEmpty="false"> 
+                     <instanceof value="tamm.diagram.edit.parts.ContextAwareSystemEditPart"/>
+                  </iterate></with>
+               </and>
+            </visibleWhen>
+         </command>
+      </menuContribution>
+   </extension>
+
+   <extension point="org.eclipse.ui.commands" id="menu-commands">
+      <?gmfgen generated="true"?>
+      <category id="tamm.diagram.part.TaskDiagramEditorID" name="%cmdcategory.name" description="%cmdcategory.desc"/>
+      <command id="org.tesoriero.cauce.task.diagram.LoadResourceAction"
+         name="Load Resource"
+         categoryId="tamm.diagram.part.TaskDiagramEditorID"
+         defaultHandler="tamm.diagram.part.LoadResourceAction"/>
+   </extension>
+
+   <extension point="org.eclipse.ui.handlers" id="menu-handlers">
+      <?gmfgen generated="true"?>
+   </extension>
+
+   <!-- optionally, specify keybindings -->
+</plugin>

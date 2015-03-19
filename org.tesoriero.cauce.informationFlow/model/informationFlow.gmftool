@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gmftool:ToolRegistry
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:gmftool="http://www.eclipse.org/gmf/2005/ToolDefinition">
+  <palette
+      title="ifmmPalette">
+    <tools
+        xsi:type="gmftool:ToolGroup"
+        title="ifmm">
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="ContextAwareEntity"
+          description="Create new ContextAwareEntity">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="PointToPointInformationFlow"
+          description="Create new PointToPointInformationFlow">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="BroadcastInformationFlow"
+          description="Create new BroadcastInformationFlow">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:PaletteSeparator"/>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="EntityToBroadcastInformationFlowEdge"
+          description="Create new EntityToBroadcastInformationFlowEdge">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="EntityToPointToPointInformationFlowEdge"
+          description="Create new EntityToPointToPointInformationFlowEdge">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="BroadcastInformationFlowToEntityEdge"
+          description="Create new BroadcastInformationFlowToEntityEdge">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="PointToPointInformationFlowToEntityEdge"
+          description="Create new PointToPointInformationFlowToEntityEdge">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:PaletteSeparator"/>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="InputData"
+          description="Create new InputData">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="OutputData"
+          description="Create new OutputData">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+    </tools>
+  </palette>
+</gmftool:ToolRegistry>

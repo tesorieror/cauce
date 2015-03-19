@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ifmm="ifmm" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.1/notation" xmi:id="_IqFlwGxbEd69KOyUIp9b1A" type="Ifmm" measurementUnit="Pixel">
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_IqGM0GxbEd69KOyUIp9b1A"/>
+  <element xmi:type="ifmm:SystemInformaitonFlow" href="sample.ifmm#/"/>
+</notation:Diagram>

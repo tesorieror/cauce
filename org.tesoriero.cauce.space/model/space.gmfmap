@@ -1,0 +1,423 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gmfmap:Mapping
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:gmfmap="http://www.eclipse.org/gmf/2008/mappings"
+    xmlns:gmftool="http://www.eclipse.org/gmf/2005/ToolDefinition">
+  <nodes>
+    <containmentFeature
+        href="space.ecore#//Universe/physicalSpaces"/>
+    <ownedChild>
+      <domainMetaElement
+          href="space.ecore#//PhysicalSpace"/>
+      <domainInitializer
+          xsi:type="gmfmap:FeatureSeqInitializer">
+        <initializers
+            xsi:type="gmfmap:FeatureValueSpec">
+          <feature
+              xsi:type="ecore:EAttribute"
+              href="space.ecore#//Space/id"/>
+          <value
+              body="universe.physicalSpaces->iterate(c; m:Integer=0 | m.max(c.id)).max(universe.virtualSpaces->iterate(c; m:Integer=0 | m.max(c.id))).max(universe.generalizations->iterate(c; m:Integer=0 | m.max(c.id))).max(universe.representations->iterate(c; m:Integer=0 | m.max(c.id))).max(universe.groupings->iterate(c; m:Integer=0 | m.max(c.id))).max(universe.contentions->iterate(c; m:Integer=0 | m.max(c.id))) +1"/>
+        </initializers>
+        <initializers
+            xsi:type="gmfmap:FeatureValueSpec">
+          <feature
+              xsi:type="ecore:EAttribute"
+              href="space.ecore#//Space/name"/>
+          <value
+              body="'PhysicalSpace'.concat( let number: Integer = id in OrderedSet{1000000, 10000, 1000, 100, 10, 1}&#xD;&#xA;->iterate(denominator : Integer; s : String = '' | let numberAsString : String= OrderedSet{'0','1','2','3','4','5','6','7','8','9'}&#xD;&#xA;->at(number.div(denominator).mod(10) + 1)&#xD;&#xA;in if s='' and numberAsString = '0' then s else s.concat(numberAsString) endif))"/>
+        </initializers>
+      </domainInitializer>
+      <labelMappings
+          xsi:type="gmfmap:FeatureLabelMapping">
+        <diagramLabel
+            href="space.gmfgraph#PhysicalSpaceName"/>
+        <features
+            href="space.ecore#//Space/name"/>
+      </labelMappings>
+      <tool
+          xsi:type="gmftool:CreationTool"
+          href="space.gmftool#//@palette/@tools.0/@tools.1"/>
+      <diagramNode
+          href="space.gmfgraph#PhysicalSpace"/>
+    </ownedChild>
+  </nodes>
+  <nodes>
+    <containmentFeature
+        href="space.ecore#//Universe/virtualSpaces"/>
+    <ownedChild>
+      <domainMetaElement
+          href="space.ecore#//VirtualSpace"/>
+      <domainInitializer
+          xsi:type="gmfmap:FeatureSeqInitializer">
+        <initializers
+            xsi:type="gmfmap:FeatureValueSpec">
+          <feature
+              xsi:type="ecore:EAttribute"
+              href="space.ecore#//Space/id"/>
+          <value
+              body="universe.physicalSpaces->iterate(c; m:Integer=0 | m.max(c.id)).max(universe.virtualSpaces->iterate(c; m:Integer=0 | m.max(c.id))).max(universe.generalizations->iterate(c; m:Integer=0 | m.max(c.id))).max(universe.representations->iterate(c; m:Integer=0 | m.max(c.id))).max(universe.groupings->iterate(c; m:Integer=0 | m.max(c.id))).max(universe.contentions->iterate(c; m:Integer=0 | m.max(c.id))) +1"/>
+        </initializers>
+        <initializers
+            xsi:type="gmfmap:FeatureValueSpec">
+          <feature
+              xsi:type="ecore:EAttribute"
+              href="space.ecore#//Space/name"/>
+          <value
+              body="'VirtualSpace'.concat( let number: Integer = id in OrderedSet{1000000, 10000, 1000, 100, 10, 1}&#xD;&#xA;->iterate(denominator : Integer; s : String = '' | let numberAsString : String= OrderedSet{'0','1','2','3','4','5','6','7','8','9'}&#xD;&#xA;->at(number.div(denominator).mod(10) + 1)&#xD;&#xA;in if s='' and numberAsString = '0' then s else s.concat(numberAsString) endif))"/>
+        </initializers>
+      </domainInitializer>
+      <labelMappings
+          xsi:type="gmfmap:FeatureLabelMapping">
+        <diagramLabel
+            href="space.gmfgraph#VirtualSpaceName"/>
+        <features
+            href="space.ecore#//Space/name"/>
+      </labelMappings>
+      <tool
+          xsi:type="gmftool:CreationTool"
+          href="space.gmftool#//@palette/@tools.0/@tools.0"/>
+      <diagramNode
+          href="space.gmfgraph#VirtualSpace"/>
+    </ownedChild>
+  </nodes>
+  <links>
+    <domainMetaElement
+        href="space.ecore#//Grouping"/>
+    <domainInitializer
+        xsi:type="gmfmap:FeatureSeqInitializer">
+      <initializers
+          xsi:type="gmfmap:FeatureValueSpec">
+        <feature
+            xsi:type="ecore:EAttribute"
+            href="space.ecore#//SpaceRelationship/id"/>
+        <value
+            body="universe.physicalSpaces->iterate(c; m:Integer=0 | m.max(c.id)).max(universe.virtualSpaces->iterate(c; m:Integer=0 | m.max(c.id))).max(universe.generalizations->iterate(c; m:Integer=0 | m.max(c.id))).max(universe.representations->iterate(c; m:Integer=0 | m.max(c.id))).max(universe.groupings->iterate(c; m:Integer=0 | m.max(c.id))).max(universe.contentions->iterate(c; m:Integer=0 | m.max(c.id))) +1"/>
+      </initializers>
+    </domainInitializer>
+    <containmentFeature
+        href="space.ecore#//Universe/groupings"/>
+    <tool
+        xsi:type="gmftool:CreationTool"
+        href="space.gmftool#//@palette/@tools.0/@tools.3"/>
+    <diagramLink
+        href="space.gmfgraph#Grouping"/>
+    <sourceMetaFeature
+        xsi:type="ecore:EReference"
+        href="space.ecore#//Grouping/parent"/>
+    <linkMetaFeature
+        xsi:type="ecore:EReference"
+        href="space.ecore#//Grouping/child"/>
+  </links>
+  <links>
+    <domainMetaElement
+        href="space.ecore#//Contention"/>
+    <domainInitializer
+        xsi:type="gmfmap:FeatureSeqInitializer">
+      <initializers
+          xsi:type="gmfmap:FeatureValueSpec">
+        <feature
+            xsi:type="ecore:EAttribute"
+            href="space.ecore#//SpaceRelationship/id"/>
+        <value
+            body="universe.physicalSpaces->iterate(c; m:Integer=0 | m.max(c.id)).max(universe.virtualSpaces->iterate(c; m:Integer=0 | m.max(c.id))).max(universe.generalizations->iterate(c; m:Integer=0 | m.max(c.id))).max(universe.representations->iterate(c; m:Integer=0 | m.max(c.id))).max(universe.groupings->iterate(c; m:Integer=0 | m.max(c.id))).max(universe.contentions->iterate(c; m:Integer=0 | m.max(c.id))) +1"/>
+      </initializers>
+    </domainInitializer>
+    <containmentFeature
+        href="space.ecore#//Universe/contentions"/>
+    <tool
+        xsi:type="gmftool:CreationTool"
+        href="space.gmftool#//@palette/@tools.0/@tools.5"/>
+    <diagramLink
+        href="space.gmfgraph#Contention"/>
+    <sourceMetaFeature
+        xsi:type="ecore:EReference"
+        href="space.ecore#//Contention/parent"/>
+    <linkMetaFeature
+        xsi:type="ecore:EReference"
+        href="space.ecore#//Contention/child"/>
+  </links>
+  <links>
+    <domainMetaElement
+        href="space.ecore#//Generalization"/>
+    <domainInitializer
+        xsi:type="gmfmap:FeatureSeqInitializer">
+      <initializers
+          xsi:type="gmfmap:FeatureValueSpec">
+        <feature
+            xsi:type="ecore:EAttribute"
+            href="space.ecore#//SpaceRelationship/id"/>
+        <value
+            body="universe.physicalSpaces->iterate(c; m:Integer=0 | m.max(c.id)).max(universe.virtualSpaces->iterate(c; m:Integer=0 | m.max(c.id))).max(universe.generalizations->iterate(c; m:Integer=0 | m.max(c.id))).max(universe.representations->iterate(c; m:Integer=0 | m.max(c.id))).max(universe.groupings->iterate(c; m:Integer=0 | m.max(c.id))).max(universe.contentions->iterate(c; m:Integer=0 | m.max(c.id))) +1"/>
+      </initializers>
+    </domainInitializer>
+    <containmentFeature
+        href="space.ecore#//Universe/generalizations"/>
+    <tool
+        xsi:type="gmftool:CreationTool"
+        href="space.gmftool#//@palette/@tools.0/@tools.4"/>
+    <diagramLink
+        href="space.gmfgraph#Generalization"/>
+    <sourceMetaFeature
+        xsi:type="ecore:EReference"
+        href="space.ecore#//Generalization/parent"/>
+    <linkMetaFeature
+        xsi:type="ecore:EReference"
+        href="space.ecore#//Generalization/generalizes"/>
+  </links>
+  <diagram>
+    <diagramCanvas
+        href="space.gmfgraph#spmm"/>
+    <domainModel
+        href="space.ecore#/"/>
+    <domainMetaElement
+        href="space.ecore#//Universe"/>
+    <palette
+        href="space.gmftool#//@palette"/>
+  </diagram>
+  <audits
+      id="SocialMetamodelAuditContainer"
+      name="SocialMetamodelAuditContainer"
+      description="SocialMetamodelAuditContainer">
+    <childContainers
+        id="LinkRestrictionsAuditContainer"
+        name="LinkRestrictionsAuditContainer"
+        description="LinkRestrictionsAuditContainer">
+      <audits
+          name="SelfGroupingRule"
+          description="Avoiding self grouping"
+          id="SelfGrouping"
+          useInLiveMode="true"
+          message="No space can be grouped to itself">
+        <rule
+            body="parent.id&lt;>child.id"/>
+        <target
+            xsi:type="gmfmap:DomainElementTarget">
+          <element
+              href="space.ecore#//Grouping"/>
+        </target>
+      </audits>
+      <audits
+          name="SelfContainmentRule"
+          description="Avoid self containment"
+          id="SelfContainment"
+          useInLiveMode="true"
+          message="No space can be self contained">
+        <rule
+            body="parent.id&lt;>child.id"/>
+        <target
+            xsi:type="gmfmap:DomainElementTarget">
+          <element
+              href="space.ecore#//Contention"/>
+        </target>
+      </audits>
+      <audits
+          name="SelfGeneralizationRule"
+          description="Avoid space self generalization"
+          id="SelfGeneralization"
+          useInLiveMode="true"
+          message="No space can be self generalized">
+        <rule
+            body="generalizes.id&lt;>parent.id"/>
+        <target
+            xsi:type="gmfmap:DomainElementTarget">
+          <element
+              href="space.ecore#//Generalization"/>
+        </target>
+      </audits>
+      <audits
+          name="DoubleGroupingRule"
+          description="Avoid double grouping definitions"
+          id="DoubleGrouping"
+          useInLiveMode="true"
+          message="Grouping relationship already defined">
+        <rule
+            body="universe.groupings->forAll(g| (g.parent.id&lt;>parent.id or g.child.id&lt;>child.id) or (g.id=id))"/>
+        <target
+            xsi:type="gmfmap:DomainElementTarget">
+          <element
+              href="space.ecore#//Grouping"/>
+        </target>
+      </audits>
+      <audits
+          name="DoubleGeneralizationRule"
+          description="Avoid double generalization definitions"
+          id="DoubleGeneralization"
+          useInLiveMode="true"
+          message="Generalization relationship already defined">
+        <rule
+            body="universe.generalizations->forAll(g| (g.parent.id&lt;>parent.id or g.generalizes.id&lt;>generalizes.id) or (g.id=id))"/>
+        <target
+            xsi:type="gmfmap:DomainElementTarget">
+          <element
+              href="space.ecore#//Generalization"/>
+        </target>
+      </audits>
+      <audits
+          name="DoubleContentionRule"
+          description="Avoid double contention definitions"
+          id="DoubleContention"
+          useInLiveMode="true"
+          message="Contention relationship already defined">
+        <rule
+            body="universe.contentions->forAll(g| (g.parent.id&lt;>parent.id or g.child.id&lt;>child.id) or (g.id=id))"/>
+        <target
+            xsi:type="gmfmap:DomainElementTarget">
+          <element
+              href="space.ecore#//Contention"/>
+        </target>
+      </audits>
+      <audits
+          name="UniqueGroupingIdAuditRule"
+          description="UniqueGroupingIdAuditRule"
+          id="UniqueGroupingIdAuditRule"
+          message="Grouping relationship ID must be unique">
+        <rule
+            body="(universe.id&lt;>self.id) and&#xD;&#xA;universe.physicalSpaces->forAll(phs|  (phs.id&lt;>self.id)) and&#xD;&#xA;universe.virtualSpaces->forAll(vs| (vs.id&lt;>self.id)) and&#xD;&#xA;universe.groupings->forAll(g | (g&lt;>self) implies (g.id&lt;>self.id)) and&#xD;&#xA;universe.generalizations->forAll(gens | (gens.id&lt;>self.id)) and&#xD;&#xA;universe.contentions->forAll(c | (c.id&lt;>self.id))"/>
+        <target
+            xsi:type="gmfmap:DomainElementTarget">
+          <element
+              href="space.ecore#//Grouping"/>
+        </target>
+      </audits>
+      <audits
+          name="UniqueContainmentIdAuditRule"
+          description="UniqueContainmentIdAuditRule"
+          id="UniqueContainmentIdAuditRule"
+          message="Containment relationship ID must be unique">
+        <rule
+            body="(universe.id&lt;>self.id) and&#xD;&#xA;universe.physicalSpaces->forAll(phs|  (phs.id&lt;>self.id)) and&#xD;&#xA;universe.virtualSpaces->forAll(vs| (vs.id&lt;>self.id)) and&#xD;&#xA;universe.groupings->forAll(g | g.id&lt;>self.id) and&#xD;&#xA;universe.generalizations->forAll(gens | (gens.id&lt;>self.id)) and&#xD;&#xA;universe.contentions->forAll(c | (c&lt;>self) implies (c.id&lt;>self.id))"/>
+        <target
+            xsi:type="gmfmap:DomainElementTarget">
+          <element
+              href="space.ecore#//Contention"/>
+        </target>
+      </audits>
+      <audits
+          name="UniqueGeneralizationIdAuditRule"
+          description="UniqueGeneralizationIdAuditRule"
+          id="UniqueGeneralizationIdAuditRule"
+          message="Generalization relationship ID must be unique">
+        <rule
+            body="(universe.id&lt;>self.id) and&#xD;&#xA;universe.physicalSpaces->forAll(phs | (phs.id&lt;>self.id)) and&#xD;&#xA;universe.virtualSpaces->forAll(vs | (vs.id&lt;>self.id)) and&#xD;&#xA;universe.groupings->forAll(g | g.id&lt;>self.id) and&#xD;&#xA;universe.generalizations->forAll(gens | (gens&lt;>self) implies (gens.id&lt;>self.id)) and&#xD;&#xA;universe.contentions->forAll(c | c.id&lt;>self.id)"/>
+        <target
+            xsi:type="gmfmap:DomainElementTarget">
+          <element
+              href="space.ecore#//Generalization"/>
+        </target>
+      </audits>
+      <audits
+          name="NotNullSpaceRelationshipIdAuditRule"
+          description="NotNullSpaceRelationshipIdAuditRule"
+          id="NotNullSpaceRelationshipIdAuditRule"
+          message="Space relationship ID must not be null">
+        <rule
+            body="self>0"/>
+        <target
+            xsi:type="gmfmap:DomainAttributeTarget"
+            nullAsError="true">
+          <attribute
+              href="space.ecore#//SpaceRelationship/id"/>
+        </target>
+      </audits>
+    </childContainers>
+    <childContainers
+        id="PhysicalSpaceAuditContainer"
+        name="PhysicalSpaceAuditContainer"
+        description="PhysicalSpaceAuditContainer">
+      <audits
+          name="PhysicalSpaceNameUniqueAuditRule"
+          description="PhysicalSpaceNameUniqueAuditRule"
+          id="PhysicalSpaceNameUniqueAuditRule"
+          message="PhysicalSpace name must be unique">
+        <rule
+            body="(universe.name&lt;>self.name) and&#xD;&#xA;universe.physicalSpaces->forAll(phs | (phs&lt;>self) implies (phs.name&lt;>self.name)) and&#xD;&#xA;universe.virtualSpaces->forAll(vs | (vs.name&lt;>self.name))"/>
+        <target
+            xsi:type="gmfmap:DomainElementTarget">
+          <element
+              href="space.ecore#//PhysicalSpace"/>
+        </target>
+      </audits>
+      <audits
+          name="PhysicalSpaceIdUniqueAuditRule"
+          description="PhysicalSpaceIdUniqueAuditRule"
+          id="PhysicalSpaceIdUniqueAuditRule"
+          message="PhysicalSpace ID must be unique">
+        <rule
+            body="(universe.id&lt;>self.id) and&#xD;&#xA;universe.physicalSpaces->forAll(phs | (phs&lt;>self) implies (phs.id&lt;>self.id)) and&#xD;&#xA;universe.virtualSpaces->forAll(vs | (vs.id&lt;>self.id)) and&#xD;&#xA;universe.groupings->forAll(g | g.id&lt;>self.id) and&#xD;&#xA;universe.generalizations->forAll(gens | gens.id&lt;>self.id) and&#xD;&#xA;universe.contentions->forAll(c | c.id&lt;>self.id)"/>
+        <target
+            xsi:type="gmfmap:DomainElementTarget">
+          <element
+              href="space.ecore#//PhysicalSpace"/>
+        </target>
+      </audits>
+    </childContainers>
+    <childContainers
+        id="VirtualSpaceAuditContainer"
+        name="VirtualSpaceAuditContainer"
+        description="VirtualSpaceAuditContainer">
+      <audits
+          name="VirtualSpaceNameUniqueAuditRule"
+          description="VirtualSpaceNameUniqueAuditRule"
+          id="VirtualSpaceNameUniqueAuditRule"
+          message="VirtualSpace name must be unique">
+        <rule
+            body="(universe.name&lt;>self.name) and&#xD;&#xA;universe.physicalSpaces->forAll(phs |  (phs.name&lt;>self.name)) and&#xD;&#xA;universe.virtualSpaces->forAll(vs | (vs&lt;>self) implies (vs.name&lt;>self.name))"/>
+        <target
+            xsi:type="gmfmap:DomainElementTarget">
+          <element
+              href="space.ecore#//VirtualSpace"/>
+        </target>
+      </audits>
+      <audits
+          name="VirtualSpaceIdUniqueAuditRule"
+          description="VirtualSpaceIdUniqueAuditRule"
+          id="VirtualSpaceIdUniqueAuditRule"
+          message="VirtualSpace ID must be unique">
+        <rule
+            body="(universe.id&lt;>self.id) and&#xD;&#xA;universe.physicalSpaces->forAll(phs | phs.id&lt;>self.id) and&#xD;&#xA;universe.virtualSpaces->forAll(vs | (self&lt;>vs) implies (vs.id&lt;>self.id)) and&#xD;&#xA;universe.groupings->forAll(g | g.id&lt;>self.id) and&#xD;&#xA;universe.generalizations->forAll(gens | gens.id&lt;>self.id) and&#xD;&#xA;universe.contentions->forAll(c | c.id&lt;>self.id)"/>
+        <target
+            xsi:type="gmfmap:DomainElementTarget">
+          <element
+              href="space.ecore#//VirtualSpace"/>
+        </target>
+      </audits>
+    </childContainers>
+    <childContainers
+        id="SpaceAuditContainer"
+        name="SpaceAuditContainer"
+        description="SpaceAuditContainer">
+      <audits
+          name="SpaceIdNotNullAuditRule"
+          description="SpaceIdNotNullAuditRule"
+          id="SpaceIdNotNullAuditRule"
+          message="Space ID must not be null">
+        <rule
+            body="self>0"/>
+        <target
+            xsi:type="gmfmap:DomainAttributeTarget"
+            nullAsError="true">
+          <attribute
+              href="space.ecore#//Space/id"/>
+        </target>
+      </audits>
+      <audits
+          name="SpaceNameNotNullAuditRule"
+          description="SpaceNameNotNullAuditRule"
+          id="SpaceNameNotNullAuditRule"
+          message="Space name must not be null">
+        <rule
+            body="self.size()>0"/>
+        <target
+            xsi:type="gmfmap:DomainAttributeTarget"
+            nullAsError="true">
+          <attribute
+              href="space.ecore#//Space/name"/>
+        </target>
+      </audits>
+    </childContainers>
+  </audits>
+</gmfmap:Mapping>

@@ -1,0 +1,130 @@
+library RegularExpressions; -- Library Template
+
+helper context String def: removeLast(): String = self.substring(1, self.size()-1);
+
+helper context String def: removeFirst(): String = self.substring(2, self.size());
+
+helper context String def: clean() : String =
+	self->toSequence()->iterate(ch; ans:String='' | if(ch =' ') then ans else ans+ch endif);	
+	
+--helper context String def: normalize() : String = 
+----	self->split('[(,+]')
+--	self->clean()->split('[(]')				  
+--		->collect(s | s.trim())
+--		->collect(s | '(' + s + if (s.endsWith(')') or  s.endsWith(',') or s.endsWith('+'))then '' else ')' endif )
+--		->iterate(s; res : String = ''| res + s);
+
+
+helper context String def: normalize() : String = 
+	thisModule->normalizeCall(self, 0, false, '');
+
+helper def: normalizeCall(expression: String, num:Integer, close:Boolean, target:String):String=
+	let ch:String =	
+		if(expression.toSequence()->size()>0) then 
+			expression.toSequence().first()
+		else
+			''
+		endif
+	in
+	if(ch='') then 
+		target 
+	else
+		if(ch=' ')then
+			thisModule->normalizeCall(expression.removeFirst(),num, close, target)
+		else
+			thisModule->normalizeCall(
+				expression.removeFirst(), 
+				if(ch='(') then num + 1 else if(ch=')')then num - 1 else num endif endif, 
+				if (ch<>'(' and ch<>')' and ch<>'+' and ch<>',' and num=0 and not close) then 
+					true 
+				else
+					if (ch='(' and (close or (ch<>' ' and ch<>'(' and ch<>')' and ch<>'+' and ch<>',' and num=0 and not close))) then
+						false
+					else
+						close
+					endif
+				endif,
+				if(ch<>'(' and ch<>')' and ch<>'+' and ch<>',' and num=0 and not close)	then 
+					target + '('
+				else 
+					if(ch='(' and (close or (ch<>' ' and ch<>'(' and ch<>')' and ch<>'+' and ch<>',' and num=0 and not close))) then
+						target+')'
+					else
+						target
+					endif
+				endif +	ch)
+			endif
+		endif;
+
+helper def: getSystemVaraibleMap(): Map(String, Set(String))=
+	thisModule->getVaraibleMapFromExpression(taModel!Condition.allInstances()->iterate(c; ans : String='' | 
+		if(not c.dataExpression.oclIsUndefined())then 
+			if(c.dataExpression.trim().size()>0)then
+				ans + c.dataExpression.trim() + ','
+			else
+				ans
+			endif
+		else 
+			ans 
+		endif)->removeLast());
+
+helper def: getVaraibleMapFromExpression(expression:String): Map(String, Set(String))=
+	thisModule->getSystemVaraibleMapCall(
+		expression->normalize()->toSequence(),		
+		false,
+		0,
+		'',
+		Set{},
+		Map{}
+	);	
+
+
+helper def: getSystemVaraibleMapCall(
+	expression : Sequence(String), 
+	isRole:Boolean, 
+	num:Integer, 
+	name:String, 
+	roles:Set(String),
+	answer: Map(String, Set(String)))
+	: Map(String, Set(String))=
+	let ch:String = if (expression->size()>0)then expression->first()else''endif in
+	if(expression->size()>0)then		
+		if(ch<>'(' and ch <>')' and ch<>'+' and ch<>',')then					
+			thisModule->getSystemVaraibleMapCall(
+				expression->subSequence(2, expression->size()), 
+				isRole, 
+				num, 
+				name + ch, 
+				roles, 
+				answer)
+		else
+			thisModule->getSystemVaraibleMapCall(
+				expression->subSequence(2, expression->size()), 
+				if(num=0 and ch='(') then not isRole else isRole endif,
+				if(ch='(') then num + 1 else if (ch=')') then num - 1 else num endif endif, 
+				if(ch=')' or ch='+' or ch=',') then '' else name endif,
+				if(num=0 and ch='(' and not isRole)then 
+					Set{} 
+				else 
+					if((ch=')' or ch='+' or ch=',') and (name.size()>0) and isRole) then
+						roles->including(name)
+					else 
+						roles
+					endif						
+				endif,					
+				if((ch=')' or ch='+' or ch=',') and (name.size()>0) and isRole and not answer->getKeys()->includes(name)) then 
+					answer->including(name, Set{})
+				else
+					if((ch=')' or ch='+' or ch=',') and (name.size()>0) and not isRole) then
+						roles->iterate(r; acc:Map(String, Set(String)) = answer | acc->including(r, acc->get(r)->including(name)))
+					else
+						answer
+					endif
+				endif
+			)
+		endif
+	else 
+		answer
+	endif;
+	
+	

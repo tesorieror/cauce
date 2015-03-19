@@ -1,0 +1,408 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.1/notation" xmlns:task-meta-model="task-meta-model" xmi:id="_hYpt4HEUEd63394n7W6o0A" type="Tmm" name="locationAwarePrinting.tmm_diagram" measurementUnit="Pixel">
+  <children xmi:type="notation:Node" xmi:id="_jzBekHEUEd63394n7W6o0A" type="1007">
+    <children xmi:type="notation:Node" xmi:id="_jzCFoHEUEd63394n7W6o0A" type="4004">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_jzCFoXEUEd63394n7W6o0A" x="-413" y="-15"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_jzBekXEUEd63394n7W6o0A" fontName="Segoe UI"/>
+    <element xmi:type="task-meta-model:InitialCondition" href="locationAwarePrinting.tmm#1"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_jzBeknEUEd63394n7W6o0A" x="69" y="40"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_auGsAHEVEd63394n7W6o0A" type="1007">
+    <children xmi:type="notation:Node" xmi:id="_auGsA3EVEd63394n7W6o0A" type="4004">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_auGsBHEVEd63394n7W6o0A" x="-175" y="-20"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_auGsAXEVEd63394n7W6o0A" fontName="Segoe UI"/>
+    <element xmi:type="task-meta-model:InitialCondition" href="locationAwarePrinting.tmm#2"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_auGsAnEVEd63394n7W6o0A" x="70" y="155"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_iwhqUHEVEd63394n7W6o0A" type="1006">
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_iwhqUXEVEd63394n7W6o0A" fontName="Segoe UI"/>
+    <element xmi:type="task-meta-model:AndJoin" href="locationAwarePrinting.tmm#//@routeTasks.0"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_iwhqUnEVEd63394n7W6o0A" x="140" y="100"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_my6hsHEVEd63394n7W6o0A" type="1002">
+    <children xmi:type="notation:Node" xmi:id="_my7IwHEVEd63394n7W6o0A" type="4001">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_my7IwXEVEd63394n7W6o0A" x="-555" y="-20"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_my6hsXEVEd63394n7W6o0A" fontName="Segoe UI"/>
+    <element xmi:type="task-meta-model:PreCondition" href="locationAwarePrinting.tmm#4"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_my6hsnEVEd63394n7W6o0A" x="140" y="210"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_76mtIHEVEd63394n7W6o0A" type="1004">
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_76mtIXEVEd63394n7W6o0A" fontName="Segoe UI"/>
+    <element xmi:type="task-meta-model:SkipTask" href="locationAwarePrinting.tmm#//@systemTasks.0"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_76mtInEVEd63394n7W6o0A" x="140" y="275"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_95k7QHEVEd63394n7W6o0A" type="1003">
+    <children xmi:type="notation:Node" xmi:id="_95k7Q3EVEd63394n7W6o0A" type="4002">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_95k7RHEVEd63394n7W6o0A" x="-555" y="-20"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_95k7QXEVEd63394n7W6o0A" fontName="Segoe UI"/>
+    <element xmi:type="task-meta-model:PostCondition" href="locationAwarePrinting.tmm#6"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_95k7QnEVEd63394n7W6o0A" x="140" y="335"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_LwLesHEWEd63394n7W6o0A" type="1001">
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_LwLesXEWEd63394n7W6o0A" fontName="Segoe UI"/>
+    <element xmi:type="task-meta-model:AndSplit" href="locationAwarePrinting.tmm#//@routeTasks.1"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_LwLesnEWEd63394n7W6o0A" x="205" y="335"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_YqSIMHEXEd63394n7W6o0A" type="1002">
+    <children xmi:type="notation:Node" xmi:id="_YqSvQHEXEd63394n7W6o0A" type="4001">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_YqSvQXEXEd63394n7W6o0A" x="60" y="-20"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_YqSIMXEXEd63394n7W6o0A" fontName="Segoe UI"/>
+    <element xmi:type="task-meta-model:PreCondition" href="locationAwarePrinting.tmm#8"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_YqSIMnEXEd63394n7W6o0A" x="275" y="335"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_ZJKckHEXEd63394n7W6o0A" type="1002">
+    <children xmi:type="notation:Node" xmi:id="_ZJLDoHEXEd63394n7W6o0A" type="4001">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_ZJLDoXEXEd63394n7W6o0A" x="-555" y="-20"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_ZJKckXEXEd63394n7W6o0A" fontName="Segoe UI"/>
+    <element xmi:type="task-meta-model:PreCondition" href="locationAwarePrinting.tmm#9"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ZJKcknEXEd63394n7W6o0A" x="205" y="398"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_w9gbgHEXEd63394n7W6o0A" type="1008">
+    <children xmi:type="notation:Node" xmi:id="_w9hCkHEXEd63394n7W6o0A" type="4005"/>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_w9gbgXEXEd63394n7W6o0A" fontName="Segoe UI"/>
+    <element xmi:type="task-meta-model:SimpleTask" href="locationAwarePrinting.tmm#//@systemTasks.1"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_w9gbgnEXEd63394n7W6o0A" x="275" y="395"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_A3-UIHEYEd63394n7W6o0A" type="1003">
+    <children xmi:type="notation:Node" xmi:id="_A3-7MHEYEd63394n7W6o0A" type="4002">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_A3-7MXEYEd63394n7W6o0A" x="-63" y="60"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_A3-UIXEYEd63394n7W6o0A" fontName="Segoe UI"/>
+    <element xmi:type="task-meta-model:PostCondition" href="locationAwarePrinting.tmm#11"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_A3-UInEYEd63394n7W6o0A" x="330" y="395"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_0_nwoHEYEd63394n7W6o0A" type="1004">
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_0_nwoXEYEd63394n7W6o0A" fontName="Segoe UI"/>
+    <element xmi:type="task-meta-model:SkipTask" href="locationAwarePrinting.tmm#//@systemTasks.2"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_0_nwonEYEd63394n7W6o0A" x="275" y="275"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_7sFBkHEYEd63394n7W6o0A" type="1003">
+    <children xmi:type="notation:Node" xmi:id="_7sFooHEYEd63394n7W6o0A" type="4002">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_7sFooXEYEd63394n7W6o0A" x="60" y="-20"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_7sFBkXEYEd63394n7W6o0A" fontName="Segoe UI"/>
+    <element xmi:type="task-meta-model:PostCondition" href="locationAwarePrinting.tmm#13"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7sFBknEYEd63394n7W6o0A" x="275" y="210"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_vUIYAHEZEd63394n7W6o0A" type="1009">
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_vUIYAXEZEd63394n7W6o0A" fontName="Segoe UI"/>
+    <element xmi:type="task-meta-model:OrSplit" href="locationAwarePrinting.tmm#//@routeTasks.2"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_vUIYAnEZEd63394n7W6o0A" x="275" y="100"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_5wykIHEZEd63394n7W6o0A" type="1002">
+    <children xmi:type="notation:Node" xmi:id="_5wykI3EZEd63394n7W6o0A" type="4001">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_5wykJHEZEd63394n7W6o0A" x="-74" y="-95"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_5wykIXEZEd63394n7W6o0A" fontName="Segoe UI"/>
+    <element xmi:type="task-meta-model:PreCondition" href="locationAwarePrinting.tmm#15"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_5wykInEZEd63394n7W6o0A" x="345" y="100"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_hvc1kHEaEd63394n7W6o0A" type="1002">
+    <children xmi:type="notation:Node" xmi:id="_hvc1k3EaEd63394n7W6o0A" type="4001">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_hvc1lHEaEd63394n7W6o0A" x="-20" y="-95"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_hvc1kXEaEd63394n7W6o0A" fontName="Segoe UI"/>
+    <element xmi:type="task-meta-model:PreCondition" href="locationAwarePrinting.tmm#16"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_hvc1knEaEd63394n7W6o0A" x="345" y="-40"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_wqYj0HEaEd63394n7W6o0A" type="1008">
+    <children xmi:type="notation:Node" xmi:id="_wqYj03EaEd63394n7W6o0A" type="4005"/>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_wqYj0XEaEd63394n7W6o0A" fontName="Segoe UI"/>
+    <element xmi:type="task-meta-model:SimpleTask" href="locationAwarePrinting.tmm#//@systemTasks.3"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_wqYj0nEaEd63394n7W6o0A" x="420" y="100"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_yMLGsHEaEd63394n7W6o0A" type="1003">
+    <children xmi:type="notation:Node" xmi:id="_yMLGs3EaEd63394n7W6o0A" type="4002">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_yMLGtHEaEd63394n7W6o0A" x="-20" y="-95"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_yMLGsXEaEd63394n7W6o0A" fontName="Segoe UI"/>
+    <element xmi:type="task-meta-model:PostCondition" href="locationAwarePrinting.tmm#18"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_yMLGsnEaEd63394n7W6o0A" x="500" y="100"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_7AIjwHEnEd63394n7W6o0A" type="1010">
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_7AIjwXEnEd63394n7W6o0A" fontName="Segoe UI"/>
+    <element xmi:type="task-meta-model:OrJoin" href="locationAwarePrinting.tmm#//@routeTasks.3"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7AIjwnEnEd63394n7W6o0A" x="570" y="100"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_851QUHEnEd63394n7W6o0A" type="1004">
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_851QUXEnEd63394n7W6o0A" fontName="Segoe UI"/>
+    <element xmi:type="task-meta-model:SkipTask" href="locationAwarePrinting.tmm#//@systemTasks.4"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_851QUnEnEd63394n7W6o0A" x="425" y="-40"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_Be5-AHEoEd63394n7W6o0A" type="1003">
+    <children xmi:type="notation:Node" xmi:id="_Be5-A3EoEd63394n7W6o0A" type="4002">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_Be5-BHEoEd63394n7W6o0A" x="-20" y="-95"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_Be5-AXEoEd63394n7W6o0A" fontName="Segoe UI"/>
+    <element xmi:type="task-meta-model:PostCondition" href="locationAwarePrinting.tmm#21"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Be5-AnEoEd63394n7W6o0A" x="505" y="-40"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_-oDQMHEoEd63394n7W6o0A" type="1002">
+    <children xmi:type="notation:Node" xmi:id="_-oDQM3EoEd63394n7W6o0A" type="4001">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_-oDQNHEoEd63394n7W6o0A" x="60" y="-15"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_-oDQMXEoEd63394n7W6o0A" fontName="Segoe UI"/>
+    <element xmi:type="task-meta-model:PreCondition" href="locationAwarePrinting.tmm#22"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-oDQMnEoEd63394n7W6o0A" x="570" y="165"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_AfHfgHEpEd63394n7W6o0A" type="1004">
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_AfHfgXEpEd63394n7W6o0A" fontName="Segoe UI"/>
+    <element xmi:type="task-meta-model:SkipTask" href="locationAwarePrinting.tmm#//@systemTasks.5"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_AfHfgnEpEd63394n7W6o0A" x="570" y="220"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_BclNUHEpEd63394n7W6o0A" type="1003">
+    <children xmi:type="notation:Node" xmi:id="_Bcl0YHEpEd63394n7W6o0A" type="4002">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_Bcl0YXEpEd63394n7W6o0A" x="60" y="-15"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_BclNUXEpEd63394n7W6o0A" fontName="Segoe UI"/>
+    <element xmi:type="task-meta-model:PostCondition" href="locationAwarePrinting.tmm#24"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_BclNUnEpEd63394n7W6o0A" x="570" y="280"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_EBuDkHEpEd63394n7W6o0A" type="1006">
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_EBuDkXEpEd63394n7W6o0A" fontName="Segoe UI"/>
+    <element xmi:type="task-meta-model:AndJoin" href="locationAwarePrinting.tmm#//@routeTasks.4"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_EBuDknEpEd63394n7W6o0A" x="570" y="395"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_dHJ28HEpEd63394n7W6o0A" type="1005">
+    <children xmi:type="notation:Node" xmi:id="_dHKeAHEpEd63394n7W6o0A" type="4003">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_dHKeAXEpEd63394n7W6o0A" x="60" y="-20"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_dHJ28XEpEd63394n7W6o0A" fontName="Segoe UI"/>
+    <element xmi:type="task-meta-model:FinalCondition" href="locationAwarePrinting.tmm#26"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_dHJ28nEpEd63394n7W6o0A" x="800" y="280"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_e8qnEHEpEd63394n7W6o0A" type="1002">
+    <children xmi:type="notation:Node" xmi:id="_e8qnE3EpEd63394n7W6o0A" type="4001">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_e8qnFHEpEd63394n7W6o0A" y="5"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_e8qnEXEpEd63394n7W6o0A" fontName="Segoe UI"/>
+    <element xmi:type="task-meta-model:PreCondition" href="locationAwarePrinting.tmm#27"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_e8qnEnEpEd63394n7W6o0A" x="625" y="395"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_jh5FwHEpEd63394n7W6o0A" type="1004">
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_jh5FwXEpEd63394n7W6o0A" fontName="Segoe UI"/>
+    <element xmi:type="task-meta-model:SkipTask" href="locationAwarePrinting.tmm#//@systemTasks.6"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_jh5FwnEpEd63394n7W6o0A" x="680" y="395"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_lLVv0HEpEd63394n7W6o0A" type="1003">
+    <children xmi:type="notation:Node" xmi:id="_lLVv03EpEd63394n7W6o0A" type="4002">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_lLVv1HEpEd63394n7W6o0A" x="-20" y="60"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_lLVv0XEpEd63394n7W6o0A" fontName="Segoe UI"/>
+    <element xmi:type="task-meta-model:PostCondition" href="locationAwarePrinting.tmm#29"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_lLVv0nEpEd63394n7W6o0A" x="735" y="395"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_prrugHEpEd63394n7W6o0A" type="1005">
+    <children xmi:type="notation:Node" xmi:id="_prsVkHEpEd63394n7W6o0A" type="4003">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_prsVkXEpEd63394n7W6o0A" x="60" y="-20"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_prrugXEpEd63394n7W6o0A" fontName="Segoe UI"/>
+    <element xmi:type="task-meta-model:FinalCondition" href="locationAwarePrinting.tmm#30"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_prrugnEpEd63394n7W6o0A" x="800" y="495"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_uL2HAHEpEd63394n7W6o0A" type="1001">
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_uL2HAXEpEd63394n7W6o0A" fontName="Segoe UI"/>
+    <element xmi:type="task-meta-model:AndSplit" href="locationAwarePrinting.tmm#//@routeTasks.5"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_uL2HAnEpEd63394n7W6o0A" x="800" y="395"/>
+  </children>
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_hYpt4XEUEd63394n7W6o0A"/>
+  <element xmi:type="task-meta-model:ContextAwareSystem" href="locationAwarePrinting.tmm#/"/>
+  <edges xmi:type="notation:Edge" xmi:id="_jHmGgHEVEd63394n7W6o0A" type="3001" source="_auGsAHEVEd63394n7W6o0A" target="_iwhqUHEVEd63394n7W6o0A">
+    <styles xmi:type="notation:RoutingStyle" xmi:id="_jHmGgXEVEd63394n7W6o0A"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_jHmGgnEVEd63394n7W6o0A" fontName="Segoe UI"/>
+    <element xmi:type="task-meta-model:InputConditionToJoinTask" href="locationAwarePrinting.tmm#//@inputConditionToJoinTasks.0"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_jHmGg3EVEd63394n7W6o0A" points="[20, -15, -66, 46]$[66, -60, -20, 1]"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_jj9SYHEVEd63394n7W6o0A" type="3001" source="_jzBekHEUEd63394n7W6o0A" target="_iwhqUHEVEd63394n7W6o0A">
+    <styles xmi:type="notation:RoutingStyle" xmi:id="_jj9SYXEVEd63394n7W6o0A"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_jj9SYnEVEd63394n7W6o0A" fontName="Segoe UI"/>
+    <element xmi:type="task-meta-model:InputConditionToJoinTask" href="locationAwarePrinting.tmm#//@inputConditionToJoinTasks.1"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_jj9SY3EVEd63394n7W6o0A" points="[20, 12, -67, -42]$[86, 34, -1, -20]"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_5T8z8HEVEd63394n7W6o0A" type="3003" source="_iwhqUHEVEd63394n7W6o0A" target="_my6hsHEVEd63394n7W6o0A">
+    <styles xmi:type="notation:RoutingStyle" xmi:id="_5T8z8XEVEd63394n7W6o0A"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_5T8z8nEVEd63394n7W6o0A" fontName="Segoe UI"/>
+    <element xmi:type="task-meta-model:JoinTaskToOutputCondition" href="locationAwarePrinting.tmm#//@joinTaskToOutputConditions.0"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_5T8z83EVEd63394n7W6o0A" points="[-2, 20, 3, -105]$[7, 145, 12, 20]"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="__VSrUHEVEd63394n7W6o0A" type="3005" source="_my6hsHEVEd63394n7W6o0A" target="_76mtIHEVEd63394n7W6o0A">
+    <styles xmi:type="notation:RoutingStyle" xmi:id="__VSrUXEVEd63394n7W6o0A"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="__VSrUnEVEd63394n7W6o0A" fontName="Segoe UI"/>
+    <element xmi:type="task-meta-model:PreConditionToSystemTask" href="locationAwarePrinting.tmm#//@preConditionToSystemTasks.0"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="__VSrU3EVEd63394n7W6o0A" points="[20, 0, -35, 0]$[35, 0, -20, 0]"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="__unxUHEVEd63394n7W6o0A" type="3006" source="_76mtIHEVEd63394n7W6o0A" target="_95k7QHEVEd63394n7W6o0A">
+    <styles xmi:type="notation:RoutingStyle" xmi:id="__unxUXEVEd63394n7W6o0A"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="__unxUnEVEd63394n7W6o0A" fontName="Segoe UI"/>
+    <element xmi:type="task-meta-model:SystemTaskToPostCondition" href="locationAwarePrinting.tmm#//@systemTaskToPostConditions.0"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="__unxU3EVEd63394n7W6o0A" points="[20, -1, -35, -1]$[75, -1, 20, -1]"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_M0NHgHEWEd63394n7W6o0A" type="3002" source="_95k7QHEVEd63394n7W6o0A" target="_LwLesHEWEd63394n7W6o0A">
+    <styles xmi:type="notation:RoutingStyle" xmi:id="_M0NHgXEWEd63394n7W6o0A"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_M0NHgnEWEd63394n7W6o0A" fontName="Segoe UI"/>
+    <element xmi:type="task-meta-model:InputConditionToSplitTask" href="locationAwarePrinting.tmm#//@inputConditionToSplitTasks.0"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_M0NHg3EWEd63394n7W6o0A" points="[20, 0, -45, 0]$[45, 0, -20, 0]"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_iVKSEHEXEd63394n7W6o0A" type="3004" source="_LwLesHEWEd63394n7W6o0A" target="_YqSIMHEXEd63394n7W6o0A">
+    <styles xmi:type="notation:RoutingStyle" xmi:id="_iVKSEXEXEd63394n7W6o0A"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_iVKSEnEXEd63394n7W6o0A" fontName="Segoe UI"/>
+    <element xmi:type="task-meta-model:SplitTaskToOutputCondition" href="locationAwarePrinting.tmm#//@splitTaskToOutputConditions.0"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_iVKSE3EXEd63394n7W6o0A" points="[20, -18, -60, 47]$[60, -66, -20, -1]"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_itAKUHEXEd63394n7W6o0A" type="3004" source="_LwLesHEWEd63394n7W6o0A" target="_ZJKckHEXEd63394n7W6o0A">
+    <styles xmi:type="notation:RoutingStyle" xmi:id="_itAKUXEXEd63394n7W6o0A"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_itAKUnEXEd63394n7W6o0A" fontName="Segoe UI"/>
+    <element xmi:type="task-meta-model:SplitTaskToOutputCondition" href="locationAwarePrinting.tmm#//@splitTaskToOutputConditions.1"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_itAKU3EXEd63394n7W6o0A" points="[20, 15, -65, -45]$[91, 80, 6, 20]"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="__oykMHEXEd63394n7W6o0A" type="3005" source="_ZJKckHEXEd63394n7W6o0A" target="_w9gbgHEXEd63394n7W6o0A">
+    <styles xmi:type="notation:RoutingStyle" xmi:id="__oykMXEXEd63394n7W6o0A"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="__oykMnEXEd63394n7W6o0A" fontName="Segoe UI"/>
+    <element xmi:type="task-meta-model:PreConditionToSystemTask" href="locationAwarePrinting.tmm#//@preConditionToSystemTasks.1"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="__oykM3EXEd63394n7W6o0A" points="[20, -2, -50, 1]$[90, -2, 20, 1]"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_BkrCEHEYEd63394n7W6o0A" type="3006" source="_w9gbgHEXEd63394n7W6o0A" target="_A3-UIHEYEd63394n7W6o0A">
+    <styles xmi:type="notation:RoutingStyle" xmi:id="_BkrCEXEYEd63394n7W6o0A"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_BkrCEnEYEd63394n7W6o0A" fontName="Segoe UI"/>
+    <element xmi:type="task-meta-model:SystemTaskToPostCondition" href="locationAwarePrinting.tmm#//@systemTaskToPostConditions.1"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_BkrCE3EYEd63394n7W6o0A" points="[20, -2, -40, -2]$[60, -20, 0, -20]"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_1gtrgHEYEd63394n7W6o0A" type="3005" source="_YqSIMHEXEd63394n7W6o0A" target="_0_nwoHEYEd63394n7W6o0A">
+    <styles xmi:type="notation:RoutingStyle" xmi:id="_1gtrgXEYEd63394n7W6o0A"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_1gtrgnEYEd63394n7W6o0A" fontName="Segoe UI"/>
+    <element xmi:type="task-meta-model:PreConditionToSystemTask" href="locationAwarePrinting.tmm#//@preConditionToSystemTasks.2"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_1gtrg3EYEd63394n7W6o0A" points="[-2, -20, -2, 33]$[-20, -53, -20, 0]"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_8TiqMHEYEd63394n7W6o0A" type="3006" source="_0_nwoHEYEd63394n7W6o0A" target="_7sFBkHEYEd63394n7W6o0A">
+    <styles xmi:type="notation:RoutingStyle" xmi:id="_8TiqMXEYEd63394n7W6o0A"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_8TiqMnEYEd63394n7W6o0A" fontName="Segoe UI"/>
+    <element xmi:type="task-meta-model:SystemTaskToPostCondition" href="locationAwarePrinting.tmm#//@systemTaskToPostConditions.2"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_8TiqM3EYEd63394n7W6o0A" points="[-1, -20, -1, 37]$[-1, -37, -1, 20]"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_vx4D8HEZEd63394n7W6o0A" type="3002" source="_7sFBkHEYEd63394n7W6o0A" target="_vUIYAHEZEd63394n7W6o0A">
+    <styles xmi:type="notation:RoutingStyle" xmi:id="_vx4D8XEZEd63394n7W6o0A"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_vx4D8nEZEd63394n7W6o0A" fontName="Segoe UI"/>
+    <element xmi:type="task-meta-model:InputConditionToSplitTask" href="locationAwarePrinting.tmm#//@inputConditionToSplitTasks.1"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_vx4D83EZEd63394n7W6o0A" points="[-1, -20, -6, 55]$[-15, -59, -20, 16]"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_Gyh8IHEaEd63394n7W6o0A" type="3004" source="_vUIYAHEZEd63394n7W6o0A" target="_5wykIHEZEd63394n7W6o0A">
+    <styles xmi:type="notation:RoutingStyle" xmi:id="_Gyh8IXEaEd63394n7W6o0A"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_Gyh8InEaEd63394n7W6o0A" fontName="Segoe UI"/>
+    <element xmi:type="task-meta-model:SplitTaskToOutputCondition" href="locationAwarePrinting.tmm#//@splitTaskToOutputConditions.2"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_Gyh8I3EaEd63394n7W6o0A" points="[20, 1, -40, 1]$[80, 8, 20, 8]"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_jdLisHEaEd63394n7W6o0A" type="3004" source="_vUIYAHEZEd63394n7W6o0A" target="_hvc1kHEaEd63394n7W6o0A">
+    <styles xmi:type="notation:RoutingStyle" xmi:id="_jdLisXEaEd63394n7W6o0A"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_jdLisnEaEd63394n7W6o0A" fontName="Segoe UI"/>
+    <element xmi:type="task-meta-model:SplitTaskToOutputCondition" href="locationAwarePrinting.tmm#//@splitTaskToOutputConditions.3"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_jdLis3EaEd63394n7W6o0A" points="[0, -20, -70, 120]$[0, -140, -70, 0]$[50, -140, -20, 0]"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_xqlckHEaEd63394n7W6o0A" type="3005" source="_5wykIHEZEd63394n7W6o0A" target="_wqYj0HEaEd63394n7W6o0A">
+    <styles xmi:type="notation:RoutingStyle" xmi:id="_xqlckXEaEd63394n7W6o0A"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_xqlcknEaEd63394n7W6o0A" fontName="Segoe UI"/>
+    <element xmi:type="task-meta-model:PreConditionToSystemTask" href="locationAwarePrinting.tmm#//@preConditionToSystemTasks.3"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_xqlck3EaEd63394n7W6o0A" points="[20, -2, -63, -2]$[82, -20, -1, -20]"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_zND78HEaEd63394n7W6o0A" type="3006" source="_wqYj0HEaEd63394n7W6o0A" target="_yMLGsHEaEd63394n7W6o0A">
+    <styles xmi:type="notation:RoutingStyle" xmi:id="_zND78XEaEd63394n7W6o0A"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_zND78nEaEd63394n7W6o0A" fontName="Segoe UI"/>
+    <element xmi:type="task-meta-model:SystemTaskToPostCondition" href="locationAwarePrinting.tmm#//@systemTaskToPostConditions.3"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_zND783EaEd63394n7W6o0A" points="[23, 1, -49, 1]$[72, 20, 0, 20]"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_7ko_AHEnEd63394n7W6o0A" type="3001" source="_yMLGsHEaEd63394n7W6o0A" target="_7AIjwHEnEd63394n7W6o0A">
+    <styles xmi:type="notation:RoutingStyle" xmi:id="_7ko_AXEnEd63394n7W6o0A"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_7ko_AnEnEd63394n7W6o0A" fontName="Segoe UI"/>
+    <element xmi:type="task-meta-model:InputConditionToJoinTask" href="locationAwarePrinting.tmm#//@inputConditionToJoinTasks.2"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_7ko_A3EnEd63394n7W6o0A" points="[20, -1, -50, -1]$[50, -1, -20, -1]"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_A8J2QHEoEd63394n7W6o0A" type="3005" source="_hvc1kHEaEd63394n7W6o0A" target="_851QUHEnEd63394n7W6o0A">
+    <styles xmi:type="notation:RoutingStyle" xmi:id="_A8J2QXEoEd63394n7W6o0A"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_A8J2QnEoEd63394n7W6o0A" fontName="Segoe UI"/>
+    <element xmi:type="task-meta-model:PreConditionToSystemTask" href="locationAwarePrinting.tmm#//@preConditionToSystemTasks.4"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_A8J2Q3EoEd63394n7W6o0A" points="[20, 0, -60, 0]$[79, 20, -1, 20]"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_CfFooHEoEd63394n7W6o0A" type="3006" source="_851QUHEnEd63394n7W6o0A" target="_Be5-AHEoEd63394n7W6o0A">
+    <styles xmi:type="notation:RoutingStyle" xmi:id="_CfFooXEoEd63394n7W6o0A"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_CfFoonEoEd63394n7W6o0A" fontName="Segoe UI"/>
+    <element xmi:type="task-meta-model:SystemTaskToPostCondition" href="locationAwarePrinting.tmm#//@systemTaskToPostConditions.4"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_CfFoo3EoEd63394n7W6o0A" points="[20, 2, -60, 2]$[100, 2, 20, 2]"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_C4p_MHEoEd63394n7W6o0A" type="3001" source="_Be5-AHEoEd63394n7W6o0A" target="_7AIjwHEnEd63394n7W6o0A">
+    <styles xmi:type="notation:RoutingStyle" xmi:id="_C4p_MXEoEd63394n7W6o0A"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_C4p_MnEoEd63394n7W6o0A" fontName="Segoe UI"/>
+    <element xmi:type="task-meta-model:InputConditionToJoinTask" href="locationAwarePrinting.tmm#//@inputConditionToJoinTasks.3"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_C4p_M3EoEd63394n7W6o0A" points="[20, 0, -45, -140]$[65, 0, 0, -140]$[65, 120, 0, -20]"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="___uNwHEoEd63394n7W6o0A" type="3003" source="_7AIjwHEnEd63394n7W6o0A" target="_-oDQMHEoEd63394n7W6o0A">
+    <styles xmi:type="notation:RoutingStyle" xmi:id="___uNwXEoEd63394n7W6o0A"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="___uNwnEoEd63394n7W6o0A" fontName="Segoe UI"/>
+    <element xmi:type="task-meta-model:JoinTaskToOutputCondition" href="locationAwarePrinting.tmm#//@joinTaskToOutputConditions.1"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="___uNw3EoEd63394n7W6o0A" points="[1, 20, 1, -45]$[1, 45, 1, -20]"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_BDU_0HEpEd63394n7W6o0A" type="3005" source="_-oDQMHEoEd63394n7W6o0A" target="_AfHfgHEpEd63394n7W6o0A">
+    <styles xmi:type="notation:RoutingStyle" xmi:id="_BDU_0XEpEd63394n7W6o0A"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_BDU_0nEpEd63394n7W6o0A" fontName="Segoe UI"/>
+    <element xmi:type="task-meta-model:PreConditionToSystemTask" href="locationAwarePrinting.tmm#//@preConditionToSystemTasks.5"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_BDU_03EpEd63394n7W6o0A" points="[-1, 20, -1, -35]$[-1, 35, -1, -20]"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_CNY_MHEpEd63394n7W6o0A" type="3006" source="_AfHfgHEpEd63394n7W6o0A" target="_BclNUHEpEd63394n7W6o0A">
+    <styles xmi:type="notation:RoutingStyle" xmi:id="_CNY_MXEpEd63394n7W6o0A"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_CNY_MnEpEd63394n7W6o0A" fontName="Segoe UI"/>
+    <element xmi:type="task-meta-model:SystemTaskToPostCondition" href="locationAwarePrinting.tmm#//@systemTaskToPostConditions.5"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_CNY_M3EpEd63394n7W6o0A" points="[-2, 20, -2, -30]$[-20, 50, -20, 0]"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_Eg4EwHEpEd63394n7W6o0A" type="3001" source="_A3-UIHEYEd63394n7W6o0A" target="_EBuDkHEpEd63394n7W6o0A">
+    <styles xmi:type="notation:RoutingStyle" xmi:id="_Eg4EwXEpEd63394n7W6o0A"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_Eg4EwnEpEd63394n7W6o0A" fontName="Segoe UI"/>
+    <element xmi:type="task-meta-model:InputConditionToJoinTask" href="locationAwarePrinting.tmm#//@inputConditionToJoinTasks.4"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_Eg4Ew3EpEd63394n7W6o0A" points="[20, -1, -219, 8]$[241, 11, 2, 20]"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_Fo3nkHEpEd63394n7W6o0A" type="3001" source="_BclNUHEpEd63394n7W6o0A" target="_EBuDkHEpEd63394n7W6o0A">
+    <styles xmi:type="notation:RoutingStyle" xmi:id="_Fo3nkXEpEd63394n7W6o0A"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_Fo3nknEpEd63394n7W6o0A" fontName="Segoe UI"/>
+    <element xmi:type="task-meta-model:InputConditionToJoinTask" href="locationAwarePrinting.tmm#//@inputConditionToJoinTasks.5"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_Fo3nk3EpEd63394n7W6o0A" points="[-2, 20, -2, -95]$[-2, 95, -2, -20]"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_h4yZ8HEpEd63394n7W6o0A" type="3003" source="_EBuDkHEpEd63394n7W6o0A" target="_e8qnEHEpEd63394n7W6o0A">
+    <styles xmi:type="notation:RoutingStyle" xmi:id="_h4yZ8XEpEd63394n7W6o0A"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_h4yZ8nEpEd63394n7W6o0A" fontName="Segoe UI"/>
+    <element xmi:type="task-meta-model:JoinTaskToOutputCondition" href="locationAwarePrinting.tmm#//@joinTaskToOutputConditions.2"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_h4yZ83EpEd63394n7W6o0A" points="[20, 2, -35, 2]$[75, 2, 20, 2]"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_kFosAHEpEd63394n7W6o0A" type="3005" source="_e8qnEHEpEd63394n7W6o0A" target="_jh5FwHEpEd63394n7W6o0A">
+    <styles xmi:type="notation:RoutingStyle" xmi:id="_kFosAXEpEd63394n7W6o0A"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_kFosAnEpEd63394n7W6o0A" fontName="Segoe UI"/>
+    <element xmi:type="task-meta-model:PreConditionToSystemTask" href="locationAwarePrinting.tmm#//@preConditionToSystemTasks.6"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_kFosA3EpEd63394n7W6o0A" points="[20, 2, -35, 2]$[75, 2, 20, 2]"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_lt8GkHEpEd63394n7W6o0A" type="3006" source="_jh5FwHEpEd63394n7W6o0A" target="_lLVv0HEpEd63394n7W6o0A">
+    <styles xmi:type="notation:RoutingStyle" xmi:id="_lt8GkXEpEd63394n7W6o0A"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_lt8GknEpEd63394n7W6o0A" fontName="Segoe UI"/>
+    <element xmi:type="task-meta-model:SystemTaskToPostCondition" href="locationAwarePrinting.tmm#//@systemTaskToPostConditions.6"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_lt8Gk3EpEd63394n7W6o0A" points="[20, 1, -35, 1]$[53, 20, -2, 20]"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_utxvYHEpEd63394n7W6o0A" type="3002" source="_lLVv0HEpEd63394n7W6o0A" target="_uL2HAHEpEd63394n7W6o0A">
+    <styles xmi:type="notation:RoutingStyle" xmi:id="_utxvYXEpEd63394n7W6o0A"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_utxvYnEpEd63394n7W6o0A" fontName="Segoe UI"/>
+    <element xmi:type="task-meta-model:InputConditionToSplitTask" href="locationAwarePrinting.tmm#//@inputConditionToSplitTasks.2"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_utxvY3EpEd63394n7W6o0A" points="[20, 2, -45, 2]$[67, 20, 2, 20]"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_vDgHwHEpEd63394n7W6o0A" type="3004" source="_uL2HAHEpEd63394n7W6o0A" target="_prrugHEpEd63394n7W6o0A">
+    <styles xmi:type="notation:RoutingStyle" xmi:id="_vDgHwXEpEd63394n7W6o0A"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_vDgHwnEpEd63394n7W6o0A" fontName="Segoe UI"/>
+    <element xmi:type="task-meta-model:SplitTaskToOutputCondition" href="locationAwarePrinting.tmm#//@splitTaskToOutputConditions.4"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_vDgHw3EpEd63394n7W6o0A" points="[-2, 20, 8, -80]$[-9, 80, 1, -20]"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_vstc0HEpEd63394n7W6o0A" type="3004" source="_uL2HAHEpEd63394n7W6o0A" target="_dHJ28HEpEd63394n7W6o0A">
+    <styles xmi:type="notation:RoutingStyle" xmi:id="_vstc0XEpEd63394n7W6o0A"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_vstc0nEpEd63394n7W6o0A" fontName="Segoe UI"/>
+    <element xmi:type="task-meta-model:SplitTaskToOutputCondition" href="locationAwarePrinting.tmm#//@splitTaskToOutputConditions.5"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_vstc03EpEd63394n7W6o0A" points="[-3, -20, 12, 92]$[5, -92, 20, 20]"/>
+  </edges>
+</notation:Diagram>

@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gmfgen:GenEditorGenerator xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:gmfgen="http://www.eclipse.org/gmf/2009/GenModel" diagramFileExtension="rsmmdiag">
+  <audits>
+    <categories id="CardinalitiesAuditContainer" name="CardinalitiesAuditContainer" description="CardinalitiesAuditContainer" path="//@audits/@categories.0"/>
+    <categories id="SystemInformationFlowReferenceSpaceAuditContainer" name="SystemInformationFlowReferenceSpaceAuditContainer" description="SystemInformationFlowReferenceSpaceAuditContainer" path="//@audits/@categories.0 //@audits/@categories.1" audits="//@audits/@rules.0 //@audits/@rules.1 //@audits/@rules.2 //@audits/@rules.3"/>
+    <categories id="ReferentialSpaceAuditContainer" name="ReferentialSpaceAuditContainer" description="ReferentialSpaceAuditContainer" path="//@audits/@categories.0 //@audits/@categories.2" audits="//@audits/@rules.4 //@audits/@rules.5 //@audits/@rules.6 //@audits/@rules.7"/>
+    <categories id="ContextAwareEntityReferenceAuditContainer" name="ContextAwareEntityReferenceAuditContainer" description="ContextAwareEntityReferenceAuditContainer" path="//@audits/@categories.0 //@audits/@categories.3" audits="//@audits/@rules.8 //@audits/@rules.9 //@audits/@rules.10 //@audits/@rules.11 //@audits/@rules.12 //@audits/@rules.13"/>
+    <categories id="ReferenceDependencyAuditContainer" name="ReferenceDependencyAuditContainer" description="ReferenceDependencyAuditContainer" path="//@audits/@categories.0 //@audits/@categories.4" audits="//@audits/@rules.14 //@audits/@rules.15 //@audits/@rules.16 //@audits/@rules.17 //@audits/@rules.18"/>
+    <rules name="SystemInformationFlowReferenceSpaceNameNotNullAuditRule" description="SystemInformationFlowReferenceSpaceNameNotNullAuditRule" id="SystemInformationFlowReferenceSpaceNameNotNullAuditRule" rule="//@expressionProviders/@providers.0/@expressions.11" message="SystemInformationFlowReferenceSpace name must not be null" category="//@audits/@categories.1">
+      <target xsi:type="gmfgen:GenDomainAttributeTarget" contextSelector="//@audits/@clientContexts.0" nullAsError="true">
+        <attribute href="spaceReference.genmodel#//rsmm/SystemInformationFlowReferenceSpace/name"/>
+      </target>
+    </rules>
+    <rules name="SystemInformationFlowReferenceSpaceNameUniqueAuditRule" description="SystemInformationFlowReferenceSpaceNameUniqueAuditRule" id="SystemInformationFlowReferenceSpaceNameUniqueAuditRule" rule="//@expressionProviders/@providers.0/@expressions.12" message="SystemInformationFlowReferenceSpace name must be unique" category="//@audits/@categories.1">
+      <target xsi:type="gmfgen:GenDomainElementTarget" contextSelector="//@audits/@clientContexts.0">
+        <element href="spaceReference.genmodel#//rsmm/SystemInformationFlowReferenceSpace"/>
+      </target>
+    </rules>
+    <rules name="SystemInformationFlowReferenceSpaceIdNotNullAuditRule" description="SystemInformationFlowReferenceSpaceIdNotNullAuditRule" id="SystemInformationFlowReferenceSpaceIdNotNullAuditRule" rule="//@expressionProviders/@providers.0/@expressions.13" message="SystemInformationFlowReferenceSpace ID must not be null" category="//@audits/@categories.1">
+      <target xsi:type="gmfgen:GenDomainAttributeTarget" contextSelector="//@audits/@clientContexts.0" nullAsError="true">
+        <attribute href="spaceReference.genmodel#//rsmm/SystemInformationFlowReferenceSpace/id"/>
+      </target>
+    </rules>
+    <rules name="SystemInformationFlowReferenceSpaceIdUniqueAuditRule" description="SystemInformationFlowReferenceSpaceIdUniqueAuditRule" id="SystemInformationFlowReferenceSpaceIdUniqueAuditRule" rule="//@expressionProviders/@providers.0/@expressions.14" message="SystemInformationFlowReferenceSpace ID must be unique " category="//@audits/@categories.1">
+      <target xsi:type="gmfgen:GenDomainElementTarget" contextSelector="//@audits/@clientContexts.0">
+        <element href="spaceReference.genmodel#//rsmm/SystemInformationFlowReferenceSpace"/>
+      </target>
+    </rules>
+    <rules name="ReferentialSpaceNameNotNullAuditRule" description="ReferentialSpaceNameNotNullAuditRule" id="ReferentialSpaceNameNotNullAuditRule" rule="//@expressionProviders/@providers.0/@expressions.15" message="ReferentialSpace name must not be null" category="//@audits/@categories.2">
+      <target xsi:type="gmfgen:GenDomainAttributeTarget" contextSelector="//@audits/@clientContexts.0" nullAsError="true">
+        <attribute href="spaceReference.genmodel#//rsmm/ReferentialSpace/name"/>
+      </target>
+    </rules>
+    <rules name="ReferentialSpaceNameUniqueAuditRule" description="ReferentialSpaceNameUniqueAuditRule" id="ReferentialSpaceNameUniqueAuditRule" rule="//@expressionProviders/@providers.0/@expressions.16" message="ReferentialSpace name must be unique" category="//@audits/@categories.2">
+      <target xsi:type="gmfgen:GenDomainElementTarget" contextSelector="//@audits/@clientContexts.0">
+        <element href="spaceReference.genmodel#//rsmm/ReferentialSpace"/>
+      </target>
+    </rules>
+    <rules name="ReferentialSpaceIdNotNullAuditRule" description="ReferentialSpaceIdNotNullAuditRule" id="ReferentialSpaceIdNotNullAuditRule" rule="//@expressionProviders/@providers.0/@expressions.17" message="ReferentialSpace ID must not be null" category="//@audits/@categories.2">
+      <target xsi:type="gmfgen:GenDomainAttributeTarget" contextSelector="//@audits/@clientContexts.0" nullAsError="true">
+        <attribute href="spaceReference.genmodel#//rsmm/ReferentialSpace/id"/>
+      </target>
+    </rules>
+    <rules name="ReferentialSpaceIdUniqueAuditRule" description="ReferentialSpaceIdUniqueAuditRule" id="ReferentialSpaceIdUniqueAuditRule" rule="//@expressionProviders/@providers.0/@expressions.18" message="ReferentialSpace ID must be unique " category="//@audits/@categories.2">
+      <target xsi:type="gmfgen:GenDomainElementTarget" contextSelector="//@audits/@clientContexts.0">
+        <element href="spaceReference.genmodel#//rsmm/ReferentialSpace"/>
+      </target>
+    </rules>
+    <rules name="ContextAwareEntityReferenceNameNotNullAuditRule" description="ContextAwareEntityReferenceNameNotNullAuditRule" id="ContextAwareEntityReferenceNameNotNullAuditRule" rule="//@expressionProviders/@providers.0/@expressions.19" message="ContextAwareEntityReference name must not be null" category="//@audits/@categories.3">
+      <target xsi:type="gmfgen:GenDomainAttributeTarget" contextSelector="//@audits/@clientContexts.0" nullAsError="true">
+        <attribute href="spaceReference.genmodel#//rsmm/ContextAwareEntityReference/name"/>
+      </target>
+    </rules>
+    <rules name="ContextAwareEntityReferenceNameUniqueAuditRule" description="ContextAwareEntityReferenceNameUniqueAuditRule" id="ContextAwareEntityReferenceNameUniqueAuditRule" rule="//@expressionProviders/@providers.0/@expressions.20" message="ContextAwareEntityReference name must be unique" category="//@audits/@categories.3">
+      <target xsi:type="gmfgen:GenDomainElementTarget" contextSelector="//@audits/@clientContexts.0">
+        <element href="spaceReference.genmodel#//rsmm/ContextAwareEntityReference"/>
+      </target>
+    </rules>
+    <rules name="ContextAwareEntityReferenceIdNotNullAuditRule" description="ContextAwareEntityReferenceIdNotNullAuditRule" id="ContextAwareEntityReferenceIdNotNullAuditRule" rule="//@expressionProviders/@providers.0/@expressions.21" message="ContextAwareEntityReference ID must not be null" category="//@audits/@categories.3">
+      <target xsi:type="gmfgen:GenDomainAttributeTarget" contextSelector="//@audits/@clientContexts.0" nullAsError="true">
+        <attribute href="spaceReference.genmodel#//rsmm/ContextAwareEntityReference/id"/>
+      </target>
+    </rules>
+    <rules name="ContextAwareEntityReferenceIdUniqueAuditRule" description="ContextAwareEntityReferenceIdUniqueAuditRule" id="ContextAwareEntityReferenceIdUniqueAuditRule" rule="//@expressionProviders/@providers.0/@expressions.22" message="ContextAwareEntityReference ID must be unique " category="//@audits/@categories.3">
+      <target xsi:type="gmfgen:GenDomainElementTarget" contextSelector="//@audits/@clientContexts.0">
+        <element href="spaceReference.genmodel#//rsmm/ContextAwareEntityReference"/>
+      </target>
+    </rules>
+    <rules name="ContextAwareEntityReferenceEntityNotNullAuditRule" description="ContextAwareEntityReferenceEntityNotNullAuditRule" id="ContextAwareEntityReferenceEntityNotNullAuditRule" rule="//@expressionProviders/@providers.0/@expressions.23" message="ContextAwareEntityReference entity must not be null" category="//@audits/@categories.3">
+      <target xsi:type="gmfgen:GenDomainAttributeTarget" contextSelector="//@audits/@clientContexts.0" nullAsError="true">
+        <attribute href="spaceReference.genmodel#//rsmm/ContextAwareEntityReference/entity"/>
+      </target>
+    </rules>
+    <rules name="ContextAwareEntityReferenceIncomingReferenceDependencyAuditRule" description="ContextAwareEntityReferenceIncomingReferenceDependencyAuditRule" id="ContextAwareEntityReferenceIncomingReferenceDependencyAuditRule" rule="//@expressionProviders/@providers.0/@expressions.24" message="ContextAwareEntityReference must define at least one incomingReferenceDependency " category="//@audits/@categories.3">
+      <target xsi:type="gmfgen:GenDomainElementTarget" contextSelector="//@audits/@clientContexts.0">
+        <element href="spaceReference.genmodel#//rsmm/ContextAwareEntityReference"/>
+      </target>
+    </rules>
+    <rules name="ReferenceDependencyIdNotNullAuditRule" description="ReferenceDependencyIdNotNullAuditRule" id="ReferenceDependencyIdNotNullAuditRule" rule="//@expressionProviders/@providers.0/@expressions.25" message="ReferenceDependency ID must not be null" category="//@audits/@categories.4">
+      <target xsi:type="gmfgen:GenDomainAttributeTarget" contextSelector="//@audits/@clientContexts.0" nullAsError="true">
+        <attribute href="spaceReference.genmodel#//rsmm/ReferenceDependency/id"/>
+      </target>
+    </rules>
+    <rules name="SpaceToEntityReferenceDependencyIdUniqueAuditRule" description="SpaceToEntityReferenceDependencyIdUniqueAuditRule" id="SpaceToEntityReferenceDependencyIdUniqueAuditRule" rule="//@expressionProviders/@providers.0/@expressions.26" message="SpaceToEntityReferenceDependency ID must be unique " category="//@audits/@categories.4">
+      <target xsi:type="gmfgen:GenDomainElementTarget" contextSelector="//@audits/@clientContexts.0">
+        <element href="spaceReference.genmodel#//rsmm/SpaceToEntityReferenceDependency"/>
+      </target>
+    </rules>
+    <rules name="CardinalityGreaterThanZero" description="CardinalityGreaterThanZero" id="CardinalityGreaterThanZero" rule="//@expressionProviders/@providers.0/@expressions.27" message="Cardinality must be greater than 0" category="//@audits/@categories.4">
+      <target xsi:type="gmfgen:GenDomainAttributeTarget" contextSelector="//@audits/@clientContexts.0">
+        <attribute href="spaceReference.genmodel#//rsmm/ReferenceDependency/cardinality"/>
+      </target>
+    </rules>
+    <rules name="SpaceToSpaceReferenceDependencySourceTargetNotTheSameAuditRule" description="SpaceToSpaceReferenceDependencySourceTargetNotTheSameAuditRule" id="SpaceToSpaceReferenceDependencySourceTargetNotTheSameAuditRule" rule="//@expressionProviders/@providers.0/@expressions.28" message="SpaceToSpaceReferenceDependency source and target must not be the same" category="//@audits/@categories.4">
+      <target xsi:type="gmfgen:GenDomainElementTarget" contextSelector="//@audits/@clientContexts.0">
+        <element href="spaceReference.genmodel#//rsmm/SpaceToSpaceReferenceDependency"/>
+      </target>
+    </rules>
+    <rules name="SpaceToSpaceReferenceDependencyIdUniqueAuditRule" description="SpaceToSpaceReferenceDependencyIdUniqueAuditRule" id="SpaceToSpaceReferenceDependencyIdUniqueAuditRule" rule="//@expressionProviders/@providers.0/@expressions.29" message="SpaceToSpaceReferenceDependency ID must be unique " category="//@audits/@categories.4">
+      <target xsi:type="gmfgen:GenDomainElementTarget" contextSelector="//@audits/@clientContexts.0">
+        <element href="spaceReference.genmodel#//rsmm/SpaceToSpaceReferenceDependency"/>
+      </target>
+    </rules>
+    <clientContexts ruleTargets="//@audits/@rules.0/@target //@audits/@rules.1/@target //@audits/@rules.2/@target //@audits/@rules.3/@target //@audits/@rules.4/@target //@audits/@rules.5/@target //@audits/@rules.6/@target //@audits/@rules.7/@target //@audits/@rules.8/@target //@audits/@rules.9/@target //@audits/@rules.10/@target //@audits/@rules.11/@target //@audits/@rules.12/@target //@audits/@rules.13/@target //@audits/@rules.14/@target //@audits/@rules.15/@target //@audits/@rules.16/@target //@audits/@rules.17/@target //@audits/@rules.18/@target"/>
+  </audits>
+  <diagram visualID="1000" editPartClassName="SystemInformationFlowReferenceSpaceEditPart" itemSemanticEditPolicyClassName="SystemInformationFlowReferenceSpaceItemSemanticEditPolicy" canonicalEditPolicyClassName="SystemInformationFlowReferenceSpaceCanonicalEditPolicy" notationViewProviderPriority="High" editPartProviderPriority="High" iconProviderPriority="High" shortcutsDecoratorProviderPriority="High" validationProviderPriority="Low" validationEnabled="true" validationDecorators="true" validationDecoratorProviderPriority="High" liveValidationUIFeedback="true">
+    <diagramRunTimeClass href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Diagram"/>
+    <elementType xsi:type="gmfgen:MetamodelType" editHelperClassName="SystemInformationFlowReferenceSpaceEditHelper"/>
+    <viewmap xsi:type="gmfgen:FigureViewmap" figureQualifiedClassName="org.eclipse.draw2d.FreeformLayer"/>
+    <domainDiagramElement href="spaceReference.genmodel#//rsmm/SystemInformationFlowReferenceSpace"/>
+    <topLevelNodes visualID="2001" editPartClassName="ContextAwareEntityReferenceEditPart" itemSemanticEditPolicyClassName="ContextAwareEntityReferenceItemSemanticEditPolicy" canonicalEditPolicyClassName="ContextAwareEntityReferenceCanonicalEditPolicy" graphicalNodeEditPolicyClassName="ContextAwareEntityReferenceGraphicalNodeEditPolicy" createCommandClassName="ContextAwareEntityReferenceCreateCommand">
+      <diagramRunTimeClass href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <elementType xsi:type="gmfgen:MetamodelType" editHelperClassName="ContextAwareEntityReferenceEditHelper"/>
+      <viewmap xsi:type="gmfgen:InnerClassViewmap" layoutType="TOOLBAR_LAYOUT" className="ContextAwareEntityReferenceFigure" classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ContextAwareEntityReferenceFigure extends org.eclipse.draw2d.RectangleFigure {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureContextAwareEntityReferenceIdFigure; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureContextAwareEntityReferenceNameFigure; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureContextAwareEntityReferenceEntityFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ContextAwareEntityReferenceFigure() {&#xA;&#x9;&#x9;&#xA;&#x9;org.eclipse.draw2d.ToolbarLayout layoutThis = new org.eclipse.draw2d.ToolbarLayout();&#xA;&#x9;layoutThis.setStretchMinorAxis(false);&#xA;&#x9;layoutThis.setMinorAlignment(org.eclipse.draw2d.ToolbarLayout.ALIGN_TOPLEFT&#xA;);&#xA;&#xA;&#x9;layoutThis.setSpacing(5);&#xA;&#x9;layoutThis.setVertical(false);&#xA;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;this.setBorder(new org.eclipse.draw2d.CompoundBorder(new org.eclipse.draw2d.LineBorder(null, getMapMode().DPtoLP(1)&#xA;), new org.eclipse.draw2d.MarginBorder(getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;))&#xA;);&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureContextAwareEntityReferenceIdFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureContextAwareEntityReferenceIdFigure.setText(&quot;&quot;);&#xA;&#xA;this.add(fFigureContextAwareEntityReferenceIdFigure);&#xA;&#xA;&#xA;&#xA;fFigureContextAwareEntityReferenceNameFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureContextAwareEntityReferenceNameFigure.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigureContextAwareEntityReferenceNameFigure);&#xA;&#xA;&#xA;&#xA;fFigureContextAwareEntityReferenceEntityFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureContextAwareEntityReferenceEntityFigure.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigureContextAwareEntityReferenceEntityFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureContextAwareEntityReferenceIdFigure() {&#xA;&#x9;&#x9;return fFigureContextAwareEntityReferenceIdFigure;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureContextAwareEntityReferenceNameFigure() {&#xA;&#x9;&#x9;return fFigureContextAwareEntityReferenceNameFigure;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureContextAwareEntityReferenceEntityFigure() {&#xA;&#x9;&#x9;return fFigureContextAwareEntityReferenceEntityFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;">
+        <attributes xsi:type="gmfgen:DefaultSizeAttributes" width="100"/>
+      </viewmap>
+      <modelFacet>
+        <metaClass href="spaceReference.genmodel#//rsmm/ContextAwareEntityReference"/>
+        <containmentMetaFeature href="spaceReference.genmodel#//rsmm/SystemInformationFlowReferenceSpace/entityReferences"/>
+        <childMetaFeature href="spaceReference.genmodel#//rsmm/SystemInformationFlowReferenceSpace/entityReferences"/>
+        <modelElementInitializer xsi:type="gmfgen:GenFeatureSeqInitializer">
+          <initializers xsi:type="gmfgen:GenFeatureValueSpec" value="//@expressionProviders/@providers.0/@expressions.0">
+            <feature href="spaceReference.genmodel#//rsmm/ContextAwareEntityReference/id"/>
+          </initializers>
+          <initializers xsi:type="gmfgen:GenFeatureValueSpec" value="//@expressionProviders/@providers.0/@expressions.1">
+            <feature href="spaceReference.genmodel#//rsmm/ContextAwareEntityReference/name"/>
+          </initializers>
+          <initializers xsi:type="gmfgen:GenFeatureValueSpec" value="//@expressionProviders/@providers.0/@expressions.2">
+            <feature href="spaceReference.genmodel#//rsmm/ContextAwareEntityReference/entity"/>
+          </initializers>
+        </modelElementInitializer>
+      </modelFacet>
+      <labels visualID="5001" editPartClassName="ContextAwareEntityReferenceNameEditPart" itemSemanticEditPolicyClassName="ContextAwareEntityReferenceNameItemSemanticEditPolicy">
+        <diagramRunTimeClass href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <viewmap xsi:type="gmfgen:ParentAssignedViewmap" getterName="getFigureContextAwareEntityReferenceNameFigure" figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
+        <modelFacet xsi:type="gmfgen:FeatureLabelModelFacet" parser="//@labelParsers/@implementations.0">
+          <metaFeatures href="spaceReference.genmodel#//rsmm/ContextAwareEntityReference/name"/>
+        </modelFacet>
+      </labels>
+      <labels visualID="5002" editPartClassName="ContextAwareEntityReferenceEntityEditPart" itemSemanticEditPolicyClassName="ContextAwareEntityReferenceEntityItemSemanticEditPolicy">
+        <diagramRunTimeClass href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <viewmap xsi:type="gmfgen:ParentAssignedViewmap" getterName="getFigureContextAwareEntityReferenceEntityFigure" figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
+        <modelFacet xsi:type="gmfgen:FeatureLabelModelFacet" parser="//@labelParsers/@implementations.0" viewPattern="[{0}]" editorPattern="[{0}]" editPattern="[{0}]">
+          <metaFeatures href="spaceReference.genmodel#//rsmm/ContextAwareEntityReference/entity"/>
+        </modelFacet>
+      </labels>
+      <labels visualID="5003" editPartClassName="ContextAwareEntityReferenceIdEditPart" itemSemanticEditPolicyClassName="ContextAwareEntityReferenceIdItemSemanticEditPolicy" readOnly="true" elementIcon="true">
+        <diagramRunTimeClass href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <viewmap xsi:type="gmfgen:ParentAssignedViewmap" getterName="getFigureContextAwareEntityReferenceIdFigure" figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
+        <modelFacet xsi:type="gmfgen:FeatureLabelModelFacet" parser="//@labelParsers/@implementations.0" viewPattern="({0})">
+          <metaFeatures href="spaceReference.genmodel#//rsmm/ContextAwareEntityReference/id"/>
+        </modelFacet>
+      </labels>
+    </topLevelNodes>
+    <topLevelNodes visualID="2002" editPartClassName="ReferentialSpaceEditPart" itemSemanticEditPolicyClassName="ReferentialSpaceItemSemanticEditPolicy" canonicalEditPolicyClassName="ReferentialSpaceCanonicalEditPolicy" graphicalNodeEditPolicyClassName="ReferentialSpaceGraphicalNodeEditPolicy" createCommandClassName="ReferentialSpaceCreateCommand">
+      <diagramRunTimeClass href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <elementType xsi:type="gmfgen:MetamodelType" editHelperClassName="ReferentialSpaceEditHelper"/>
+      <viewmap xsi:type="gmfgen:InnerClassViewmap" layoutType="TOOLBAR_LAYOUT" className="ReferentialSpaceFigure" classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ReferentialSpaceFigure extends org.eclipse.draw2d.RectangleFigure {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureReferentialSpaceIdFigure; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureReferentialSpaceNameFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ReferentialSpaceFigure() {&#xA;&#x9;&#x9;&#xA;&#x9;org.eclipse.draw2d.ToolbarLayout layoutThis = new org.eclipse.draw2d.ToolbarLayout();&#xA;&#x9;layoutThis.setStretchMinorAxis(true);&#xA;&#x9;layoutThis.setMinorAlignment(org.eclipse.draw2d.ToolbarLayout.ALIGN_TOPLEFT&#xA;);&#xA;&#xA;&#x9;layoutThis.setSpacing(5);&#xA;&#x9;layoutThis.setVertical(false);&#xA;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;this.setOutline(false);&#xA;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;this.setBorder(new org.eclipse.draw2d.MarginBorder(getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureReferentialSpaceIdFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureReferentialSpaceIdFigure.setText(&quot;&quot;);&#xA;&#xA;this.add(fFigureReferentialSpaceIdFigure);&#xA;&#xA;&#xA;&#xA;fFigureReferentialSpaceNameFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureReferentialSpaceNameFigure.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigureReferentialSpaceNameFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureReferentialSpaceIdFigure() {&#xA;&#x9;&#x9;return fFigureReferentialSpaceIdFigure;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureReferentialSpaceNameFigure() {&#xA;&#x9;&#x9;return fFigureReferentialSpaceNameFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 240, 240, 240);&#xA;&#xA;">
+        <attributes xsi:type="gmfgen:StyleAttributes" fixedBackground="true"/>
+        <attributes xsi:type="gmfgen:DefaultSizeAttributes" width="100"/>
+      </viewmap>
+      <modelFacet>
+        <metaClass href="spaceReference.genmodel#//rsmm/ReferentialSpace"/>
+        <containmentMetaFeature href="spaceReference.genmodel#//rsmm/SystemInformationFlowReferenceSpace/referentialSpaces"/>
+        <childMetaFeature href="spaceReference.genmodel#//rsmm/SystemInformationFlowReferenceSpace/referentialSpaces"/>
+        <modelElementInitializer xsi:type="gmfgen:GenFeatureSeqInitializer">
+          <initializers xsi:type="gmfgen:GenFeatureValueSpec" value="//@expressionProviders/@providers.0/@expressions.3">
+            <feature href="spaceReference.genmodel#//rsmm/ReferentialSpace/id"/>
+          </initializers>
+          <initializers xsi:type="gmfgen:GenFeatureValueSpec" value="//@expressionProviders/@providers.0/@expressions.4">
+            <feature href="spaceReference.genmodel#//rsmm/ReferentialSpace/name"/>
+          </initializers>
+        </modelElementInitializer>
+      </modelFacet>
+      <labels visualID="5004" editPartClassName="ReferentialSpaceNameEditPart" itemSemanticEditPolicyClassName="ReferentialSpaceNameItemSemanticEditPolicy">
+        <diagramRunTimeClass href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <viewmap xsi:type="gmfgen:ParentAssignedViewmap" getterName="getFigureReferentialSpaceNameFigure" figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
+        <modelFacet xsi:type="gmfgen:FeatureLabelModelFacet" parser="//@labelParsers/@implementations.0" viewPattern="" editorPattern="">
+          <metaFeatures href="spaceReference.genmodel#//rsmm/ReferentialSpace/name"/>
+        </modelFacet>
+      </labels>
+      <labels visualID="5005" editPartClassName="ReferentialSpaceIdEditPart" itemSemanticEditPolicyClassName="ReferentialSpaceIdItemSemanticEditPolicy" readOnly="true" elementIcon="true">
+        <diagramRunTimeClass href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <viewmap xsi:type="gmfgen:ParentAssignedViewmap" getterName="getFigureReferentialSpaceIdFigure" figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
+        <modelFacet xsi:type="gmfgen:FeatureLabelModelFacet" parser="//@labelParsers/@implementations.0" viewPattern="({0})">
+          <metaFeatures href="spaceReference.genmodel#//rsmm/ReferentialSpace/id"/>
+        </modelFacet>
+      </labels>
+    </topLevelNodes>
+    <links visualID="4001" editPartClassName="SpaceToSpaceReferenceDependencyEditPart" itemSemanticEditPolicyClassName="SpaceToSpaceReferenceDependencyItemSemanticEditPolicy" createCommandClassName="SpaceToSpaceReferenceDependencyCreateCommand" reorientCommandClassName="SpaceToSpaceReferenceDependencyReorientCommand">
+      <diagramRunTimeClass href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Edge"/>
+      <elementType xsi:type="gmfgen:MetamodelType" editHelperClassName="SpaceToSpaceReferenceDependencyEditHelper"/>
+      <viewmap xsi:type="gmfgen:InnerClassViewmap" className="SpaceToSpaceReferenceDependencyFigure" classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class SpaceToSpaceReferenceDependencyFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.PolylineConnectionEx {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureSpaceToSpaceReferenceDependencyCardinalityFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public SpaceToSpaceReferenceDependencyFigure() {&#xA;&#x9;&#x9;&#xA;&#x9;&#x9;createContents();&#xA;&#x9;&#x9;setTargetDecoration(createTargetDecoration());&#xA;&#x9;}&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureSpaceToSpaceReferenceDependencyCardinalityFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureSpaceToSpaceReferenceDependencyCardinalityFigure.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigureSpaceToSpaceReferenceDependencyCardinalityFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RotatableDecoration createTargetDecoration() {&#xA;&#x9;&#x9;org.eclipse.draw2d.PolygonDecoration df = new org.eclipse.draw2d.PolygonDecoration();&#xA;df.setFill(true);&#xA;&#x9;df.setBackgroundColor(DF_BACK&#xA;);&#xA;org.eclipse.draw2d.geometry.PointList pl = new org.eclipse.draw2d.geometry.PointList();&#xA;pl.addPoint(getMapMode().DPtoLP(0)&#xA;, getMapMode().DPtoLP(0)&#xA;);&#xA;pl.addPoint(getMapMode().DPtoLP(-2)&#xA;, getMapMode().DPtoLP(-1)&#xA;);&#xA;pl.addPoint(getMapMode().DPtoLP(-2)&#xA;, getMapMode().DPtoLP(1)&#xA;);&#xA;pl.addPoint(getMapMode().DPtoLP(0)&#xA;, getMapMode().DPtoLP(0)&#xA;);&#xA;df.setTemplate(pl);&#xA;df.setScale(getMapMode().DPtoLP(7)&#xA;, getMapMode().DPtoLP(3)&#xA;);&#xA;&#x9;&#x9;return df;&#xA;&#x9;}&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureSpaceToSpaceReferenceDependencyCardinalityFigure() {&#xA;&#x9;&#x9;return fFigureSpaceToSpaceReferenceDependencyCardinalityFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color DF_BACK = new org.eclipse.swt.graphics.Color(null, 0, 0, 0);&#xA;&#xA;"/>
+      <modelFacet xsi:type="gmfgen:TypeLinkModelFacet">
+        <metaClass href="spaceReference.genmodel#//rsmm/SpaceToSpaceReferenceDependency"/>
+        <containmentMetaFeature href="spaceReference.genmodel#//rsmm/SystemInformationFlowReferenceSpace/spaceToSpaceReferenceDependencies"/>
+        <childMetaFeature href="spaceReference.genmodel#//rsmm/SystemInformationFlowReferenceSpace/spaceToSpaceReferenceDependencies"/>
+        <modelElementInitializer xsi:type="gmfgen:GenFeatureSeqInitializer">
+          <initializers xsi:type="gmfgen:GenFeatureValueSpec" value="//@expressionProviders/@providers.0/@expressions.5">
+            <feature href="spaceReference.genmodel#//rsmm/ReferenceDependency/cardinality"/>
+          </initializers>
+          <initializers xsi:type="gmfgen:GenFeatureValueSpec" value="//@expressionProviders/@providers.0/@expressions.6">
+            <feature href="spaceReference.genmodel#//rsmm/ReferenceDependency/id"/>
+          </initializers>
+        </modelElementInitializer>
+        <sourceMetaFeature href="spaceReference.genmodel#//rsmm/ReferenceDependency/parent"/>
+        <targetMetaFeature href="spaceReference.genmodel#//rsmm/SpaceToSpaceReferenceDependency/child"/>
+      </modelFacet>
+      <labels visualID="6001" editPartClassName="SpaceToSpaceReferenceDependencyCardinalityEditPart" itemSemanticEditPolicyClassName="SpaceToSpaceReferenceDependencyCardinalityItemSemanticEditPolicy">
+        <diagramRunTimeClass href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <viewmap xsi:type="gmfgen:ParentAssignedViewmap" getterName="getFigureSpaceToSpaceReferenceDependencyCardinalityFigure" figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel">
+          <attributes xsi:type="gmfgen:LabelOffsetAttributes" y="40"/>
+        </viewmap>
+        <modelFacet xsi:type="gmfgen:FeatureLabelModelFacet" parser="//@labelParsers/@implementations.0" editorPattern="">
+          <metaFeatures href="spaceReference.genmodel#//rsmm/ReferenceDependency/cardinality"/>
+        </modelFacet>
+      </labels>
+      <creationConstraints targetEnd="//@expressionProviders/@providers.0/@expressions.7"/>
+    </links>
+    <links visualID="4002" editPartClassName="SpaceToEntityReferenceDependencyEditPart" itemSemanticEditPolicyClassName="SpaceToEntityReferenceDependencyItemSemanticEditPolicy" createCommandClassName="SpaceToEntityReferenceDependencyCreateCommand" reorientCommandClassName="SpaceToEntityReferenceDependencyReorientCommand">
+      <diagramRunTimeClass href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Edge"/>
+      <elementType xsi:type="gmfgen:MetamodelType" editHelperClassName="SpaceToEntityReferenceDependencyEditHelper"/>
+      <viewmap xsi:type="gmfgen:InnerClassViewmap" className="SpaceToEntityReferenceDependencyFigure" classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class SpaceToEntityReferenceDependencyFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.PolylineConnectionEx {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureEntityToSpaceReferenceDependencyCardinalityFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public SpaceToEntityReferenceDependencyFigure() {&#xA;&#x9;&#x9;&#xA;&#x9;&#x9;createContents();&#xA;&#x9;&#x9;setTargetDecoration(createTargetDecoration());&#xA;&#x9;}&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureEntityToSpaceReferenceDependencyCardinalityFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureEntityToSpaceReferenceDependencyCardinalityFigure.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigureEntityToSpaceReferenceDependencyCardinalityFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RotatableDecoration createTargetDecoration() {&#xA;&#x9;&#x9;org.eclipse.draw2d.PolygonDecoration df = new org.eclipse.draw2d.PolygonDecoration();&#xA;df.setFill(true);&#xA;&#x9;df.setBackgroundColor(DF_BACK&#xA;);&#xA;org.eclipse.draw2d.geometry.PointList pl = new org.eclipse.draw2d.geometry.PointList();&#xA;pl.addPoint(getMapMode().DPtoLP(0)&#xA;, getMapMode().DPtoLP(0)&#xA;);&#xA;pl.addPoint(getMapMode().DPtoLP(-2)&#xA;, getMapMode().DPtoLP(-1)&#xA;);&#xA;pl.addPoint(getMapMode().DPtoLP(-2)&#xA;, getMapMode().DPtoLP(1)&#xA;);&#xA;pl.addPoint(getMapMode().DPtoLP(0)&#xA;, getMapMode().DPtoLP(0)&#xA;);&#xA;df.setTemplate(pl);&#xA;df.setScale(getMapMode().DPtoLP(7)&#xA;, getMapMode().DPtoLP(3)&#xA;);&#xA;&#x9;&#x9;return df;&#xA;&#x9;}&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureEntityToSpaceReferenceDependencyCardinalityFigure() {&#xA;&#x9;&#x9;return fFigureEntityToSpaceReferenceDependencyCardinalityFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color DF_BACK = new org.eclipse.swt.graphics.Color(null, 0, 0, 0);&#xA;&#xA;"/>
+      <modelFacet xsi:type="gmfgen:TypeLinkModelFacet">
+        <metaClass href="spaceReference.genmodel#//rsmm/SpaceToEntityReferenceDependency"/>
+        <containmentMetaFeature href="spaceReference.genmodel#//rsmm/SystemInformationFlowReferenceSpace/spaceToEntityReferenceDependencies"/>
+        <childMetaFeature href="spaceReference.genmodel#//rsmm/SystemInformationFlowReferenceSpace/spaceToEntityReferenceDependencies"/>
+        <modelElementInitializer xsi:type="gmfgen:GenFeatureSeqInitializer">
+          <initializers xsi:type="gmfgen:GenFeatureValueSpec" value="//@expressionProviders/@providers.0/@expressions.8">
+            <feature href="spaceReference.genmodel#//rsmm/ReferenceDependency/id"/>
+          </initializers>
+          <initializers xsi:type="gmfgen:GenFeatureValueSpec" value="//@expressionProviders/@providers.0/@expressions.9">
+            <feature href="spaceReference.genmodel#//rsmm/ReferenceDependency/cardinality"/>
+          </initializers>
+        </modelElementInitializer>
+        <sourceMetaFeature href="spaceReference.genmodel#//rsmm/ReferenceDependency/parent"/>
+        <targetMetaFeature href="spaceReference.genmodel#//rsmm/SpaceToEntityReferenceDependency/child"/>
+      </modelFacet>
+      <labels visualID="6002" editPartClassName="SpaceToEntityReferenceDependencyCardinalityEditPart" itemSemanticEditPolicyClassName="SpaceToEntityReferenceDependencyCardinalityItemSemanticEditPolicy">
+        <diagramRunTimeClass href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <viewmap xsi:type="gmfgen:ParentAssignedViewmap" getterName="getFigureEntityToSpaceReferenceDependencyCardinalityFigure" figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel">
+          <attributes xsi:type="gmfgen:LabelOffsetAttributes" y="40"/>
+        </viewmap>
+        <modelFacet xsi:type="gmfgen:FeatureLabelModelFacet" parser="//@labelParsers/@implementations.0">
+          <metaFeatures href="spaceReference.genmodel#//rsmm/ReferenceDependency/cardinality"/>
+        </modelFacet>
+      </labels>
+      <creationConstraints targetEnd="//@expressionProviders/@providers.0/@expressions.10"/>
+    </links>
+    <palette>
+      <groups title="rsmm">
+        <entries xsi:type="gmfgen:ToolEntry" title="ReferentialSpace" description="Create new ReferentialSpace" genNodes="//@diagram/@topLevelNodes.1"/>
+        <entries xsi:type="gmfgen:ToolEntry" title="ContextAwareEntityReference" description="Create new ContextAwareEntityReference" genNodes="//@diagram/@topLevelNodes.0"/>
+        <entries xsi:type="gmfgen:Separator"/>
+        <entries xsi:type="gmfgen:ToolEntry" title="SpaceToEntityReferenceDependency" description="Create new SpaceToentityReferenceDependency" genLinks="//@diagram/@links.1"/>
+        <entries xsi:type="gmfgen:ToolEntry" title="SpaceToSpaceReferenceDependency" description="Create new SpaceToSpaceReferenceDependency" genLinks="//@diagram/@links.0"/>
+      </groups>
+    </palette>
+    <preferencePages xsi:type="gmfgen:GenStandardPreferencePage" iD="org.tesoriero.cauce.spaceReference.diagram.general" name="SpaceReference Diagram">
+      <children xsi:type="gmfgen:GenStandardPreferencePage" iD="org.tesoriero.cauce.spaceReference.diagram.appearance" name="Appearance" kind="Appearance"/>
+      <children xsi:type="gmfgen:GenStandardPreferencePage" iD="org.tesoriero.cauce.spaceReference.diagram.connections" name="Connections" kind="Connections"/>
+      <children xsi:type="gmfgen:GenStandardPreferencePage" iD="org.tesoriero.cauce.spaceReference.diagram.printing" name="Printing" kind="Printing"/>
+      <children xsi:type="gmfgen:GenStandardPreferencePage" iD="org.tesoriero.cauce.spaceReference.diagram.rulersAndGrid" name="Rulers And Grid" kind="RulersAndGrid"/>
+    </preferencePages>
+  </diagram>
+  <plugin>
+    <requiredPlugins>org.eclipse.gmf.tooling.runtime</requiredPlugins>
+    <requiredPlugins>org.eclipse.draw2d</requiredPlugins>
+    <requiredPlugins>org.eclipse.gmf.runtime.draw2d.ui</requiredPlugins>
+  </plugin>
+  <editor/>
+  <navigator>
+    <childReferences child="//@diagram"/>
+    <childReferences parent="//@diagram" child="//@diagram/@topLevelNodes.0"/>
+    <childReferences parent="//@diagram" child="//@diagram/@topLevelNodes.1"/>
+    <childReferences parent="//@diagram" child="//@diagram/@links.0" groupName="links" groupIcon="icons/linksNavigatorGroup.gif"/>
+    <childReferences parent="//@diagram/@links.0" child="//@diagram/@topLevelNodes.1" referenceType="out_target" groupName="target" groupIcon="icons/linkTargetNavigatorGroup.gif"/>
+    <childReferences parent="//@diagram/@topLevelNodes.1" child="//@diagram/@links.0" referenceType="in_source" groupName="incoming links" groupIcon="icons/incomingLinksNavigatorGroup.gif"/>
+    <childReferences parent="//@diagram/@links.0" child="//@diagram/@topLevelNodes.1" referenceType="in_source" groupName="source" groupIcon="icons/linkSourceNavigatorGroup.gif"/>
+    <childReferences parent="//@diagram/@topLevelNodes.1" child="//@diagram/@links.0" referenceType="out_target" groupName="outgoing links" groupIcon="icons/outgoingLinksNavigatorGroup.gif"/>
+    <childReferences parent="//@diagram" child="//@diagram/@links.1" groupName="links" groupIcon="icons/linksNavigatorGroup.gif"/>
+    <childReferences parent="//@diagram/@links.1" child="//@diagram/@topLevelNodes.0" referenceType="out_target" groupName="target" groupIcon="icons/linkTargetNavigatorGroup.gif"/>
+    <childReferences parent="//@diagram/@topLevelNodes.0" child="//@diagram/@links.1" referenceType="in_source" groupName="incoming links" groupIcon="icons/incomingLinksNavigatorGroup.gif"/>
+    <childReferences parent="//@diagram/@links.1" child="//@diagram/@topLevelNodes.1" referenceType="in_source" groupName="source" groupIcon="icons/linkSourceNavigatorGroup.gif"/>
+    <childReferences parent="//@diagram/@topLevelNodes.1" child="//@diagram/@links.1" referenceType="out_target" groupName="outgoing links" groupIcon="icons/outgoingLinksNavigatorGroup.gif"/>
+  </navigator>
+  <diagramUpdater/>
+  <propertySheet>
+    <tabs xsi:type="gmfgen:GenStandardPropertyTab" iD="appearance"/>
+    <tabs xsi:type="gmfgen:GenStandardPropertyTab" iD="diagram"/>
+    <tabs xsi:type="gmfgen:GenCustomPropertyTab" iD="domain" label="Core">
+      <filter xsi:type="gmfgen:TypeTabFilter">
+        <types>org.eclipse.gmf.runtime.notation.View</types>
+        <types>org.eclipse.gef.EditPart</types>
+        <generatedTypes>abstractNavigatorItem</generatedTypes>
+      </filter>
+    </tabs>
+  </propertySheet>
+  <domainGenModel href="spaceReference.genmodel#/"/>
+  <expressionProviders>
+    <providers xsi:type="gmfgen:GenExpressionInterpreter">
+      <expressions body="system.entityReferences->collect(id)&#xD;&#xA;->union(system.referentialSpaces->collect(id))&#xD;&#xA;->union(system.spaceToSpaceReferenceDependencies->collect(id))&#xD;&#xA;->union(system.spaceToEntityReferenceDependencies->collect(id))&#xD;&#xA;->iterate(id; m:Integer=0 |  m.max(id)) + 1"/>
+      <expressions body="'EntityReference'.concat(&#xD;&#xA;let number: Integer = id &#xD;&#xA;in OrderedSet{1000000, 10000, 1000, 100, 10, 1}&#xD;&#xA;->iterate(denominator : Integer; s : String = '' | let numberAsString : String= OrderedSet{'0','1','2','3','4','5','6','7','8','9'}->at(number.div(denominator).mod(10) + 1)&#xD;&#xA;in if s='' and numberAsString = '0' then s else s.concat(numberAsString) endif&#xD;&#xA;))"/>
+      <expressions body="self.name"/>
+      <expressions body="system.entityReferences->collect(id)&#xD;&#xA;->union(system.referentialSpaces->collect(id))&#xD;&#xA;->union(system.spaceToSpaceReferenceDependencies->collect(id))&#xD;&#xA;->union(system.spaceToEntityReferenceDependencies->collect(id))&#xD;&#xA;->iterate(id; m:Integer=0 |  m.max(id)) + 1"/>
+      <expressions body="'SpaceReference'.concat(&#xD;&#xA;let number: Integer = id &#xD;&#xA;in OrderedSet{1000000, 10000, 1000, 100, 10, 1}&#xD;&#xA;->iterate(denominator : Integer; s : String = '' | let numberAsString : String= OrderedSet{'0','1','2','3','4','5','6','7','8','9'}->at(number.div(denominator).mod(10) + 1)&#xD;&#xA;in if s='' and numberAsString = '0' then s else s.concat(numberAsString) endif&#xD;&#xA;))"/>
+      <expressions body="1"/>
+      <expressions body="system.entityReferences->collect(id)&#xD;&#xA;->union(system.referentialSpaces->collect(id))&#xD;&#xA;->union(system.spaceToSpaceReferenceDependencies->collect(id))&#xD;&#xA;->union(system.spaceToEntityReferenceDependencies->collect(id))&#xD;&#xA;->iterate(id; m:Integer=0 |  m.max(id)) + 1"/>
+      <expressions xsi:type="gmfgen:GenConstraint" body="incomingReferenceDependency.oclIsUndefined()"/>
+      <expressions body="system.entityReferences->collect(id)&#xD;&#xA;->union(system.referentialSpaces->collect(id))&#xD;&#xA;->union(system.spaceToSpaceReferenceDependencies->collect(id))&#xD;&#xA;->union(system.spaceToEntityReferenceDependencies->collect(id))&#xD;&#xA;->iterate(id; m:Integer=0 |  m.max(id)) + 1"/>
+      <expressions body="1"/>
+      <expressions xsi:type="gmfgen:GenConstraint" body="incomingReferenceDependency.oclIsUndefined()"/>
+      <expressions xsi:type="gmfgen:GenConstraint" body="self.size()>0"/>
+      <expressions xsi:type="gmfgen:GenConstraint" body="referentialSpaces->forAll(rs | rs.name&lt;>self.name) and&#xD;&#xA;entityReferences->forAll(e | e.name &lt;> self.name)"/>
+      <expressions xsi:type="gmfgen:GenConstraint" body="self>=0"/>
+      <expressions xsi:type="gmfgen:GenConstraint" body="referentialSpaces->forAll(rs | rs.id&lt;>self.id) and&#xD;&#xA;spaceToSpaceReferenceDependencies->forAll(rd | rd.id&lt;> self.id) and&#xD;&#xA;spaceToEntityReferenceDependencies->forAll(rd | rd.id&lt;> self.id) and&#xD;&#xA;entityReferences->forAll(e | e.id &lt;> self.id)"/>
+      <expressions xsi:type="gmfgen:GenConstraint" body="self.size()>0"/>
+      <expressions xsi:type="gmfgen:GenConstraint" body="system.referentialSpaces->forAll(rs | (rs&lt;>self) implies (rs.name&lt;>self.name)) and&#xD;&#xA;system.entityReferences->forAll(e | e.name &lt;> self.name) and&#xD;&#xA;(system.name&lt;>self.name) "/>
+      <expressions xsi:type="gmfgen:GenConstraint" body="self>0"/>
+      <expressions xsi:type="gmfgen:GenConstraint" body="system.referentialSpaces->forAll(rs | (rs&lt;>self) implies (rs.id&lt;>self.id)) and&#xD;&#xA;system.spaceToSpaceReferenceDependencies->forAll(rd | rd.id&lt;> self.id) and&#xD;&#xA;system.spaceToEntityReferenceDependencies->forAll(rd | rd.id&lt;> self.id) and&#xD;&#xA;system.entityReferences->forAll(e | e.id &lt;> self.id)"/>
+      <expressions xsi:type="gmfgen:GenConstraint" body="self.size()>0"/>
+      <expressions xsi:type="gmfgen:GenConstraint" body="system.referentialSpaces->forAll(rs | (rs.name&lt;>self.name)) and&#xD;&#xA;system.entityReferences->forAll(e | (e&lt;>self) implies (e.name &lt;> self.name)) and&#xD;&#xA;(system.name&lt;>self.name) "/>
+      <expressions xsi:type="gmfgen:GenConstraint" body="self>0"/>
+      <expressions xsi:type="gmfgen:GenConstraint" body="system.referentialSpaces->forAll(rs | (rs.id&lt;>self.id)) and&#xD;&#xA;system.spaceToSpaceReferenceDependencies->forAll(rd | rd.id&lt;> self.id) and&#xD;&#xA;system.spaceToEntityReferenceDependencies->forAll(rd | rd.id&lt;> self.id) and&#xD;&#xA;system.entityReferences->forAll(e |  (e&lt;>self) implies (e.id &lt;> self.id))"/>
+      <expressions xsi:type="gmfgen:GenConstraint" body="self.size()>0"/>
+      <expressions xsi:type="gmfgen:GenConstraint" body="incomingReferenceDependency->size()>0"/>
+      <expressions xsi:type="gmfgen:GenConstraint" body="self>0"/>
+      <expressions xsi:type="gmfgen:GenConstraint" body="system.referentialSpaces->forAll(rs | (rs.id&lt;>self.id)) and&#xD;&#xA;system.spaceToSpaceReferenceDependencies->forAll(rd | (rd&lt;>self) implies (rd.id&lt;> self.id)) and&#xD;&#xA;system.spaceToEntityReferenceDependencies->forAll(rd | (rd&lt;>self) implies (rd.id&lt;> self.id)) and&#xD;&#xA;system.entityReferences->forAll(e |  (e.id &lt;> self.id))"/>
+      <expressions xsi:type="gmfgen:GenConstraint" body="self>0"/>
+      <expressions xsi:type="gmfgen:GenConstraint" body="child &lt;> parent"/>
+      <expressions xsi:type="gmfgen:GenConstraint" body="system.referentialSpaces->forAll(rs | (rs.id&lt;>self.id)) and&#xD;&#xA;system.spaceToSpaceReferenceDependencies->forAll(rd | (rd&lt;>self) implies (rd.id&lt;> self.id)) and&#xD;&#xA;system.spaceToEntityReferenceDependencies->forAll(rd | (rd&lt;>self) implies (rd.id&lt;> self.id)) and&#xD;&#xA;system.entityReferences->forAll(e |  (e.id &lt;> self.id))"/>
+    </providers>
+  </expressionProviders>
+  <labelParsers extensibleViaService="true">
+    <implementations xsi:type="gmfgen:PredefinedParser" uses="//@diagram/@topLevelNodes.0/@labels.0/@modelFacet //@diagram/@topLevelNodes.0/@labels.1/@modelFacet //@diagram/@topLevelNodes.0/@labels.2/@modelFacet //@diagram/@topLevelNodes.1/@labels.0/@modelFacet //@diagram/@topLevelNodes.1/@labels.1/@modelFacet //@diagram/@links.0/@labels.0/@modelFacet //@diagram/@links.1/@labels.0/@modelFacet"/>
+  </labelParsers>
+  <contextMenus context="//@diagram">
+    <items xsi:type="gmfgen:LoadResourceAction"/>
+  </contextMenus>
+</gmfgen:GenEditorGenerator>

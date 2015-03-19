@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<ifmm:SystemInformaitonFlow xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ifmm="ifmm" name="somm-diagram">
+  <entities id="1" name="Printer" incomingInformationFlows="//@edges.1 //@edges.3"/>
+  <entities id="2" name="PDA" ongoingInformationFlows="//@edges.0 //@edges.2"/>
+  <informationFlows xsi:type="ifmm:BroadcastInformationFlow" id="3" name="PDA_to_Printer-Print" source="//@edges.0" target="//@edges.1">
+    <data definition="document"/>
+  </informationFlows>
+  <informationFlows xsi:type="ifmm:BroadcastInformationFlow" id="4" name="PDA_to_Printer-Cancel" source="//@edges.2" target="//@edges.3">
+    <data definition="cancel"/>
+  </informationFlows>
+  <edges xsi:type="ifmm:EntityToBroadcastInformationFlowEdge" source="2" target="3"/>
+  <edges xsi:type="ifmm:BroadcastInformationFlowToEntityEdge" target="1" source="3"/>
+  <edges xsi:type="ifmm:EntityToBroadcastInformationFlowEdge" source="2" target="4"/>
+  <edges xsi:type="ifmm:BroadcastInformationFlowToEntityEdge" target="1" source="4"/>
+</ifmm:SystemInformaitonFlow>

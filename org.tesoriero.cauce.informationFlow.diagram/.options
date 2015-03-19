@@ -1,0 +1,7 @@
+# Tracing options for the org.tesoriero.cauce.informationFlow.diagram plug-in
+
+# Common issues
+org.tesoriero.cauce.informationFlow.diagram/debug=false
+
+# Visual IDs
+org.tesoriero.cauce.informationFlow.diagram/debug/visualID=false

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.1/notation" xmlns:rsmm="rsmm" xmi:id="_B8TTYJDfEd6bj7eawxFGZA" type="Rsmm" measurementUnit="Pixel">
+  <children xmi:type="notation:Node" xmi:id="_CFxYcJDfEd6bj7eawxFGZA" type="1001">
+    <children xmi:type="notation:Node" xmi:id="_CFxYc5DfEd6bj7eawxFGZA" type="4001"/>
+    <children xmi:type="notation:Node" xmi:id="_CFxYdJDfEd6bj7eawxFGZA" type="4002"/>
+    <children xmi:type="notation:Node" xmi:id="_CFx_gJDfEd6bj7eawxFGZA" type="4003"/>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_CFxYcZDfEd6bj7eawxFGZA" fontName="Segoe UI"/>
+    <element xmi:type="rsmm:ContextAwareEntityReference" href="healthyScreen.rsmm#3"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_CFxYcpDfEd6bj7eawxFGZA" y="90"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_CFx_gZDfEd6bj7eawxFGZA" type="1001">
+    <children xmi:type="notation:Node" xmi:id="_CFx_hJDfEd6bj7eawxFGZA" type="4001"/>
+    <children xmi:type="notation:Node" xmi:id="_CFymkJDfEd6bj7eawxFGZA" type="4002"/>
+    <children xmi:type="notation:Node" xmi:id="_CFymkZDfEd6bj7eawxFGZA" type="4003"/>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_CFx_gpDfEd6bj7eawxFGZA" fontName="Segoe UI"/>
+    <element xmi:type="rsmm:ContextAwareEntityReference" href="healthyScreen.rsmm#5"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_CFx_g5DfEd6bj7eawxFGZA" x="168" y="90"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_CFzNoJDfEd6bj7eawxFGZA" type="1002">
+    <children xmi:type="notation:Node" xmi:id="_CFzNo5DfEd6bj7eawxFGZA" type="4004"/>
+    <children xmi:type="notation:Node" xmi:id="_CFz0sJDfEd6bj7eawxFGZA" type="4005"/>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_CFzNoZDfEd6bj7eawxFGZA" fontName="Segoe UI"/>
+    <element xmi:type="rsmm:ReferentialSpace" href="healthyScreen.rsmm#2"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_CFzNopDfEd6bj7eawxFGZA" x="124"/>
+  </children>
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_B8TTYZDfEd6bj7eawxFGZA"/>
+  <element xmi:type="rsmm:SystemInformationFlowReferenceSpace" href="healthyScreen.rsmm#1"/>
+  <edges xmi:type="notation:Edge" xmi:id="_CGH9wJDfEd6bj7eawxFGZA" type="3002" source="_CFzNoJDfEd6bj7eawxFGZA" target="_CFxYcJDfEd6bj7eawxFGZA">
+    <children xmi:type="notation:Node" xmi:id="_CGH9xJDfEd6bj7eawxFGZA" type="4007">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_CGH9xZDfEd6bj7eawxFGZA" x="59" y="15"/>
+    </children>
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_CGH9wZDfEd6bj7eawxFGZA"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_CGH9wpDfEd6bj7eawxFGZA" fontName="Segoe UI"/>
+    <element xmi:type="rsmm:SpaceToEntityReferenceDependency" href="healthyScreen.rsmm#4"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_CGH9w5DfEd6bj7eawxFGZA" points="[0, 0, 97, -60]$[-97, 60, 0, 0]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_CK03kpDfEd6bj7eawxFGZA" id="(0.24770643,1.0)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_CK03k5DfEd6bj7eawxFGZA" id="(0.5,0.0)"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_CG2WgJDfEd6bj7eawxFGZA" type="3002" source="_CFzNoJDfEd6bj7eawxFGZA" target="_CFx_gZDfEd6bj7eawxFGZA">
+    <children xmi:type="notation:Node" xmi:id="_CG29kJDfEd6bj7eawxFGZA" type="4007">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_CG29kZDfEd6bj7eawxFGZA" x="17" y="-16"/>
+    </children>
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_CG2WgZDfEd6bj7eawxFGZA"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_CG2WgpDfEd6bj7eawxFGZA" fontName="Segoe UI"/>
+    <element xmi:type="rsmm:SpaceToEntityReferenceDependency" href="healthyScreen.rsmm#6"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_CG2Wg5DfEd6bj7eawxFGZA" points="[0, 0, 1, -60]$[0, 60, 1, 0]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_CK03kJDfEd6bj7eawxFGZA" id="(0.49541286,1.0)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_CK03kZDfEd6bj7eawxFGZA" id="(0.03731343,0.0)"/>
+  </edges>
+</notation:Diagram>

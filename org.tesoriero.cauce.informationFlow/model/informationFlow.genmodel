@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.tesoriero.cauce.informationFlow/src" modelPluginID="org.tesoriero.cauce.informationFlow"
+    modelName="InformationFlow" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="7.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>informationFlow.ecore</foreignModel>
+  <genPackages prefix="Ifmm" disposableProviderFactory="true" ecorePackage="informationFlow.ecore#/">
+    <genClasses ecoreClass="informationFlow.ecore#//SystemInformaitonFlow">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference informationFlow.ecore#//SystemInformaitonFlow/entities"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute informationFlow.ecore#//SystemInformaitonFlow/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute informationFlow.ecore#//SystemInformaitonFlow/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference informationFlow.ecore#//SystemInformaitonFlow/informationFlows"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference informationFlow.ecore#//SystemInformaitonFlow/edges"/>
+    </genClasses>
+    <genClasses ecoreClass="informationFlow.ecore#//ContextAwareEntity">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference informationFlow.ecore#//ContextAwareEntity/system"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute informationFlow.ecore#//ContextAwareEntity/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute informationFlow.ecore#//ContextAwareEntity/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference informationFlow.ecore#//ContextAwareEntity/ongoingInformationFlows"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference informationFlow.ecore#//ContextAwareEntity/incomingInformationFlows"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="informationFlow.ecore#//InformationFlow">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute informationFlow.ecore#//InformationFlow/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute informationFlow.ecore#//InformationFlow/name"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference informationFlow.ecore#//InformationFlow/system"/>
+    </genClasses>
+    <genClasses ecoreClass="informationFlow.ecore#//PointToPointInformationFlow">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference informationFlow.ecore#//PointToPointInformationFlow/outputData"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference informationFlow.ecore#//PointToPointInformationFlow/source"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference informationFlow.ecore#//PointToPointInformationFlow/target"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference informationFlow.ecore#//PointToPointInformationFlow/inputData"/>
+    </genClasses>
+    <genClasses ecoreClass="informationFlow.ecore#//BroadcastInformationFlow">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference informationFlow.ecore#//BroadcastInformationFlow/data"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference informationFlow.ecore#//BroadcastInformationFlow/source"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference informationFlow.ecore#//BroadcastInformationFlow/target"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="informationFlow.ecore#//Data">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute informationFlow.ecore#//Data/definition"/>
+    </genClasses>
+    <genClasses ecoreClass="informationFlow.ecore#//OutputData"/>
+    <genClasses ecoreClass="informationFlow.ecore#//InputData"/>
+    <genClasses image="false" ecoreClass="informationFlow.ecore#//Edge">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference informationFlow.ecore#//Edge/system"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="informationFlow.ecore#//InformationFlowToEntityEdge">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference informationFlow.ecore#//InformationFlowToEntityEdge/target"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="informationFlow.ecore#//EntityToInformationFlowEdge">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference informationFlow.ecore#//EntityToInformationFlowEdge/source"/>
+    </genClasses>
+    <genClasses ecoreClass="informationFlow.ecore#//EntityToBroadcastInformationFlowEdge">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference informationFlow.ecore#//EntityToBroadcastInformationFlowEdge/target"/>
+    </genClasses>
+    <genClasses ecoreClass="informationFlow.ecore#//EntityToPointToPointInformationFlowEdge">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference informationFlow.ecore#//EntityToPointToPointInformationFlowEdge/target"/>
+    </genClasses>
+    <genClasses ecoreClass="informationFlow.ecore#//BroadcastInformationFlowToEntityEdge">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference informationFlow.ecore#//BroadcastInformationFlowToEntityEdge/source"/>
+    </genClasses>
+    <genClasses ecoreClass="informationFlow.ecore#//PointToPointInformationFlowToEntityEdge">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference informationFlow.ecore#//PointToPointInformationFlowToEntityEdge/source"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

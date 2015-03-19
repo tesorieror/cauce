@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.tesoriero.cauce.deployment/src" modelPluginID="org.tesoriero.cauce.deployment"
+    modelName="Deployment" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="7.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>deployment.ecore</foreignModel>
+  <genPackages prefix="Demm" disposableProviderFactory="true" ecorePackage="deployment.ecore#/">
+    <genClasses ecoreClass="deployment.ecore#//DevelopmentEnvironment">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference deployment.ecore#//DevelopmentEnvironment/mediums"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference deployment.ecore#//DevelopmentEnvironment/protocols"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference deployment.ecore#//DevelopmentEnvironment/languages"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference deployment.ecore#//DevelopmentEnvironment/os"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute deployment.ecore#//DevelopmentEnvironment/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute deployment.ecore#//DevelopmentEnvironment/id"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference deployment.ecore#//DevelopmentEnvironment/connections"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference deployment.ecore#//DevelopmentEnvironment/devices"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference deployment.ecore#//DevelopmentEnvironment/edges"/>
+    </genClasses>
+    <genClasses ecoreClass="deployment.ecore#//Medium">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute deployment.ecore#//Medium/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute deployment.ecore#//Medium/technology"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute deployment.ecore#//Medium/version"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference deployment.ecore#//Medium/environment"/>
+    </genClasses>
+    <genClasses ecoreClass="deployment.ecore#//Protocol">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute deployment.ecore#//Protocol/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute deployment.ecore#//Protocol/version"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference deployment.ecore#//Protocol/environment"/>
+    </genClasses>
+    <genClasses ecoreClass="deployment.ecore#//OperatingSystem">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute deployment.ecore#//OperatingSystem/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute deployment.ecore#//OperatingSystem/version"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute deployment.ecore#//OperatingSystem/revision"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference deployment.ecore#//OperatingSystem/environment"/>
+    </genClasses>
+    <genClasses ecoreClass="deployment.ecore#//ProgrammingLanguage">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute deployment.ecore#//ProgrammingLanguage/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute deployment.ecore#//ProgrammingLanguage/version"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute deployment.ecore#//ProgrammingLanguage/profile"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute deployment.ecore#//ProgrammingLanguage/revision"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference deployment.ecore#//ProgrammingLanguage/environment"/>
+    </genClasses>
+    <genClasses ecoreClass="deployment.ecore#//Device">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference deployment.ecore#//Device/platforms"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute deployment.ecore#//Device/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute deployment.ecore#//Device/id"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference deployment.ecore#//Device/entities"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference deployment.ecore#//Device/ongoing"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference deployment.ecore#//Device/incoming"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference deployment.ecore#//Device/environment"/>
+    </genClasses>
+    <genClasses ecoreClass="deployment.ecore#//Connection">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference deployment.ecore#//Connection/platforms"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute deployment.ecore#//Connection/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute deployment.ecore#//Connection/id"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference deployment.ecore#//Connection/information"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference deployment.ecore#//Connection/environment"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference deployment.ecore#//Connection/ongoing"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference deployment.ecore#//Connection/incoming"/>
+    </genClasses>
+    <genClasses ecoreClass="deployment.ecore#//ConnectionPlatform">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference deployment.ecore#//ConnectionPlatform/connection"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference deployment.ecore#//ConnectionPlatform/protocol"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference deployment.ecore#//ConnectionPlatform/medium"/>
+    </genClasses>
+    <genClasses ecoreClass="deployment.ecore#//DevicePlatform">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference deployment.ecore#//DevicePlatform/device"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference deployment.ecore#//DevicePlatform/language"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference deployment.ecore#//DevicePlatform/os"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="deployment.ecore#//Platform">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute deployment.ecore#//Platform/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute deployment.ecore#//Platform/id"/>
+    </genClasses>
+    <genClasses ecoreClass="deployment.ecore#//Entity">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute deployment.ecore#//Entity/name"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference deployment.ecore#//Entity/device"/>
+    </genClasses>
+    <genClasses ecoreClass="deployment.ecore#//Information">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference deployment.ecore#//Information/connection"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute deployment.ecore#//Information/name"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="deployment.ecore#//Edge">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute deployment.ecore#//Edge/id"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference deployment.ecore#//Edge/environment"/>
+    </genClasses>
+    <genClasses ecoreClass="deployment.ecore#//DeviceToConnectionEdge">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference deployment.ecore#//DeviceToConnectionEdge/source"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference deployment.ecore#//DeviceToConnectionEdge/target"/>
+    </genClasses>
+    <genClasses ecoreClass="deployment.ecore#//ConnectionToDeviceEdge">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference deployment.ecore#//ConnectionToDeviceEdge/source"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference deployment.ecore#//ConnectionToDeviceEdge/target"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

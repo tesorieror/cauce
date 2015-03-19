@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ifmm="ifmm" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.1/notation" xmi:id="_L3_eQJ0FEd6dS_GmLanWBA" type="Ifmm" measurementUnit="Pixel">
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_L3_eQZ0FEd6dS_GmLanWBA"/>
+  <element xmi:type="ifmm:SystemInformaitonFlow" href="LightIntensity.ifmm#1"/>
+</notation:Diagram>

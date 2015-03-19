@@ -1,0 +1,60 @@
+library TaskModelLibrary; -- Library Template
+
+uses RegularExpressions;
+
+helper def: getSpaceExpressionElements():Sequence(String)=	
+	TaMetamodel!PreCondition.allInstances()
+		->collect(pre | pre.spaceExpression)
+			->select(s | not s->oclIsUndefined())
+				->collect(s | s->split('[(),*+]'))->flatten()
+					->collect(s | s->trim())
+						->select(s | s->size()>0);
+
+helper context TaMetamodel!SystemTask def: getOutputVaraibles():Set(String)=
+	let targetEntity:SoMetamodel!Role = self->getInformationFlow().target->getEntities()->any(x|true) in		
+		self.ongoing.target->getVaraibles()
+			->select(v | v.socialInstance.name=targetEntity.name)
+				->collect(v|v.varaible);
+
+helper context TaMetamodel!SystemTask def: getInputVaraibles():Set(String)=
+	let sourceEntity:SoMetamodel!Role = self->getInformationFlow().source->getEntities()->any(x|true) in
+		self.ongoing.target->getVaraibles()
+			->select(v | v.socialInstance.name=sourceEntity.name)
+				->collect(v|v.varaible);
+
+helper context TaMetamodel!Condition def:getVaraibles():Set(TupleType(entity:SoModel!Role, varaible:String))=
+	if(self.dataExpression->oclIsUndefined())then Set{} else
+	self.dataExpression->getDataDefinitionFromDataExpression() endif;
+
+helper context String def:getDataDefinitionFromDataExpression():Set(TupleType(entity:SoModel!Role, varaible:String))=
+	self->trim()->split('[,]')->collect(d | 
+		let pair:Sequence(String) = d.split('[()]') in
+			Tuple{socialInstance=pair->at(1)->toSocialInstance()->getEntities()->any(x|true), varaible=pair->at(2)}
+	);
+
+helper context TaMetamodel!SystemTask def: getInformationFlow(): TupleType(source:SoMetamodel!Role, target:SoMetamodel!Role)=
+	let socialInstanceNames: Sequence(String) =	self.incoming.source.socialExpression->split('[,+()]')->collect(si|si->trim()) in
+	Tuple{
+		source = socialInstanceNames->at(1)->toSocialInstance()->getEntities()->any(x|true),	
+		target = socialInstanceNames->at(2)->toSocialInstance()->getEntities()->any(x|true)
+	};
+
+helper context TaMetamodel!SystemTask def: isPointToPointInformationFlow():Boolean=
+	let socialInstanceNames:Sequence(String) =	self.incoming.source.socialExpression->split('[,+()]')->collect(si|si->trim()) in
+		if (socialInstanceNames->size()=2) then socialInstanceNames->at(2)->isIndividualInstance() else false endif;
+
+helper context TaMetamodel!SystemTask def: isBroadcastInformationFlow():Boolean=
+	let socialInstanceNames:Sequence(String) =	self.incoming.source.socialExpression->split('[,+()]')->collect(si|si->trim()) in
+		if (socialInstanceNames->size()=2) then socialInstanceNames->at(2)->isRole() else false endif;		
+
+helper context TaMetamodel!SystemTask def: getEntity():SoMetaModel!Role =
+	self->getInvolvedEntities()->any(x | true);
+	
+helper context TaMetamodel!SystemTask def: getInvolvedEntities():Set(SoMetaModel!Role) =
+	self.incoming.source.socialExpression->getSocialExpressionEntities();
+
+helper context TaMetamodel!SystemTask def:getRoles():Set(SoMetamodel!Role)=
+	self.incoming.source.socialExpression->split('[,+()]')
+		->collect(s | s.trim())
+			->collect(s |if(s->isIndividualInstance())then s->toIndividualInstance()->toRoles()else Set{s->toRole()}endif)
+				->flatten();

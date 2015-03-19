@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ifmm:SystemInformaitonFlow xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ifmm="ifmm" id="1" name="somm-diagram">
+  <entities id="2" name="PDA" ongoingInformationFlows="//@edges.0"/>
+  <entities id="3" name="CardiacPulseSensor" incomingInformationFlows="//@edges.1"/>
+  <informationFlows xsi:type="ifmm:PointToPointInformationFlow" id="5" name="PDA_to_CardiacPulseSensor-GetCardiacPulse" source="//@edges.0" target="//@edges.1">
+    <inputData definition="cp"/>
+  </informationFlows>
+  <edges xsi:type="ifmm:EntityToPointToPointInformationFlowEdge" source="2" target="5"/>
+  <edges xsi:type="ifmm:PointToPointInformationFlowToEntityEdge" target="3" source="5"/>
+</ifmm:SystemInformaitonFlow>

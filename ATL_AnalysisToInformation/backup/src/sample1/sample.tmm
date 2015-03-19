@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<task-meta-model:ContextAwareSystem xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:task-meta-model="task-meta-model">
+  <finalConditions id="10" socialExpression="A" incoming="//@splitTaskToOutputConditions.0"/>
+  <finalConditions id="11" socialExpression="B" incoming="//@splitTaskToOutputConditions.1"/>
+  <finalConditions id="34" socialExpression="anA" incoming="//@splitTaskToOutputConditions.6"/>
+  <finalConditions id="35" socialExpression="aB" incoming="//@splitTaskToOutputConditions.7"/>
+  <finalConditions id="47" socialExpression="anA" dataExpression="" incoming="//@splitTaskToOutputConditions.10"/>
+  <finalConditions id="48" socialExpression="B" incoming="//@splitTaskToOutputConditions.11"/>
+  <preConditions id="6" socialExpression="A,B" spaceExpression="A(RoomA)" logicExpression="A(x>0)" dataExpression="A(x),B(y)" incoming="//@joinTaskToOutputConditions.0" ongoing="//@preConditionToSystemTasks.0"/>
+  <preConditions id="16" socialExpression="A" incoming="//@splitTaskToOutputConditions.2" ongoing="//@preConditionToSystemTasks.1"/>
+  <preConditions id="19" socialExpression="B" spaceExpression="" incoming="//@splitTaskToOutputConditions.3" ongoing="//@preConditionToSystemTasks.2"/>
+  <preConditions id="22" socialExpression="anA" incoming="//@splitTaskToOutputConditions.4" ongoing="//@preConditionToSystemTasks.3"/>
+  <preConditions id="25" socialExpression="aB" incoming="//@splitTaskToOutputConditions.5" ongoing="//@preConditionToSystemTasks.4"/>
+  <preConditions id="29" socialExpression="anA,aB" dataExpression="anA(z),aB(w)" incoming="//@joinTaskToOutputConditions.1" ongoing="//@preConditionToSystemTasks.5"/>
+  <preConditions id="36" socialExpression="B" taskExpression="" incoming="//@splitTaskToOutputConditions.8" ongoing="//@preConditionToSystemTasks.6"/>
+  <preConditions id="37" socialExpression="anA" logicExpression="" incoming="//@splitTaskToOutputConditions.9" ongoing="//@preConditionToSystemTasks.7"/>
+  <preConditions id="43" socialExpression="anA,B" spaceExpression="anA(RoomA),B(RoomB)" taskExpression="anA(AtoB)+B(anA2aB)" logicExpression="anA(times>2)" dataExpression="anA(m),B(n),anA(times)" incoming="//@joinTaskToOutputConditions.2" ongoing="//@preConditionToSystemTasks.8"/>
+  <postConditions id="8" socialExpression="A,B" dataExpression="A(y),B(x)" ongoing="//@inputConditionToSplitTasks.0" incoming="//@systemTaskToPostConditions.0"/>
+  <postConditions id="18" socialExpression="A" ongoing="//@inputConditionToJoinTasks.0" incoming="//@systemTaskToPostConditions.1"/>
+  <postConditions id="20" socialExpression="B" ongoing="//@inputConditionToJoinTasks.1" incoming="//@systemTaskToPostConditions.2"/>
+  <postConditions id="24" socialExpression="anA" ongoing="//@inputConditionToJoinTasks.2" incoming="//@systemTaskToPostConditions.3"/>
+  <postConditions id="26" socialExpression="aB" ongoing="//@inputConditionToJoinTasks.3" incoming="//@systemTaskToPostConditions.4"/>
+  <postConditions id="31" socialExpression="anA,aB" dataExpression="anA(w),aB(z)" ongoing="//@inputConditionToSplitTasks.5" incoming="//@systemTaskToPostConditions.5"/>
+  <postConditions id="39" socialExpression="B" dataExpression="" ongoing="//@inputConditionToJoinTasks.5" incoming="//@systemTaskToPostConditions.7"/>
+  <postConditions id="40" socialExpression="anA" ongoing="//@inputConditionToJoinTasks.4" incoming="//@systemTaskToPostConditions.6"/>
+  <postConditions id="45" socialExpression="anA,B" dataExpression="anA(n),B(m)" ongoing="//@inputConditionToSplitTasks.6" incoming="//@systemTaskToPostConditions.8"/>
+  <initialConditions id="1" socialExpression="A" dataExpression="" ongoing="//@inputConditionToSplitTasks.1"/>
+  <initialConditions id="2" socialExpression="B" ongoing="//@inputConditionToSplitTasks.2"/>
+  <initialConditions id="3" socialExpression="anA" ongoing="//@inputConditionToSplitTasks.3"/>
+  <initialConditions id="4" spaceExpression="aB" ongoing="//@inputConditionToSplitTasks.4"/>
+  <routeTasks xsi:type="task-meta-model:OrJoin" id="5" incoming="//@inputConditionToJoinTasks.0 //@inputConditionToJoinTasks.1" ongoing="//@joinTaskToOutputConditions.0"/>
+  <routeTasks xsi:type="task-meta-model:OrSplit" id="9" incoming="//@inputConditionToSplitTasks.0" ongoing="//@splitTaskToOutputConditions.0 //@splitTaskToOutputConditions.1"/>
+  <routeTasks xsi:type="task-meta-model:AndSplit" id="12" incoming="//@inputConditionToSplitTasks.1" ongoing="//@splitTaskToOutputConditions.2"/>
+  <routeTasks xsi:type="task-meta-model:AndSplit" id="13" incoming="//@inputConditionToSplitTasks.2" ongoing="//@splitTaskToOutputConditions.3 //@splitTaskToOutputConditions.8"/>
+  <routeTasks xsi:type="task-meta-model:AndSplit" id="14" incoming="//@inputConditionToSplitTasks.3" ongoing="//@splitTaskToOutputConditions.4 //@splitTaskToOutputConditions.9"/>
+  <routeTasks xsi:type="task-meta-model:AndSplit" id="15" incoming="//@inputConditionToSplitTasks.4" ongoing="//@splitTaskToOutputConditions.5"/>
+  <routeTasks xsi:type="task-meta-model:OrJoin" id="28" incoming="//@inputConditionToJoinTasks.2 //@inputConditionToJoinTasks.3" ongoing="//@joinTaskToOutputConditions.1"/>
+  <routeTasks xsi:type="task-meta-model:OrSplit" id="33" incoming="//@inputConditionToSplitTasks.5" ongoing="//@splitTaskToOutputConditions.6 //@splitTaskToOutputConditions.7"/>
+  <routeTasks xsi:type="task-meta-model:OrJoin" id="38" incoming="//@inputConditionToJoinTasks.4 //@inputConditionToJoinTasks.5" ongoing="//@joinTaskToOutputConditions.2"/>
+  <routeTasks xsi:type="task-meta-model:OrSplit" id="46" incoming="//@inputConditionToSplitTasks.6" ongoing="//@splitTaskToOutputConditions.10 //@splitTaskToOutputConditions.11"/>
+  <systemTasks xsi:type="task-meta-model:SimpleTask" id="7" incoming="//@preConditionToSystemTasks.0" ongoing="//@systemTaskToPostConditions.0" name="AtoB"/>
+  <systemTasks xsi:type="task-meta-model:SkipTask" id="17" incoming="//@preConditionToSystemTasks.1" ongoing="//@systemTaskToPostConditions.1"/>
+  <systemTasks xsi:type="task-meta-model:SkipTask" id="21" incoming="//@preConditionToSystemTasks.2" ongoing="//@systemTaskToPostConditions.2"/>
+  <systemTasks xsi:type="task-meta-model:SkipTask" id="23" incoming="//@preConditionToSystemTasks.3" ongoing="//@systemTaskToPostConditions.3"/>
+  <systemTasks xsi:type="task-meta-model:SkipTask" id="27" incoming="//@preConditionToSystemTasks.4" ongoing="//@systemTaskToPostConditions.4"/>
+  <systemTasks xsi:type="task-meta-model:SimpleTask" id="32" incoming="//@preConditionToSystemTasks.5" ongoing="//@systemTaskToPostConditions.5" name="anA2aB"/>
+  <systemTasks xsi:type="task-meta-model:SkipTask" id="41" incoming="//@preConditionToSystemTasks.7" ongoing="//@systemTaskToPostConditions.6"/>
+  <systemTasks xsi:type="task-meta-model:SkipTask" id="42" incoming="//@preConditionToSystemTasks.6" ongoing="//@systemTaskToPostConditions.7"/>
+  <systemTasks xsi:type="task-meta-model:SimpleTask" id="44" incoming="//@preConditionToSystemTasks.8" ongoing="//@systemTaskToPostConditions.8" name="Mix"/>
+  <inputConditionToJoinTasks source="18" target="//@routeTasks.0"/>
+  <inputConditionToJoinTasks source="20" target="//@routeTasks.0"/>
+  <inputConditionToJoinTasks source="24" target="//@routeTasks.6"/>
+  <inputConditionToJoinTasks source="26" target="//@routeTasks.6"/>
+  <inputConditionToJoinTasks source="40" target="//@routeTasks.8"/>
+  <inputConditionToJoinTasks source="39" target="//@routeTasks.8"/>
+  <inputConditionToSplitTasks source="8" target="//@routeTasks.1"/>
+  <inputConditionToSplitTasks source="1" target="//@routeTasks.2"/>
+  <inputConditionToSplitTasks source="2" target="//@routeTasks.3"/>
+  <inputConditionToSplitTasks source="3" target="//@routeTasks.4"/>
+  <inputConditionToSplitTasks source="4" target="//@routeTasks.5"/>
+  <inputConditionToSplitTasks source="31" target="//@routeTasks.7"/>
+  <inputConditionToSplitTasks source="45" target="//@routeTasks.9"/>
+  <joinTaskToOutputConditions target="6" source="//@routeTasks.0"/>
+  <joinTaskToOutputConditions target="29" source="//@routeTasks.6"/>
+  <joinTaskToOutputConditions target="43" source="//@routeTasks.8"/>
+  <splitTaskToOutputConditions target="10" source="//@routeTasks.1"/>
+  <splitTaskToOutputConditions target="11" source="//@routeTasks.1"/>
+  <splitTaskToOutputConditions target="16" source="//@routeTasks.2"/>
+  <splitTaskToOutputConditions target="19" source="//@routeTasks.3"/>
+  <splitTaskToOutputConditions target="22" source="//@routeTasks.4"/>
+  <splitTaskToOutputConditions target="25" source="//@routeTasks.5"/>
+  <splitTaskToOutputConditions target="34" source="//@routeTasks.7"/>
+  <splitTaskToOutputConditions target="35" source="//@routeTasks.7"/>
+  <splitTaskToOutputConditions target="36" source="//@routeTasks.3"/>
+  <splitTaskToOutputConditions target="37" source="//@routeTasks.4"/>
+  <splitTaskToOutputConditions target="47" source="//@routeTasks.9"/>
+  <splitTaskToOutputConditions target="48" source="//@routeTasks.9"/>
+  <preConditionToSystemTasks source="6" target="//@systemTasks.0"/>
+  <preConditionToSystemTasks source="16" target="//@systemTasks.1"/>
+  <preConditionToSystemTasks source="19" target="//@systemTasks.2"/>
+  <preConditionToSystemTasks source="22" target="//@systemTasks.3"/>
+  <preConditionToSystemTasks source="25" target="//@systemTasks.4"/>
+  <preConditionToSystemTasks source="29" target="//@systemTasks.5"/>
+  <preConditionToSystemTasks source="36" target="//@systemTasks.7"/>
+  <preConditionToSystemTasks source="37" target="//@systemTasks.6"/>
+  <preConditionToSystemTasks source="43" target="//@systemTasks.8"/>
+  <systemTaskToPostConditions source="//@systemTasks.0" target="8"/>
+  <systemTaskToPostConditions source="//@systemTasks.1" target="18"/>
+  <systemTaskToPostConditions source="//@systemTasks.2" target="20"/>
+  <systemTaskToPostConditions source="//@systemTasks.3" target="24"/>
+  <systemTaskToPostConditions source="//@systemTasks.4" target="26"/>
+  <systemTaskToPostConditions source="//@systemTasks.5" target="31"/>
+  <systemTaskToPostConditions source="//@systemTasks.6" target="40"/>
+  <systemTaskToPostConditions source="//@systemTasks.7" target="39"/>
+  <systemTaskToPostConditions source="//@systemTasks.8" target="45"/>
+</task-meta-model:ContextAwareSystem>

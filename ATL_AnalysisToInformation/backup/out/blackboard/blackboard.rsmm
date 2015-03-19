@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<rsmm:SystemInformationFlowReferenceSpace xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:rsmm="rsmm" name="somm-diagram" id="1">
+  <referentialSpaces name="somm-diagramSpace" ongoingReferenceDependencies="4 6 8 10 12 14 16 18 20 22 24" id="2"/>
+  <spaceToEntityReferenceDependencies cardinality="999" parent="2" id="4" child="3"/>
+  <spaceToEntityReferenceDependencies cardinality="999" parent="2" id="6" child="5"/>
+  <spaceToEntityReferenceDependencies cardinality="999" parent="2" id="8" child="7"/>
+  <spaceToEntityReferenceDependencies cardinality="999" parent="2" id="10" child="9"/>
+  <spaceToEntityReferenceDependencies cardinality="999" parent="2" id="12" child="11"/>
+  <spaceToEntityReferenceDependencies cardinality="999" parent="2" id="14" child="13"/>
+  <spaceToEntityReferenceDependencies cardinality="999" parent="2" id="16" child="15"/>
+  <spaceToEntityReferenceDependencies cardinality="999" parent="2" id="18" child="17"/>
+  <spaceToEntityReferenceDependencies cardinality="999" parent="2" id="20" child="19"/>
+  <spaceToEntityReferenceDependencies cardinality="999" parent="2" id="22" child="21"/>
+  <spaceToEntityReferenceDependencies cardinality="999" parent="2" id="24" child="23"/>
+  <entityReferences name="Guest" incomingReferenceDependency="4" id="3" entity="Guest"/>
+  <entityReferences name="UserChair" incomingReferenceDependency="6" id="5" entity="UserChair"/>
+  <entityReferences name="AdminChair" incomingReferenceDependency="8" id="7" entity="AdminChair"/>
+  <entityReferences name="Chair" incomingReferenceDependency="10" id="9" entity="Chair"/>
+  <entityReferences name="DeleteControl" incomingReferenceDependency="12" id="11" entity="DeleteControl"/>
+  <entityReferences name="CreateControl" incomingReferenceDependency="14" id="13" entity="CreateControl"/>
+  <entityReferences name="JoinControl" incomingReferenceDependency="16" id="15" entity="JoinControl"/>
+  <entityReferences name="PrintControl" incomingReferenceDependency="18" id="17" entity="PrintControl"/>
+  <entityReferences name="SaveControl" incomingReferenceDependency="20" id="19" entity="SaveControl"/>
+  <entityReferences name="ExitSessionControl" incomingReferenceDependency="22" id="21" entity="ExitSessionControl"/>
+  <entityReferences name="Canvas" incomingReferenceDependency="24" id="23" entity="Canvas"/>
+</rsmm:SystemInformationFlowReferenceSpace>

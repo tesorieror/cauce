@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gmfgraph:Canvas xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:gmfgraph="http://www.eclipse.org/gmf/2006/GraphicalDefinition" name="ecmm">
+  <figures name="Default">
+    <descriptors name="VariableDataDefinitionFigure">
+      <actualFigure xsi:type="gmfgraph:Rectangle" name="VariableDataDefinitionFigure" outline="false">
+        <layout xsi:type="gmfgraph:FlowLayout"/>
+        <border xsi:type="gmfgraph:MarginBorder">
+          <insets top="5" left="5" bottom="5" right="5"/>
+        </border>
+        <children xsi:type="gmfgraph:Label" name="VariableDataDefinitionDefinitionFigure" text="&lt;...>"/>
+      </actualFigure>
+      <accessors figure="//@figures.0/@descriptors.0/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors name="EntityContextFigure">
+      <actualFigure xsi:type="gmfgraph:Rectangle" name="EntityContextFigure">
+        <layout xsi:type="gmfgraph:BorderLayout"/>
+        <children xsi:type="gmfgraph:Rectangle" name="EntityContextEntityContainerFigure" outline="false" fill="false">
+          <layoutData xsi:type="gmfgraph:BorderLayoutData" alignment="BEGINNING" vertical="true"/>
+          <layout xsi:type="gmfgraph:FlowLayout" forceSingleLine="true"/>
+          <border xsi:type="gmfgraph:MarginBorder">
+            <insets top="5" left="5" bottom="5" right="5"/>
+          </border>
+          <children xsi:type="gmfgraph:Label" name="EntityContextIdFigure"/>
+          <children xsi:type="gmfgraph:Label" name="EntityContextEntityFigure" text="&lt;enter entity>"/>
+        </children>
+        <children xsi:type="gmfgraph:Rectangle" name="EntityContextCompartmentsRectangleFigure" outline="false" fill="false">
+          <layoutData xsi:type="gmfgraph:BorderLayoutData" alignment="FILL" vertical="true"/>
+          <layout xsi:type="gmfgraph:BorderLayout"/>
+          <children xsi:type="gmfgraph:Rectangle" name="EntityContextStateRectangleFigure" outline="false" fill="false">
+            <layoutData xsi:type="gmfgraph:BorderLayoutData" alignment="BEGINNING" vertical="true"/>
+          </children>
+          <children xsi:type="gmfgraph:Rectangle" name="EntityContextSituationRectangleFigure" outline="false" fill="false">
+            <layoutData xsi:type="gmfgraph:BorderLayoutData" vertical="true"/>
+          </children>
+          <children xsi:type="gmfgraph:Rectangle" name="EntityContextVariableDefinitionRectangleFigure" outline="false" fill="false">
+            <layoutData xsi:type="gmfgraph:BorderLayoutData" alignment="END" vertical="true"/>
+          </children>
+        </children>
+      </actualFigure>
+      <accessors figure="//@figures.0/@descriptors.1/@actualFigure/@children.0/@children.0"/>
+      <accessors figure="//@figures.0/@descriptors.1/@actualFigure/@children.0/@children.1"/>
+      <accessors figure="//@figures.0/@descriptors.1/@actualFigure/@children.1/@children.0"/>
+      <accessors figure="//@figures.0/@descriptors.1/@actualFigure/@children.1/@children.1"/>
+      <accessors figure="//@figures.0/@descriptors.1/@actualFigure/@children.1/@children.2"/>
+    </descriptors>
+    <descriptors name="SituationFigure">
+      <actualFigure xsi:type="gmfgraph:Rectangle" name="ContextSituationFigure">
+        <layout xsi:type="gmfgraph:BorderLayout"/>
+        <children xsi:type="gmfgraph:Rectangle" name="SituationTitleFigure" outline="false" fill="false">
+          <layoutData xsi:type="gmfgraph:BorderLayoutData" alignment="BEGINNING" vertical="true"/>
+          <layout xsi:type="gmfgraph:FlowLayout" forceSingleLine="true"/>
+          <border xsi:type="gmfgraph:MarginBorder">
+            <insets top="5" left="5" bottom="5" right="5"/>
+          </border>
+          <children xsi:type="gmfgraph:Label" name="ContextSituationIdFigure"/>
+          <children xsi:type="gmfgraph:Label" name="ContextSituationNameFigure" text="&lt;...>"/>
+        </children>
+        <children xsi:type="gmfgraph:Rectangle" name="SituationCompartmentRectangleFigure" outline="false" fill="false">
+          <layoutData xsi:type="gmfgraph:BorderLayoutData" alignment="FILL" vertical="true"/>
+          <layout xsi:type="gmfgraph:BorderLayout"/>
+          <children xsi:type="gmfgraph:Rectangle" name="SituationConditionsRectangleFigure" outline="false" fill="false">
+            <layoutData xsi:type="gmfgraph:BorderLayoutData" alignment="BEGINNING" vertical="true"/>
+          </children>
+          <children xsi:type="gmfgraph:Rectangle" name="SituationSensingRectangleFigure" outline="false" fill="false">
+            <layoutData xsi:type="gmfgraph:BorderLayoutData" vertical="true"/>
+          </children>
+          <children xsi:type="gmfgraph:Rectangle" name="SituationActionRectangleFigure" outline="false" fill="false">
+            <layoutData xsi:type="gmfgraph:BorderLayoutData" alignment="END" vertical="true"/>
+          </children>
+        </children>
+      </actualFigure>
+      <accessors figure="//@figures.0/@descriptors.2/@actualFigure/@children.0/@children.0"/>
+      <accessors figure="//@figures.0/@descriptors.2/@actualFigure/@children.0/@children.1"/>
+      <accessors figure="//@figures.0/@descriptors.2/@actualFigure/@children.1/@children.0"/>
+      <accessors figure="//@figures.0/@descriptors.2/@actualFigure/@children.1/@children.1"/>
+      <accessors figure="//@figures.0/@descriptors.2/@actualFigure/@children.1/@children.2"/>
+    </descriptors>
+    <descriptors name="LogicMemoryFigure">
+      <actualFigure xsi:type="gmfgraph:Rectangle" name="LogicMemoryFigure" outline="false">
+        <layout xsi:type="gmfgraph:FlowLayout" forceSingleLine="true"/>
+        <border xsi:type="gmfgraph:MarginBorder">
+          <insets top="5" left="5" bottom="5" right="5"/>
+        </border>
+        <children xsi:type="gmfgraph:Label" name="LogicMemoryIdFigure" text=""/>
+        <children xsi:type="gmfgraph:Label" name="LogicMemoryNameFigure" text="&lt;...>"/>
+      </actualFigure>
+      <accessors figure="//@figures.0/@descriptors.3/@actualFigure/@children.1"/>
+      <accessors figure="//@figures.0/@descriptors.3/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors name="DictionaryMemoryFigure">
+      <actualFigure xsi:type="gmfgraph:Rectangle" name="DictionaryMemoryFigure" outline="false">
+        <layout xsi:type="gmfgraph:FlowLayout" forceSingleLine="true"/>
+        <border xsi:type="gmfgraph:MarginBorder">
+          <insets top="5" left="5" bottom="5" right="5"/>
+        </border>
+        <children xsi:type="gmfgraph:Label" name="DictionaryMemoryIdFigure"/>
+        <children xsi:type="gmfgraph:Label" name="DictionaryMemoryNameFigure" text="&lt;...>"/>
+      </actualFigure>
+      <accessors figure="//@figures.0/@descriptors.4/@actualFigure/@children.0"/>
+      <accessors figure="//@figures.0/@descriptors.4/@actualFigure/@children.1"/>
+    </descriptors>
+    <descriptors name="HolderMemoryFigure">
+      <actualFigure xsi:type="gmfgraph:Rectangle" name="HolderMemoryFigure" outline="false">
+        <layout xsi:type="gmfgraph:FlowLayout" forceSingleLine="true"/>
+        <border xsi:type="gmfgraph:MarginBorder">
+          <insets top="5" left="5" bottom="5" right="5"/>
+        </border>
+        <children xsi:type="gmfgraph:Label" name="HolderMemoryIdFigure"/>
+        <children xsi:type="gmfgraph:Label" name="HolderMemoryNameFigure" text="&lt;...>"/>
+      </actualFigure>
+      <accessors figure="//@figures.0/@descriptors.5/@actualFigure/@children.0"/>
+      <accessors figure="//@figures.0/@descriptors.5/@actualFigure/@children.1"/>
+    </descriptors>
+    <descriptors name="StackMemoryFigure">
+      <actualFigure xsi:type="gmfgraph:Rectangle" name="StackMemoryFigure" outline="false">
+        <layout xsi:type="gmfgraph:FlowLayout" forceSingleLine="true"/>
+        <border xsi:type="gmfgraph:MarginBorder">
+          <insets top="5" left="5" bottom="5" right="5"/>
+        </border>
+        <children xsi:type="gmfgraph:Label" name="StackMemoryIdFigure"/>
+        <children xsi:type="gmfgraph:Label" name="StackMemoryNameFigure" text="&lt;...>"/>
+      </actualFigure>
+      <accessors figure="//@figures.0/@descriptors.6/@actualFigure/@children.0"/>
+      <accessors figure="//@figures.0/@descriptors.6/@actualFigure/@children.1"/>
+    </descriptors>
+    <descriptors name="TimeMemoryFigure">
+      <actualFigure xsi:type="gmfgraph:Rectangle" name="TimeMemoryFigure" outline="false">
+        <layout xsi:type="gmfgraph:FlowLayout" forceSingleLine="true"/>
+        <border xsi:type="gmfgraph:MarginBorder">
+          <insets top="5" left="5" bottom="5" right="5"/>
+        </border>
+        <children xsi:type="gmfgraph:Label" name="TimeMemoryIdFigure"/>
+        <children xsi:type="gmfgraph:Label" name="TimeMemoryNameFigure" text="&lt;...>"/>
+      </actualFigure>
+      <accessors figure="//@figures.0/@descriptors.7/@actualFigure/@children.1"/>
+      <accessors figure="//@figures.0/@descriptors.7/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors name="ContextActionFigure">
+      <actualFigure xsi:type="gmfgraph:Rectangle" name="ContextActionFigure" outline="false" fill="false">
+        <layout xsi:type="gmfgraph:FlowLayout" forceSingleLine="true"/>
+        <border xsi:type="gmfgraph:MarginBorder">
+          <insets top="5" left="5" bottom="5" right="5"/>
+        </border>
+        <children xsi:type="gmfgraph:Label" name="ContextActionExpressionFigure" text="&lt;...>"/>
+        <children xsi:type="gmfgraph:Label" name="ContextActionMemoryTypeFigure" text=""/>
+      </actualFigure>
+      <accessors figure="//@figures.0/@descriptors.8/@actualFigure/@children.0"/>
+      <accessors figure="//@figures.0/@descriptors.8/@actualFigure/@children.1"/>
+    </descriptors>
+    <descriptors name="SensingContextConditionFigure">
+      <actualFigure xsi:type="gmfgraph:Rectangle" name="SensingContextConditionFigure" outline="false" fill="false">
+        <layout xsi:type="gmfgraph:FlowLayout" forceSingleLine="true"/>
+        <border xsi:type="gmfgraph:MarginBorder">
+          <insets top="5" left="5" bottom="5" right="5"/>
+        </border>
+        <children xsi:type="gmfgraph:Label" name="SensingContextConditionInformationflowFigure" text="&lt;...>"/>
+      </actualFigure>
+      <accessors figure="//@figures.0/@descriptors.9/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors name="MemoryContextConditionFigure">
+      <actualFigure xsi:type="gmfgraph:Rectangle" name="MemoryContextConditionFigure" outline="false" fill="false">
+        <layout xsi:type="gmfgraph:FlowLayout" forceSingleLine="true"/>
+        <border xsi:type="gmfgraph:MarginBorder">
+          <insets top="5" left="5" bottom="5" right="5"/>
+        </border>
+        <children xsi:type="gmfgraph:Label" name="MemoryContextConditionExpressionFigure" text="&lt;...>"/>
+        <children xsi:type="gmfgraph:Label" name="MemoryContextConditionMemoryFigure" text=""/>
+      </actualFigure>
+      <accessors figure="//@figures.0/@descriptors.10/@actualFigure/@children.1"/>
+      <accessors figure="//@figures.0/@descriptors.10/@actualFigure/@children.0"/>
+    </descriptors>
+  </figures>
+  <nodes name="VariableDataDefinition" figure="VariableDataDefinitionFigure"/>
+  <nodes name="EntityContext" figure="EntityContextFigure"/>
+  <nodes name="ContextSituation" figure="SituationFigure"/>
+  <nodes name="LogicMemory" figure="LogicMemoryFigure"/>
+  <nodes name="DictionaryMemory" figure="DictionaryMemoryFigure"/>
+  <nodes name="HolderMemory" figure="HolderMemoryFigure"/>
+  <nodes name="StackMemory" figure="StackMemoryFigure"/>
+  <nodes name="TimeMemory" figure="TimeMemoryFigure"/>
+  <nodes name="ContextAction" figure="ContextActionFigure"/>
+  <nodes name="SensingContextCondition" figure="SensingContextConditionFigure"/>
+  <nodes name="MemoryContextCondition" figure="MemoryContextConditionFigure"/>
+  <compartments name="State" figure="EntityContextFigure" collapsible="true" needsTitle="true" accessor="//@figures.0/@descriptors.1/@accessors.2"/>
+  <compartments name="Situations" figure="EntityContextFigure" collapsible="true" needsTitle="true" accessor="//@figures.0/@descriptors.1/@accessors.3"/>
+  <compartments name="Conditions" figure="SituationFigure" collapsible="true" needsTitle="true" accessor="//@figures.0/@descriptors.2/@accessors.2"/>
+  <compartments name="Sensing" figure="SituationFigure" collapsible="true" needsTitle="true" accessor="//@figures.0/@descriptors.2/@accessors.3"/>
+  <compartments name="Actions" figure="SituationFigure" collapsible="true" needsTitle="true" accessor="//@figures.0/@descriptors.2/@accessors.4"/>
+  <compartments name="Definitions" figure="EntityContextFigure" collapsible="true" needsTitle="true" accessor="//@figures.0/@descriptors.1/@accessors.4"/>
+  <labels name="VariableDataDefinitionDefinition" figure="VariableDataDefinitionFigure" accessor="//@figures.0/@descriptors.0/@accessors.0"/>
+  <labels name="EntityContextEntity" figure="EntityContextFigure" elementIcon="false" accessor="//@figures.0/@descriptors.1/@accessors.1"/>
+  <labels name="EntityContextId" figure="EntityContextFigure" accessor="//@figures.0/@descriptors.1/@accessors.0"/>
+  <labels name="ContextSituationName" figure="SituationFigure" elementIcon="false" accessor="//@figures.0/@descriptors.2/@accessors.1"/>
+  <labels name="ContextSituationId" figure="SituationFigure" accessor="//@figures.0/@descriptors.2/@accessors.0"/>
+  <labels name="LogicMemoryName" figure="LogicMemoryFigure" elementIcon="false" accessor="//@figures.0/@descriptors.3/@accessors.0"/>
+  <labels name="LogicMemoryId" figure="LogicMemoryFigure" accessor="//@figures.0/@descriptors.3/@accessors.1"/>
+  <labels name="DictionaryMemoryName" figure="DictionaryMemoryFigure" elementIcon="false" accessor="//@figures.0/@descriptors.4/@accessors.1"/>
+  <labels name="DictionaryMemoryId" figure="DictionaryMemoryFigure" accessor="//@figures.0/@descriptors.4/@accessors.0"/>
+  <labels name="HolderMemoryName" figure="HolderMemoryFigure" elementIcon="false" accessor="//@figures.0/@descriptors.5/@accessors.1"/>
+  <labels name="HolderMemoryId" figure="HolderMemoryFigure" accessor="//@figures.0/@descriptors.5/@accessors.0"/>
+  <labels name="StackMemoryName" figure="StackMemoryFigure" elementIcon="false" accessor="//@figures.0/@descriptors.6/@accessors.1"/>
+  <labels name="StackMemoryId" figure="StackMemoryFigure" accessor="//@figures.0/@descriptors.6/@accessors.0"/>
+  <labels name="TimeMemoryName" figure="TimeMemoryFigure" elementIcon="false" accessor="//@figures.0/@descriptors.7/@accessors.0"/>
+  <labels name="TimeMemoryId" figure="TimeMemoryFigure" accessor="//@figures.0/@descriptors.7/@accessors.1"/>
+  <labels name="ContextActionExpression" figure="ContextActionFigure" accessor="//@figures.0/@descriptors.8/@accessors.0"/>
+  <labels name="ContextActionMemoryName" figure="ContextActionFigure" elementIcon="false" accessor="//@figures.0/@descriptors.8/@accessors.1"/>
+  <labels name="SensingContextConditionInformationflow" figure="SensingContextConditionFigure" accessor="//@figures.0/@descriptors.9/@accessors.0"/>
+  <labels name="MemoryContextConditionExpression" figure="MemoryContextConditionFigure" accessor="//@figures.0/@descriptors.10/@accessors.1"/>
+  <labels name="MemoryContextConditionMemory" figure="MemoryContextConditionFigure" elementIcon="false" accessor="//@figures.0/@descriptors.10/@accessors.0"/>
+</gmfgraph:Canvas>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<som:Society xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:som="som">
+  <generalizations target="1" source="2" id="5"/>
+  <generalizations target="2" source="3" id="7"/>
+  <relaizations target="2" source="4" id="6"/>
+  <relaizations target="1" source="12" id="13"/>
+  <relaizations target="3" source="11" id="14"/>
+  <individuals realizes="6" id="4" name="anUser"/>
+  <individuals realizes="14" id="11" name="anAdmin"/>
+  <individuals realizes="13" id="12" name="aGuest"/>
+  <roles isRealizedByIndividual="13" parent="5" id="1" name="Guest"/>
+  <roles isRealizedByIndividual="6" parent="7" children="5" id="2" name="User"/>
+  <roles isRealizedByIndividual="14" children="7" id="3" name="Admin"/>
+</som:Society>

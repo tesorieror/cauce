@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated social -->
+      <wizard
+            id="somm.presentation.SommModelWizardID"
+            name="%_UI_SommModelWizard_label"
+            class="somm.presentation.SommModelWizard"
+            category="org.tesoriero.cauce.model.category.ID"
+            icon="icons/full/obj16/SommModelFile.gif">
+         <description>%_UI_SommModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated social -->
+      <editor
+            id="somm.presentation.SommEditorID"
+            name="%_UI_SommEditor_label"
+            icon="icons/full/obj16/SommModelFile.gif"
+            extensions="somm"
+            class="somm.presentation.SommEditor"
+            contributorClass="somm.presentation.SommActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

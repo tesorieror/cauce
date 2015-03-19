@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated informationFlow -->
+      <wizard
+            id="ifmm.presentation.IfmmModelWizardID"
+            name="%_UI_IfmmModelWizard_label"
+            class="ifmm.presentation.IfmmModelWizard"
+            category="org.tesoriero.cauce.model.category.ID"
+            icon="icons/full/obj16/IfmmModelFile.gif">
+         <description>%_UI_IfmmModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated informationFlow -->
+      <editor
+            id="ifmm.presentation.IfmmEditorID"
+            name="%_UI_IfmmEditor_label"
+            icon="icons/full/obj16/IfmmModelFile.gif"
+            extensions="ifmm"
+            class="ifmm.presentation.IfmmEditor"
+            contributorClass="ifmm.presentation.IfmmActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

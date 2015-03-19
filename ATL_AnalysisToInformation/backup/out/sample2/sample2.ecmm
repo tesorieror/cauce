@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<ecmm:SystemContext xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecmm="ecmm" name="somm-diagram">
+  <entities entity="A" id="0">
+    <situations name="Task1" id="7">
+      <memoryConditions id="8" expression="anA" contextMemory="5"/>
+    </situations>
+    <situations name="Task2" id="9">
+      <memoryConditions id="11" expression="anA+B" contextMemory="5"/>
+    </situations>
+    <situations name="Task3" id="13">
+      <memoryConditions id="14" expression="anA" contextMemory="5"/>
+    </situations>
+    <situations name="Task6" id="19">
+      <memoryConditions id="21" expression="anA,B" contextMemory="5"/>
+    </situations>
+    <situations name="Task7" id="23">
+      <memoryConditions id="25" expression="anA+B" contextMemory="5"/>
+    </situations>
+    <state xsi:type="ecmm:HolderMemory" name="roleMemory" id="5"/>
+    <variables name="x" id="1"/>
+  </entities>
+  <entities entity="B" id="2">
+    <situations name="Task2" id="10">
+      <memoryConditions id="12" expression="anA+B" contextMemory="6"/>
+    </situations>
+    <situations name="Task4" id="15">
+      <memoryConditions id="16" expression="B" contextMemory="6"/>
+    </situations>
+    <situations name="Task5" id="17">
+      <memoryConditions id="18" expression="B" contextMemory="6"/>
+    </situations>
+    <situations name="Task6" id="20">
+      <memoryConditions id="22" expression="anA,B" contextMemory="6"/>
+    </situations>
+    <situations name="Task7" id="24">
+      <memoryConditions id="26" expression="anA+B" contextMemory="6"/>
+    </situations>
+    <state xsi:type="ecmm:HolderMemory" name="roleMemory" id="6"/>
+    <variables id="3"/>
+    <variables name="x" id="4"/>
+  </entities>
+</ecmm:SystemContext>

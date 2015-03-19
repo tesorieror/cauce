@@ -1,0 +1,47 @@
+library SocialModelLibrary; -- Library Template
+uses RegularExpressions; 
+
+helper def: getSociety():SoMetamodel!Society=SoMetamodel!Society->allInstances()->any(x|true);
+
+helper context SoMetamodel!Role def: getRoleVaraibleDefinition():String =	 
+	let children:Set(SoMetamodel!Role) = self->getChildRoleHierarchy() in
+	if(children->size()=1)then 'String' else 
+		let answer:String = children->iterate(r; answer:String =''| answer + '+ '+r.name) in answer.substring(2, answer->size()) 
+	endif;
+		
+helper context SoMetamodel!Role def: getChildRoleHierarchy():Set(SoMetamodel!Role) =
+	self.parent->collect(g | g.source.getChildRoleHierarchy())->flatten()->including(self);
+
+helper context String def: isIndividualInstance():Boolean=	
+	SoMetamodel!IndividualInstance.allInstances()->collect(i|i.name)->includes(self);			
+		
+helper context SoMetamodel!IndividualInstance def: toRoles():Set(SoMetamodel!Role)=
+	self.realizes->collect(r | r.target);
+			
+helper context String def: getRoleListFromSocialInstance():Set(SoMetamodel!Role) = 
+	if(self.isRole()) then Set{self.toRole()} else self.toIndividualInstance().realizes->collect(r|r.target) endif;
+
+helper context String def: toRole():SoMetamodel!Role =
+	SoMetamodel!Role.allInstances()->any(r | self = r.name);
+
+helper context String def: toIndividualInstance():SoMetamodel!IndividualInstance =
+	SoMetamodel!IndividualInstance.allInstances()->any(i | self = i.name);
+
+helper context String def: toSocialInstance():SoMetamodel!SocialInstance =
+	if(self->isRole()) then self->toRole() else self->toIndividualInstance() endif;
+
+helper context String def: isRole():Boolean =
+	SoMetamodel!Role.allInstances()->iterate(r; ans : Boolean = false| ans or self = r.name);
+
+helper context SoMetamodel!SocialInstance def: getEntities():Set(SoMetamodel!Role)=
+	self->getParentRoles()->select(r| r.isRoot());
+
+helper context SoMetamodel!IndividualInstance def: getParentRoles():Set(SoMetamodel!Role)=
+	self.realizes->collect(real | real.target.getParentRoles())->flatten();	
+
+helper context SoMetamodel!Role def: getParentRoles():Set(SoMetamodel!Role)=
+	if(self.children->size()>0)then
+		self.children->collect(spec | spec.target->getParentRoles())->flatten()->including(self)
+	else Set{self} endif->asSet();
+
+helper context SoMetamodel!Role def: isRoot():Boolean = self.children->size()=0;

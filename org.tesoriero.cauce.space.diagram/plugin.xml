@@ -1,0 +1,799 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+
+   <extension point="org.eclipse.team.core.fileTypes" id="repo-ftype">
+      <?gmfgen generated="true"?>
+      <fileTypes type="text" extension="spmmdiag"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser" id="resource-factory">
+      <?gmfgen generated="true"?>
+      <parser
+         type="spmmdiag"
+         class="org.eclipse.gmf.runtime.emf.core.resources.GMFResourceFactory">
+      </parser>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors" id="gmf-editor">
+      <?gmfgen generated="true"?>
+      <editor
+         id="spmm.diagram.part.SpaceDiagramEditorID"
+         name="%editorName"
+         icon="icons/obj16/SpmmDiagramFile.gif"
+         extensions="spmmdiag"
+         default="true"
+         class="spmm.diagram.part.SpaceDiagramEditor"
+         matchingStrategy="spmm.diagram.part.SpaceMatchingStrategy"
+         contributorClass="spmm.diagram.part.SpaceDiagramActionBarContributor">
+      </editor>
+   </extension>
+   
+   <extension point="org.eclipse.ui.contexts" id="ui-context">
+      <?gmfgen generated="true"?>
+      <context
+         description="%context.description"
+         id="spmm.diagram.ui.diagramContext"
+         name="%context.name"
+         parentId="org.eclipse.gmf.runtime.diagram.ui.diagramContext">
+      </context>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards" id="creation-wizard">
+      <?gmfgen generated="true"?>
+  	  <wizard
+  	     name="%newWizardName"
+  	     icon="icons/obj16/SpmmDiagramFile.gif"
+  	     category="org.tesoriero.cauce.diagram.category.ID"
+  	     class="spmm.diagram.part.SpaceCreationWizard"
+  	     id="spmm.diagram.part.SpaceCreationWizardID">
+  	  	 <description>%newWizardDesc</description>  
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.popupMenus" id="init-diagram-action">
+      <?gmfgen generated="true"?>
+      <objectContribution
+            id="org.tesoriero.cauce.space.diagram.InitDiagram"
+            nameFilter="*.spmm"
+            objectClass="org.eclipse.core.resources.IFile">
+         <action
+               label="%initDiagramActionLabel"
+               class="spmm.diagram.part.SpaceInitDiagramFileAction"
+               menubarPath="additions"
+               enablesFor="1"
+               id="org.tesoriero.cauce.space.diagram.InitDiagramAction">
+         </action>
+      </objectContribution>
+   </extension>
+	
+   <extension point="org.eclipse.gmf.runtime.common.ui.services.action.globalActionHandlerProviders" id="global-actions">
+      <?gmfgen generated="true"?>
+      <GlobalActionHandlerProvider
+         class="org.eclipse.gmf.runtime.diagram.ui.providers.DiagramGlobalActionHandlerProvider"
+         id="SpacePresentation">
+         <Priority name="Lowest"/>
+         <ViewId id="spmm.diagram.part.SpaceDiagramEditorID">
+            <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart">
+               <GlobalActionId actionId="delete"/>
+            </ElementType>
+            <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.DiagramEditPart">
+               <GlobalActionId actionId="save"/>
+            </ElementType>
+            <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart">
+               <GlobalActionId actionId="save">
+               </GlobalActionId>
+            </ElementType>        
+         </ViewId>
+      </GlobalActionHandlerProvider>
+      <GlobalActionHandlerProvider
+         class="org.eclipse.gmf.runtime.diagram.ui.providers.ide.providers.DiagramIDEGlobalActionHandlerProvider"
+         id="SpacePresentationIDE">
+         <Priority name="Lowest"/>
+         <ViewId id="spmm.diagram.part.SpaceDiagramEditorID">
+            <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart">
+               <GlobalActionId actionId="bookmark"/>
+            </ElementType>
+         </ViewId>
+      </GlobalActionHandlerProvider>
+      <GlobalActionHandlerProvider
+            class="org.eclipse.gmf.runtime.diagram.ui.render.providers.DiagramUIRenderGlobalActionHandlerProvider"
+            id="SpaceRender">
+         <Priority name="Lowest"/>
+         <ViewId id="spmm.diagram.part.SpaceDiagramEditorID">
+            <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart">
+               <GlobalActionId actionId="cut"/>
+               <GlobalActionId actionId="copy"/>
+               <GlobalActionId actionId="paste"/>
+            </ElementType>
+         </ViewId>
+      </GlobalActionHandlerProvider>
+   </extension>
+
+
+   <extension point="org.eclipse.gmf.runtime.common.ui.services.markerNavigationProviders" id="markers-navigation">
+      <?gmfgen generated="true"?>
+      <MarkerNavigationProvider class="spmm.diagram.providers.SpaceMarkerNavigationProvider">
+         <MarkerType name="org.tesoriero.cauce.space.diagram.diagnostic"/>
+         <Priority name="Lowest"/>
+      </MarkerNavigationProvider>
+   </extension>
+
+   <extension id="diagnostic" name="Space Plugin problems" point="org.eclipse.core.resources.markers">
+      <?gmfgen generated="true"?>
+      <super type="org.eclipse.core.resources.problemmarker"/>
+      <super type="org.eclipse.gmf.runtime.common.ui.services.marker"/>
+      <persistent value="true"/>
+   </extension>   
+
+   <extension id="validationDecoratorProvider" name="ValidationDecorations" point="org.eclipse.gmf.runtime.diagram.ui.decoratorProviders">
+      <?gmfgen generated="true"?>
+      <decoratorProvider class="spmm.diagram.providers.SpaceValidationDecoratorProvider">
+         <Priority name="High"/>
+         <object class="org.eclipse.gmf.runtime.diagram.ui.editparts.IPrimaryEditPart(org.eclipse.gmf.runtime.diagram.ui)" id="PRIMARY_VIEW"/>
+         <context decoratorTargets="PRIMARY_VIEW"/>
+      </decoratorProvider>
+   </extension>
+
+   <extension point="org.eclipse.core.runtime.preferences" id="prefs">
+      <?gmfgen generated="true"?>
+      <initializer class="spmm.diagram.preferences.DiagramPreferenceInitializer"/>
+   </extension>
+
+   <extension point="org.eclipse.ui.preferencePages" id="prefpages">
+      <?gmfgen generated="true"?>
+      <page
+            id="org.tesoriero.cauce.space.diagram.general"
+            name="%prefpage.org.tesoriero.cauce.space.diagram.general"
+            class="spmm.diagram.preferences.DiagramGeneralPreferencePage">
+      </page>
+      <page
+            id="org.tesoriero.cauce.space.diagram.appearance"
+            name="%prefpage.org.tesoriero.cauce.space.diagram.appearance"
+            category="org.tesoriero.cauce.space.diagram.general"
+            class="spmm.diagram.preferences.DiagramAppearancePreferencePage">
+      </page>
+      <page
+            id="org.tesoriero.cauce.space.diagram.connections"
+            name="%prefpage.org.tesoriero.cauce.space.diagram.connections"
+            category="org.tesoriero.cauce.space.diagram.general"
+            class="spmm.diagram.preferences.DiagramConnectionsPreferencePage">
+      </page>
+      <page
+            id="org.tesoriero.cauce.space.diagram.printing"
+            name="%prefpage.org.tesoriero.cauce.space.diagram.printing"
+            category="org.tesoriero.cauce.space.diagram.general"
+            class="spmm.diagram.preferences.DiagramPrintingPreferencePage">
+      </page>
+      <page
+            id="org.tesoriero.cauce.space.diagram.rulersAndGrid"
+            name="%prefpage.org.tesoriero.cauce.space.diagram.rulersAndGrid"
+            category="org.tesoriero.cauce.space.diagram.general"
+            class="spmm.diagram.preferences.DiagramRulersAndGridPreferencePage">
+      </page>
+   </extension>
+
+   <extension point="org.eclipse.ui.views.properties.tabbed.propertyContributor" id="prop-contrib">
+      <?gmfgen generated="true"?>
+      <propertyContributor
+            contributorId="org.tesoriero.cauce.space.diagram"
+            labelProvider="spmm.diagram.sheet.SpaceSheetLabelProvider">
+         <propertyCategory category="domain"/>
+         <propertyCategory category="visual"/>
+         <propertyCategory category="extra"/>
+      </propertyContributor>
+   </extension>
+
+   <extension point="org.eclipse.ui.views.properties.tabbed.propertyTabs" id="proptabs">
+      <?gmfgen generated="true"?>   
+      <propertyTabs contributorId="org.tesoriero.cauce.space.diagram">
+         <propertyTab
+             category="visual"
+             id="property.tab.AppearancePropertySection"
+             label="%tab.appearance"/>
+          <propertyTab
+             category="visual"
+             id="property.tab.DiagramPropertySection"
+             label="%tab.diagram"/>
+          <propertyTab
+             category="domain"
+             id="property.tab.domain"
+             label="%tab.domain"/>
+      </propertyTabs>
+   </extension>
+
+   <extension point="org.eclipse.ui.views.properties.tabbed.propertySections" id="propsections">
+      <?gmfgen generated="true"?>   
+      <propertySections contributorId="org.tesoriero.cauce.space.diagram">
+         <propertySection id="property.section.ConnectorAppearancePropertySection" 
+            filter="org.eclipse.gmf.runtime.diagram.ui.properties.filters.ConnectionEditPartPropertySectionFilter" 
+            class="org.eclipse.gmf.runtime.diagram.ui.properties.sections.appearance.ConnectionAppearancePropertySection" 
+            tab="property.tab.AppearancePropertySection">
+         </propertySection>
+         <propertySection id="property.section.ShapeColorAndFontPropertySection" 
+            filter="org.eclipse.gmf.runtime.diagram.ui.properties.filters.ShapeEditPartPropertySectionFilter" 
+            class="org.eclipse.gmf.runtime.diagram.ui.properties.sections.appearance.ShapeColorsAndFontsPropertySection" 
+            tab="property.tab.AppearancePropertySection">
+         </propertySection> 
+         <propertySection id="property.section.DiagramColorsAndFontsPropertySection" 
+            filter="org.eclipse.gmf.runtime.diagram.ui.properties.filters.DiagramEditPartPropertySectionFilter" 
+            class="org.eclipse.gmf.runtime.diagram.ui.properties.sections.appearance.DiagramColorsAndFontsPropertySection" 
+            tab="property.tab.AppearancePropertySection">
+         </propertySection>     
+         <propertySection id="property.section.RulerGridPropertySection" 
+            filter="org.eclipse.gmf.runtime.diagram.ui.properties.filters.DiagramEditPartPropertySectionFilter" 
+            class="org.eclipse.gmf.runtime.diagram.ui.properties.sections.grid.RulerGridPropertySection" 
+            tab="property.tab.DiagramPropertySection">
+         </propertySection>     
+         <propertySection
+            id="property.section.domain" 
+            tab="property.tab.domain"
+            class="spmm.diagram.sheet.SpacePropertySection">
+            <input type="org.eclipse.gmf.runtime.notation.View"/>
+            <input type="org.eclipse.gef.EditPart"/>
+            <input type="spmm.diagram.navigator.SpaceAbstractNavigatorItem"/>
+         </propertySection>
+      </propertySections>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.diagram.core.viewProviders" id="view-provider">
+      <?gmfgen generated="true"?>
+      <viewProvider class="spmm.diagram.providers.SpaceViewProvider">
+         <Priority name="High"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Diagram" semanticHints="Space"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="2001,2002"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints="4001,4002,4003"/>
+      </viewProvider>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.diagram.ui.editpartProviders" id="ep-provider">
+      <?gmfgen generated="true"?>
+      <editpartProvider class="spmm.diagram.providers.SpaceEditPartProvider">
+         <Priority name="Lowest"/>
+         <object class="org.eclipse.gmf.runtime.notation.Diagram" id="generated-diagram">
+            <method name="getType()" value="Space"/>
+         </object>
+         <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-nodes">
+            <method name="getType()" value="2001,2002"/>
+         </object>
+         <object class="org.eclipse.gmf.runtime.notation.Edge" id="generated-links">
+            <method name="getType()" value="4001,4002,4003"/>
+         </object>
+         <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-labels">
+            <method name="getType()" value="5001,5002"/>
+         </object>
+         <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-compartments">
+            <method name="getType()" value=""/>
+         </object>
+         <context views="generated-diagram,generated-nodes,generated-links,generated-labels,generated-compartments"/>
+      </editpartProvider>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.emf.ui.modelingAssistantProviders" id="modelassist-provider">
+      <?gmfgen generated="true"?>
+      <modelingAssistantProvider class="spmm.diagram.providers.SpaceModelingAssistantProvider">
+         <Priority name="Lowest"/>
+         <object class="spmm.diagram.edit.parts.UniverseEditPart" id="Universe_1000"/>
+         <object class="spmm.diagram.edit.parts.PhysicalSpaceEditPart" id="PhysicalSpace_2001"/>
+         <object class="spmm.diagram.edit.parts.VirtualSpaceEditPart" id="VirtualSpace_2002"/>
+         <context elements="Universe_1000,PhysicalSpace_2001,VirtualSpace_2002,"/>
+      </modelingAssistantProvider>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.common.ui.services.iconProviders" id="icon-provider">
+      <?gmfgen generated="true"?>
+      <IconProvider class="spmm.diagram.providers.SpaceIconProvider">
+         <Priority name="High"/>
+      </IconProvider>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.common.ui.services.parserProviders" id="parser-provider">
+      <?gmfgen generated="true"?>
+      <ParserProvider class="spmm.diagram.providers.SpaceParserProvider">
+         <Priority name="Lowest"/>
+      </ParserProvider>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.emf.type.core.elementTypes" id="element-types">
+      <?gmfgen generated="true"?>
+      <metamodel nsURI="http://tesoriero.org/cauce/space/1.0">
+         <metamodelType
+               id="org.tesoriero.cauce.space.diagram.Universe_1000"
+               name="%metatype.name.Universe_1000"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Universe"
+               edithelper="spmm.diagram.edit.helpers.UniverseEditHelper">
+            <param name="semanticHint" value="1000"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://tesoriero.org/cauce/space/1.0">
+         <metamodelType
+               id="org.tesoriero.cauce.space.diagram.PhysicalSpace_2001"
+               name="%metatype.name.PhysicalSpace_2001"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="PhysicalSpace"
+               edithelper="spmm.diagram.edit.helpers.PhysicalSpaceEditHelper">
+            <param name="semanticHint" value="2001"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://tesoriero.org/cauce/space/1.0">
+         <metamodelType
+               id="org.tesoriero.cauce.space.diagram.VirtualSpace_2002"
+               name="%metatype.name.VirtualSpace_2002"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="VirtualSpace"
+               edithelper="spmm.diagram.edit.helpers.VirtualSpaceEditHelper">
+            <param name="semanticHint" value="2002"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://tesoriero.org/cauce/space/1.0">
+         <metamodelType
+               id="org.tesoriero.cauce.space.diagram.Grouping_4001"
+               name="%metatype.name.Grouping_4001"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Grouping"
+               edithelper="spmm.diagram.edit.helpers.GroupingEditHelper">
+            <param name="semanticHint" value="4001"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://tesoriero.org/cauce/space/1.0">
+         <metamodelType
+               id="org.tesoriero.cauce.space.diagram.Contention_4002"
+               name="%metatype.name.Contention_4002"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Contention"
+               edithelper="spmm.diagram.edit.helpers.ContentionEditHelper">
+            <param name="semanticHint" value="4002"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://tesoriero.org/cauce/space/1.0">
+         <metamodelType
+               id="org.tesoriero.cauce.space.diagram.Generalization_4003"
+               name="%metatype.name.Generalization_4003"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Generalization"
+               edithelper="spmm.diagram.edit.helpers.GeneralizationEditHelper">
+            <param name="semanticHint" value="4003"/>
+         </metamodelType>
+      </metamodel>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.emf.type.core.elementTypeBindings" id="element-types-bindings">
+      <?gmfgen generated="true"?>
+      <clientContext id="org.tesoriero.cauce.space.diagram.TypeContext">
+         <enablement>
+            <test
+               property="org.eclipse.gmf.runtime.emf.core.editingDomain"
+               value="org.tesoriero.cauce.space.diagram.EditingDomain"/>
+         </enablement>
+      </clientContext> 
+      <binding context="org.tesoriero.cauce.space.diagram.TypeContext">
+         <elementType ref="org.tesoriero.cauce.space.diagram.Universe_1000"/>
+         <elementType ref="org.tesoriero.cauce.space.diagram.PhysicalSpace_2001"/>
+         <elementType ref="org.tesoriero.cauce.space.diagram.VirtualSpace_2002"/>
+         <elementType ref="org.tesoriero.cauce.space.diagram.Grouping_4001"/>
+         <elementType ref="org.tesoriero.cauce.space.diagram.Contention_4002"/>
+         <elementType ref="org.tesoriero.cauce.space.diagram.Generalization_4003"/>
+         <advice ref="org.eclipse.gmf.runtime.diagram.core.advice.notationDepdendents"/>
+      </binding>
+   </extension>
+	   <extension point="org.eclipse.core.expressions.propertyTesters" id="navigator-proptest.isURIEditorInput">
+      <?gmfgen generated="true"?>
+       <propertyTester
+           id="org.tesoriero.cauce.space.diagram.URIEditorInputPropertyTester"
+           type="org.eclipse.emf.common.ui.URIEditorInput"
+           namespace="org.tesoriero.cauce.space.diagram"
+           properties="isURIEditorInput"
+           class="spmm.diagram.part.SpaceUriEditorInputTester">
+       </propertyTester>
+   </extension>
+
+	   <extension point="org.eclipse.ui.navigator.viewer" id="navigator-viewbinding">
+      <?gmfgen generated="true"?>
+      <viewerContentBinding viewerId="org.eclipse.ui.navigator.ProjectExplorer">
+         <includes>
+            <contentExtension pattern="org.tesoriero.cauce.space.diagram.resourceContent"/>
+			<contentExtension pattern="org.tesoriero.cauce.space.diagram.domainResourceContent"/>
+            <contentExtension pattern="org.tesoriero.cauce.space.diagram.navigatorLinkHelper"/>
+         </includes>
+      </viewerContentBinding>
+      <viewerActionBinding viewerId="org.eclipse.ui.navigator.ProjectExplorer">
+         <includes>
+            <actionExtension pattern="org.tesoriero.cauce.space.diagram.navigatorActionProvider"/>
+         </includes>
+      </viewerActionBinding>
+   </extension>
+
+   <extension point="org.eclipse.ui.navigator.navigatorContent" id="navigator-content">
+      <?gmfgen generated="true"?>
+      <navigatorContent
+            id="org.tesoriero.cauce.space.diagram.resourceContent" 
+            name="%navigatorContentName" 
+            priority="normal" 
+            contentProvider="spmm.diagram.navigator.SpaceNavigatorContentProvider" 
+            labelProvider="spmm.diagram.navigator.SpaceNavigatorLabelProvider"
+            icon="icons/obj16/SpmmDiagramFile.gif"
+            activeByDefault="true">
+         <triggerPoints>
+            <or>
+	           <and>
+    	          <instanceof value="org.eclipse.core.resources.IFile"/>
+        	      <test property="org.eclipse.core.resources.extension" value="spmmdiag"/>
+               </and>
+               <instanceof value="spmm.diagram.navigator.SpaceAbstractNavigatorItem"/>
+            </or>
+         </triggerPoints>
+         <possibleChildren>
+            <or>
+         	   <instanceof value="spmm.diagram.navigator.SpaceAbstractNavigatorItem"/>
+            </or>
+         </possibleChildren>
+         <commonSorter 
+               id="org.tesoriero.cauce.space.diagram.navigatorSorter" 
+               class="spmm.diagram.navigator.SpaceNavigatorSorter">
+            <parentExpression>
+               <or>
+	              <and>
+    	             <instanceof value="org.eclipse.core.resources.IFile"/>
+        	         <test property="org.eclipse.core.resources.extension" value="spmmdiag"/>
+                  </and>
+                  <instanceof value="spmm.diagram.navigator.SpaceAbstractNavigatorItem"/>
+               </or>
+            </parentExpression>
+         </commonSorter>
+      </navigatorContent>
+      <navigatorContent
+            id="org.tesoriero.cauce.space.diagram.domainResourceContent" 
+            name="%domainNavigatorContentName" 
+            priority="normal" 
+            contentProvider="spmm.diagram.navigator.SpaceDomainNavigatorContentProvider" 
+            labelProvider="spmm.diagram.navigator.SpaceDomainNavigatorLabelProvider"
+            icon="icons/obj16/SpmmDiagramFile.gif"
+            activeByDefault="true">
+         <triggerPoints>
+            <or>
+	           <and>
+    	          <instanceof value="org.eclipse.core.resources.IFile"/>
+        	      <test property="org.eclipse.core.resources.extension" value="spmm"/>
+               </and>
+               <instanceof value="spmm.diagram.navigator.SpaceDomainNavigatorItem"/>
+            </or>
+         </triggerPoints>
+         <possibleChildren>
+            <instanceof value="spmm.diagram.navigator.SpaceDomainNavigatorItem"/>
+         </possibleChildren>
+      </navigatorContent>
+      <actionProvider
+            id="org.tesoriero.cauce.space.diagram.navigatorActionProvider"
+            class="spmm.diagram.navigator.SpaceNavigatorActionProvider">
+         <enablement>
+            <or>
+               <instanceof value="spmm.diagram.navigator.SpaceAbstractNavigatorItem"/>
+            </or>
+         </enablement>
+      </actionProvider>
+   </extension>
+   
+	   <extension point="org.eclipse.ui.navigator.linkHelper" id="navigator-linkhelper">
+      <?gmfgen generated="true"?>
+      <linkHelper
+            id="org.tesoriero.cauce.space.diagram.navigatorLinkHelper"
+            class="spmm.diagram.navigator.SpaceNavigatorLinkHelper">
+         <editorInputEnablement>
+            <and>
+               <instanceof value="org.eclipse.emf.common.ui.URIEditorInput"/>
+               <test property="org.tesoriero.cauce.space.diagram.isURIEditorInput"/>
+            </and>
+         </editorInputEnablement>
+         <selectionEnablement>
+            <instanceof value="spmm.diagram.navigator.SpaceAbstractNavigatorItem"/>
+         </selectionEnablement>
+      </linkHelper>
+   </extension>
+   <extension point="org.eclipse.emf.validation.constraintProviders">
+      <?gmfgen generated="true"?>
+            <category id="SocialMetamodelAuditContainer" mandatory="false" name="SocialMetamodelAuditContainer">
+         <![CDATA[SocialMetamodelAuditContainer]]>
+      </category>
+      <category id="SocialMetamodelAuditContainer/LinkRestrictionsAuditContainer" mandatory="false" name="LinkRestrictionsAuditContainer">
+         <![CDATA[LinkRestrictionsAuditContainer]]>
+      </category>
+      <category id="SocialMetamodelAuditContainer/PhysicalSpaceAuditContainer" mandatory="false" name="PhysicalSpaceAuditContainer">
+         <![CDATA[PhysicalSpaceAuditContainer]]>
+      </category>
+      <category id="SocialMetamodelAuditContainer/VirtualSpaceAuditContainer" mandatory="false" name="VirtualSpaceAuditContainer">
+         <![CDATA[VirtualSpaceAuditContainer]]>
+      </category>
+      <category id="SocialMetamodelAuditContainer/SpaceAuditContainer" mandatory="false" name="SpaceAuditContainer">
+         <![CDATA[SpaceAuditContainer]]>
+      </category>
+      <constraintProvider cache="true">
+         <package namespaceUri="http://tesoriero.org/cauce/space/1.0"/>
+               <constraints categories="SocialMetamodelAuditContainer">
+                  </constraints>
+         <constraints categories="SocialMetamodelAuditContainer/LinkRestrictionsAuditContainer">
+                  <constraint id="SelfGrouping"
+            lang="OCL"
+            name="SelfGroupingRule"
+            mode="Live"
+            severity="ERROR" statusCode="200">
+            <![CDATA[parent.id<>child.id]]>
+            <description><![CDATA[Avoiding self grouping]]></description>
+            <message><![CDATA[No space can be grouped to itself]]></message>
+            <target class="spmm.Grouping"/>
+         </constraint>
+                  <constraint id="SelfContainment"
+            lang="OCL"
+            name="SelfContainmentRule"
+            mode="Live"
+            severity="ERROR" statusCode="200">
+            <![CDATA[parent.id<>child.id]]>
+            <description><![CDATA[Avoid self containment]]></description>
+            <message><![CDATA[No space can be self contained]]></message>
+            <target class="spmm.Contention"/>
+         </constraint>
+                  <constraint id="SelfGeneralization"
+            lang="OCL"
+            name="SelfGeneralizationRule"
+            mode="Live"
+            severity="ERROR" statusCode="200">
+            <![CDATA[generalizes.id<>parent.id]]>
+            <description><![CDATA[Avoid space self generalization]]></description>
+            <message><![CDATA[No space can be self generalized]]></message>
+            <target class="spmm.Generalization"/>
+         </constraint>
+                  <constraint id="DoubleGrouping"
+            lang="OCL"
+            name="DoubleGroupingRule"
+            mode="Live"
+            severity="ERROR" statusCode="200">
+            <![CDATA[universe.groupings->forAll(g| (g.parent.id<>parent.id or g.child.id<>child.id) or (g.id=id))]]>
+            <description><![CDATA[Avoid double grouping definitions]]></description>
+            <message><![CDATA[Grouping relationship already defined]]></message>
+            <target class="spmm.Grouping"/>
+         </constraint>
+                  <constraint id="DoubleGeneralization"
+            lang="OCL"
+            name="DoubleGeneralizationRule"
+            mode="Live"
+            severity="ERROR" statusCode="200">
+            <![CDATA[universe.generalizations->forAll(g| (g.parent.id<>parent.id or g.generalizes.id<>generalizes.id) or (g.id=id))]]>
+            <description><![CDATA[Avoid double generalization definitions]]></description>
+            <message><![CDATA[Generalization relationship already defined]]></message>
+            <target class="spmm.Generalization"/>
+         </constraint>
+                  <constraint id="DoubleContention"
+            lang="OCL"
+            name="DoubleContentionRule"
+            mode="Live"
+            severity="ERROR" statusCode="200">
+            <![CDATA[universe.contentions->forAll(g| (g.parent.id<>parent.id or g.child.id<>child.id) or (g.id=id))]]>
+            <description><![CDATA[Avoid double contention definitions]]></description>
+            <message><![CDATA[Contention relationship already defined]]></message>
+            <target class="spmm.Contention"/>
+         </constraint>
+                  <constraint id="UniqueGroupingIdAuditRule"
+            lang="OCL"
+            name="UniqueGroupingIdAuditRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            <![CDATA[(universe.id<>self.id) and
+universe.physicalSpaces->forAll(phs|  (phs.id<>self.id)) and
+universe.virtualSpaces->forAll(vs| (vs.id<>self.id)) and
+universe.groupings->forAll(g | (g<>self) implies (g.id<>self.id)) and
+universe.generalizations->forAll(gens | (gens.id<>self.id)) and
+universe.contentions->forAll(c | (c.id<>self.id))]]>
+            <description><![CDATA[UniqueGroupingIdAuditRule]]></description>
+            <message><![CDATA[Grouping relationship ID must be unique]]></message>
+            <target class="spmm.Grouping"/>
+         </constraint>
+                  <constraint id="UniqueContainmentIdAuditRule"
+            lang="OCL"
+            name="UniqueContainmentIdAuditRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            <![CDATA[(universe.id<>self.id) and
+universe.physicalSpaces->forAll(phs|  (phs.id<>self.id)) and
+universe.virtualSpaces->forAll(vs| (vs.id<>self.id)) and
+universe.groupings->forAll(g | g.id<>self.id) and
+universe.generalizations->forAll(gens | (gens.id<>self.id)) and
+universe.contentions->forAll(c | (c<>self) implies (c.id<>self.id))]]>
+            <description><![CDATA[UniqueContainmentIdAuditRule]]></description>
+            <message><![CDATA[Containment relationship ID must be unique]]></message>
+            <target class="spmm.Contention"/>
+         </constraint>
+                  <constraint id="UniqueGeneralizationIdAuditRule"
+            lang="OCL"
+            name="UniqueGeneralizationIdAuditRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            <![CDATA[(universe.id<>self.id) and
+universe.physicalSpaces->forAll(phs | (phs.id<>self.id)) and
+universe.virtualSpaces->forAll(vs | (vs.id<>self.id)) and
+universe.groupings->forAll(g | g.id<>self.id) and
+universe.generalizations->forAll(gens | (gens<>self) implies (gens.id<>self.id)) and
+universe.contentions->forAll(c | c.id<>self.id)]]>
+            <description><![CDATA[UniqueGeneralizationIdAuditRule]]></description>
+            <message><![CDATA[Generalization relationship ID must be unique]]></message>
+            <target class="spmm.Generalization"/>
+         </constraint>
+                  <constraint id="NotNullSpaceRelationshipIdAuditRule"
+            lang="Java" class="spmm.diagram.providers.SpaceValidationProvider$Adapter10"
+            name="NotNullSpaceRelationshipIdAuditRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            
+            <description><![CDATA[NotNullSpaceRelationshipIdAuditRule]]></description>
+            <message><![CDATA[Space relationship ID must not be null]]></message>
+            <target class="spmm.SpaceRelationship"/>
+         </constraint>
+                  </constraints>
+         <constraints categories="SocialMetamodelAuditContainer/PhysicalSpaceAuditContainer">
+                  <constraint id="PhysicalSpaceNameUniqueAuditRule"
+            lang="OCL"
+            name="PhysicalSpaceNameUniqueAuditRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            <![CDATA[(universe.name<>self.name) and
+universe.physicalSpaces->forAll(phs | (phs<>self) implies (phs.name<>self.name)) and
+universe.virtualSpaces->forAll(vs | (vs.name<>self.name))]]>
+            <description><![CDATA[PhysicalSpaceNameUniqueAuditRule]]></description>
+            <message><![CDATA[PhysicalSpace name must be unique]]></message>
+            <target class="spmm.PhysicalSpace"/>
+         </constraint>
+                  <constraint id="PhysicalSpaceIdUniqueAuditRule"
+            lang="OCL"
+            name="PhysicalSpaceIdUniqueAuditRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            <![CDATA[(universe.id<>self.id) and
+universe.physicalSpaces->forAll(phs | (phs<>self) implies (phs.id<>self.id)) and
+universe.virtualSpaces->forAll(vs | (vs.id<>self.id)) and
+universe.groupings->forAll(g | g.id<>self.id) and
+universe.generalizations->forAll(gens | gens.id<>self.id) and
+universe.contentions->forAll(c | c.id<>self.id)]]>
+            <description><![CDATA[PhysicalSpaceIdUniqueAuditRule]]></description>
+            <message><![CDATA[PhysicalSpace ID must be unique]]></message>
+            <target class="spmm.PhysicalSpace"/>
+         </constraint>
+                  </constraints>
+         <constraints categories="SocialMetamodelAuditContainer/VirtualSpaceAuditContainer">
+                  <constraint id="VirtualSpaceNameUniqueAuditRule"
+            lang="OCL"
+            name="VirtualSpaceNameUniqueAuditRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            <![CDATA[(universe.name<>self.name) and
+universe.physicalSpaces->forAll(phs |  (phs.name<>self.name)) and
+universe.virtualSpaces->forAll(vs | (vs<>self) implies (vs.name<>self.name))]]>
+            <description><![CDATA[VirtualSpaceNameUniqueAuditRule]]></description>
+            <message><![CDATA[VirtualSpace name must be unique]]></message>
+            <target class="spmm.VirtualSpace"/>
+         </constraint>
+                  <constraint id="VirtualSpaceIdUniqueAuditRule"
+            lang="OCL"
+            name="VirtualSpaceIdUniqueAuditRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            <![CDATA[(universe.id<>self.id) and
+universe.physicalSpaces->forAll(phs | phs.id<>self.id) and
+universe.virtualSpaces->forAll(vs | (self<>vs) implies (vs.id<>self.id)) and
+universe.groupings->forAll(g | g.id<>self.id) and
+universe.generalizations->forAll(gens | gens.id<>self.id) and
+universe.contentions->forAll(c | c.id<>self.id)]]>
+            <description><![CDATA[VirtualSpaceIdUniqueAuditRule]]></description>
+            <message><![CDATA[VirtualSpace ID must be unique]]></message>
+            <target class="spmm.VirtualSpace"/>
+         </constraint>
+                  </constraints>
+         <constraints categories="SocialMetamodelAuditContainer/SpaceAuditContainer">
+                  <constraint id="SpaceIdNotNullAuditRule"
+            lang="Java" class="spmm.diagram.providers.SpaceValidationProvider$Adapter15"
+            name="SpaceIdNotNullAuditRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            
+            <description><![CDATA[SpaceIdNotNullAuditRule]]></description>
+            <message><![CDATA[Space ID must not be null]]></message>
+            <target class="spmm.Space"/>
+         </constraint>
+                  <constraint id="SpaceNameNotNullAuditRule"
+            lang="Java" class="spmm.diagram.providers.SpaceValidationProvider$Adapter16"
+            name="SpaceNameNotNullAuditRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            
+            <description><![CDATA[SpaceNameNotNullAuditRule]]></description>
+            <message><![CDATA[Space name must not be null]]></message>
+            <target class="spmm.Space"/>
+         </constraint>
+                  </constraints>
+      </constraintProvider>
+   </extension>
+
+   <extension point="org.eclipse.emf.validation.constraintBindings">
+      <?gmfgen generated="true"?>
+      <clientContext default="false" id="org.tesoriero.cauce.space.diagramDefaultCtx">
+         <selector class="spmm.diagram.providers.SpaceValidationProvider$DefaultCtx"/>
+      </clientContext>
+      <binding context="org.tesoriero.cauce.space.diagramDefaultCtx">
+                  <constraint ref="org.tesoriero.cauce.space.diagram.SelfGrouping"/>
+                  <constraint ref="org.tesoriero.cauce.space.diagram.SelfContainment"/>
+                  <constraint ref="org.tesoriero.cauce.space.diagram.SelfGeneralization"/>
+                  <constraint ref="org.tesoriero.cauce.space.diagram.DoubleGrouping"/>
+                  <constraint ref="org.tesoriero.cauce.space.diagram.DoubleGeneralization"/>
+                  <constraint ref="org.tesoriero.cauce.space.diagram.DoubleContention"/>
+                  <constraint ref="org.tesoriero.cauce.space.diagram.UniqueGroupingIdAuditRule"/>
+                  <constraint ref="org.tesoriero.cauce.space.diagram.UniqueContainmentIdAuditRule"/>
+                  <constraint ref="org.tesoriero.cauce.space.diagram.UniqueGeneralizationIdAuditRule"/>
+                  <constraint ref="org.tesoriero.cauce.space.diagram.NotNullSpaceRelationshipIdAuditRule"/>
+                  <constraint ref="org.tesoriero.cauce.space.diagram.PhysicalSpaceNameUniqueAuditRule"/>
+                  <constraint ref="org.tesoriero.cauce.space.diagram.PhysicalSpaceIdUniqueAuditRule"/>
+                  <constraint ref="org.tesoriero.cauce.space.diagram.VirtualSpaceNameUniqueAuditRule"/>
+                  <constraint ref="org.tesoriero.cauce.space.diagram.VirtualSpaceIdUniqueAuditRule"/>
+                  <constraint ref="org.tesoriero.cauce.space.diagram.SpaceIdNotNullAuditRule"/>
+                  <constraint ref="org.tesoriero.cauce.space.diagram.SpaceNameNotNullAuditRule"/>
+               </binding>
+
+   </extension>
+
+
+   <extension point="org.eclipse.emf.validation.ui.UIRegisteredClientContext">
+      <?gmfgen generated="true"?>
+      <clientContext id="org.tesoriero.cauce.space.diagramDefaultCtx"/>
+   </extension>
+
+   <extension point="org.eclipse.ui.commands" id="update-cmd">
+      <?gmfgen generated="true"?>
+      <command
+         categoryId="org.eclipse.ui.category.edit"
+         defaultHandler="spmm.diagram.part.SpaceDiagramUpdateCommand"
+         description="%update.diagram.description"
+         id="spmm.diagram.updateDiagram"
+         name="%update.diagram.name"/>
+   </extension>
+   
+   <extension point="org.eclipse.ui.bindings" id="update-cmd-binding">
+      <?gmfgen generated="true"?>
+      <key 
+         commandId="spmm.diagram.updateDiagram"
+         contextId="spmm.diagram.ui.diagramContext"
+         schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+         sequence="F5"/>
+   </extension>
+
+   <extension point="org.eclipse.ui.menus" id="context-menus">
+      <?gmfgen generated="true"?>
+      <!-- menuContribution locationURI="menu:org.eclipse.ui.main.menu?after=">
+      </menuContribution>
+      <menuContribution locationURI="toolbar:org.eclipse.ui.main.toolbar?after=">
+      </menuContribution -->
+      <menuContribution locationURI="popup:org.eclipse.gmf.runtime.diagram.ui.DiagramEditorContextMenu">
+         <command commandId="org.tesoriero.cauce.space.diagram.LoadResourceAction">
+            <visibleWhen>
+               <and>
+                  <with variable="activePartId"><equals value="spmm.diagram.part.SpaceDiagramEditorID"/></with>
+                  <with variable="selection"><iterate ifEmpty="false"> 
+                     <instanceof value="spmm.diagram.edit.parts.UniverseEditPart"/>
+                  </iterate></with>
+               </and>
+            </visibleWhen>
+         </command>
+      </menuContribution>
+   </extension>
+
+   <extension point="org.eclipse.ui.commands" id="menu-commands">
+      <?gmfgen generated="true"?>
+      <category id="spmm.diagram.part.SpaceDiagramEditorID" name="%cmdcategory.name" description="%cmdcategory.desc"/>
+      <command id="org.tesoriero.cauce.space.diagram.LoadResourceAction"
+         name="Load Resource"
+         categoryId="spmm.diagram.part.SpaceDiagramEditorID"
+         defaultHandler="spmm.diagram.part.LoadResourceAction"/>
+   </extension>
+
+   <extension point="org.eclipse.ui.handlers" id="menu-handlers">
+      <?gmfgen generated="true"?>
+   </extension>
+
+   <!-- optionally, specify keybindings -->
+</plugin>

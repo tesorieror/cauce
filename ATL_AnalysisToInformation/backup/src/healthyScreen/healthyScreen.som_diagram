@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.1/notation" xmlns:som="som" xmi:id="_gZjEgJDVEd6sALubF3ctGA" type="Som" measurementUnit="Pixel">
+  <children xmi:type="notation:Node" xmi:id="_gbXCYJDVEd6sALubF3ctGA" type="1001">
+    <children xmi:type="notation:Node" xmi:id="_gbXpcJDVEd6sALubF3ctGA" type="4001">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_gbXpcZDVEd6sALubF3ctGA" x="60" y="25"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_gbXpcpDVEd6sALubF3ctGA" type="4002">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_gbXpc5DVEd6sALubF3ctGA" x="60" y="5"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_gbXCYZDVEd6sALubF3ctGA" fontName="Segoe UI"/>
+    <element xmi:type="som:IndividualInstance" href="healthyScreen.som#3"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_gbXCYpDVEd6sALubF3ctGA" x="15"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_gbXpdJDVEd6sALubF3ctGA" type="1001">
+    <children xmi:type="notation:Node" xmi:id="_gbYQgJDVEd6sALubF3ctGA" type="4001">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_gbYQgZDVEd6sALubF3ctGA" x="60" y="5"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_gbYQgpDVEd6sALubF3ctGA" type="4002">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_gbYQg5DVEd6sALubF3ctGA" x="60" y="20"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_gbXpdZDVEd6sALubF3ctGA" fontName="Segoe UI"/>
+    <element xmi:type="som:IndividualInstance" href="healthyScreen.som#4"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_gbXpdpDVEd6sALubF3ctGA" x="186"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_gbY3kJDVEd6sALubF3ctGA" type="1002">
+    <children xmi:type="notation:Node" xmi:id="_gbY3k5DVEd6sALubF3ctGA" type="4003"/>
+    <children xmi:type="notation:Node" xmi:id="_gbZeoJDVEd6sALubF3ctGA" type="4004"/>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_gbY3kZDVEd6sALubF3ctGA" fontName="Segoe UI"/>
+    <element xmi:type="som:Role" href="healthyScreen.som#1"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_gbY3kpDVEd6sALubF3ctGA" y="100"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_gbaFsJDVEd6sALubF3ctGA" type="1002">
+    <children xmi:type="notation:Node" xmi:id="_gbaFs5DVEd6sALubF3ctGA" type="4003"/>
+    <children xmi:type="notation:Node" xmi:id="_gbaFtJDVEd6sALubF3ctGA" type="4004"/>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_gbaFsZDVEd6sALubF3ctGA" fontName="Segoe UI"/>
+    <element xmi:type="som:Role" href="healthyScreen.som#2"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_gbaFspDVEd6sALubF3ctGA" x="131" y="100"/>
+  </children>
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_gZjEgZDVEd6sALubF3ctGA"/>
+  <element xmi:type="som:Society" href="healthyScreen.som#/"/>
+</notation:Diagram>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<deployment:DevelopmentEnvironment xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:deployment="deployment" name="sample">
+  <mediums type="WiFi" technology="Socket" version="802.11"/>
+  <protocols name="WebServices" version="2.1"/>
+  <languages name="Java" version="6" profile="SE" revision="10"/>
+  <os name="Windows" version="XP" revision="SP2"/>
+  <connections name="Connection" id="4" ongoing="11" incoming="10">
+    <platforms name="Connection default platform" id="3" protocol="2.1" medium="//@mediums.0"/>
+    <information name="f"/>
+  </connections>
+  <devices name="DeviceA" id="1" ongoing="10">
+    <platforms name="DeviceADefaultPlatform" id="5" language="//@languages.0" os="//@os.0"/>
+    <entities name="EntityA"/>
+  </devices>
+  <devices name="DeviceB" id="2" incoming="11">
+    <platforms name="DeviceBDefaultPlatform" id="6" language="//@languages.0" os="//@os.0"/>
+    <entities name="EntityB"/>
+  </devices>
+  <edges xsi:type="deployment:DeviceToConnectionEdge" id="10" source="1" target="4"/>
+  <edges xsi:type="deployment:ConnectionToDeviceEdge" id="11" source="4" target="2"/>
+</deployment:DevelopmentEnvironment>

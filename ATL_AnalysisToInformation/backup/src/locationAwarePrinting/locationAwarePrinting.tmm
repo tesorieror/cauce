@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<task-meta-model:ContextAwareSystem xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:task-meta-model="task-meta-model">
+  <finalConditions id="26" socialExpression="PDA" incoming="//@splitTaskToOutputConditions.5"/>
+  <finalConditions id="30" socialExpression="Printer" spaceExpression="" incoming="//@splitTaskToOutputConditions.4"/>
+  <preConditions id="4" socialExpression="PDA,Printer" spaceExpression="PDA(release, print), PDA(acEvent, action)*, PDA(enter, aPrintingZone),*,aPrinter(in, aPrinterZone),*" dataExpression="PDA(document)" incoming="//@joinTaskToOutputConditions.0" ongoing="//@preConditionToSystemTasks.0"/>
+  <preConditions id="8" socialExpression="PDA,Printer" spaceExpression="PDA(release, print), PDA(acEvent, action)*, PDA(enter, aPrintingZone),*,aPrinter(in, aPrinterZone),*" incoming="//@splitTaskToOutputConditions.0" ongoing="//@preConditionToSystemTasks.2"/>
+  <preConditions id="9" socialExpression="PDA,Printer" spaceExpression="PDA(release, print), PDA(acEvent, action)*, PDA(enter, aPrintingZone),*,aPrinter(in, aPrinterZone),*" taskExpression="" logicExpression="not Printer.printing" dataExpression="PDA(document)" incoming="//@splitTaskToOutputConditions.1" ongoing="//@preConditionToSystemTasks.1"/>
+  <preConditions id="15" socialExpression="PDA,Printer" spaceExpression="PDA(release,cancel),*" logicExpression="(Printer.printing)" dataExpression="PDA(cancel)" incoming="//@splitTaskToOutputConditions.2" ongoing="//@preConditionToSystemTasks.3"/>
+  <preConditions id="16" socialExpression="PDA,Printer" incoming="//@splitTaskToOutputConditions.3" ongoing="//@preConditionToSystemTasks.4"/>
+  <preConditions id="22" socialExpression="PDA,Printer" incoming="//@joinTaskToOutputConditions.1" ongoing="//@preConditionToSystemTasks.5"/>
+  <preConditions id="27" socialExpression="PDA,Printer" incoming="//@joinTaskToOutputConditions.2" ongoing="//@preConditionToSystemTasks.6"/>
+  <postConditions id="6" socialExpression="PDA,Printer" spaceExpression="PDA(release, print), PDA(acEvent, action)*, PDA(enter, aPrintingZone),*,aPrinter(in, aPrinterZone),*" dataExpression="PDA(document)" ongoing="//@inputConditionToSplitTasks.0" incoming="//@systemTaskToPostConditions.0"/>
+  <postConditions id="11" socialExpression="PDA,Printer" spaceExpression="PDA(click, print),*" logicExpression="not Printer.printing" dataExpression="Printer(document)" ongoing="//@inputConditionToJoinTasks.4" incoming="//@systemTaskToPostConditions.1"/>
+  <postConditions id="13" socialExpression="PDA,Printer" spaceExpression="PDA(click, print),*" ongoing="//@inputConditionToSplitTasks.1" incoming="//@systemTaskToPostConditions.2"/>
+  <postConditions id="18" socialExpression="PDA,Printer" spaceExpression="PDA(click,cancel),*" logicExpression="" dataExpression="Printer(cancel)" ongoing="//@inputConditionToJoinTasks.2" incoming="//@systemTaskToPostConditions.3"/>
+  <postConditions id="21" socialExpression="PDA,Printer" ongoing="//@inputConditionToJoinTasks.3" incoming="//@systemTaskToPostConditions.4"/>
+  <postConditions id="24" socialExpression="PDA,Printer" ongoing="//@inputConditionToJoinTasks.5" incoming="//@systemTaskToPostConditions.5"/>
+  <postConditions id="29" socialExpression="PDA,Printer" ongoing="//@inputConditionToSplitTasks.2" incoming="//@systemTaskToPostConditions.6"/>
+  <initialConditions id="1" socialExpression="PDA" spaceExpression="PDA(release, print), PDA(acEvent, action)*, PDA(enter, aPrintingZone),*" logicExpression="" dataExpression="PDA(document)" ongoing="//@inputConditionToJoinTasks.1"/>
+  <initialConditions id="2" socialExpression="Printer" spaceExpression="aPrinter(in, aPrinterZone)" ongoing="//@inputConditionToJoinTasks.0"/>
+  <routeTasks xsi:type="task-meta-model:AndJoin" id="3" incoming="//@inputConditionToJoinTasks.0 //@inputConditionToJoinTasks.1" ongoing="//@joinTaskToOutputConditions.0"/>
+  <routeTasks xsi:type="task-meta-model:AndSplit" id="7" incoming="//@inputConditionToSplitTasks.0" ongoing="//@splitTaskToOutputConditions.0 //@splitTaskToOutputConditions.1"/>
+  <routeTasks xsi:type="task-meta-model:OrSplit" id="14" incoming="//@inputConditionToSplitTasks.1" ongoing="//@splitTaskToOutputConditions.2 //@splitTaskToOutputConditions.3"/>
+  <routeTasks xsi:type="task-meta-model:OrJoin" id="19" incoming="//@inputConditionToJoinTasks.2 //@inputConditionToJoinTasks.3" ongoing="//@joinTaskToOutputConditions.1"/>
+  <routeTasks xsi:type="task-meta-model:AndJoin" id="25" incoming="//@inputConditionToJoinTasks.4 //@inputConditionToJoinTasks.5" ongoing="//@joinTaskToOutputConditions.2"/>
+  <routeTasks xsi:type="task-meta-model:AndSplit" id="31" incoming="//@inputConditionToSplitTasks.2" ongoing="//@splitTaskToOutputConditions.4 //@splitTaskToOutputConditions.5"/>
+  <systemTasks xsi:type="task-meta-model:SkipTask" id="5" incoming="//@preConditionToSystemTasks.0" ongoing="//@systemTaskToPostConditions.0"/>
+  <systemTasks xsi:type="task-meta-model:SimpleTask" id="10" incoming="//@preConditionToSystemTasks.1" ongoing="//@systemTaskToPostConditions.1" name="Print"/>
+  <systemTasks xsi:type="task-meta-model:SkipTask" id="12" incoming="//@preConditionToSystemTasks.2" ongoing="//@systemTaskToPostConditions.2"/>
+  <systemTasks xsi:type="task-meta-model:SimpleTask" id="17" incoming="//@preConditionToSystemTasks.3" ongoing="//@systemTaskToPostConditions.3" name="Cancel"/>
+  <systemTasks xsi:type="task-meta-model:SkipTask" id="20" incoming="//@preConditionToSystemTasks.4" ongoing="//@systemTaskToPostConditions.4"/>
+  <systemTasks xsi:type="task-meta-model:SkipTask" id="23" incoming="//@preConditionToSystemTasks.5" ongoing="//@systemTaskToPostConditions.5"/>
+  <systemTasks xsi:type="task-meta-model:SkipTask" id="28" incoming="//@preConditionToSystemTasks.6" ongoing="//@systemTaskToPostConditions.6"/>
+  <inputConditionToJoinTasks source="2" target="//@routeTasks.0"/>
+  <inputConditionToJoinTasks source="1" target="//@routeTasks.0"/>
+  <inputConditionToJoinTasks source="18" target="//@routeTasks.3"/>
+  <inputConditionToJoinTasks source="21" target="//@routeTasks.3"/>
+  <inputConditionToJoinTasks source="11" target="//@routeTasks.4"/>
+  <inputConditionToJoinTasks source="24" target="//@routeTasks.4"/>
+  <inputConditionToSplitTasks source="6" target="//@routeTasks.1"/>
+  <inputConditionToSplitTasks source="13" target="//@routeTasks.2"/>
+  <inputConditionToSplitTasks source="29" target="//@routeTasks.5"/>
+  <joinTaskToOutputConditions target="4" source="//@routeTasks.0"/>
+  <joinTaskToOutputConditions target="22" source="//@routeTasks.3"/>
+  <joinTaskToOutputConditions target="27" source="//@routeTasks.4"/>
+  <splitTaskToOutputConditions target="8" source="//@routeTasks.1"/>
+  <splitTaskToOutputConditions target="9" source="//@routeTasks.1"/>
+  <splitTaskToOutputConditions target="15" source="//@routeTasks.2"/>
+  <splitTaskToOutputConditions target="16" source="//@routeTasks.2"/>
+  <splitTaskToOutputConditions target="30" source="//@routeTasks.5"/>
+  <splitTaskToOutputConditions target="26" source="//@routeTasks.5"/>
+  <preConditionToSystemTasks source="4" target="//@systemTasks.0"/>
+  <preConditionToSystemTasks source="9" target="//@systemTasks.1"/>
+  <preConditionToSystemTasks source="8" target="//@systemTasks.2"/>
+  <preConditionToSystemTasks source="15" target="//@systemTasks.3"/>
+  <preConditionToSystemTasks source="16" target="//@systemTasks.4"/>
+  <preConditionToSystemTasks source="22" target="//@systemTasks.5"/>
+  <preConditionToSystemTasks source="27" target="//@systemTasks.6"/>
+  <systemTaskToPostConditions source="//@systemTasks.0" target="6"/>
+  <systemTaskToPostConditions source="//@systemTasks.1" target="11"/>
+  <systemTaskToPostConditions source="//@systemTasks.2" target="13"/>
+  <systemTaskToPostConditions source="//@systemTasks.3" target="18"/>
+  <systemTaskToPostConditions source="//@systemTasks.4" target="21"/>
+  <systemTaskToPostConditions source="//@systemTasks.5" target="24"/>
+  <systemTaskToPostConditions source="//@systemTasks.6" target="29"/>
+</task-meta-model:ContextAwareSystem>

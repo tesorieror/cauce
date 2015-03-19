@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecmm:SystemContext xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecmm="ecmm" name="somm-diagram">
+  <entities entity="PDA" id="6">
+    <situations name="init-PDA" id="15">
+      <actions memory="14" expression="(on,0)" id="17"/>
+      <memoryConditions id="16" expression="off" contextMemory="14"/>
+    </situations>
+    <situations name="PDA-anEvent-0" id="12">
+      <memoryConditions id="13" expression="aPDA(cp)>=60 and aPDA(cp)&lt;=110" contextMemory="3"/>
+    </situations>
+    <situations name="GetCardiacPulse" id="29">
+      <actions memory="5" expression="cp" id="33"/>
+      <actions memory="41" expression="(on,5000)" id="43"/>
+      <memoryConditions id="31" expression="aCardiacPulseSensor, aPDA" contextMemory="2"/>
+      <memoryConditions id="42" expression="off" contextMemory="41"/>
+    </situations>
+    <situations name="SetPastelColors" id="34">
+      <memoryConditions id="35" expression="aPDA" contextMemory="2"/>
+      <memoryConditions id="36" expression="aPDA(cp)>110" contextMemory="3"/>
+    </situations>
+    <situations name="SetSolidColors" id="37">
+      <memoryConditions id="38" expression="aPDA" contextMemory="2"/>
+      <memoryConditions id="39" expression="aPDA(cp)&lt;60" contextMemory="3"/>
+    </situations>
+    <state xsi:type="ecmm:HolderMemory" name="roleMemory" id="2"/>
+    <state xsi:type="ecmm:LogicMemory" name="logicMemory" id="3"/>
+    <state xsi:type="ecmm:DictionaryMemory" name="dataMemory" id="5"/>
+    <state xsi:type="ecmm:TimeMemory" name="initMemory" id="14"/>
+    <state xsi:type="ecmm:TimeMemory" name="poolingMemory" id="41"/>
+    <variables name="cp" definition="String" id="11"/>
+  </entities>
+  <entities entity="CardiacPulseSensor" id="18">
+    <situations name="init-CardiacPulseSensor" id="25">
+      <actions memory="24" expression="(on,0)" id="27"/>
+      <memoryConditions id="26" expression="off" contextMemory="24"/>
+    </situations>
+    <situations name="GetCardiacPulse" id="28">
+      <memoryConditions id="30" expression="aCardiacPulseSensor, aPDA" contextMemory="1"/>
+      <sensingConditions id="40" informationflow="PDA_to_aCardiacPulseSensor-GetCardiacPulse"/>
+    </situations>
+    <state xsi:type="ecmm:HolderMemory" name="roleMemory" id="1"/>
+    <state xsi:type="ecmm:DictionaryMemory" name="dataMemory" id="4"/>
+    <state xsi:type="ecmm:TimeMemory" name="initMemory" id="24"/>
+    <variables name="cp" definition="String" id="23"/>
+  </entities>
+</ecmm:SystemContext>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.1/notation" xmlns:som="som" xmi:id="_scU6oKAPEd6saZdqMRHTYA" type="Som" measurementUnit="Pixel">
+  <children xmi:type="notation:Node" xmi:id="_sd7dIKAPEd6saZdqMRHTYA" type="1001">
+    <children xmi:type="notation:Node" xmi:id="_sd8EMKAPEd6saZdqMRHTYA" type="4001">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_sd8EMaAPEd6saZdqMRHTYA" x="23" y="60"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_sd8EMqAPEd6saZdqMRHTYA" type="4002">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_sd8EM6APEd6saZdqMRHTYA" y="5"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_sd7dIaAPEd6saZdqMRHTYA" fontName="Segoe UI"/>
+    <element xmi:type="som:IndividualInstance" href="blackboard.som#4"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_sd7dIqAPEd6saZdqMRHTYA" x="177" y="100"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_sd8rQKAPEd6saZdqMRHTYA" type="1001">
+    <children xmi:type="notation:Node" xmi:id="_sd9SUKAPEd6saZdqMRHTYA" type="4001">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_sd9SUaAPEd6saZdqMRHTYA" y="5"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_sd9SUqAPEd6saZdqMRHTYA" type="4002">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_sd9SU6APEd6saZdqMRHTYA" y="5"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_sd8rQaAPEd6saZdqMRHTYA" fontName="Segoe UI"/>
+    <element xmi:type="som:IndividualInstance" href="blackboard.som#11"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_sd8rQqAPEd6saZdqMRHTYA" x="55"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_sd9SVKAPEd6saZdqMRHTYA" type="1001">
+    <children xmi:type="notation:Node" xmi:id="_sd95YqAPEd6saZdqMRHTYA" type="4001">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_sd95Y6APEd6saZdqMRHTYA" y="5"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_sd-gcKAPEd6saZdqMRHTYA" type="4002">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_sd-gcaAPEd6saZdqMRHTYA" y="5"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_sd95YKAPEd6saZdqMRHTYA" fontName="Segoe UI"/>
+    <element xmi:type="som:IndividualInstance" href="blackboard.som#12"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_sd95YaAPEd6saZdqMRHTYA" y="200"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_sd_HgKAPEd6saZdqMRHTYA" type="1002">
+    <children xmi:type="notation:Node" xmi:id="_sd_ukKAPEd6saZdqMRHTYA" type="4003"/>
+    <children xmi:type="notation:Node" xmi:id="_sd_ukaAPEd6saZdqMRHTYA" type="4004"/>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_sd_HgaAPEd6saZdqMRHTYA" fontName="Segoe UI"/>
+    <element xmi:type="som:Role" href="blackboard.som#1"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_sd_HgqAPEd6saZdqMRHTYA" x="39" y="300"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_sd_ukqAPEd6saZdqMRHTYA" type="1002">
+    <children xmi:type="notation:Node" xmi:id="_seAVoKAPEd6saZdqMRHTYA" type="4003"/>
+    <children xmi:type="notation:Node" xmi:id="_seAVoaAPEd6saZdqMRHTYA" type="4004"/>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_sd_uk6APEd6saZdqMRHTYA" fontName="Segoe UI"/>
+    <element xmi:type="som:Role" href="blackboard.som#2"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_sd_ulKAPEd6saZdqMRHTYA" x="100" y="200"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_seA8sKAPEd6saZdqMRHTYA" type="1002">
+    <children xmi:type="notation:Node" xmi:id="_seBjwKAPEd6saZdqMRHTYA" type="4003"/>
+    <children xmi:type="notation:Node" xmi:id="_seBjwaAPEd6saZdqMRHTYA" type="4004"/>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_seA8saAPEd6saZdqMRHTYA" fontName="Segoe UI"/>
+    <element xmi:type="som:Role" href="blackboard.som#3"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_seA8sqAPEd6saZdqMRHTYA" x="34" y="100"/>
+  </children>
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_scU6oaAPEd6saZdqMRHTYA"/>
+  <element xmi:type="som:Society" href="blackboard.som#/"/>
+</notation:Diagram>

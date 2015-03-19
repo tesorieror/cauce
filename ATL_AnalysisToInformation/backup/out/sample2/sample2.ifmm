@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<ifmm:SystemInformaitonFlow xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ifmm="ifmm" name="somm-diagram">
+  <entities id="1" name="A" incomingInformationFlows="//@edges.1"/>
+  <entities id="2" name="B" ongoingInformationFlows="//@edges.0"/>
+  <informationFlows xsi:type="ifmm:PointToPointInformationFlow" id="3" name="B_to_A-Task6" source="//@edges.0" target="//@edges.1">
+    <outputData definition="x"/>
+  </informationFlows>
+  <edges xsi:type="ifmm:EntityToPointToPointInformationFlowEdge" source="2" target="3"/>
+  <edges xsi:type="ifmm:PointToPointInformationFlowToEntityEdge" target="1" source="3"/>
+</ifmm:SystemInformaitonFlow>

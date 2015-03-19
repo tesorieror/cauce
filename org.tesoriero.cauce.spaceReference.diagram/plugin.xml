@@ -1,0 +1,812 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+
+   <extension point="org.eclipse.team.core.fileTypes" id="repo-ftype">
+      <?gmfgen generated="true"?>
+      <fileTypes type="text" extension="rsmmdiag"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser" id="resource-factory">
+      <?gmfgen generated="true"?>
+      <parser
+         type="rsmmdiag"
+         class="org.eclipse.gmf.runtime.emf.core.resources.GMFResourceFactory">
+      </parser>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors" id="gmf-editor">
+      <?gmfgen generated="true"?>
+      <editor
+         id="rsmm.diagram.part.SpaceReferenceDiagramEditorID"
+         name="%editorName"
+         icon="icons/obj16/RsmmDiagramFile.gif"
+         extensions="rsmmdiag"
+         default="true"
+         class="rsmm.diagram.part.SpaceReferenceDiagramEditor"
+         matchingStrategy="rsmm.diagram.part.SpaceReferenceMatchingStrategy"
+         contributorClass="rsmm.diagram.part.SpaceReferenceDiagramActionBarContributor">
+      </editor>
+   </extension>
+   
+   <extension point="org.eclipse.ui.contexts" id="ui-context">
+      <?gmfgen generated="true"?>
+      <context
+         description="%context.description"
+         id="rsmm.diagram.ui.diagramContext"
+         name="%context.name"
+         parentId="org.eclipse.gmf.runtime.diagram.ui.diagramContext">
+      </context>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards" id="creation-wizard">
+      <?gmfgen generated="true"?>
+  	  <wizard
+  	     name="%newWizardName"
+  	     icon="icons/obj16/RsmmDiagramFile.gif"
+  	     category="org.tesoriero.cauce.diagram.category.ID"
+  	     class="rsmm.diagram.part.SpaceReferenceCreationWizard"
+  	     id="rsmm.diagram.part.SpaceReferenceCreationWizardID">
+  	  	 <description>%newWizardDesc</description>  
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.popupMenus" id="init-diagram-action">
+      <?gmfgen generated="true"?>
+      <objectContribution
+            id="org.tesoriero.cauce.spaceReference.diagram.InitDiagram"
+            nameFilter="*.rsmm"
+            objectClass="org.eclipse.core.resources.IFile">
+         <action
+               label="%initDiagramActionLabel"
+               class="rsmm.diagram.part.SpaceReferenceInitDiagramFileAction"
+               menubarPath="additions"
+               enablesFor="1"
+               id="org.tesoriero.cauce.spaceReference.diagram.InitDiagramAction">
+         </action>
+      </objectContribution>
+   </extension>
+	
+   <extension point="org.eclipse.gmf.runtime.common.ui.services.action.globalActionHandlerProviders" id="global-actions">
+      <?gmfgen generated="true"?>
+      <GlobalActionHandlerProvider
+         class="org.eclipse.gmf.runtime.diagram.ui.providers.DiagramGlobalActionHandlerProvider"
+         id="SpaceReferencePresentation">
+         <Priority name="Lowest"/>
+         <ViewId id="rsmm.diagram.part.SpaceReferenceDiagramEditorID">
+            <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart">
+               <GlobalActionId actionId="delete"/>
+            </ElementType>
+            <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.DiagramEditPart">
+               <GlobalActionId actionId="save"/>
+            </ElementType>
+            <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart">
+               <GlobalActionId actionId="save">
+               </GlobalActionId>
+            </ElementType>        
+         </ViewId>
+      </GlobalActionHandlerProvider>
+      <GlobalActionHandlerProvider
+         class="org.eclipse.gmf.runtime.diagram.ui.providers.ide.providers.DiagramIDEGlobalActionHandlerProvider"
+         id="SpaceReferencePresentationIDE">
+         <Priority name="Lowest"/>
+         <ViewId id="rsmm.diagram.part.SpaceReferenceDiagramEditorID">
+            <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart">
+               <GlobalActionId actionId="bookmark"/>
+            </ElementType>
+         </ViewId>
+      </GlobalActionHandlerProvider>
+      <GlobalActionHandlerProvider
+            class="org.eclipse.gmf.runtime.diagram.ui.render.providers.DiagramUIRenderGlobalActionHandlerProvider"
+            id="SpaceReferenceRender">
+         <Priority name="Lowest"/>
+         <ViewId id="rsmm.diagram.part.SpaceReferenceDiagramEditorID">
+            <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart">
+               <GlobalActionId actionId="cut"/>
+               <GlobalActionId actionId="copy"/>
+               <GlobalActionId actionId="paste"/>
+            </ElementType>
+         </ViewId>
+      </GlobalActionHandlerProvider>
+   </extension>
+
+
+   <extension point="org.eclipse.gmf.runtime.common.ui.services.markerNavigationProviders" id="markers-navigation">
+      <?gmfgen generated="true"?>
+      <MarkerNavigationProvider class="rsmm.diagram.providers.SpaceReferenceMarkerNavigationProvider">
+         <MarkerType name="org.tesoriero.cauce.spaceReference.diagram.diagnostic"/>
+         <Priority name="Lowest"/>
+      </MarkerNavigationProvider>
+   </extension>
+
+   <extension id="diagnostic" name="SpaceReference Plugin problems" point="org.eclipse.core.resources.markers">
+      <?gmfgen generated="true"?>
+      <super type="org.eclipse.core.resources.problemmarker"/>
+      <super type="org.eclipse.gmf.runtime.common.ui.services.marker"/>
+      <persistent value="true"/>
+   </extension>   
+
+   <extension id="validationDecoratorProvider" name="ValidationDecorations" point="org.eclipse.gmf.runtime.diagram.ui.decoratorProviders">
+      <?gmfgen generated="true"?>
+      <decoratorProvider class="rsmm.diagram.providers.SpaceReferenceValidationDecoratorProvider">
+         <Priority name="High"/>
+         <object class="org.eclipse.gmf.runtime.diagram.ui.editparts.IPrimaryEditPart(org.eclipse.gmf.runtime.diagram.ui)" id="PRIMARY_VIEW"/>
+         <context decoratorTargets="PRIMARY_VIEW"/>
+      </decoratorProvider>
+   </extension>
+
+   <extension point="org.eclipse.core.runtime.preferences" id="prefs">
+      <?gmfgen generated="true"?>
+      <initializer class="rsmm.diagram.preferences.DiagramPreferenceInitializer"/>
+   </extension>
+
+   <extension point="org.eclipse.ui.preferencePages" id="prefpages">
+      <?gmfgen generated="true"?>
+      <page
+            id="org.tesoriero.cauce.spaceReference.diagram.general"
+            name="%prefpage.org.tesoriero.cauce.spaceReference.diagram.general"
+            class="rsmm.diagram.preferences.DiagramGeneralPreferencePage">
+      </page>
+      <page
+            id="org.tesoriero.cauce.spaceReference.diagram.appearance"
+            name="%prefpage.org.tesoriero.cauce.spaceReference.diagram.appearance"
+            category="org.tesoriero.cauce.spaceReference.diagram.general"
+            class="rsmm.diagram.preferences.DiagramAppearancePreferencePage">
+      </page>
+      <page
+            id="org.tesoriero.cauce.spaceReference.diagram.connections"
+            name="%prefpage.org.tesoriero.cauce.spaceReference.diagram.connections"
+            category="org.tesoriero.cauce.spaceReference.diagram.general"
+            class="rsmm.diagram.preferences.DiagramConnectionsPreferencePage">
+      </page>
+      <page
+            id="org.tesoriero.cauce.spaceReference.diagram.printing"
+            name="%prefpage.org.tesoriero.cauce.spaceReference.diagram.printing"
+            category="org.tesoriero.cauce.spaceReference.diagram.general"
+            class="rsmm.diagram.preferences.DiagramPrintingPreferencePage">
+      </page>
+      <page
+            id="org.tesoriero.cauce.spaceReference.diagram.rulersAndGrid"
+            name="%prefpage.org.tesoriero.cauce.spaceReference.diagram.rulersAndGrid"
+            category="org.tesoriero.cauce.spaceReference.diagram.general"
+            class="rsmm.diagram.preferences.DiagramRulersAndGridPreferencePage">
+      </page>
+   </extension>
+
+   <extension point="org.eclipse.ui.views.properties.tabbed.propertyContributor" id="prop-contrib">
+      <?gmfgen generated="true"?>
+      <propertyContributor
+            contributorId="org.tesoriero.cauce.spaceReference.diagram"
+            labelProvider="rsmm.diagram.sheet.SpaceReferenceSheetLabelProvider">
+         <propertyCategory category="domain"/>
+         <propertyCategory category="visual"/>
+         <propertyCategory category="extra"/>
+      </propertyContributor>
+   </extension>
+
+   <extension point="org.eclipse.ui.views.properties.tabbed.propertyTabs" id="proptabs">
+      <?gmfgen generated="true"?>   
+      <propertyTabs contributorId="org.tesoriero.cauce.spaceReference.diagram">
+         <propertyTab
+             category="visual"
+             id="property.tab.AppearancePropertySection"
+             label="%tab.appearance"/>
+          <propertyTab
+             category="visual"
+             id="property.tab.DiagramPropertySection"
+             label="%tab.diagram"/>
+          <propertyTab
+             category="domain"
+             id="property.tab.domain"
+             label="%tab.domain"/>
+      </propertyTabs>
+   </extension>
+
+   <extension point="org.eclipse.ui.views.properties.tabbed.propertySections" id="propsections">
+      <?gmfgen generated="true"?>   
+      <propertySections contributorId="org.tesoriero.cauce.spaceReference.diagram">
+         <propertySection id="property.section.ConnectorAppearancePropertySection" 
+            filter="org.eclipse.gmf.runtime.diagram.ui.properties.filters.ConnectionEditPartPropertySectionFilter" 
+            class="org.eclipse.gmf.runtime.diagram.ui.properties.sections.appearance.ConnectionAppearancePropertySection" 
+            tab="property.tab.AppearancePropertySection">
+         </propertySection>
+         <propertySection id="property.section.ShapeColorAndFontPropertySection" 
+            filter="org.eclipse.gmf.runtime.diagram.ui.properties.filters.ShapeEditPartPropertySectionFilter" 
+            class="org.eclipse.gmf.runtime.diagram.ui.properties.sections.appearance.ShapeColorsAndFontsPropertySection" 
+            tab="property.tab.AppearancePropertySection">
+         </propertySection> 
+         <propertySection id="property.section.DiagramColorsAndFontsPropertySection" 
+            filter="org.eclipse.gmf.runtime.diagram.ui.properties.filters.DiagramEditPartPropertySectionFilter" 
+            class="org.eclipse.gmf.runtime.diagram.ui.properties.sections.appearance.DiagramColorsAndFontsPropertySection" 
+            tab="property.tab.AppearancePropertySection">
+         </propertySection>     
+         <propertySection id="property.section.RulerGridPropertySection" 
+            filter="org.eclipse.gmf.runtime.diagram.ui.properties.filters.DiagramEditPartPropertySectionFilter" 
+            class="org.eclipse.gmf.runtime.diagram.ui.properties.sections.grid.RulerGridPropertySection" 
+            tab="property.tab.DiagramPropertySection">
+         </propertySection>     
+         <propertySection
+            id="property.section.domain" 
+            tab="property.tab.domain"
+            class="rsmm.diagram.sheet.SpaceReferencePropertySection">
+            <input type="org.eclipse.gmf.runtime.notation.View"/>
+            <input type="org.eclipse.gef.EditPart"/>
+            <input type="rsmm.diagram.navigator.SpaceReferenceAbstractNavigatorItem"/>
+         </propertySection>
+      </propertySections>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.diagram.core.viewProviders" id="view-provider">
+      <?gmfgen generated="true"?>
+      <viewProvider class="rsmm.diagram.providers.SpaceReferenceViewProvider">
+         <Priority name="High"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Diagram" semanticHints="SpaceReference"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="2001,2002"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints="4001,4002"/>
+      </viewProvider>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.diagram.ui.editpartProviders" id="ep-provider">
+      <?gmfgen generated="true"?>
+      <editpartProvider class="rsmm.diagram.providers.SpaceReferenceEditPartProvider">
+         <Priority name="High"/>
+         <object class="org.eclipse.gmf.runtime.notation.Diagram" id="generated-diagram">
+            <method name="getType()" value="SpaceReference"/>
+         </object>
+         <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-nodes">
+            <method name="getType()" value="2001,2002"/>
+         </object>
+         <object class="org.eclipse.gmf.runtime.notation.Edge" id="generated-links">
+            <method name="getType()" value="4001,4002"/>
+         </object>
+         <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-labels">
+            <method name="getType()" value="5001,5002,5003,5004,5005"/>
+         </object>
+         <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-compartments">
+            <method name="getType()" value=""/>
+         </object>
+         <context views="generated-diagram,generated-nodes,generated-links,generated-labels,generated-compartments"/>
+      </editpartProvider>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.emf.ui.modelingAssistantProviders" id="modelassist-provider">
+      <?gmfgen generated="true"?>
+      <modelingAssistantProvider class="rsmm.diagram.providers.SpaceReferenceModelingAssistantProvider">
+         <Priority name="Lowest"/>
+         <object class="rsmm.diagram.edit.parts.SystemInformationFlowReferenceSpaceEditPart" id="SystemInformationFlowReferenceSpace_1000"/>
+         <object class="rsmm.diagram.edit.parts.ContextAwareEntityReferenceEditPart" id="ContextAwareEntityReference_2001"/>
+         <object class="rsmm.diagram.edit.parts.ReferentialSpaceEditPart" id="ReferentialSpace_2002"/>
+         <context elements="SystemInformationFlowReferenceSpace_1000,ContextAwareEntityReference_2001,ReferentialSpace_2002,"/>
+      </modelingAssistantProvider>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.common.ui.services.iconProviders" id="icon-provider">
+      <?gmfgen generated="true"?>
+      <IconProvider class="rsmm.diagram.providers.SpaceReferenceIconProvider">
+         <Priority name="High"/>
+      </IconProvider>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.common.ui.services.parserProviders" id="parser-provider">
+      <?gmfgen generated="true"?>
+      <ParserProvider class="rsmm.diagram.providers.SpaceReferenceParserProvider">
+         <Priority name="Lowest"/>
+      </ParserProvider>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.emf.type.core.elementTypes" id="element-types">
+      <?gmfgen generated="true"?>
+      <metamodel nsURI="http://tesoriero.org/cauce/spaceReference/1.0">
+         <metamodelType
+               id="org.tesoriero.cauce.spaceReference.diagram.SystemInformationFlowReferenceSpace_1000"
+               name="%metatype.name.SystemInformationFlowReferenceSpace_1000"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="SystemInformationFlowReferenceSpace"
+               edithelper="rsmm.diagram.edit.helpers.SystemInformationFlowReferenceSpaceEditHelper">
+            <param name="semanticHint" value="1000"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://tesoriero.org/cauce/spaceReference/1.0">
+         <metamodelType
+               id="org.tesoriero.cauce.spaceReference.diagram.ContextAwareEntityReference_2001"
+               name="%metatype.name.ContextAwareEntityReference_2001"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="ContextAwareEntityReference"
+               edithelper="rsmm.diagram.edit.helpers.ContextAwareEntityReferenceEditHelper">
+            <param name="semanticHint" value="2001"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://tesoriero.org/cauce/spaceReference/1.0">
+         <metamodelType
+               id="org.tesoriero.cauce.spaceReference.diagram.ReferentialSpace_2002"
+               name="%metatype.name.ReferentialSpace_2002"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="ReferentialSpace"
+               edithelper="rsmm.diagram.edit.helpers.ReferentialSpaceEditHelper">
+            <param name="semanticHint" value="2002"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://tesoriero.org/cauce/spaceReference/1.0">
+         <metamodelType
+               id="org.tesoriero.cauce.spaceReference.diagram.SpaceToSpaceReferenceDependency_4001"
+               name="%metatype.name.SpaceToSpaceReferenceDependency_4001"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="SpaceToSpaceReferenceDependency"
+               edithelper="rsmm.diagram.edit.helpers.SpaceToSpaceReferenceDependencyEditHelper">
+            <param name="semanticHint" value="4001"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://tesoriero.org/cauce/spaceReference/1.0">
+         <metamodelType
+               id="org.tesoriero.cauce.spaceReference.diagram.SpaceToEntityReferenceDependency_4002"
+               name="%metatype.name.SpaceToEntityReferenceDependency_4002"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="SpaceToEntityReferenceDependency"
+               edithelper="rsmm.diagram.edit.helpers.SpaceToEntityReferenceDependencyEditHelper">
+            <param name="semanticHint" value="4002"/>
+         </metamodelType>
+      </metamodel>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.emf.type.core.elementTypeBindings" id="element-types-bindings">
+      <?gmfgen generated="true"?>
+      <clientContext id="org.tesoriero.cauce.spaceReference.diagram.TypeContext">
+         <enablement>
+            <test
+               property="org.eclipse.gmf.runtime.emf.core.editingDomain"
+               value="org.tesoriero.cauce.spaceReference.diagram.EditingDomain"/>
+         </enablement>
+      </clientContext> 
+      <binding context="org.tesoriero.cauce.spaceReference.diagram.TypeContext">
+         <elementType ref="org.tesoriero.cauce.spaceReference.diagram.SystemInformationFlowReferenceSpace_1000"/>
+         <elementType ref="org.tesoriero.cauce.spaceReference.diagram.ContextAwareEntityReference_2001"/>
+         <elementType ref="org.tesoriero.cauce.spaceReference.diagram.ReferentialSpace_2002"/>
+         <elementType ref="org.tesoriero.cauce.spaceReference.diagram.SpaceToSpaceReferenceDependency_4001"/>
+         <elementType ref="org.tesoriero.cauce.spaceReference.diagram.SpaceToEntityReferenceDependency_4002"/>
+         <advice ref="org.eclipse.gmf.runtime.diagram.core.advice.notationDepdendents"/>
+      </binding>
+   </extension>
+	   <extension point="org.eclipse.core.expressions.propertyTesters" id="navigator-proptest.isURIEditorInput">
+      <?gmfgen generated="true"?>
+       <propertyTester
+           id="org.tesoriero.cauce.spaceReference.diagram.URIEditorInputPropertyTester"
+           type="org.eclipse.emf.common.ui.URIEditorInput"
+           namespace="org.tesoriero.cauce.spaceReference.diagram"
+           properties="isURIEditorInput"
+           class="rsmm.diagram.part.SpaceReferenceUriEditorInputTester">
+       </propertyTester>
+   </extension>
+
+	   <extension point="org.eclipse.ui.navigator.viewer" id="navigator-viewbinding">
+      <?gmfgen generated="true"?>
+      <viewerContentBinding viewerId="org.eclipse.ui.navigator.ProjectExplorer">
+         <includes>
+            <contentExtension pattern="org.tesoriero.cauce.spaceReference.diagram.resourceContent"/>
+			<contentExtension pattern="org.tesoriero.cauce.spaceReference.diagram.domainResourceContent"/>
+            <contentExtension pattern="org.tesoriero.cauce.spaceReference.diagram.navigatorLinkHelper"/>
+         </includes>
+      </viewerContentBinding>
+      <viewerActionBinding viewerId="org.eclipse.ui.navigator.ProjectExplorer">
+         <includes>
+            <actionExtension pattern="org.tesoriero.cauce.spaceReference.diagram.navigatorActionProvider"/>
+         </includes>
+      </viewerActionBinding>
+   </extension>
+
+   <extension point="org.eclipse.ui.navigator.navigatorContent" id="navigator-content">
+      <?gmfgen generated="true"?>
+      <navigatorContent
+            id="org.tesoriero.cauce.spaceReference.diagram.resourceContent" 
+            name="%navigatorContentName" 
+            priority="normal" 
+            contentProvider="rsmm.diagram.navigator.SpaceReferenceNavigatorContentProvider" 
+            labelProvider="rsmm.diagram.navigator.SpaceReferenceNavigatorLabelProvider"
+            icon="icons/obj16/RsmmDiagramFile.gif"
+            activeByDefault="true">
+         <triggerPoints>
+            <or>
+	           <and>
+    	          <instanceof value="org.eclipse.core.resources.IFile"/>
+        	      <test property="org.eclipse.core.resources.extension" value="rsmmdiag"/>
+               </and>
+               <instanceof value="rsmm.diagram.navigator.SpaceReferenceAbstractNavigatorItem"/>
+            </or>
+         </triggerPoints>
+         <possibleChildren>
+            <or>
+         	   <instanceof value="rsmm.diagram.navigator.SpaceReferenceAbstractNavigatorItem"/>
+            </or>
+         </possibleChildren>
+         <commonSorter 
+               id="org.tesoriero.cauce.spaceReference.diagram.navigatorSorter" 
+               class="rsmm.diagram.navigator.SpaceReferenceNavigatorSorter">
+            <parentExpression>
+               <or>
+	              <and>
+    	             <instanceof value="org.eclipse.core.resources.IFile"/>
+        	         <test property="org.eclipse.core.resources.extension" value="rsmmdiag"/>
+                  </and>
+                  <instanceof value="rsmm.diagram.navigator.SpaceReferenceAbstractNavigatorItem"/>
+               </or>
+            </parentExpression>
+         </commonSorter>
+      </navigatorContent>
+      <navigatorContent
+            id="org.tesoriero.cauce.spaceReference.diagram.domainResourceContent" 
+            name="%domainNavigatorContentName" 
+            priority="normal" 
+            contentProvider="rsmm.diagram.navigator.SpaceReferenceDomainNavigatorContentProvider" 
+            labelProvider="rsmm.diagram.navigator.SpaceReferenceDomainNavigatorLabelProvider"
+            icon="icons/obj16/RsmmDiagramFile.gif"
+            activeByDefault="true">
+         <triggerPoints>
+            <or>
+	           <and>
+    	          <instanceof value="org.eclipse.core.resources.IFile"/>
+        	      <test property="org.eclipse.core.resources.extension" value="rsmm"/>
+               </and>
+               <instanceof value="rsmm.diagram.navigator.SpaceReferenceDomainNavigatorItem"/>
+            </or>
+         </triggerPoints>
+         <possibleChildren>
+            <instanceof value="rsmm.diagram.navigator.SpaceReferenceDomainNavigatorItem"/>
+         </possibleChildren>
+      </navigatorContent>
+      <actionProvider
+            id="org.tesoriero.cauce.spaceReference.diagram.navigatorActionProvider"
+            class="rsmm.diagram.navigator.SpaceReferenceNavigatorActionProvider">
+         <enablement>
+            <or>
+               <instanceof value="rsmm.diagram.navigator.SpaceReferenceAbstractNavigatorItem"/>
+            </or>
+         </enablement>
+      </actionProvider>
+   </extension>
+   
+	   <extension point="org.eclipse.ui.navigator.linkHelper" id="navigator-linkhelper">
+      <?gmfgen generated="true"?>
+      <linkHelper
+            id="org.tesoriero.cauce.spaceReference.diagram.navigatorLinkHelper"
+            class="rsmm.diagram.navigator.SpaceReferenceNavigatorLinkHelper">
+         <editorInputEnablement>
+            <and>
+               <instanceof value="org.eclipse.emf.common.ui.URIEditorInput"/>
+               <test property="org.tesoriero.cauce.spaceReference.diagram.isURIEditorInput"/>
+            </and>
+         </editorInputEnablement>
+         <selectionEnablement>
+            <instanceof value="rsmm.diagram.navigator.SpaceReferenceAbstractNavigatorItem"/>
+         </selectionEnablement>
+      </linkHelper>
+   </extension>
+   <extension point="org.eclipse.emf.validation.constraintProviders">
+      <?gmfgen generated="true"?>
+            <category id="CardinalitiesAuditContainer" mandatory="false" name="CardinalitiesAuditContainer">
+         <![CDATA[CardinalitiesAuditContainer]]>
+      </category>
+      <category id="CardinalitiesAuditContainer/SystemInformationFlowReferenceSpaceAuditContainer" mandatory="false" name="SystemInformationFlowReferenceSpaceAuditContainer">
+         <![CDATA[SystemInformationFlowReferenceSpaceAuditContainer]]>
+      </category>
+      <category id="CardinalitiesAuditContainer/ReferentialSpaceAuditContainer" mandatory="false" name="ReferentialSpaceAuditContainer">
+         <![CDATA[ReferentialSpaceAuditContainer]]>
+      </category>
+      <category id="CardinalitiesAuditContainer/ContextAwareEntityReferenceAuditContainer" mandatory="false" name="ContextAwareEntityReferenceAuditContainer">
+         <![CDATA[ContextAwareEntityReferenceAuditContainer]]>
+      </category>
+      <category id="CardinalitiesAuditContainer/ReferenceDependencyAuditContainer" mandatory="false" name="ReferenceDependencyAuditContainer">
+         <![CDATA[ReferenceDependencyAuditContainer]]>
+      </category>
+      <constraintProvider cache="true">
+         <package namespaceUri="http://tesoriero.org/cauce/spaceReference/1.0"/>
+               <constraints categories="CardinalitiesAuditContainer">
+                  </constraints>
+         <constraints categories="CardinalitiesAuditContainer/SystemInformationFlowReferenceSpaceAuditContainer">
+                  <constraint id="SystemInformationFlowReferenceSpaceNameNotNullAuditRule"
+            lang="Java" class="rsmm.diagram.providers.SpaceReferenceValidationProvider$Adapter1"
+            name="SystemInformationFlowReferenceSpaceNameNotNullAuditRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            
+            <description><![CDATA[SystemInformationFlowReferenceSpaceNameNotNullAuditRule]]></description>
+            <message><![CDATA[SystemInformationFlowReferenceSpace name must not be null]]></message>
+            <target class="rsmm.SystemInformationFlowReferenceSpace"/>
+         </constraint>
+                  <constraint id="SystemInformationFlowReferenceSpaceNameUniqueAuditRule"
+            lang="OCL"
+            name="SystemInformationFlowReferenceSpaceNameUniqueAuditRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            <![CDATA[referentialSpaces->forAll(rs | rs.name<>self.name) and
+entityReferences->forAll(e | e.name <> self.name)]]>
+            <description><![CDATA[SystemInformationFlowReferenceSpaceNameUniqueAuditRule]]></description>
+            <message><![CDATA[SystemInformationFlowReferenceSpace name must be unique]]></message>
+            <target class="rsmm.SystemInformationFlowReferenceSpace"/>
+         </constraint>
+                  <constraint id="SystemInformationFlowReferenceSpaceIdNotNullAuditRule"
+            lang="Java" class="rsmm.diagram.providers.SpaceReferenceValidationProvider$Adapter3"
+            name="SystemInformationFlowReferenceSpaceIdNotNullAuditRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            
+            <description><![CDATA[SystemInformationFlowReferenceSpaceIdNotNullAuditRule]]></description>
+            <message><![CDATA[SystemInformationFlowReferenceSpace ID must not be null]]></message>
+            <target class="rsmm.SystemInformationFlowReferenceSpace"/>
+         </constraint>
+                  <constraint id="SystemInformationFlowReferenceSpaceIdUniqueAuditRule"
+            lang="OCL"
+            name="SystemInformationFlowReferenceSpaceIdUniqueAuditRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            <![CDATA[referentialSpaces->forAll(rs | rs.id<>self.id) and
+spaceToSpaceReferenceDependencies->forAll(rd | rd.id<> self.id) and
+spaceToEntityReferenceDependencies->forAll(rd | rd.id<> self.id) and
+entityReferences->forAll(e | e.id <> self.id)]]>
+            <description><![CDATA[SystemInformationFlowReferenceSpaceIdUniqueAuditRule]]></description>
+            <message><![CDATA[SystemInformationFlowReferenceSpace ID must be unique ]]></message>
+            <target class="rsmm.SystemInformationFlowReferenceSpace"/>
+         </constraint>
+                  </constraints>
+         <constraints categories="CardinalitiesAuditContainer/ReferentialSpaceAuditContainer">
+                  <constraint id="ReferentialSpaceNameNotNullAuditRule"
+            lang="Java" class="rsmm.diagram.providers.SpaceReferenceValidationProvider$Adapter5"
+            name="ReferentialSpaceNameNotNullAuditRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            
+            <description><![CDATA[ReferentialSpaceNameNotNullAuditRule]]></description>
+            <message><![CDATA[ReferentialSpace name must not be null]]></message>
+            <target class="rsmm.ReferentialSpace"/>
+         </constraint>
+                  <constraint id="ReferentialSpaceNameUniqueAuditRule"
+            lang="OCL"
+            name="ReferentialSpaceNameUniqueAuditRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            <![CDATA[system.referentialSpaces->forAll(rs | (rs<>self) implies (rs.name<>self.name)) and
+system.entityReferences->forAll(e | e.name <> self.name) and
+(system.name<>self.name) ]]>
+            <description><![CDATA[ReferentialSpaceNameUniqueAuditRule]]></description>
+            <message><![CDATA[ReferentialSpace name must be unique]]></message>
+            <target class="rsmm.ReferentialSpace"/>
+         </constraint>
+                  <constraint id="ReferentialSpaceIdNotNullAuditRule"
+            lang="Java" class="rsmm.diagram.providers.SpaceReferenceValidationProvider$Adapter7"
+            name="ReferentialSpaceIdNotNullAuditRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            
+            <description><![CDATA[ReferentialSpaceIdNotNullAuditRule]]></description>
+            <message><![CDATA[ReferentialSpace ID must not be null]]></message>
+            <target class="rsmm.ReferentialSpace"/>
+         </constraint>
+                  <constraint id="ReferentialSpaceIdUniqueAuditRule"
+            lang="OCL"
+            name="ReferentialSpaceIdUniqueAuditRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            <![CDATA[system.referentialSpaces->forAll(rs | (rs<>self) implies (rs.id<>self.id)) and
+system.spaceToSpaceReferenceDependencies->forAll(rd | rd.id<> self.id) and
+system.spaceToEntityReferenceDependencies->forAll(rd | rd.id<> self.id) and
+system.entityReferences->forAll(e | e.id <> self.id)]]>
+            <description><![CDATA[ReferentialSpaceIdUniqueAuditRule]]></description>
+            <message><![CDATA[ReferentialSpace ID must be unique ]]></message>
+            <target class="rsmm.ReferentialSpace"/>
+         </constraint>
+                  </constraints>
+         <constraints categories="CardinalitiesAuditContainer/ContextAwareEntityReferenceAuditContainer">
+                  <constraint id="ContextAwareEntityReferenceNameNotNullAuditRule"
+            lang="Java" class="rsmm.diagram.providers.SpaceReferenceValidationProvider$Adapter9"
+            name="ContextAwareEntityReferenceNameNotNullAuditRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            
+            <description><![CDATA[ContextAwareEntityReferenceNameNotNullAuditRule]]></description>
+            <message><![CDATA[ContextAwareEntityReference name must not be null]]></message>
+            <target class="rsmm.ContextAwareEntityReference"/>
+         </constraint>
+                  <constraint id="ContextAwareEntityReferenceNameUniqueAuditRule"
+            lang="OCL"
+            name="ContextAwareEntityReferenceNameUniqueAuditRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            <![CDATA[system.referentialSpaces->forAll(rs | (rs.name<>self.name)) and
+system.entityReferences->forAll(e | (e<>self) implies (e.name <> self.name)) and
+(system.name<>self.name) ]]>
+            <description><![CDATA[ContextAwareEntityReferenceNameUniqueAuditRule]]></description>
+            <message><![CDATA[ContextAwareEntityReference name must be unique]]></message>
+            <target class="rsmm.ContextAwareEntityReference"/>
+         </constraint>
+                  <constraint id="ContextAwareEntityReferenceIdNotNullAuditRule"
+            lang="Java" class="rsmm.diagram.providers.SpaceReferenceValidationProvider$Adapter11"
+            name="ContextAwareEntityReferenceIdNotNullAuditRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            
+            <description><![CDATA[ContextAwareEntityReferenceIdNotNullAuditRule]]></description>
+            <message><![CDATA[ContextAwareEntityReference ID must not be null]]></message>
+            <target class="rsmm.ContextAwareEntityReference"/>
+         </constraint>
+                  <constraint id="ContextAwareEntityReferenceIdUniqueAuditRule"
+            lang="OCL"
+            name="ContextAwareEntityReferenceIdUniqueAuditRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            <![CDATA[system.referentialSpaces->forAll(rs | (rs.id<>self.id)) and
+system.spaceToSpaceReferenceDependencies->forAll(rd | rd.id<> self.id) and
+system.spaceToEntityReferenceDependencies->forAll(rd | rd.id<> self.id) and
+system.entityReferences->forAll(e |  (e<>self) implies (e.id <> self.id))]]>
+            <description><![CDATA[ContextAwareEntityReferenceIdUniqueAuditRule]]></description>
+            <message><![CDATA[ContextAwareEntityReference ID must be unique ]]></message>
+            <target class="rsmm.ContextAwareEntityReference"/>
+         </constraint>
+                  <constraint id="ContextAwareEntityReferenceEntityNotNullAuditRule"
+            lang="Java" class="rsmm.diagram.providers.SpaceReferenceValidationProvider$Adapter13"
+            name="ContextAwareEntityReferenceEntityNotNullAuditRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            
+            <description><![CDATA[ContextAwareEntityReferenceEntityNotNullAuditRule]]></description>
+            <message><![CDATA[ContextAwareEntityReference entity must not be null]]></message>
+            <target class="rsmm.ContextAwareEntityReference"/>
+         </constraint>
+                  <constraint id="ContextAwareEntityReferenceIncomingReferenceDependencyAuditRule"
+            lang="OCL"
+            name="ContextAwareEntityReferenceIncomingReferenceDependencyAuditRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            <![CDATA[incomingReferenceDependency->size()>0]]>
+            <description><![CDATA[ContextAwareEntityReferenceIncomingReferenceDependencyAuditRule]]></description>
+            <message><![CDATA[ContextAwareEntityReference must define at least one incomingReferenceDependency ]]></message>
+            <target class="rsmm.ContextAwareEntityReference"/>
+         </constraint>
+                  </constraints>
+         <constraints categories="CardinalitiesAuditContainer/ReferenceDependencyAuditContainer">
+                  <constraint id="ReferenceDependencyIdNotNullAuditRule"
+            lang="Java" class="rsmm.diagram.providers.SpaceReferenceValidationProvider$Adapter15"
+            name="ReferenceDependencyIdNotNullAuditRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            
+            <description><![CDATA[ReferenceDependencyIdNotNullAuditRule]]></description>
+            <message><![CDATA[ReferenceDependency ID must not be null]]></message>
+            <target class="rsmm.ReferenceDependency"/>
+         </constraint>
+                  <constraint id="SpaceToEntityReferenceDependencyIdUniqueAuditRule"
+            lang="OCL"
+            name="SpaceToEntityReferenceDependencyIdUniqueAuditRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            <![CDATA[system.referentialSpaces->forAll(rs | (rs.id<>self.id)) and
+system.spaceToSpaceReferenceDependencies->forAll(rd | (rd<>self) implies (rd.id<> self.id)) and
+system.spaceToEntityReferenceDependencies->forAll(rd | (rd<>self) implies (rd.id<> self.id)) and
+system.entityReferences->forAll(e |  (e.id <> self.id))]]>
+            <description><![CDATA[SpaceToEntityReferenceDependencyIdUniqueAuditRule]]></description>
+            <message><![CDATA[SpaceToEntityReferenceDependency ID must be unique ]]></message>
+            <target class="rsmm.SpaceToEntityReferenceDependency"/>
+         </constraint>
+                  <constraint id="CardinalityGreaterThanZero"
+            lang="Java" class="rsmm.diagram.providers.SpaceReferenceValidationProvider$Adapter17"
+            name="CardinalityGreaterThanZero"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            
+            <description><![CDATA[CardinalityGreaterThanZero]]></description>
+            <message><![CDATA[Cardinality must be greater than 0]]></message>
+            <target class="rsmm.ReferenceDependency"/>
+         </constraint>
+                  <constraint id="SpaceToSpaceReferenceDependencySourceTargetNotTheSameAuditRule"
+            lang="OCL"
+            name="SpaceToSpaceReferenceDependencySourceTargetNotTheSameAuditRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            <![CDATA[child <> parent]]>
+            <description><![CDATA[SpaceToSpaceReferenceDependencySourceTargetNotTheSameAuditRule]]></description>
+            <message><![CDATA[SpaceToSpaceReferenceDependency source and target must not be the same]]></message>
+            <target class="rsmm.SpaceToSpaceReferenceDependency"/>
+         </constraint>
+                  <constraint id="SpaceToSpaceReferenceDependencyIdUniqueAuditRule"
+            lang="OCL"
+            name="SpaceToSpaceReferenceDependencyIdUniqueAuditRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            <![CDATA[system.referentialSpaces->forAll(rs | (rs.id<>self.id)) and
+system.spaceToSpaceReferenceDependencies->forAll(rd | (rd<>self) implies (rd.id<> self.id)) and
+system.spaceToEntityReferenceDependencies->forAll(rd | (rd<>self) implies (rd.id<> self.id)) and
+system.entityReferences->forAll(e |  (e.id <> self.id))]]>
+            <description><![CDATA[SpaceToSpaceReferenceDependencyIdUniqueAuditRule]]></description>
+            <message><![CDATA[SpaceToSpaceReferenceDependency ID must be unique ]]></message>
+            <target class="rsmm.SpaceToSpaceReferenceDependency"/>
+         </constraint>
+                  </constraints>
+      </constraintProvider>
+   </extension>
+
+   <extension point="org.eclipse.emf.validation.constraintBindings">
+      <?gmfgen generated="true"?>
+      <clientContext default="false" id="org.tesoriero.cauce.spaceReference.diagramDefaultCtx">
+         <selector class="rsmm.diagram.providers.SpaceReferenceValidationProvider$DefaultCtx"/>
+      </clientContext>
+      <binding context="org.tesoriero.cauce.spaceReference.diagramDefaultCtx">
+                  <constraint ref="org.tesoriero.cauce.spaceReference.diagram.SystemInformationFlowReferenceSpaceNameNotNullAuditRule"/>
+                  <constraint ref="org.tesoriero.cauce.spaceReference.diagram.SystemInformationFlowReferenceSpaceNameUniqueAuditRule"/>
+                  <constraint ref="org.tesoriero.cauce.spaceReference.diagram.SystemInformationFlowReferenceSpaceIdNotNullAuditRule"/>
+                  <constraint ref="org.tesoriero.cauce.spaceReference.diagram.SystemInformationFlowReferenceSpaceIdUniqueAuditRule"/>
+                  <constraint ref="org.tesoriero.cauce.spaceReference.diagram.ReferentialSpaceNameNotNullAuditRule"/>
+                  <constraint ref="org.tesoriero.cauce.spaceReference.diagram.ReferentialSpaceNameUniqueAuditRule"/>
+                  <constraint ref="org.tesoriero.cauce.spaceReference.diagram.ReferentialSpaceIdNotNullAuditRule"/>
+                  <constraint ref="org.tesoriero.cauce.spaceReference.diagram.ReferentialSpaceIdUniqueAuditRule"/>
+                  <constraint ref="org.tesoriero.cauce.spaceReference.diagram.ContextAwareEntityReferenceNameNotNullAuditRule"/>
+                  <constraint ref="org.tesoriero.cauce.spaceReference.diagram.ContextAwareEntityReferenceNameUniqueAuditRule"/>
+                  <constraint ref="org.tesoriero.cauce.spaceReference.diagram.ContextAwareEntityReferenceIdNotNullAuditRule"/>
+                  <constraint ref="org.tesoriero.cauce.spaceReference.diagram.ContextAwareEntityReferenceIdUniqueAuditRule"/>
+                  <constraint ref="org.tesoriero.cauce.spaceReference.diagram.ContextAwareEntityReferenceEntityNotNullAuditRule"/>
+                  <constraint ref="org.tesoriero.cauce.spaceReference.diagram.ContextAwareEntityReferenceIncomingReferenceDependencyAuditRule"/>
+                  <constraint ref="org.tesoriero.cauce.spaceReference.diagram.ReferenceDependencyIdNotNullAuditRule"/>
+                  <constraint ref="org.tesoriero.cauce.spaceReference.diagram.SpaceToEntityReferenceDependencyIdUniqueAuditRule"/>
+                  <constraint ref="org.tesoriero.cauce.spaceReference.diagram.CardinalityGreaterThanZero"/>
+                  <constraint ref="org.tesoriero.cauce.spaceReference.diagram.SpaceToSpaceReferenceDependencySourceTargetNotTheSameAuditRule"/>
+                  <constraint ref="org.tesoriero.cauce.spaceReference.diagram.SpaceToSpaceReferenceDependencyIdUniqueAuditRule"/>
+               </binding>
+
+   </extension>
+
+
+   <extension point="org.eclipse.emf.validation.ui.UIRegisteredClientContext">
+      <?gmfgen generated="true"?>
+      <clientContext id="org.tesoriero.cauce.spaceReference.diagramDefaultCtx"/>
+   </extension>
+
+   <extension point="org.eclipse.ui.commands" id="update-cmd">
+      <?gmfgen generated="true"?>
+      <command
+         categoryId="org.eclipse.ui.category.edit"
+         defaultHandler="rsmm.diagram.part.SpaceReferenceDiagramUpdateCommand"
+         description="%update.diagram.description"
+         id="rsmm.diagram.updateDiagram"
+         name="%update.diagram.name"/>
+   </extension>
+   
+   <extension point="org.eclipse.ui.bindings" id="update-cmd-binding">
+      <?gmfgen generated="true"?>
+      <key 
+         commandId="rsmm.diagram.updateDiagram"
+         contextId="rsmm.diagram.ui.diagramContext"
+         schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+         sequence="F5"/>
+   </extension>
+
+   <extension point="org.eclipse.ui.menus" id="context-menus">
+      <?gmfgen generated="true"?>
+      <!-- menuContribution locationURI="menu:org.eclipse.ui.main.menu?after=">
+      </menuContribution>
+      <menuContribution locationURI="toolbar:org.eclipse.ui.main.toolbar?after=">
+      </menuContribution -->
+      <menuContribution locationURI="popup:org.eclipse.gmf.runtime.diagram.ui.DiagramEditorContextMenu">
+         <command commandId="org.tesoriero.cauce.spaceReference.diagram.LoadResourceAction">
+            <visibleWhen>
+               <and>
+                  <with variable="activePartId"><equals value="rsmm.diagram.part.SpaceReferenceDiagramEditorID"/></with>
+                  <with variable="selection"><iterate ifEmpty="false"> 
+                     <instanceof value="rsmm.diagram.edit.parts.SystemInformationFlowReferenceSpaceEditPart"/>
+                  </iterate></with>
+               </and>
+            </visibleWhen>
+         </command>
+      </menuContribution>
+   </extension>
+
+   <extension point="org.eclipse.ui.commands" id="menu-commands">
+      <?gmfgen generated="true"?>
+      <category id="rsmm.diagram.part.SpaceReferenceDiagramEditorID" name="%cmdcategory.name" description="%cmdcategory.desc"/>
+      <command id="org.tesoriero.cauce.spaceReference.diagram.LoadResourceAction"
+         name="Load Resource"
+         categoryId="rsmm.diagram.part.SpaceReferenceDiagramEditorID"
+         defaultHandler="rsmm.diagram.part.LoadResourceAction"/>
+   </extension>
+
+   <extension point="org.eclipse.ui.handlers" id="menu-handlers">
+      <?gmfgen generated="true"?>
+   </extension>
+
+   <!-- optionally, specify keybindings -->
+</plugin>

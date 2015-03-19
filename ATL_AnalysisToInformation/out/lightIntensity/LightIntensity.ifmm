@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<ifmm:SystemInformaitonFlow xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ifmm="ifmm" id="1" name="somm-diagram">
+  <entities id="2" name="PDA" ongoingInformationFlows="//@edges.2" incomingInformationFlows="//@edges.8 //@edges.11"/>
+  <entities id="3" name="Blind" ongoingInformationFlows="//@edges.0" incomingInformationFlows="//@edges.3 //@edges.7"/>
+  <entities id="4" name="LightSensor" incomingInformationFlows="//@edges.1 //@edges.9"/>
+  <entities id="7" name="SetButton" ongoingInformationFlows="//@edges.12"/>
+  <entities id="8" name="Room" ongoingInformationFlows="//@edges.4 //@edges.5 //@edges.6"/>
+  <entities id="12" name="PDAControl" ongoingInformationFlows="//@edges.10" incomingInformationFlows="//@edges.13"/>
+  <informationFlows xsi:type="ifmm:PointToPointInformationFlow" id="5" name="GetLightIntensity" source="//@edges.0" target="//@edges.1">
+    <inputData definition="li"/>
+  </informationFlows>
+  <informationFlows xsi:type="ifmm:BroadcastInformationFlow" id="6" name="SetLightIntensity" source="//@edges.2" target="//@edges.3">
+    <data definition="li"/>
+  </informationFlows>
+  <informationFlows xsi:type="ifmm:PointToPointInformationFlow" id="9" name="Room2BlindEvent" source="//@edges.4" target="//@edges.7">
+    <outputData definition="enter"/>
+  </informationFlows>
+  <informationFlows xsi:type="ifmm:PointToPointInformationFlow" id="10" name="Room2PDAEvent" source="//@edges.5" target="//@edges.8">
+    <outputData definition="enter"/>
+  </informationFlows>
+  <informationFlows xsi:type="ifmm:PointToPointInformationFlow" id="11" name="Room2LightSensorEvent" source="//@edges.6" target="//@edges.9">
+    <outputData definition="enter"/>
+  </informationFlows>
+  <informationFlows xsi:type="ifmm:PointToPointInformationFlow" id="13" name="PDAControl2PDAEvent" source="//@edges.10" target="//@edges.11">
+    <outputData definition="Action"/>
+  </informationFlows>
+  <informationFlows xsi:type="ifmm:PointToPointInformationFlow" id="14" name="SetButton-PDAControl" source="//@edges.12" target="//@edges.13">
+    <outputData definition="release"/>
+  </informationFlows>
+  <edges xsi:type="ifmm:EntityToPointToPointInformationFlowEdge" source="3" target="5"/>
+  <edges xsi:type="ifmm:PointToPointInformationFlowToEntityEdge" target="4" source="5"/>
+  <edges xsi:type="ifmm:EntityToBroadcastInformationFlowEdge" source="2" target="6"/>
+  <edges xsi:type="ifmm:BroadcastInformationFlowToEntityEdge" target="3" source="6"/>
+  <edges xsi:type="ifmm:EntityToPointToPointInformationFlowEdge" source="8" target="9"/>
+  <edges xsi:type="ifmm:EntityToPointToPointInformationFlowEdge" source="8" target="10"/>
+  <edges xsi:type="ifmm:EntityToPointToPointInformationFlowEdge" source="8" target="11"/>
+  <edges xsi:type="ifmm:PointToPointInformationFlowToEntityEdge" target="3" source="9"/>
+  <edges xsi:type="ifmm:PointToPointInformationFlowToEntityEdge" target="2" source="10"/>
+  <edges xsi:type="ifmm:PointToPointInformationFlowToEntityEdge" target="4" source="11"/>
+  <edges xsi:type="ifmm:EntityToPointToPointInformationFlowEdge" source="12" target="13"/>
+  <edges xsi:type="ifmm:PointToPointInformationFlowToEntityEdge" target="2" source="13"/>
+  <edges xsi:type="ifmm:EntityToPointToPointInformationFlowEdge" source="7" target="14"/>
+  <edges xsi:type="ifmm:PointToPointInformationFlowToEntityEdge" target="12" source="14"/>
+</ifmm:SystemInformaitonFlow>

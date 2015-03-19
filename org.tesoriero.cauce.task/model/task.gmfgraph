@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gmfgraph:Canvas xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:gmfgraph="http://www.eclipse.org/gmf/2006/GraphicalDefinition" name="tamm">
+  <figures name="Default">
+    <figures xsi:type="gmfgraph:PolylineDecoration" name="EdgeTargetDecoration"/>
+    <descriptors name="PreConditionFigure">
+      <actualFigure xsi:type="gmfgraph:RoundedRectangle" name="PreConditionRectangleFigure" lineKind="LINE_DOT">
+        <layout xsi:type="gmfgraph:FlowLayout" vertical="true" forceSingleLine="true" majorAlignment="CENTER" minorAlignment="CENTER" majorSpacing="2" minorSpacing="2"/>
+        <children xsi:type="gmfgraph:Ellipse" name="ConditionEllipseFigure">
+          <layout xsi:type="gmfgraph:GridLayout" equalWidth="false"/>
+          <foregroundColor xsi:type="gmfgraph:ConstantColor" value="black"/>
+          <minimumSize dx="40" dy="40"/>
+          <preferredSize dx="40" dy="40"/>
+          <children xsi:type="gmfgraph:Label" name="ConditionLabel" text="Pre">
+            <layoutData xsi:type="gmfgraph:GridLayoutData" grabExcessHorizontalSpace="true" grabExcessVerticalSpace="true"/>
+          </children>
+        </children>
+        <children xsi:type="gmfgraph:Rectangle" name="PreExpressionRectangleFigure" outline="false" fill="false">
+          <layout xsi:type="gmfgraph:FlowLayout" vertical="true" forceSingleLine="true" majorAlignment="CENTER" minorAlignment="CENTER"/>
+          <foregroundColor xsi:type="gmfgraph:ConstantColor" value="lightGray"/>
+          <children xsi:type="gmfgraph:CustomFigure" name="PreSocialExpressionAreaFigure" qualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel">
+            <attributes name="textWrap" value="true"/>
+          </children>
+          <children xsi:type="gmfgraph:CustomFigure" name="PreTaskExpressionAreaFigure" qualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel">
+            <attributes name="textWrap" value="true"/>
+          </children>
+          <children xsi:type="gmfgraph:CustomFigure" name="PreSpaceExpressionAreaFigure" qualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel">
+            <attributes name="textWrap" value="true"/>
+          </children>
+          <children xsi:type="gmfgraph:CustomFigure" name="PreLogicExpressionAreaFigure" qualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel">
+            <attributes name="textWrap" value="true"/>
+          </children>
+          <children xsi:type="gmfgraph:CustomFigure" name="PreDataExpressionAreaFigure" qualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel">
+            <attributes name="textWrap" value="true"/>
+          </children>
+        </children>
+      </actualFigure>
+      <accessors figure="//@figures.0/@descriptors.0/@actualFigure/@children.1/@children.0"/>
+      <accessors figure="//@figures.0/@descriptors.0/@actualFigure/@children.1/@children.1"/>
+      <accessors figure="//@figures.0/@descriptors.0/@actualFigure/@children.1/@children.2"/>
+      <accessors figure="//@figures.0/@descriptors.0/@actualFigure/@children.1/@children.3"/>
+      <accessors figure="//@figures.0/@descriptors.0/@actualFigure/@children.1/@children.4"/>
+    </descriptors>
+    <descriptors name="EdgeFigure">
+      <actualFigure xsi:type="gmfgraph:PolylineConnection" name="EdgeFigure" targetDecoration="//@figures.0/@figures.0">
+        <foregroundColor xsi:type="gmfgraph:ConstantColor" value="black"/>
+      </actualFigure>
+    </descriptors>
+    <descriptors name="PostConditionFigure">
+      <actualFigure xsi:type="gmfgraph:RoundedRectangle" name="PostConditionRectangleFigure" lineKind="LINE_DOT">
+        <layout xsi:type="gmfgraph:FlowLayout" vertical="true" forceSingleLine="true" majorAlignment="CENTER" minorAlignment="CENTER" majorSpacing="2" minorSpacing="2"/>
+        <children xsi:type="gmfgraph:Ellipse" name="ConditionEllipseFigure">
+          <layout xsi:type="gmfgraph:GridLayout" equalWidth="false"/>
+          <foregroundColor xsi:type="gmfgraph:ConstantColor" value="black"/>
+          <minimumSize dx="40" dy="40"/>
+          <preferredSize dx="40" dy="40"/>
+          <children xsi:type="gmfgraph:Label" name="ConditionLabel" text="Post">
+            <layoutData xsi:type="gmfgraph:GridLayoutData" grabExcessHorizontalSpace="true" grabExcessVerticalSpace="true"/>
+          </children>
+        </children>
+        <children xsi:type="gmfgraph:Rectangle" name="PostExpressionRectangleFigure" outline="false" fill="false">
+          <layout xsi:type="gmfgraph:FlowLayout" vertical="true" forceSingleLine="true" majorAlignment="CENTER" minorAlignment="CENTER"/>
+          <foregroundColor xsi:type="gmfgraph:ConstantColor" value="lightGray"/>
+          <children xsi:type="gmfgraph:CustomFigure" name="PostSocialExpressionAreaFigure" qualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel">
+            <attributes name="textWrap" value="true"/>
+          </children>
+          <children xsi:type="gmfgraph:CustomFigure" name="PostTaskExpressionAreaFigure" qualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel">
+            <attributes name="textWrap" value="true"/>
+          </children>
+          <children xsi:type="gmfgraph:CustomFigure" name="PostSpaceExpressionAreaFigure" qualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel">
+            <attributes name="textWrap" value="true"/>
+          </children>
+          <children xsi:type="gmfgraph:CustomFigure" name="PostLogicExpressionAreaFigure" qualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel">
+            <attributes name="textWrap" value="true"/>
+          </children>
+          <children xsi:type="gmfgraph:CustomFigure" name="PostDataExpressionAreaFigure" qualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel">
+            <attributes name="textWrap" value="true"/>
+          </children>
+        </children>
+      </actualFigure>
+      <accessors figure="//@figures.0/@descriptors.2/@actualFigure/@children.1/@children.0"/>
+      <accessors figure="//@figures.0/@descriptors.2/@actualFigure/@children.1/@children.1"/>
+      <accessors figure="//@figures.0/@descriptors.2/@actualFigure/@children.1/@children.2"/>
+      <accessors figure="//@figures.0/@descriptors.2/@actualFigure/@children.1/@children.3"/>
+      <accessors figure="//@figures.0/@descriptors.2/@actualFigure/@children.1/@children.4"/>
+    </descriptors>
+    <descriptors name="InitialConditionFigure">
+      <actualFigure xsi:type="gmfgraph:RoundedRectangle" name="InitialConditionRectangleFigure" fill="false" lineKind="LINE_DOT">
+        <layout xsi:type="gmfgraph:FlowLayout" vertical="true" forceSingleLine="true" majorAlignment="CENTER" minorAlignment="CENTER" majorSpacing="2" minorSpacing="2"/>
+        <foregroundColor xsi:type="gmfgraph:ConstantColor" value="lightGray"/>
+        <children xsi:type="gmfgraph:Ellipse" name="ConditionEllipseFigure">
+          <layout xsi:type="gmfgraph:GridLayout" equalWidth="false"/>
+          <foregroundColor xsi:type="gmfgraph:ConstantColor" value="black"/>
+          <minimumSize dx="40" dy="40"/>
+          <preferredSize dx="40" dy="40"/>
+          <children xsi:type="gmfgraph:Label" name="ConditionLabel" text="I">
+            <layoutData xsi:type="gmfgraph:GridLayoutData" grabExcessHorizontalSpace="true" grabExcessVerticalSpace="true"/>
+            <font xsi:type="gmfgraph:BasicFont" height="12" style="BOLD"/>
+          </children>
+        </children>
+        <children xsi:type="gmfgraph:Rectangle" name="InitialExpressionRectangleFigure" outline="false" fill="false">
+          <layout xsi:type="gmfgraph:FlowLayout" vertical="true" forceSingleLine="true" majorAlignment="CENTER" minorAlignment="CENTER"/>
+          <foregroundColor xsi:type="gmfgraph:ConstantColor" value="lightGray"/>
+          <children xsi:type="gmfgraph:CustomFigure" name="InitialSocialExpressionAreaFigure" qualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel">
+            <attributes name="textWrap" value="true"/>
+          </children>
+          <children xsi:type="gmfgraph:CustomFigure" name="InitialTaskExpressionAreaFigure" qualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel">
+            <attributes name="textWrap" value="true"/>
+          </children>
+          <children xsi:type="gmfgraph:CustomFigure" name="InitialSpaceExpressionAreaFigure" qualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel">
+            <attributes name="textWrap" value="true"/>
+          </children>
+          <children xsi:type="gmfgraph:CustomFigure" name="InitialLogicExpressionAreaFigure" qualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel">
+            <attributes name="textWrap" value="true"/>
+          </children>
+          <children xsi:type="gmfgraph:CustomFigure" name="InitialDataExpressionAreaFigure" qualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel">
+            <attributes name="textWrap" value="true"/>
+          </children>
+        </children>
+      </actualFigure>
+      <accessors figure="//@figures.0/@descriptors.3/@actualFigure/@children.1/@children.0"/>
+      <accessors figure="//@figures.0/@descriptors.3/@actualFigure/@children.1/@children.1"/>
+      <accessors figure="//@figures.0/@descriptors.3/@actualFigure/@children.1/@children.2"/>
+      <accessors figure="//@figures.0/@descriptors.3/@actualFigure/@children.1/@children.3"/>
+      <accessors figure="//@figures.0/@descriptors.3/@actualFigure/@children.1/@children.4"/>
+    </descriptors>
+    <descriptors name="FinalConditionFigure">
+      <actualFigure xsi:type="gmfgraph:RoundedRectangle" name="FinalConditionRectangleFigure" lineKind="LINE_DOT">
+        <layout xsi:type="gmfgraph:FlowLayout" vertical="true" forceSingleLine="true" majorAlignment="CENTER" minorAlignment="CENTER" majorSpacing="2" minorSpacing="2"/>
+        <children xsi:type="gmfgraph:Ellipse" name="ConditionEllipseFigure">
+          <layout xsi:type="gmfgraph:GridLayout" equalWidth="false"/>
+          <foregroundColor xsi:type="gmfgraph:ConstantColor" value="black"/>
+          <minimumSize dx="40" dy="40"/>
+          <preferredSize dx="40" dy="40"/>
+          <children xsi:type="gmfgraph:Label" name="ConditionLabel" text="F">
+            <layoutData xsi:type="gmfgraph:GridLayoutData" grabExcessHorizontalSpace="true" grabExcessVerticalSpace="true"/>
+            <font xsi:type="gmfgraph:BasicFont" height="12" style="BOLD"/>
+          </children>
+        </children>
+        <children xsi:type="gmfgraph:Rectangle" name="FinalExpressionRectangleFigure" outline="false" fill="false">
+          <layout xsi:type="gmfgraph:FlowLayout" vertical="true" forceSingleLine="true" majorAlignment="CENTER" minorAlignment="CENTER"/>
+          <foregroundColor xsi:type="gmfgraph:ConstantColor" value="lightGray"/>
+          <children xsi:type="gmfgraph:CustomFigure" name="FinalSocialExpressionAreaFigure" qualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel">
+            <attributes name="textWrap" value="true"/>
+          </children>
+          <children xsi:type="gmfgraph:CustomFigure" name="FinalTaskExpressionAreaFigure" qualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel">
+            <attributes name="textWrap" value="true"/>
+          </children>
+          <children xsi:type="gmfgraph:CustomFigure" name="FinalSpaceExpressionAreaFigure" qualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel">
+            <attributes name="textWrap" value="true"/>
+          </children>
+          <children xsi:type="gmfgraph:CustomFigure" name="FinalLogicExpressionAreaFigure" qualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel">
+            <attributes name="textWrap" value="true"/>
+          </children>
+          <children xsi:type="gmfgraph:CustomFigure" name="FinalDataExpressionAreaFigure" qualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel">
+            <attributes name="textWrap" value="true"/>
+          </children>
+        </children>
+      </actualFigure>
+      <accessors figure="//@figures.0/@descriptors.4/@actualFigure/@children.1/@children.0"/>
+      <accessors figure="//@figures.0/@descriptors.4/@actualFigure/@children.1/@children.1"/>
+      <accessors figure="//@figures.0/@descriptors.4/@actualFigure/@children.1/@children.2"/>
+      <accessors figure="//@figures.0/@descriptors.4/@actualFigure/@children.1/@children.3"/>
+      <accessors figure="//@figures.0/@descriptors.4/@actualFigure/@children.1/@children.4"/>
+    </descriptors>
+    <descriptors name="AndJoinFigure">
+      <actualFigure xsi:type="gmfgraph:SVGFigure" name="AndJoinSVG" documentURI="platform:/plugin/org.tesoriero.cauce.task.diagram/images/and-join.svg"/>
+    </descriptors>
+    <descriptors name="AndSplitFigure">
+      <actualFigure xsi:type="gmfgraph:SVGFigure" name="AndSplitSVG" documentURI="platform:/plugin/org.tesoriero.cauce.task.diagram/images/and-split.svg"/>
+    </descriptors>
+    <descriptors name="OrJoinFigure">
+      <actualFigure xsi:type="gmfgraph:SVGFigure" name="OrJoinSVG" documentURI="platform:/plugin/org.tesoriero.cauce.task.diagram/images/or-join.svg"/>
+    </descriptors>
+    <descriptors name="OrSplitFigure">
+      <actualFigure xsi:type="gmfgraph:SVGFigure" name="OrSplitSVG" documentURI="platform:/plugin/org.tesoriero.cauce.task.diagram/images/or-split.svg"/>
+    </descriptors>
+    <descriptors name="SimpleTaskFigure">
+      <actualFigure xsi:type="gmfgraph:Rectangle" name="SimpleTaskFigure">
+        <layout xsi:type="gmfgraph:GridLayout"/>
+        <foregroundColor xsi:type="gmfgraph:ConstantColor" value="black"/>
+        <children xsi:type="gmfgraph:Label" name="SimpleTaskNameFigure" text="&lt;...>">
+          <layoutData xsi:type="gmfgraph:GridLayoutData" grabExcessHorizontalSpace="true" grabExcessVerticalSpace="true"/>
+        </children>
+      </actualFigure>
+      <accessors figure="//@figures.0/@descriptors.9/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors name="SkipTaskFigure">
+      <actualFigure xsi:type="gmfgraph:Rectangle" name="SkipTaskFigure">
+        <foregroundColor xsi:type="gmfgraph:ConstantColor" value="black"/>
+        <preferredSize dx="40" dy="40"/>
+      </actualFigure>
+    </descriptors>
+    <descriptors name="ExpressionFigure">
+      <actualFigure xsi:type="gmfgraph:CustomFigure" name="ExpressionFigure" qualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel">
+        <attributes name="textWrap" value="true"/>
+      </actualFigure>
+      <accessors figure="//@figures.0/@descriptors.11/@actualFigure"/>
+    </descriptors>
+  </figures>
+  <nodes name="PreCondition" figure="PreConditionFigure"/>
+  <nodes name="PostCondition" figure="PostConditionFigure"/>
+  <nodes name="InitialCondition" figure="InitialConditionFigure"/>
+  <nodes name="FinalCondition" figure="FinalConditionFigure"/>
+  <nodes name="AndJoin" figure="AndJoinFigure" resizeConstraint="NONE"/>
+  <nodes name="AndSplit" figure="AndSplitFigure" resizeConstraint="NONE"/>
+  <nodes name="OrJoin" figure="OrJoinFigure" resizeConstraint="NONE"/>
+  <nodes name="OrSplit" figure="OrSplitFigure" resizeConstraint="NONE"/>
+  <nodes name="SimpleTask" figure="SimpleTaskFigure"/>
+  <nodes name="SkipTask" figure="SkipTaskFigure"/>
+  <connections name="Edge" figure="EdgeFigure"/>
+  <labels name="SimpleTaskName" figure="SimpleTaskFigure" elementIcon="false" accessor="//@figures.0/@descriptors.9/@accessors.0"/>
+  <labels name="InitialSocialExpression" figure="InitialConditionFigure" elementIcon="false" accessor="//@figures.0/@descriptors.3/@accessors.0"/>
+  <labels name="InitialTaskExpression" figure="InitialConditionFigure" elementIcon="false" accessor="//@figures.0/@descriptors.3/@accessors.1"/>
+  <labels name="InitialSpaceExpression" figure="InitialConditionFigure" elementIcon="false" accessor="//@figures.0/@descriptors.3/@accessors.2"/>
+  <labels name="InitialLogicExpression" figure="InitialConditionFigure" elementIcon="false" accessor="//@figures.0/@descriptors.3/@accessors.3"/>
+  <labels name="InitialDataExpression" figure="InitialConditionFigure" elementIcon="false" accessor="//@figures.0/@descriptors.3/@accessors.4"/>
+  <labels name="FinalSocialExpression" figure="FinalConditionFigure" affixedParentSide="NSEW" elementIcon="false" accessor="//@figures.0/@descriptors.4/@accessors.0"/>
+  <labels name="FinalTaskExpression" figure="FinalConditionFigure" affixedParentSide="NSEW" elementIcon="false" accessor="//@figures.0/@descriptors.4/@accessors.1"/>
+  <labels name="FinalSpaceExpression" figure="FinalConditionFigure" elementIcon="false" accessor="//@figures.0/@descriptors.4/@accessors.2"/>
+  <labels name="FinalLogicExpression" figure="FinalConditionFigure" elementIcon="false" accessor="//@figures.0/@descriptors.4/@accessors.3"/>
+  <labels name="FinalDataExpression" figure="FinalConditionFigure" elementIcon="false" accessor="//@figures.0/@descriptors.4/@accessors.4"/>
+  <labels name="PreSocialExpression" figure="PreConditionFigure" affixedParentSide="NSEW" elementIcon="false" accessor="//@figures.0/@descriptors.0/@accessors.0"/>
+  <labels name="PreTaskExpression" figure="PreConditionFigure" affixedParentSide="NSEW" elementIcon="false" accessor="//@figures.0/@descriptors.0/@accessors.1"/>
+  <labels name="PreSpaceExpression" figure="PreConditionFigure" elementIcon="false" accessor="//@figures.0/@descriptors.0/@accessors.2"/>
+  <labels name="PreLogicExpression" figure="PreConditionFigure" elementIcon="false" accessor="//@figures.0/@descriptors.0/@accessors.3"/>
+  <labels name="PreDataExpression" figure="PreConditionFigure" elementIcon="false" accessor="//@figures.0/@descriptors.0/@accessors.4"/>
+  <labels name="PostSocialExpression" figure="PostConditionFigure" affixedParentSide="NSEW" elementIcon="false" accessor="//@figures.0/@descriptors.2/@accessors.0"/>
+  <labels name="PostTaskExpression" figure="PostConditionFigure" affixedParentSide="NSEW" elementIcon="false" accessor="//@figures.0/@descriptors.2/@accessors.1"/>
+  <labels name="PostSpaceExpression" figure="PostConditionFigure" elementIcon="false" accessor="//@figures.0/@descriptors.2/@accessors.2"/>
+  <labels name="PostLogicExpression" figure="PostConditionFigure" elementIcon="false" accessor="//@figures.0/@descriptors.2/@accessors.3"/>
+  <labels name="PostDataExpression" figure="PostConditionFigure" elementIcon="false" accessor="//@figures.0/@descriptors.2/@accessors.4"/>
+</gmfgraph:Canvas>

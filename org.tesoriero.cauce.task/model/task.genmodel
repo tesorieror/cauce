@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.tesoriero.cauce.task/src" modelPluginID="org.tesoriero.cauce.task"
+    modelName="Task" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>task.ecore</foreignModel>
+  <genPackages prefix="Tamm" disposableProviderFactory="true" ecorePackage="task.ecore#/">
+    <genClasses ecoreClass="task.ecore#//ContextAwareSystem">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute task.ecore#//ContextAwareSystem/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference task.ecore#//ContextAwareSystem/finalConditions"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference task.ecore#//ContextAwareSystem/preConditions"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference task.ecore#//ContextAwareSystem/postConditions"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference task.ecore#//ContextAwareSystem/initialConditions"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference task.ecore#//ContextAwareSystem/routeTasks"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference task.ecore#//ContextAwareSystem/systemTasks"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference task.ecore#//ContextAwareSystem/inputConditionToJoinTasks"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference task.ecore#//ContextAwareSystem/inputConditionToSplitTasks"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference task.ecore#//ContextAwareSystem/joinTaskToOutputConditions"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference task.ecore#//ContextAwareSystem/splitTaskToOutputConditions"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference task.ecore#//ContextAwareSystem/preConditionToSystemTasks"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference task.ecore#//ContextAwareSystem/systemTaskToPostConditions"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="task.ecore#//Condition">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute task.ecore#//Condition/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute task.ecore#//Condition/socialExpression"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute task.ecore#//Condition/spaceExpression"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute task.ecore#//Condition/taskExpression"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute task.ecore#//Condition/logicExpression"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute task.ecore#//Condition/dataExpression"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="task.ecore#//Task">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute task.ecore#//Task/id"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="task.ecore#//SystemTask">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference task.ecore#//SystemTask/system"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference task.ecore#//SystemTask/incoming"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference task.ecore#//SystemTask/ongoing"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="task.ecore#//RouteTask">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference task.ecore#//RouteTask/system"/>
+    </genClasses>
+    <genClasses ecoreClass="task.ecore#//PreCondition">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference task.ecore#//PreCondition/system"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference task.ecore#//PreCondition/ongoing"/>
+    </genClasses>
+    <genClasses ecoreClass="task.ecore#//PostCondition">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference task.ecore#//PostCondition/system"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference task.ecore#//PostCondition/incoming"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="task.ecore#//TaskInputCondition">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference task.ecore#//TaskInputCondition/ongoing"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="task.ecore#//TaskOutputCondition">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference task.ecore#//TaskOutputCondition/incoming"/>
+    </genClasses>
+    <genClasses ecoreClass="task.ecore#//InitialCondition">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference task.ecore#//InitialCondition/system"/>
+    </genClasses>
+    <genClasses ecoreClass="task.ecore#//FinalCondition">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference task.ecore#//FinalCondition/system"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="task.ecore#//Join">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference task.ecore#//Join/incoming"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference task.ecore#//Join/ongoing"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="task.ecore#//Split">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference task.ecore#//Split/incoming"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference task.ecore#//Split/ongoing"/>
+    </genClasses>
+    <genClasses ecoreClass="task.ecore#//SimpleTask">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute task.ecore#//SimpleTask/name"/>
+    </genClasses>
+    <genClasses ecoreClass="task.ecore#//SkipTask"/>
+    <genClasses image="false" ecoreClass="task.ecore#//Edge"/>
+    <genClasses image="false" ecoreClass="task.ecore#//InputConditionToRouteTask">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference task.ecore#//InputConditionToRouteTask/source"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="task.ecore#//RouteTaskToOutputCondition">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference task.ecore#//RouteTaskToOutputCondition/target"/>
+    </genClasses>
+    <genClasses ecoreClass="task.ecore#//PreConditionToSystemTask">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference task.ecore#//PreConditionToSystemTask/source"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference task.ecore#//PreConditionToSystemTask/target"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference task.ecore#//PreConditionToSystemTask/system"/>
+    </genClasses>
+    <genClasses ecoreClass="task.ecore#//SystemTaskToPostCondition">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference task.ecore#//SystemTaskToPostCondition/source"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference task.ecore#//SystemTaskToPostCondition/target"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference task.ecore#//SystemTaskToPostCondition/system"/>
+    </genClasses>
+    <genClasses ecoreClass="task.ecore#//AndJoin"/>
+    <genClasses ecoreClass="task.ecore#//OrJoin"/>
+    <genClasses ecoreClass="task.ecore#//AndSplit"/>
+    <genClasses ecoreClass="task.ecore#//OrSplit"/>
+    <genClasses ecoreClass="task.ecore#//InputConditionToJoinTask">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference task.ecore#//InputConditionToJoinTask/target"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference task.ecore#//InputConditionToJoinTask/system"/>
+    </genClasses>
+    <genClasses ecoreClass="task.ecore#//InputConditionToSplitTask">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference task.ecore#//InputConditionToSplitTask/target"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference task.ecore#//InputConditionToSplitTask/system"/>
+    </genClasses>
+    <genClasses ecoreClass="task.ecore#//JoinTaskToOutputCondition">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference task.ecore#//JoinTaskToOutputCondition/source"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference task.ecore#//JoinTaskToOutputCondition/system"/>
+    </genClasses>
+    <genClasses ecoreClass="task.ecore#//SplitTaskToOutputCondition">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference task.ecore#//SplitTaskToOutputCondition/source"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference task.ecore#//SplitTaskToOutputCondition/system"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

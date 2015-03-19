@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gmftool:ToolRegistry
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:gmftool="http://www.eclipse.org/gmf/2005/ToolDefinition">
+  <palette>
+    <tools
+        xsi:type="gmftool:CreationTool"
+        title="Device"
+        description="Creates a device">
+      <smallIcon
+          xsi:type="gmftool:DefaultImage"/>
+    </tools>
+    <tools
+        xsi:type="gmftool:CreationTool"
+        title="Entity"
+        description="Create entity">
+      <smallIcon
+          xsi:type="gmftool:DefaultImage"/>
+    </tools>
+    <tools
+        xsi:type="gmftool:CreationTool"
+        title="DevicePlatform"
+        description="Creates device platform">
+      <smallIcon
+          xsi:type="gmftool:DefaultImage"/>
+    </tools>
+    <tools
+        xsi:type="gmftool:CreationTool"
+        title="Language"
+        description="Creates a language specification element">
+      <smallIcon
+          xsi:type="gmftool:DefaultImage"/>
+    </tools>
+    <tools
+        xsi:type="gmftool:CreationTool"
+        title="OS"
+        description="Creates an operating system element">
+      <smallIcon
+          xsi:type="gmftool:DefaultImage"/>
+    </tools>
+    <tools
+        xsi:type="gmftool:PaletteSeparator"/>
+    <tools
+        xsi:type="gmftool:CreationTool"
+        title="Connection"
+        description="Creates a connection">
+      <smallIcon
+          xsi:type="gmftool:DefaultImage"/>
+    </tools>
+    <tools
+        xsi:type="gmftool:CreationTool"
+        title="Information"
+        description="Create information">
+      <smallIcon
+          xsi:type="gmftool:DefaultImage"/>
+    </tools>
+    <tools
+        xsi:type="gmftool:CreationTool"
+        title="ConnectionPlatform"
+        description="Creates a connection platform">
+      <smallIcon
+          xsi:type="gmftool:DefaultImage"/>
+    </tools>
+    <tools
+        xsi:type="gmftool:CreationTool"
+        title="Medium"
+        description="Creates a connection medium">
+      <smallIcon
+          xsi:type="gmftool:DefaultImage"/>
+    </tools>
+    <tools
+        xsi:type="gmftool:CreationTool"
+        title="Protocol"
+        description="Creates a connection protocol">
+      <smallIcon
+          xsi:type="gmftool:DefaultImage"/>
+    </tools>
+    <tools
+        xsi:type="gmftool:PaletteSeparator"/>
+    <tools
+        xsi:type="gmftool:CreationTool"
+        title="DeviceToConnector"
+        description="Links a device to a connector">
+      <smallIcon
+          xsi:type="gmftool:DefaultImage"/>
+    </tools>
+    <tools
+        xsi:type="gmftool:CreationTool"
+        title="ConnectorToDevice"
+        description="Links a connector to a device">
+      <smallIcon
+          xsi:type="gmftool:DefaultImage"/>
+    </tools>
+  </palette>
+</gmftool:ToolRegistry>

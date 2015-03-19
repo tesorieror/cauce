@@ -1,0 +1,113 @@
+library SocialModelLibrary; -- Library Template
+uses RegularExpressions; 
+
+helper context String def: isRole():Boolean =
+	SoMetamodel!Role.allInstances()->iterate(r; ans : Boolean = false| ans or self = r.name);
+
+helper context String def: isIndividualInstance():Boolean =
+	SoMetamodel!IndividualInstance.allInstances()->iterate(r; ans : Boolean = false| ans or self = r.name);
+
+helper context String def: getRole():so!Role =
+	SoMetamodel!Role.allInstances()->any(r | self = r.name);
+
+helper context String def: getIndividualInstance():SoMetamodel!IndividualInstance =
+	SoMetamodel!IndividualInstance.allInstances()->any(r | self = r.name);
+
+helper context String def: isRootRole():Boolean =
+	if(self.isRole()) then self.getRole()->isRoot()
+	else false endif;
+
+helper context String def: getRoleListFromSocialInstance():Set(String) = 
+	if(self.isRole()) then Set{self} else self.getIndividualInstance().realizes->collect(r|r.target.name) endif;
+
+helper context String def: getRootRoles():Set(String)=
+	self.getRoleListFromSocialInstance()->collect(r | r.getRole().getRootRoles())->flatten()->asSet();
+
+helper context SoMetamodel!Role def: isRoot():Boolean = 
+	self.children->size()=0;
+
+helper context SoMetamodel!Role def: getRootRoles():Set(String)=
+	self.getParentRoles()->select(r| r.isRoot())->collect(r|r.name);
+
+helper context SoMetamodel!Role def: getParentRoles():Set(SoMetamodel!Role)=
+	if(self.children->size()>0)then
+		self.children->collect(spec | spec.target->getParentRoles())->flatten()->including(self)
+	else Set{self} endif->asSet();
+	
+helper context SoMetamodel!IndividualInstance def: getParentRoles():Set(SoMetamodel!Role)=
+	self.realizes->collect(real | real.target.getParentRoles())->flatten();	
+	
+helper context SoMetamodel!Role def: getIndividualInstances():Set(SoMetamodel!IndividualInstance)=
+	self.getChildRoles()->collect(r | r.isRealizedByIndividual->collect(real | real.source))
+	->flatten()->union(self.isRealizedByIndividual->collect(real | real.source))->asSet();
+
+helper context SoMetamodel!Role def: getChildRoles():Set(SoMetamodel!Role)=
+	if(self.parent->size()>0)then
+		self.parent->collect(spec | spec.source->getChildRoles())->flatten()->including(self)
+	else Set{self} endif->asSet();
+	
+helper context SoMetamodel!Role def: getMyOwnVaraibles():Set(String)=
+	if(thisModule->getSystemVaraibleMap()->getKeys()->includes(self.name)) then
+	thisModule->getSystemVaraibleMap()->get(self.name)
+	else Set{} endif;
+	
+helper context SoMetamodel!Role def: getVaraiblesInSystem():Set(String)=		
+	self->getChildRoles()->collect(r | r->getMyOwnVaraibles())->flatten()->	
+	union(self.getIndividualInstances()->collect(i | 
+		thisModule->getSystemVaraibleMap()->get(i.name))->flatten()
+	)->asSet();
+
+
+helper def: getAllSocialInstances():Set(String)=
+	SoMetamodel!SocialInstance.allInstances()->collect(si| si.name);
+	
+-- Remember on spaceExpressions,  socialInstances are always followed by a (		
+helper context String def: getLastSocialInstance():String=	
+	thisModule->getAllSocialInstances()
+		->collect(s | Tuple{si=s, pos=self->indexOf(s+'(')})
+			->any(t| t.pos>=0).si;
+ 	
+helper context String def: getLastSocialInstanceAndPos():TupleType(si:String, pos:Integer)=	
+	thisModule->getAllSocialInstances()
+		->collect(s | Tuple{si=s, pos=self->indexOf(s+'(')})
+			->any(t| t.pos>=0);
+
+		
+helper context SoMetamodel!Role def:getEventSituations():Set(String)=
+	self->getEventConditions()->collect(c | c.name)->asSet();			
+
+		
+helper context SoMetamodel!Role def: getEventConditions(): Set(TupleType(name:String, condition:String, memory:String))=
+	TaMetamodel!SkipTask->allInstances()->iterate(sk; answer:Sequence(Set(TupleType(memory:String, condition:String)))=Sequence{}|		
+		if(sk.incoming.source.socialExpression->turnSocialConditionIntoEntities()->includes(self.name)) then			
+			answer->including(sk.addSpaceConditionTo(sk.addTaskConditionTo(sk.addLogicConditionTo(Set{}))))
+		else answer	endif)->select(s | s.size()>0)
+		->iterate(cSet; answer:Sequence(TupleType(name:String, conditions:Set(TupleType(memory:String, condition:String))))=Sequence{}|
+			answer->including(Tuple{name=(self.name+'-anEvent-'+answer->size()->toString()), conditions=cSet}))		
+		->collect(cSet|	cSet.conditions->collect(cSet2 | Tuple{name= cSet.name, condition=cSet2.condition, memory=cSet2.memory}))->flatten();	
+
+helper context SoMetamodel!Role def: getInitialActions():Set(TupleType(action:String, memory:String))=
+	let skip:TaMetamodel!SkipTask =
+	TaMetamodel!PreCondition->allInstances()->select(pc| pc.incoming.source.oclIsKindOf(TaMetamodel!AndSplit))
+		->select(pc | pc.incoming.source.incoming.source.oclIsKindOf(TaMetamodel!InitialCondition))
+			->select(pc| pc.socialExpression.turnSocialConditionIntoEntities()->intersection(self.getRootRoles())->size()>0)
+				->any(preCond | true).ongoing.target in 
+	skip.addTaskActionsTo(skip.addSpaceActionsTo(skip.addDataActionsTo(Set{})));	
+--Set{};
+
+helper context SoMetamodel!Role def: getSocialInstancesFromSpaceExpression():Set(String)=
+	TaMetamodel!PreCondition->allInstances()->union(TaMetamodel!PostCondition->allInstances())
+		->select(c | not c.spaceExpression->oclIsUndefined())
+			->select(c | c.spaceExpression->trim()->size()>0)
+				->select(c | c.socialExpression.turnSocialConditionIntoEntities()->intersection(self.getRootRoles())->size()>0)
+					->collect(c | c.spaceExpression.getVaraiblesFromSpaceExpression())->flatten()
+						->collect(v | v.si);
+
+helper context SoMetamodel!Role def: getSocialVariables():Set(TupleType(name:String, definition:String))=
+	self->getSocialInstancesFromSpaceExpression()->select(si | si->isIndividualInstance())
+		->collect(si | Tuple{name=si, definition=
+			let ex:String = si->getRootRoles()->iterate(r; answer:String=''| answer + '+'+ r) in
+				ex.substring(2, ex->size())})->asSet();
+	
+	
+	

@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<trace:TraceModel
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:trace="http://www.eclipse.org/gmf/2006/Trace">
+  <nodeTraces
+      visualID="2001"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://tesoriero.org/cauce/deployment/1.0' and _eClass_.name = 'ProgrammingLanguage') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://tesoriero.org/cauce/deployment/1.0' and _eClass_.name = 'DevelopmentEnvironment') and _containmentMF_.name = 'languages')">
+    <nodeLabelTraces
+        visualID="5001"
+        queryText="true"/>
+    <nodeLabelTraces
+        visualID="5002"
+        queryText="true"/>
+    <nodeLabelTraces
+        visualID="5003"
+        queryText="true"/>
+    <nodeLabelTraces
+        visualID="5004"
+        queryText="true"/>
+  </nodeTraces>
+  <nodeTraces
+      visualID="2002"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://tesoriero.org/cauce/deployment/1.0' and _eClass_.name = 'OperatingSystem') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://tesoriero.org/cauce/deployment/1.0' and _eClass_.name = 'DevelopmentEnvironment') and _containmentMF_.name = 'os')">
+    <nodeLabelTraces
+        visualID="5005"
+        queryText="true"/>
+    <nodeLabelTraces
+        visualID="5006"
+        queryText="true"/>
+    <nodeLabelTraces
+        visualID="5007"
+        queryText="true"/>
+  </nodeTraces>
+  <nodeTraces
+      visualID="2003"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://tesoriero.org/cauce/deployment/1.0' and _eClass_.name = 'Device') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://tesoriero.org/cauce/deployment/1.0' and _eClass_.name = 'DevelopmentEnvironment') and _containmentMF_.name = 'devices')">
+    <nodeLabelTraces
+        visualID="5011"
+        queryText="true"/>
+    <nodeLabelTraces
+        visualID="5012"
+        queryText="true"/>
+    <compartmentTraces
+        visualID="7001"
+        queryText="true"/>
+    <compartmentTraces
+        visualID="7002"
+        queryText="true"/>
+  </nodeTraces>
+  <nodeTraces
+      visualID="2004"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://tesoriero.org/cauce/deployment/1.0' and _eClass_.name = 'Connection') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://tesoriero.org/cauce/deployment/1.0' and _eClass_.name = 'DevelopmentEnvironment') and _containmentMF_.name = 'connections')">
+    <nodeLabelTraces
+        visualID="5016"
+        queryText="true"/>
+    <nodeLabelTraces
+        visualID="5017"
+        queryText="true"/>
+    <compartmentTraces
+        visualID="7003"
+        queryText="true"/>
+    <compartmentTraces
+        visualID="7004"
+        queryText="true"/>
+  </nodeTraces>
+  <nodeTraces
+      visualID="2005"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://tesoriero.org/cauce/deployment/1.0' and _eClass_.name = 'Medium') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://tesoriero.org/cauce/deployment/1.0' and _eClass_.name = 'DevelopmentEnvironment') and _containmentMF_.name = 'mediums')">
+    <nodeLabelTraces
+        visualID="5018"
+        queryText="true"/>
+    <nodeLabelTraces
+        visualID="5019"
+        queryText="true"/>
+    <nodeLabelTraces
+        visualID="5020"
+        queryText="true"/>
+  </nodeTraces>
+  <nodeTraces
+      visualID="2006"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://tesoriero.org/cauce/deployment/1.0' and _eClass_.name = 'Protocol') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://tesoriero.org/cauce/deployment/1.0' and _eClass_.name = 'DevelopmentEnvironment') and _containmentMF_.name = 'protocols')">
+    <nodeLabelTraces
+        visualID="5021"
+        queryText="true"/>
+    <nodeLabelTraces
+        visualID="5022"
+        queryText="true"/>
+  </nodeTraces>
+  <childNodeTraces
+      visualID="3001"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://tesoriero.org/cauce/deployment/1.0' and _eClass_.name = 'DevicePlatform') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://tesoriero.org/cauce/deployment/1.0' and _eClass_.name = 'Device') and _containmentMF_.name = 'platforms')">
+    <nodeLabelTraces
+        visualID="5008"
+        queryText="true"/>
+    <nodeLabelTraces
+        visualID="5009"
+        queryText="true"/>
+  </childNodeTraces>
+  <childNodeTraces
+      visualID="3002"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://tesoriero.org/cauce/deployment/1.0' and _eClass_.name = 'Entity') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://tesoriero.org/cauce/deployment/1.0' and _eClass_.name = 'Device') and _containmentMF_.name = 'entities')">
+    <nodeLabelTraces
+        visualID="5010"
+        queryText="true"/>
+  </childNodeTraces>
+  <childNodeTraces
+      visualID="3003"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://tesoriero.org/cauce/deployment/1.0' and _eClass_.name = 'Information') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://tesoriero.org/cauce/deployment/1.0' and _eClass_.name = 'Connection') and _containmentMF_.name = 'information')">
+    <nodeLabelTraces
+        visualID="5013"
+        queryText="true"/>
+  </childNodeTraces>
+  <childNodeTraces
+      visualID="3004"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://tesoriero.org/cauce/deployment/1.0' and _eClass_.name = 'ConnectionPlatform') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://tesoriero.org/cauce/deployment/1.0' and _eClass_.name = 'Connection') and _containmentMF_.name = 'platforms')">
+    <nodeLabelTraces
+        visualID="5014"
+        queryText="true"/>
+    <nodeLabelTraces
+        visualID="5015"
+        queryText="true"/>
+  </childNodeTraces>
+  <linkTraces
+      visualID="4001"
+      queryText="modelFacet.oclIsKindOf(gmfgen::TypeLinkModelFacet) and (let _eClass_:ecore::EClass = modelFacet.oclAsType(gmfgen::TypeLinkModelFacet).metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://tesoriero.org/cauce/deployment/1.0' and _eClass_.name = 'DeviceToConnectionEdge')"/>
+  <linkTraces
+      visualID="4002"
+      queryText="modelFacet.oclIsKindOf(gmfgen::TypeLinkModelFacet) and (let _eClass_:ecore::EClass = modelFacet.oclAsType(gmfgen::TypeLinkModelFacet).metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://tesoriero.org/cauce/deployment/1.0' and _eClass_.name = 'ConnectionToDeviceEdge')"/>
+</trace:TraceModel>

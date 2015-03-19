@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated entityContext -->
+      <wizard
+            id="ecmm.presentation.EcmmModelWizardID"
+            name="%_UI_EcmmModelWizard_label"
+            class="ecmm.presentation.EcmmModelWizard"
+            category="org.tesoriero.cauce.model.category.ID"
+            icon="icons/full/obj16/EcmmModelFile.gif">
+         <description>%_UI_EcmmModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated entityContext -->
+      <editor
+            id="ecmm.presentation.EcmmEditorID"
+            name="%_UI_EcmmEditor_label"
+            icon="icons/full/obj16/EcmmModelFile.gif"
+            extensions="ecmm"
+            class="ecmm.presentation.EcmmEditor"
+            contributorClass="ecmm.presentation.EcmmActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

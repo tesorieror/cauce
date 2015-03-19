@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.1/notation" xmlns:spmm="spmm" xmi:id="_AeYJMZClEd6fyN8mvzthhA" type="Spmm" name="healthyScreen.spmm_diagram" measurementUnit="Pixel">
+  <children xmi:type="notation:Node" xmi:id="_BEtJYJClEd6fyN8mvzthhA" type="1001">
+    <children xmi:type="notation:Node" xmi:id="_BEuXgJClEd6fyN8mvzthhA" type="4001"/>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_BEtJYZClEd6fyN8mvzthhA" fontName="Segoe UI"/>
+    <element xmi:type="spmm:PhysicalSpace" href="healthyScreen.spmm#1"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_BEtJYpClEd6fyN8mvzthhA" x="25" y="25"/>
+  </children>
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_AeYJMpClEd6fyN8mvzthhA"/>
+  <element xmi:type="spmm:Universe" href="healthyScreen.spmm#/"/>
+</notation:Diagram>

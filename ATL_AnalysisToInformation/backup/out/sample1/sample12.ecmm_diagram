@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecmm="ecmm" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.1/notation" xmi:id="_a9fWgG-OEd6D0ujZFUNwFw" type="Ecmm" measurementUnit="Pixel">
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_a9fWgW-OEd6D0ujZFUNwFw"/>
+  <element xmi:type="ecmm:SystemContext" href="sample.ecmm#/0"/>
+</notation:Diagram>

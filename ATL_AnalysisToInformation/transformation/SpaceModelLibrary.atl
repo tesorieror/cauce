@@ -1,0 +1,93 @@
+library SpaceModelLibraries; -- Library Template
+
+uses RegularExpressions;
+
+helper context SpMetamodel!Space def: getOutputData():Set(String)=
+	self->getSpaceInformationFlows()->collect(ev|
+		let od:String= ev.event->split('[+]')
+			->select(s | s->isAbstractEvent()) 
+				->iterate(s; answer:String=''| s + '+' + answer)
+		in
+			if(od->size()>0) then od->substring(1, od->size()-1) 
+			else ev.event endif
+	);
+
+helper context SpMetamodel!Generalization def:getOutputData():Set(String)=
+	let od:String=
+		self.generalizes->getSpaceInformationFlows()->collect(ev| ev.event->split('[+]')->select(s|not s->isAbstractEvent()))
+			->union(self.parent->getSpaceInformationFlows()->collect(ev| ev.event->split('[+]')->select(s|not s->isAbstractEvent())))
+				->flatten()->asSet()->select(ev| ev->size()>0)				
+--					->select(s|not s->isAbstractEvent())					
+						->iterate(s; answer:String=''| s + '+' + answer) in
+	(Set{})->including(
+		od->substring(1,od->size()-1)
+	);
+
+helper context SpMetamodel!Space def: getSpaceInformationFlows():Set(TupleType(entity:String, event:String))=
+	thisModule->getSpaceInformationFlows()
+		->select(e | e.space=self.name)
+			->collect(e | Tuple{entity=e.entity, event=e.event});
+
+helper def: getSpaceInformationFlows(): Set(TupleType(entity:String, event:String, space:String)) =
+	let events:Set(TupleType(entity:String, event:String, space:String))=
+	thisModule->getEvents()
+		->select(t | t.space->toSpace()->isEntity())
+			->collect(t |
+				Tuple{entity=t.entity->toSocialInstance()->getParentRoles()->select(r|r->isRoot())->any(x | true).name,
+					event = t.event,
+					space = t.space
+				}
+			)in
+	let entities:Set(String)= events->collect(t|t.entity)->asSet() in
+	let spaces:Set(String)= events->collect(t|t.space)->asSet() in
+	entities
+	->collect(e | 
+		spaces->collect(s | 
+			Tuple{entity=e, space=s, event= 
+			let evs:String = 
+				events->select(ev | ev.entity=e and ev.space=s)->asSet()
+					->iterate(ev; answer:String='' | answer + ev.event+'+') in
+					if(evs->size()>0) then evs->substring(1, evs->size()-1) else '' endif
+			}
+		)
+	)->flatten()->select(ev| ev.event->size()>0);
+
+helper def: getEvents():Set(TupleType(entity:String, event:String, space:String)) =
+	thisModule->turnExpressionElementsIntoEvents(thisModule->getSpaceExpressionElements())
+		->select(t | t.space->toSpace()->isEntity())
+			->collect(t |
+				Tuple{entity=t.entity->toSocialInstance()->getParentRoles()->any(x | true).name,
+					event = t.event,
+					space = t.space
+				}
+			);
+
+helper context String def:isPhysicalSpace():Boolean=
+	SpMetamodel!PhysicalSpace.allInstances()->collect(s | s.name)->includes(self);
+
+helper context String def:isVirtualSpace():Boolean=
+	SpMetamodel!VirtualSpace.allInstances()->collect(s | s.name)->includes(self);
+
+
+helper context String def: toSpace():SpMetamodel!Space=
+	if(self->isPhysicalSpace()) then SpMetamodel!PhysicalSpace.allInstances()->any(s | s.name=self)
+	else SpMetamodel!VirtualSpace.allInstances()->any(s | s.name=self) endif;
+
+helper context SpMetamodel!Space def: isEntity(): Boolean =
+	let preconditionSpaceElements: Set(String) =
+		TaMetamodel!PreCondition.allInstances()
+			->select(pre |	pre.ongoing.target->oclIsTypeOf(TaMetamodel!SimpleTask))
+				->collect(pre | pre.spaceExpression)
+					->select(s | not s->oclIsUndefined())
+						->collect(s | s->split('[(),+]'))->flatten()
+							->collect(s | s->trim()) in
+		preconditionSpaceElements->includes(self.name);
+
+
+helper context SpMetamodel!VirtualSpace def: getGeneralizedPhysicalSpaces(): Set(SpModel!PhysicalSpace) =
+	self.generalizes->select(s | s.parent=self)
+		->collect(g | g.generalizes->getGeneralizedPhysicalSpaces())->flatten();
+	
+helper context SpMetamodel!PhysicalSpace def: getGeneralizedPhysicalSpaces(): Set(SpModel!PhysicalSpace) =
+	Set{self};
+

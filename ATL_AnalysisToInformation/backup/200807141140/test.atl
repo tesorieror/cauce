@@ -1,0 +1,242 @@
+module AnalysisToTransformationModule; -- Module Template
+create 	rsmmModel : rsModel, ifmm : ifModel, ecmm:ecModel 
+		from 
+		sommModel : soModel, tamm: taModel;
+
+uses SocialModelLibrary;
+uses RegularExpressions;
+uses TaskModelLibrary;
+
+helper def: rsCounter : Integer = 0;
+
+helper def: ifCounter : Integer = 0;
+
+helper def: ecCounter : Integer = 0;
+
+helper def: roleFromName(n : String) : soModel!Role = soModel!Role.allInstances()->any(r | r.name = n);
+
+
+-- Imperative version
+
+entrypoint rule Main(){   
+	using{
+	}
+	do{		
+--		thisModule->getSocialMemories()->toString()->println();
+--		taModel!SimpleTask.allInstances()->any(t | t.name='Mix')->getMemoryConditions()->toString()->println();
+		taModel!ContextAwareSystem.allInstances()->any(s|true)->toString()->println(); 		
+--		thisModule.resolveTemp(taModel!ContextAwareSystem.allInstances()->any(s|true) , 'roleMemories')->toString()->println();		
+	}
+}	
+-- More rules
+
+rule SocietyToSystemInfomrationFlowReferenceSpace{	
+	from 
+			society : soModel!Society
+	to
+			systemReferenceSpace : rsModel!SystemInformationFlowReferenceSpace
+			(name <- society.name, entityReferences<-society.roles, referentialSpaces<-referenceSpace),
+			referenceSpace : rsModel!ReferentialSpace
+			(name<-'The System', system<-society),
+			systemInformationFlow : ifModel!SystemInformaitonFlow
+			(name <- society.name, entities<-society.roles),
+			systemContext : ecModel!SystemContext
+			(name <- society.name, entities<-society.roles)
+	do{		
+		systemReferenceSpace.id <- thisModule.rsCounter;
+		thisModule.rsCounter <- thisModule.rsCounter + 1;
+		referenceSpace.id <- thisModule.rsCounter;
+		thisModule.rsCounter <- thisModule.rsCounter + 1;
+		systemInformationFlow.id <- thisModule.ifCounter;
+		thisModule.ifCounter <- thisModule.ifCounter + 1;
+--		systemContext.id <- thisModule.ecCounter;
+--		thisModule.ecCounter <- thisModule.ecCounter + 1;	
+	}
+}
+
+rule RoleToContextAwareEntityReference{	
+	from 
+			role : soModel!Role (role.children.size()=0)			
+	to
+			contextAwareEntity : rsModel!ContextAwareEntityReference
+			(name <- role.name, system <- role.society, entity<-role.name),
+			space2Entity : rsModel!SpaceToEntityReferenceDependency
+			(system <- role.society, child<-role, parent <- thisModule.resolveTemp(role.society, 'referenceSpace'), cardinality<-999),
+			entity : ifModel!ContextAwareEntity
+			(name <- role.name, system <- thisModule.resolveTemp(role.society, 'systemInformationFlow')),
+			entityContext : ecModel!EntityContext
+			(entity <- role.name, system <- thisModule.resolveTemp(role.society, 'systemContext')),
+--			roleMemory : ecModel!HolderMemory
+--			(name <- 'roleMemory', entityContext<-entityContext),--thisModule.resolveTemp(role, 'entityContext')),
+--			spaceMemory : ecModel!StackMemory
+--			(name <- 'spaceMemory', entityContext<-thisModule.resolveTemp(role, 'entityContext')),
+--			taskMemory : ecModel!StackMemory
+--			(name <- 'taskMemory', entityContext<-thisModule.resolveTemp(role, 'entityContext')),
+--			logicMemory : ecModel!LogicMemory
+--			(name <- 'logicMemory', entityContext<-thisModule.resolveTemp(role, 'entityContext')),
+--			dataMemory : ecModel!DictionaryMemory
+--			(name <- 'dataMemory', entityContext<-thisModule.resolveTemp(role, 'entityContext')),
+			variableDefinitions: distinct ecModel!VariableDataDefinition 
+				foreach (e in role->getVaraiblesInSystem())
+					(name<-e, entityContext<-thisModule.resolveTemp(role, 'entityContext'))
+	do{
+	    contextAwareEntity.id <- thisModule.rsCounter;
+		thisModule.rsCounter <- thisModule.rsCounter + 1;
+		space2Entity.id <- thisModule.rsCounter;
+		thisModule.rsCounter <- thisModule.rsCounter + 1;	
+		entity.id <- thisModule.ifCounter;
+		thisModule.ifCounter <- thisModule.ifCounter + 1;
+		entityContext.id <- thisModule.ecCounter;
+		thisModule.ecCounter <- thisModule.ecCounter + 1;
+--		roleMemory.id <- thisModule.ecCounter;
+--		thisModule.ecCounter <- thisModule.ecCounter + 1;		
+--		spaceMemory.id <- thisModule.ecCounter;
+--		thisModule.ecCounter <- thisModule.ecCounter + 1;		
+--		taskMemory.id <- thisModule.ecCounter;
+--		thisModule.ecCounter <- thisModule.ecCounter + 1;		
+--		logicMemory.id <- thisModule.ecCounter;
+--		thisModule.ecCounter <- thisModule.ecCounter + 1;
+--		dataMemory.id <- thisModule.ecCounter;
+--		thisModule.ecCounter <- thisModule.ecCounter + 1;
+		for(var in variableDefinitions){
+			var.id <- thisModule.ecCounter;
+			thisModule.ecCounter <- thisModule.ecCounter + 1;			
+		}
+	}	
+}
+
+rule MemoryRule{	
+	from 
+			contextAwareSystem : taModel!ContextAwareSystem 			
+	to
+			roleMemories: distinct ecModel!HolderMemory
+			foreach(role in thisModule->getSocialMemories())
+				(name <- 'roleMemory', entityContext<-thisModule.resolveTemp(role.getRole(), 'entityContext')),
+			
+			taskMemories: distinct ecModel!StackMemory			
+			foreach(role in thisModule->getTaskMemories())
+				(name <- 'taskMemory', entityContext<-thisModule.resolveTemp(role.getRole(), 'entityContext')),
+				
+			spaceMemories: distinct ecModel!StackMemory			
+			foreach(role in thisModule->getSpaceMemories())
+				(name <- 'spaceMemory', entityContext<-thisModule.resolveTemp(role.getRole(), 'entityContext')),
+
+			logicMemories: distinct ecModel!LogicMemory			
+			foreach(role in thisModule->getLogicMemories())
+				(name <- 'logicMemory', entityContext<-thisModule.resolveTemp(role.getRole(), 'entityContext'))				
+	do{
+		for(rm in roleMemories){
+			rm.id <- thisModule.ecCounter;
+			thisModule.ecCounter <- thisModule.ecCounter + 1;
+		}
+		for(tm in taskMemories){
+			tm.id <- thisModule.ecCounter;
+			thisModule.ecCounter <- thisModule.ecCounter + 1;
+		}
+		for(sm in spaceMemories){
+			sm.id <- thisModule.ecCounter;
+			thisModule.ecCounter <- thisModule.ecCounter + 1;
+		}
+		for(lm in logicMemories){
+			lm.id <- thisModule.ecCounter;
+			thisModule.ecCounter <- thisModule.ecCounter + 1;
+		}		
+		
+	}
+}
+
+rule TaskToInformationFlow{	
+	from 
+		task : taModel!SimpleTask			
+	to
+		broadcastInformationFlow : distinct ifModel!BroadcastInformationFlow
+			foreach(flow in task->getBroadcastInformationFlows())
+				(name <- (flow.fromRole+'_to_'+flow.toRole+'-'+task.name), data<-broadcastOutputData, 				
+				system<-thisModule.resolveTemp(soModel!Society.allInstances()->first(), 'systemInformationFlow')),		
+				
+		broadcastOutputData : distinct ifModel!OutputData
+			foreach(v in task.getBroadcastInformationFlowVariables())
+				(definition<-v),
+				
+		entity2BroadcastEdge: distinct ifModel!EntityToBroadcastInformationFlowEdge
+		foreach(flow in task->getBroadcastInformationFlows())
+				(target<-broadcastInformationFlow, 
+					source<-thisModule.resolveTemp(flow.fromRole.getRole(),'entity'),
+					system<-thisModule.resolveTemp(soModel!Society.allInstances()->first(), 'systemInformationFlow')
+				),		
+
+		broadcast2EntityEdge: distinct ifModel!BroadcastInformationFlowToEntityEdge
+		foreach(flow in task->getBroadcastInformationFlows())
+				(source<-broadcastInformationFlow, 
+					target<-thisModule.resolveTemp(flow.toRole.getRole(),'entity'),
+					system<-thisModule.resolveTemp(soModel!Society.allInstances()->first(), 'systemInformationFlow')),
+					
+		pointToPointInformationFlow : distinct ifModel!PointToPointInformationFlow
+			foreach(flow in task->getPointToPointInformationFlows())
+				(name <- (flow.fromRole+'_to_'+flow.toRole+'-'+task.name), outputData<-pointToPointOutputData, 				
+				system<-thisModule.resolveTemp(soModel!Society.allInstances()->first(), 'systemInformationFlow')),	
+		
+		pointToPointOutputData : distinct ifModel!OutputData
+			foreach(v in task.getPointToPointInformationFlowVariables())
+				(definition<-v),
+				
+		entity2PointToPointEdge: distinct ifModel!EntityToPointToPointInformationFlowEdge
+		foreach(flow in task->getPointToPointInformationFlows())
+				(target<-pointToPointInformationFlow, 
+					source<-thisModule.resolveTemp(flow.fromRole.getRole(),'entity'),
+					system<-thisModule.resolveTemp(soModel!Society.allInstances()->first(), 'systemInformationFlow')),		
+		
+		pointToPoint2EntityEdge: distinct ifModel!PointToPointInformationFlowToEntityEdge
+		foreach(flow in task->getPointToPointInformationFlows())
+				(source<-pointToPointInformationFlow, 
+					target<-thisModule.resolveTemp(flow.toRole.getRole(),'entity'),
+					system<-thisModule.resolveTemp(soModel!Society.allInstances()->first(), 'systemInformationFlow')),
+					
+		situations: distinct ecModel!ContextSituation
+		foreach(s in task->getSituations())
+				(name<-task.name,
+					memoryConditions<-conditions,
+					entityContext<-thisModule.resolveTemp(s.entity.getRole(), 'entityContext')
+				),
+	
+		conditions: distinct ecModel!MemoryContextCondition
+		foreach(c in task->getMemoryConditions())			 
+			(expression <- c.condition,
+				contextMemory<-	if (c.memory='social') then 
+					thisModule.resolveTemp(taModel!ContextAwareSystem.allInstances()->any(s|true) , 'roleMemories')
+						->any(m | m.entityContext.entity=c.entity)
+				else
+					if (c.memory='task') then
+						thisModule.resolveTemp(taModel!ContextAwareSystem.allInstances()->any(s|true) , 'taskMemories')
+							->any(m | m.entityContext.entity=c.entity)
+					else
+						if (c.memory='space') then
+							thisModule.resolveTemp(taModel!ContextAwareSystem.allInstances()->any(s|true), 'spaceMemories')
+								->any(m | m.entityContext.entity=c.entity)
+						else
+							thisModule.resolveTemp(taModel!ContextAwareSystem.allInstances()->any(s|true), 'logicMemories')
+								->any(m | m.entityContext.entity=c.entity)							
+						endif
+					endif
+				endif,
+			situation<-situations->any(s | s.name=task.name and s.entityContext = 
+				thisModule.resolveTemp(c.entity.getRole(), 'entityContext')))--,			
+	do{
+		for (f in broadcastInformationFlow){
+			f.id <- thisModule.ifCounter;
+			thisModule.ifCounter <- thisModule.ifCounter + 1;
+		}
+		for (f in pointToPointInformationFlow){
+			f.id <- thisModule.ifCounter;
+			thisModule.ifCounter <- thisModule.ifCounter + 1;
+		}
+		for (s in situations){
+			s.id <- thisModule.ecCounter;
+			thisModule.ecCounter <- thisModule.ecCounter + 1;
+		}
+		for (c in conditions){
+			c.id <- thisModule.ecCounter;
+			thisModule.ecCounter <- thisModule.ecCounter + 1;
+		}		
+	}
+}

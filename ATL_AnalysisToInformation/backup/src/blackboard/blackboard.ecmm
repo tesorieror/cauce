@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecmm:SystemContext xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecmm="ecmm" name="somm-diagram">
+  <entities entity="Guest" id="5">
+    <situations name="init-Guest" id="37">
+      <actions memory="36" expression="(on,0)" id="39"/>
+      <memoryConditions id="38" expression="off" contextMemory="36"/>
+    </situations>
+    <situations name="Guest-anEvent-1" id="29">
+      <memoryConditions id="33" expression="ok" contextMemory="3"/>
+      <memoryConditions id="34" expression="anUser(released, control)" contextMemory="2"/>
+    </situations>
+    <situations name="Guest-anEvent-2" id="30">
+      <memoryConditions id="35" expression="anUser(release, sessionControl)" contextMemory="2"/>
+    </situations>
+    <situations name="Guest-anEvent-0" id="31">
+      <memoryConditions id="32" expression="aGuest(take, aChair)" contextMemory="2"/>
+    </situations>
+    <situations name="JoinSession" id="51">
+      <actions memory="4" expression="session" id="54"/>
+      <memoryConditions id="52" expression="anUser" contextMemory="1"/>
+      <memoryConditions id="53" expression="anUser(released, join)" contextMemory="2"/>
+    </situations>
+    <situations name="CreateSession" id="55">
+      <memoryConditions id="56" expression="anAdmin" contextMemory="1"/>
+      <memoryConditions id="57" expression="anAdmin(released, create)" contextMemory="2"/>
+    </situations>
+    <situations name="DeleteSession" id="58">
+      <memoryConditions id="59" expression="anAdmin" contextMemory="1"/>
+      <memoryConditions id="60" expression="anAdmin(released, delete)" contextMemory="2"/>
+    </situations>
+    <situations name="Draw" id="61">
+      <actions memory="4" expression="session" id="64"/>
+      <memoryConditions id="62" expression="anUser" contextMemory="1"/>
+      <memoryConditions id="63" expression="anUser(release, canvas), anUser(move, canvas)*, anUser(pressed, canvas)" contextMemory="2"/>
+    </situations>
+    <situations name="Print" id="65">
+      <actions memory="4" expression="session" id="68"/>
+      <memoryConditions id="66" expression="anUser" contextMemory="1"/>
+      <memoryConditions id="67" expression="anUser(released, print)" contextMemory="2"/>
+    </situations>
+    <situations name="Exit" id="69">
+      <memoryConditions id="70" expression="anUser" contextMemory="1"/>
+      <memoryConditions id="71" expression="anUser(released, exit)" contextMemory="2"/>
+    </situations>
+    <situations name="Logout" id="72">
+      <memoryConditions id="73" expression="anUser" contextMemory="1"/>
+      <memoryConditions id="74" expression="anUser(leave, chair)" contextMemory="2"/>
+    </situations>
+    <situations name="Save" id="75">
+      <actions memory="4" expression="session" id="78"/>
+      <memoryConditions id="76" expression="anUser" contextMemory="1"/>
+      <memoryConditions id="77" expression="anUser(released, save)" contextMemory="2"/>
+    </situations>
+    <situations name="LoginError" id="79">
+      <memoryConditions id="81" expression="not Reception.dataMemory(ok)"/>
+      <memoryConditions id="122" expression="Reception" contextMemory="93"/>
+    </situations>
+    <state xsi:type="ecmm:HolderMemory" name="Guest.roleMemory" id="1"/>
+    <state xsi:type="ecmm:StackMemory" name="Guest.spaceMemory" id="2"/>
+    <state xsi:type="ecmm:LogicMemory" name="Guest.logicMemory" id="3"/>
+    <state xsi:type="ecmm:DictionaryMemory" name="Guest.dataMemory" id="4"/>
+    <state xsi:type="ecmm:TimeMemory" name="Guest.initMemory" id="36"/>
+    <variables definition="String" id="10"/>
+    <variables name="session" definition="String" id="11"/>
+    <variables name="userId" definition="String" id="12"/>
+    <variables name="ok" definition="String" id="13"/>
+    <variables name="aChair" definition=" anUserChair+ anAdminChair" id="17"/>
+    <variables name="print" definition="String" id="18"/>
+    <variables name="canvas" definition="String" id="19"/>
+    <variables name="exit" definition="String" id="20"/>
+    <variables name="sessionControl" definition=" save+ canvas+ exit+ print" id="21"/>
+    <variables name="anUserChair" definition=" UserChair1+ UserChair2+ UserChair3" id="22"/>
+    <variables name="delete" definition="String" id="23"/>
+    <variables name="save" definition="String" id="24"/>
+    <variables name="anAdminChair" definition=" AdminChair" id="25"/>
+    <variables name="join" definition="String" id="26"/>
+    <variables name="control" definition=" delete+ join+ create" id="27"/>
+    <variables name="create" definition="String" id="28"/>
+    <variables name="anAdmin" definition="Guest" id="14"/>
+    <variables name="aGuest" definition="Guest" id="15"/>
+    <variables name="anUser" definition="Guest" id="16"/>
+  </entities>
+  <entities entity="RFIDReader" id="82">
+    <situations name="RFIDReaderReadingSituation" id="84">
+      <memoryConditions id="94" expression="RFIDReader" contextMemory="83"/>
+      <memoryConditions id="133" expression="Reception" contextMemory="93"/>
+    </situations>
+    <situations name="RFIDReaderNotReadingSituation" id="85">
+      <memoryConditions id="99" expression="RFIDReader" contextMemory="83"/>
+      <memoryConditions id="134" expression="Reception" contextMemory="93"/>
+    </situations>
+    <state xsi:type="ecmm:HolderMemory" name="RFIDReader.roleMemory" id="83"/>
+    <variables name="readerID" definition="String" id="86"/>
+    <variables name="userID" definition="String" id="87"/>
+  </entities>
+  <entities entity="Reception" id="88">
+    <situations name="RFIDReaderReadingSituation" id="89">
+      <memoryConditions id="95" expression="Reception" contextMemory="93"/>
+      <memoryConditions id="116" expression="RFIDReader" contextMemory="83"/>
+      <memoryConditions id="135" expression="[]" contextMemory="101"/>
+      <sensingConditions id="96" informationflow="RFIDReader_to_Reception-Reading"/>
+    </situations>
+    <situations name="RFIDReaderNotReadingSituation" id="90">
+      <memoryConditions id="98" expression="Reception" contextMemory="93"/>
+      <memoryConditions id="117" expression="RFIDReader" contextMemory="93"/>
+      <memoryConditions id="136" expression="[]" contextMemory="101"/>
+      <sensingConditions id="97" informationflow="RFIDReader_toReception-NotReading"/>
+    </situations>
+    <situations name="LoginUser" id="44">
+      <actions memory="101" expression="[]" id="138"/>
+      <memoryConditions id="46" expression="aGuest(take, anUserChair)" contextMemory="101"/>
+      <memoryConditions id="119" expression="Reception" contextMemory="93"/>
+    </situations>
+    <situations name="LoginAdmin" id="40">
+      <actions memory="101" expression="[]" id="137"/>
+      <memoryConditions id="42" expression="aGuest(take, anAdminChair)" contextMemory="101"/>
+      <memoryConditions id="120" expression="Reception" contextMemory="93"/>
+    </situations>
+    <situations name="Logout" id="48">
+      <actions memory="101" expression="[]" id="139"/>
+      <memoryConditions id="50" expression="anUser(leave, aChair)" contextMemory="101"/>
+      <memoryConditions id="121" expression="Reception" contextMemory="93"/>
+    </situations>
+    <state xsi:type="ecmm:HolderMemory" name="Reception.roleMemory" id="93"/>
+    <state xsi:type="ecmm:StackMemory" name="Reception.spaceMemory" id="101"/>
+    <variables name="readerID" definition="String" id="91"/>
+    <variables name="userID" definition="String" id="92"/>
+    <variables name="aChair" definition=" anAdminChair + anUserChair" id="130"/>
+    <variables name="ok" definition="boolean" id="131"/>
+    <variables name="chairEvent" definition=" take + leave" id="132"/>
+  </entities>
+</ecmm:SystemContext>

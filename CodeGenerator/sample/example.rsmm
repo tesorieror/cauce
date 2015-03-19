@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rsmm:SystemInformationFlowReferenceSpace xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:rsmm="rsmm">
+  <referentialSpaces name="TheSystem" ongoingReferenceDependencies="4 5" id="1"/>
+  <spaceToEntityReferenceDependencies cardinality="1" parent="1" id="4" child="2"/>
+  <spaceToEntityReferenceDependencies cardinality="1" parent="1" id="5" child="3"/>
+  <entityReferences name="EntityA" incomingReferenceDependency="4" id="2" entity="EntityA"/>
+  <entityReferences name="EntityB" incomingReferenceDependency="5" id="3" entity="EntityB"/>
+</rsmm:SystemInformationFlowReferenceSpace>

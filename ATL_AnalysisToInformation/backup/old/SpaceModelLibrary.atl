@@ -1,0 +1,85 @@
+library SpaceModelLibraries; -- Library Template
+
+uses RegularExpressions;
+
+helper context String def: getParentSpaceGeneralizations() : Set(String) = 
+	SpMetamodel!Generalization.allInstances()->collect(g | g.parent.name)->asSet();
+
+helper def: getAllSpaces() : Set(String) = 
+	SpMetamodel!Space.allInstances()->collect(s | s.name)->asSet();
+
+
+helper def: getAllSpaces() : Set(String) = 
+	SpMetamodel!Space.allInstances()->collect(s | s.name)->asSet();
+
+-- Remember on SpaceExpressions, spaces are always followed by a ) 
+helper context String def: getFirstSpacesIndexes():Set(TupleType(space:String, pos:Integer))=	
+	thisModule->getAllSpaces()->collect( s | Tuple{space=s, pos=self->indexOf(s+')')})
+		->select(t | t.pos>=0);
+	
+helper context String def: getFirstSpaceAndIndex():TupleType(space:String, pos:Integer)=	
+	self->getFirstSpacesIndexes()	
+		->iterate(t; answer:TupleType(space:String, pos:Integer)=Tuple{space='', pos=self->size()}| 
+			if (t.pos<answer.pos) then t else answer endif
+		);
+		
+--helper context String def: getVaraiblesFromSpaceExpression():Map(String, Set(String))=
+--	let fsai : TupleType(space:String, pos:Integer) = self->getFirstSpaceAndIndex() in 
+--	if(fsai.space <> '')then
+--		let lsi : String = self->substring(1,fsai.pos)->getLastSocialInstance() in
+--			let vfse : Map(String, Set(String)) = self->substring(fsai.pos + fsai.space->size() + 1, self->size()) 
+--				->getVaraiblesFromSpaceExpression() in
+--					if(vfse->getKeys()->includes(lsi))then
+--						vfse->including(lsi, vfse->get(lsi)->including(fsai.space))
+--					else
+--						vfse->including(lsi, Set{fsai.space})							
+--					endif
+--	else
+--		Map{}
+--	endif;
+	
+	helper context String def: getVaraiblesFromSpaceExpression():Set(TupleType(event:String, si:String, space:String))=
+	let fsai : TupleType(space:String, pos:Integer) = self->getFirstSpaceAndIndex() in 
+	if(fsai.space <> '')then
+		let lsi : TupleType(si:String, pos:Integer) = self->substring(1,fsai.pos)->getLastSocialInstanceAndPos() in
+			let vfse : Set(TupleType(event:String, si:String, space:String)) = self->substring(fsai.pos + fsai.space->size() + 1, self->size()) 
+				->getVaraiblesFromSpaceExpression() in
+					vfse->including(Tuple{si=lsi.si, space=fsai.space, event=self->substring(lsi.pos+lsi.si->size()+2,fsai.pos-1)})
+	else
+		Set{}
+	endif;	
+	
+	
+	helper context String def: getChildSpaces() : Set(String) = 
+		SpMetamodel!Generalization.allInstances()
+			->select(g | g.parent.name=self)
+				->collect(g | g.child.name)->asSet();
+
+	helper context String def: getVariableDefinition() : TupleType(name:String,definition:String) =
+		let children:Set(String) =
+		SpMetamodel!Generalization.allInstances()
+			->select(g | g.parent.name=self)
+				->collect(g | g.generalizes.name)->asSet() in
+		if(children->size()>0) then
+			let definition:String = children->iterate(child; answer:String='' | answer + '+ '+child) in
+				Tuple{name=self, definition=definition->substring(2, definition->size())}
+		else
+			Tuple{name=self, definition='String'}
+		endif;
+						
+	
+	helper context String def: getSpaceVariables():Set(TupleType(entity:String, name:String, definition:String))= 
+		self->getVaraiblesFromSpaceExpression()->collect(s | 
+			let vd : TupleType(name:String, definition:String) = s.space.getVariableDefinition() in
+				s.si->getRootRoles()->collect(r | Tuple{entity=r, name=vd.name, definition=vd.definition})				
+		)->flatten();		
+
+	helper context SoMetamodel!Role def: getSpaceVariables():Set(TupleType(name:String, definition:String))=
+		TaMetamodel!PreCondition.allInstances()
+			->select(c | not c.spaceExpression.oclIsUndefined())
+				->select(c | c.spaceExpression->trim()->size()>0)
+					->collect(c | c.spaceExpression->getSpaceVariables()->select(v | v.entity=self.name))->flatten()
+						->collect(v | Tuple{name=v.name, definition=v.definition})->asSet();
+		
+		
+	

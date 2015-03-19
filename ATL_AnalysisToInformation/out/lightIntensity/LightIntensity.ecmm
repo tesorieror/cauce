@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<ecmm:SystemContext xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecmm="ecmm" name="somm-diagram">
+  <entities entity="PDA" id="1">
+    <situations name="init-PDA" id="4">
+      <actions memory="2" expression="(on,0)" id="6"/>
+      <actions memory="3" expression="PDA" id="7"/>
+      <memoryConditions id="5" expression="off" contextMemory="2"/>
+    </situations>
+    <situations name="RoomEvent" id="45">
+      <memoryConditions id="54" expression="Room" contextMemory="38"/>
+      <memoryConditions id="51" expression="PDA" contextMemory="38"/>
+      <sensingConditions informationflow="RoomEvent"/>
+    </situations>
+    <situations name="PDAControlEvent" id="63">
+      <memoryConditions id="66" expression="PDAControl" contextMemory="57"/>
+      <memoryConditions id="65" expression="PDA" contextMemory="57"/>
+      <sensingConditions informationflow="PDAControlEvent"/>
+    </situations>
+    <state xsi:type="ecmm:HolderMemory" name="PDA.role" id="3"/>
+    <state xsi:type="ecmm:TimeMemory" name="PDA.init" id="2"/>
+  </entities>
+  <entities entity="Blind" id="8">
+    <situations name="init-Blind" id="11">
+      <actions memory="9" expression="(on,0)" id="13"/>
+      <actions memory="10" expression="Blind" id="14"/>
+      <memoryConditions id="12" expression="off" contextMemory="9"/>
+    </situations>
+    <situations name="SetLightIntensityEvent" id="26">
+      <memoryConditions id="27" expression="PDA" contextMemory="3"/>
+      <memoryConditions id="28" expression="Blind" contextMemory="10"/>
+      <sensingConditions id="29" informationflow="SetLightIntensity"/>
+    </situations>
+    <situations name="RoomEvent" id="44">
+      <memoryConditions id="53" expression="Room" contextMemory="38"/>
+      <memoryConditions id="50" expression="Blind" contextMemory="38"/>
+      <sensingConditions informationflow="RoomEvent"/>
+    </situations>
+    <state xsi:type="ecmm:HolderMemory" name="Blind.role" id="10"/>
+    <state xsi:type="ecmm:TimeMemory" name="Blind.init" id="9"/>
+  </entities>
+  <entities entity="LightSensor" id="15">
+    <situations name="init-LightSensor" id="18">
+      <actions memory="16" expression="(on,0)" id="20"/>
+      <actions memory="17" expression="LightSensor" id="21"/>
+      <memoryConditions id="19" expression="off" contextMemory="16"/>
+    </situations>
+    <situations name="GetLightIntensityEvent" id="22">
+      <memoryConditions id="23" expression="Blind" contextMemory="10"/>
+      <memoryConditions id="24" expression="LightSensor" contextMemory="17"/>
+      <sensingConditions id="25" informationflow="GetLightIntensity"/>
+    </situations>
+    <situations name="RoomEvent" id="46">
+      <memoryConditions id="55" expression="Room" contextMemory="38"/>
+      <memoryConditions id="52" expression="LightSensor" contextMemory="38"/>
+      <sensingConditions informationflow="RoomEvent"/>
+    </situations>
+    <state xsi:type="ecmm:HolderMemory" name="LightSensor.role" id="17"/>
+    <state xsi:type="ecmm:TimeMemory" name="LightSensor.init" id="16"/>
+  </entities>
+  <entities entity="SetButton" id="30">
+    <situations name="init-SetButton" id="33">
+      <actions memory="32" expression="(on,0)" id="35"/>
+      <actions memory="31" expression="SetButton" id="36"/>
+      <memoryConditions id="34" expression="off" contextMemory="32"/>
+    </situations>
+    <state xsi:type="ecmm:HolderMemory" name="SetButton.role" id="31"/>
+    <state xsi:type="ecmm:TimeMemory" name="SetButton.init" id="32"/>
+  </entities>
+  <entities entity="Room" id="37">
+    <situations name="init-Room" id="40">
+      <actions memory="39" expression="(on,0)" id="42"/>
+      <actions memory="38" expression="Room" id="43"/>
+      <memoryConditions id="41" expression="off" contextMemory="39"/>
+    </situations>
+    <state xsi:type="ecmm:HolderMemory" name="Room.role" id="38"/>
+    <state xsi:type="ecmm:TimeMemory" name="Room.init" id="39"/>
+  </entities>
+  <entities entity="PDAControl" id="56">
+    <situations name="init-PDAControl" id="59">
+      <actions memory="58" expression="(on,0)" id="61"/>
+      <actions memory="57" expression="PDAControl" id="62"/>
+      <memoryConditions id="60" expression="off" contextMemory="58"/>
+    </situations>
+    <situations name="SetButtonEvent" id="67">
+      <memoryConditions id="68" expression="SetButton" contextMemory="31"/>
+      <memoryConditions id="69" expression="PDAControl" contextMemory="57"/>
+      <sensingConditions id="70" informationflow="SetButton-PDAControl"/>
+    </situations>
+    <state xsi:type="ecmm:HolderMemory" name="PDAControl.role" id="57"/>
+    <state xsi:type="ecmm:TimeMemory" name="PDAControl.init" id="58"/>
+  </entities>
+</ecmm:SystemContext>

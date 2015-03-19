@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<spmm:Universe xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:spmm="spmm">
+  <generalizations id="23" parent="22" generalizes="14"/>
+  <generalizations id="25" parent="1" generalizes="15"/>
+  <generalizations id="26" parent="1" generalizes="16"/>
+  <generalizations id="27" parent="1" generalizes="17"/>
+  <generalizations id="32" parent="31" generalizes="1"/>
+  <generalizations id="33" parent="31" generalizes="22"/>
+  <generalizations id="42" parent="34" generalizes="37"/>
+  <generalizations id="43" parent="34" generalizes="36"/>
+  <generalizations id="44" parent="34" generalizes="35"/>
+  <generalizations id="45" parent="38" generalizes="39"/>
+  <generalizations id="46" parent="38" generalizes="40"/>
+  <generalizations id="47" parent="38" generalizes="41"/>
+  <generalizations id="49" parent="38" generalizes="48"/>
+  <virtualSpaces name="UserChair" id="1" generalizedBy="32" generalizes="25 26 27"/>
+  <virtualSpaces name="AdminChair" id="22" generalizedBy="33" generalizes="23"/>
+  <virtualSpaces name="Chair" id="31" generalizes="32 33"/>
+  <virtualSpaces name="SessionControl" id="34" generalizes="42 43 44"/>
+  <virtualSpaces name="EditorControl" id="38" generalizes="45 46 47 49"/>
+  <physicalSpaces name="anAdminChair" id="14" generalizedBy="23"/>
+  <physicalSpaces name="anUserChair1" id="15" generalizedBy="25"/>
+  <physicalSpaces name="anUserChair2" id="16" generalizedBy="26"/>
+  <physicalSpaces name="anUserChair3" id="17" generalizedBy="27"/>
+  <physicalSpaces name="DeleteControl" id="35" generalizedBy="44"/>
+  <physicalSpaces name="CreateControl" id="36" generalizedBy="43"/>
+  <physicalSpaces name="JoinControl" id="37" generalizedBy="42"/>
+  <physicalSpaces name="PrintControl" id="39" generalizedBy="45"/>
+  <physicalSpaces name="SaveControl" id="40" generalizedBy="46"/>
+  <physicalSpaces name="ExitSessionControl" id="41" generalizedBy="47"/>
+  <physicalSpaces name="Canvas" id="48" generalizedBy="49"/>
+</spmm:Universe>

@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<ecmm:SystemContext xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecmm="ecmm" name="somm-diagram">
+  <entities entity="Guest" id="1">
+    <situations name="init-Guest" id="4">
+      <actions memory="2" expression="(on,0)" id="6"/>
+      <actions memory="3" expression="Guest" id="7"/>
+      <memoryConditions id="5" expression="off" contextMemory="2"/>
+    </situations>
+    <situations name="LoginAdmin" id="8">
+      <memoryConditions id="9" expression="Guest" contextMemory="3"/>
+    </situations>
+    <situations name="LoginUser" id="10">
+      <memoryConditions id="11" expression="Guest" contextMemory="3"/>
+    </situations>
+    <situations name="Logout" id="12">
+      <memoryConditions id="13" expression="User" contextMemory="3"/>
+    </situations>
+    <situations name="JoinSession" id="14">
+      <memoryConditions id="15" expression="User" contextMemory="3"/>
+    </situations>
+    <situations name="CreateSession" id="16">
+      <memoryConditions id="17" expression="Admin" contextMemory="3"/>
+    </situations>
+    <situations name="DeleteSession" id="18">
+      <memoryConditions id="19" expression="Admin" contextMemory="3"/>
+    </situations>
+    <situations name="Draw" id="20">
+      <memoryConditions id="21" expression="User" contextMemory="3"/>
+    </situations>
+    <situations name="Print" id="22">
+      <memoryConditions id="23" expression="User" contextMemory="3"/>
+    </situations>
+    <situations name="Exit" id="24">
+      <memoryConditions id="25" expression="User" contextMemory="3"/>
+    </situations>
+    <situations name="Logout" id="26">
+      <memoryConditions id="27" expression="User" contextMemory="3"/>
+    </situations>
+    <situations name="Save" id="28">
+      <memoryConditions id="29" expression="User" contextMemory="3"/>
+    </situations>
+    <situations name="LoginError" id="30">
+      <memoryConditions id="31" expression="Guest" contextMemory="3"/>
+    </situations>
+    <situations name="ChairEvent" id="53">
+      <memoryConditions id="56" expression="Chair" contextMemory="47"/>
+      <memoryConditions id="55" expression="Guest" contextMemory="47"/>
+      <sensingConditions informationflow="ChairEvent"/>
+    </situations>
+    <situations name="DeleteControlEvent" id="64">
+      <memoryConditions id="67" expression="DeleteControl" contextMemory="58"/>
+      <memoryConditions id="66" expression="Guest" contextMemory="58"/>
+      <sensingConditions informationflow="DeleteControlEvent"/>
+    </situations>
+    <situations name="CreateControlEvent" id="75">
+      <memoryConditions id="78" expression="CreateControl" contextMemory="69"/>
+      <memoryConditions id="77" expression="Guest" contextMemory="69"/>
+      <sensingConditions informationflow="CreateControlEvent"/>
+    </situations>
+    <situations name="JoinControlEvent" id="86">
+      <memoryConditions id="89" expression="JoinControl" contextMemory="80"/>
+      <memoryConditions id="88" expression="Guest" contextMemory="80"/>
+      <sensingConditions informationflow="JoinControlEvent"/>
+    </situations>
+    <situations name="PrintControlEvent" id="97">
+      <memoryConditions id="100" expression="PrintControl" contextMemory="91"/>
+      <memoryConditions id="99" expression="Guest" contextMemory="91"/>
+      <sensingConditions informationflow="PrintControlEvent"/>
+    </situations>
+    <situations name="SaveControlEvent" id="108">
+      <memoryConditions id="111" expression="SaveControl" contextMemory="102"/>
+      <memoryConditions id="110" expression="Guest" contextMemory="102"/>
+      <sensingConditions informationflow="SaveControlEvent"/>
+    </situations>
+    <situations name="ExitSessionControlEvent" id="119">
+      <memoryConditions id="122" expression="ExitSessionControl" contextMemory="113"/>
+      <memoryConditions id="121" expression="Guest" contextMemory="113"/>
+      <sensingConditions informationflow="ExitSessionControlEvent"/>
+    </situations>
+    <situations name="CanvasEvent" id="130">
+      <memoryConditions id="133" expression="Canvas" contextMemory="124"/>
+      <memoryConditions id="132" expression="Guest" contextMemory="124"/>
+      <sensingConditions informationflow="CanvasEvent"/>
+    </situations>
+    <state xsi:type="ecmm:HolderMemory" name="Guest.role" id="3"/>
+    <state xsi:type="ecmm:TimeMemory" name="Guest.init" id="2"/>
+  </entities>
+  <entities entity="UserChair" id="32">
+    <situations name="init-UserChair" id="35">
+      <actions memory="34" expression="(on,0)" id="37"/>
+      <actions memory="33" expression="UserChair" id="38"/>
+      <memoryConditions id="36" expression="off" contextMemory="34"/>
+    </situations>
+    <state xsi:type="ecmm:HolderMemory" name="UserChair.role" id="33"/>
+    <state xsi:type="ecmm:TimeMemory" name="UserChair.init" id="34"/>
+  </entities>
+  <entities entity="AdminChair" id="39">
+    <situations name="init-AdminChair" id="42">
+      <actions memory="41" expression="(on,0)" id="44"/>
+      <actions memory="40" expression="AdminChair" id="45"/>
+      <memoryConditions id="43" expression="off" contextMemory="41"/>
+    </situations>
+    <state xsi:type="ecmm:HolderMemory" name="AdminChair.role" id="40"/>
+    <state xsi:type="ecmm:TimeMemory" name="AdminChair.init" id="41"/>
+  </entities>
+  <entities entity="Chair" id="46">
+    <situations name="init-Chair" id="49">
+      <actions memory="48" expression="(on,0)" id="51"/>
+      <actions memory="47" expression="Chair" id="52"/>
+      <memoryConditions id="50" expression="off" contextMemory="48"/>
+    </situations>
+    <situations name="UserChairEvent" id="134">
+      <memoryConditions id="135" expression="UserChair" contextMemory="33"/>
+      <memoryConditions id="136" expression="Chair" contextMemory="47"/>
+      <sensingConditions id="137" informationflow="UserChair-Chair"/>
+    </situations>
+    <situations name="AdminChairEvent" id="138">
+      <memoryConditions id="139" expression="AdminChair" contextMemory="40"/>
+      <memoryConditions id="140" expression="Chair" contextMemory="47"/>
+      <sensingConditions id="141" informationflow="AdminChair-Chair"/>
+    </situations>
+    <state xsi:type="ecmm:HolderMemory" name="Chair.role" id="47"/>
+    <state xsi:type="ecmm:TimeMemory" name="Chair.init" id="48"/>
+  </entities>
+  <entities entity="DeleteControl" id="57">
+    <situations name="init-DeleteControl" id="60">
+      <actions memory="59" expression="(on,0)" id="62"/>
+      <actions memory="58" expression="DeleteControl" id="63"/>
+      <memoryConditions id="61" expression="off" contextMemory="59"/>
+    </situations>
+    <state xsi:type="ecmm:HolderMemory" name="DeleteControl.role" id="58"/>
+    <state xsi:type="ecmm:TimeMemory" name="DeleteControl.init" id="59"/>
+  </entities>
+  <entities entity="CreateControl" id="68">
+    <situations name="init-CreateControl" id="71">
+      <actions memory="70" expression="(on,0)" id="73"/>
+      <actions memory="69" expression="CreateControl" id="74"/>
+      <memoryConditions id="72" expression="off" contextMemory="70"/>
+    </situations>
+    <state xsi:type="ecmm:HolderMemory" name="CreateControl.role" id="69"/>
+    <state xsi:type="ecmm:TimeMemory" name="CreateControl.init" id="70"/>
+  </entities>
+  <entities entity="JoinControl" id="79">
+    <situations name="init-JoinControl" id="82">
+      <actions memory="81" expression="(on,0)" id="84"/>
+      <actions memory="80" expression="JoinControl" id="85"/>
+      <memoryConditions id="83" expression="off" contextMemory="81"/>
+    </situations>
+    <state xsi:type="ecmm:HolderMemory" name="JoinControl.role" id="80"/>
+    <state xsi:type="ecmm:TimeMemory" name="JoinControl.init" id="81"/>
+  </entities>
+  <entities entity="PrintControl" id="90">
+    <situations name="init-PrintControl" id="93">
+      <actions memory="92" expression="(on,0)" id="95"/>
+      <actions memory="91" expression="PrintControl" id="96"/>
+      <memoryConditions id="94" expression="off" contextMemory="92"/>
+    </situations>
+    <state xsi:type="ecmm:HolderMemory" name="PrintControl.role" id="91"/>
+    <state xsi:type="ecmm:TimeMemory" name="PrintControl.init" id="92"/>
+  </entities>
+  <entities entity="SaveControl" id="101">
+    <situations name="init-SaveControl" id="104">
+      <actions memory="103" expression="(on,0)" id="106"/>
+      <actions memory="102" expression="SaveControl" id="107"/>
+      <memoryConditions id="105" expression="off" contextMemory="103"/>
+    </situations>
+    <state xsi:type="ecmm:HolderMemory" name="SaveControl.role" id="102"/>
+    <state xsi:type="ecmm:TimeMemory" name="SaveControl.init" id="103"/>
+  </entities>
+  <entities entity="ExitSessionControl" id="112">
+    <situations name="init-ExitSessionControl" id="115">
+      <actions memory="114" expression="(on,0)" id="117"/>
+      <actions memory="113" expression="ExitSessionControl" id="118"/>
+      <memoryConditions id="116" expression="off" contextMemory="114"/>
+    </situations>
+    <state xsi:type="ecmm:HolderMemory" name="ExitSessionControl.role" id="113"/>
+    <state xsi:type="ecmm:TimeMemory" name="ExitSessionControl.init" id="114"/>
+  </entities>
+  <entities entity="Canvas" id="123">
+    <situations name="init-Canvas" id="126">
+      <actions memory="125" expression="(on,0)" id="128"/>
+      <actions memory="124" expression="Canvas" id="129"/>
+      <memoryConditions id="127" expression="off" contextMemory="125"/>
+    </situations>
+    <state xsi:type="ecmm:HolderMemory" name="Canvas.role" id="124"/>
+    <state xsi:type="ecmm:TimeMemory" name="Canvas.init" id="125"/>
+  </entities>
+</ecmm:SystemContext>

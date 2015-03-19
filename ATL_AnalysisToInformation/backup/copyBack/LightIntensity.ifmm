@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ifmm:SystemInformaitonFlow xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ifmm="ifmm" id="1" name="somm-diagram">
+  <entities id="2" name="PDA" ongoingInformationFlows="//@edges.7 //@edges.9" incomingInformationFlows="//@edges.6"/>
+  <entities id="3" name="Blind" ongoingInformationFlows="//@edges.3" incomingInformationFlows="//@edges.0 //@edges.2"/>
+  <entities id="4" name="LightSensor" ongoingInformationFlows="//@edges.1"/>
+  <entities id="7" name="GPS" incomingInformationFlows="//@edges.4"/>
+  <entities id="9" name="SetButton" ongoingInformationFlows="//@edges.5"/>
+  <entities id="10" name="SetEntry" incomingInformationFlows="//@edges.8"/>
+  <entities id="13" name="BlindManager" ongoingInformationFlows="//@edges.11" incomingInformationFlows="//@edges.13"/>
+  <entities id="14" name="LocationManager" ongoingInformationFlows="//@edges.12" incomingInformationFlows="//@edges.10"/>
+  <informationFlows xsi:type="ifmm:BroadcastInformationFlow" id="5" name="BlindManager_to_Blind-SetLightIntensity" source="//@edges.11" target="//@edges.0">
+    <data definition="li"/>
+  </informationFlows>
+  <informationFlows xsi:type="ifmm:BroadcastInformationFlow" id="6" name="LightSensor_to_Blind-GetLightIntensity" source="//@edges.1" target="//@edges.2">
+    <data definition="li"/>
+  </informationFlows>
+  <informationFlows xsi:type="ifmm:PointToPointInformationFlow" id="8" name="getLocation" source="//@edges.3" target="//@edges.4">
+    <inputData definition="utm"/>
+  </informationFlows>
+  <informationFlows xsi:type="ifmm:PointToPointInformationFlow" id="11" name="SetButtonEvent" source="//@edges.5" target="//@edges.6">
+    <outputData definition="event"/>
+  </informationFlows>
+  <informationFlows xsi:type="ifmm:PointToPointInformationFlow" id="12" name="GetLightIntensity" source="//@edges.7" target="//@edges.8">
+    <inputData definition="li"/>
+  </informationFlows>
+  <informationFlows xsi:type="ifmm:PointToPointInformationFlow" id="15" name="PDA_to_LocationManager-SetLightIntensity" source="//@edges.9" target="//@edges.10">
+    <outputData definition="li"/>
+  </informationFlows>
+  <informationFlows xsi:type="ifmm:BroadcastInformationFlow" id="16" name="LocationManager_to_BlindManager-SetLightIntensity" source="//@edges.12" target="//@edges.13">
+    <data definition="li"/>
+  </informationFlows>
+  <edges xsi:type="ifmm:BroadcastInformationFlowToEntityEdge" target="3" source="5"/>
+  <edges xsi:type="ifmm:EntityToBroadcastInformationFlowEdge" source="4" target="6"/>
+  <edges xsi:type="ifmm:BroadcastInformationFlowToEntityEdge" target="3" source="6"/>
+  <edges xsi:type="ifmm:EntityToPointToPointInformationFlowEdge" source="3" target="8"/>
+  <edges xsi:type="ifmm:PointToPointInformationFlowToEntityEdge" target="7" source="8"/>
+  <edges xsi:type="ifmm:EntityToPointToPointInformationFlowEdge" source="9" target="11"/>
+  <edges xsi:type="ifmm:PointToPointInformationFlowToEntityEdge" target="2" source="11"/>
+  <edges xsi:type="ifmm:EntityToPointToPointInformationFlowEdge" source="2" target="12"/>
+  <edges xsi:type="ifmm:PointToPointInformationFlowToEntityEdge" target="10" source="12"/>
+  <edges xsi:type="ifmm:EntityToPointToPointInformationFlowEdge" source="2" target="15"/>
+  <edges xsi:type="ifmm:PointToPointInformationFlowToEntityEdge" target="14" source="15"/>
+  <edges xsi:type="ifmm:EntityToBroadcastInformationFlowEdge" source="13" target="5"/>
+  <edges xsi:type="ifmm:EntityToBroadcastInformationFlowEdge" source="14" target="16"/>
+  <edges xsi:type="ifmm:BroadcastInformationFlowToEntityEdge" target="13" source="16"/>
+</ifmm:SystemInformaitonFlow>

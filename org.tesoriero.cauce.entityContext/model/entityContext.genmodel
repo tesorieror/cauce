@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.tesoriero.cauce.entityContext/src" modelPluginID="org.tesoriero.cauce.entityContext"
+    modelName="EntityContext" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="7.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>entityContext.ecore</foreignModel>
+  <genPackages prefix="Ecmm" disposableProviderFactory="true" ecorePackage="entityContext.ecore#/">
+    <genClasses ecoreClass="entityContext.ecore#//VariableDataDefinition">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute entityContext.ecore#//VariableDataDefinition/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute entityContext.ecore#//VariableDataDefinition/definition"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute entityContext.ecore#//VariableDataDefinition/id"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference entityContext.ecore#//VariableDataDefinition/entityContext"/>
+    </genClasses>
+    <genClasses ecoreClass="entityContext.ecore#//EntityContext">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference entityContext.ecore#//EntityContext/situations"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference entityContext.ecore#//EntityContext/state"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference entityContext.ecore#//EntityContext/system"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference entityContext.ecore#//EntityContext/variables"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute entityContext.ecore#//EntityContext/entity"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute entityContext.ecore#//EntityContext/id"/>
+      <genOperations ecoreOperation="entityContext.ecore#//EntityContext/incoming"/>
+      <genOperations ecoreOperation="entityContext.ecore#//EntityContext/ongoing"/>
+    </genClasses>
+    <genClasses ecoreClass="entityContext.ecore#//ContextSituation">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference entityContext.ecore#//ContextSituation/actions"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference entityContext.ecore#//ContextSituation/memoryConditions"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference entityContext.ecore#//ContextSituation/sensingConditions"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference entityContext.ecore#//ContextSituation/entityContext"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute entityContext.ecore#//ContextSituation/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute entityContext.ecore#//ContextSituation/id"/>
+      <genOperations ecoreOperation="entityContext.ecore#//ContextSituation/matches"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="entityContext.ecore#//ContextCondition">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute entityContext.ecore#//ContextCondition/id"/>
+      <genOperations ecoreOperation="entityContext.ecore#//ContextCondition/satisfies"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="entityContext.ecore#//ContextMemory">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute entityContext.ecore#//ContextMemory/name"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference entityContext.ecore#//ContextMemory/entityContext"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute entityContext.ecore#//ContextMemory/id"/>
+      <genOperations ecoreOperation="entityContext.ecore#//ContextMemory/match"/>
+      <genOperations ecoreOperation="entityContext.ecore#//ContextMemory/update"/>
+    </genClasses>
+    <genClasses ecoreClass="entityContext.ecore#//LogicMemory"/>
+    <genClasses ecoreClass="entityContext.ecore#//DictionaryMemory"/>
+    <genClasses ecoreClass="entityContext.ecore#//HolderMemory"/>
+    <genClasses ecoreClass="entityContext.ecore#//StackMemory"/>
+    <genClasses ecoreClass="entityContext.ecore#//TimeMemory"/>
+    <genClasses ecoreClass="entityContext.ecore#//ContextAction">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference entityContext.ecore#//ContextAction/memory"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference entityContext.ecore#//ContextAction/situation"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute entityContext.ecore#//ContextAction/expression"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute entityContext.ecore#//ContextAction/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute entityContext.ecore#//ContextAction/memoryName"/>
+      <genOperations ecoreOperation="entityContext.ecore#//ContextAction/execute"/>
+    </genClasses>
+    <genClasses ecoreClass="entityContext.ecore#//SensingContextCondition">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference entityContext.ecore#//SensingContextCondition/situation"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute entityContext.ecore#//SensingContextCondition/informationflow"/>
+    </genClasses>
+    <genClasses ecoreClass="entityContext.ecore#//MemoryContextCondition">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference entityContext.ecore#//MemoryContextCondition/situation"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute entityContext.ecore#//MemoryContextCondition/expression"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference entityContext.ecore#//MemoryContextCondition/contextMemory"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute entityContext.ecore#//MemoryContextCondition/memoryName"/>
+    </genClasses>
+    <genClasses ecoreClass="entityContext.ecore#//SystemContext">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference entityContext.ecore#//SystemContext/entities"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute entityContext.ecore#//SystemContext/name"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

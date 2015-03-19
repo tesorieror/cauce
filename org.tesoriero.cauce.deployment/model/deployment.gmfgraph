@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gmfgraph:Canvas xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:gmfgraph="http://www.eclipse.org/gmf/2006/GraphicalDefinition" name="mapping">
+  <figures name="Default">
+    <figures xsi:type="gmfgraph:PolylineDecoration" name="DeviceToConnectionDecoration"/>
+    <figures xsi:type="gmfgraph:PolylineDecoration" name="ConnectionToDeviceDecoration"/>
+    <descriptors name="MediumFigure">
+      <actualFigure xsi:type="gmfgraph:Rectangle" name="MediumFigure" outline="false" fill="false">
+        <layout xsi:type="gmfgraph:BorderLayout">
+          <spacing dx="2" dy="2"/>
+        </layout>
+        <children xsi:type="gmfgraph:Rectangle" name="MediumTypeRectangleFigure">
+          <layoutData xsi:type="gmfgraph:BorderLayoutData" alignment="FILL" vertical="true"/>
+          <layout xsi:type="gmfgraph:GridLayout"/>
+          <foregroundColor xsi:type="gmfgraph:ConstantColor" value="black"/>
+          <preferredSize dx="200" dy="50"/>
+          <insets top="2" left="2" bottom="2" right="2"/>
+          <children xsi:type="gmfgraph:Label" name="MediumTypeFigure" text="&lt;...>">
+            <layoutData xsi:type="gmfgraph:GridLayoutData" grabExcessHorizontalSpace="true" horizontalAlignment="FILL"/>
+            <font xsi:type="gmfgraph:BasicFont" faceName="" style="BOLD"/>
+          </children>
+          <children xsi:type="gmfgraph:Label" name="MediumTechnologyFigure" text="&lt;...>">
+            <layoutData xsi:type="gmfgraph:GridLayoutData" grabExcessHorizontalSpace="true" horizontalAlignment="FILL"/>
+          </children>
+        </children>
+        <children xsi:type="gmfgraph:Ellipse" name="MediumVersionEllipseFigure">
+          <layoutData xsi:type="gmfgraph:BorderLayoutData" alignment="END"/>
+          <layout xsi:type="gmfgraph:GridLayout"/>
+          <preferredSize dx="50" dy="50"/>
+          <children xsi:type="gmfgraph:Label" name="MediumVersionFigure" text="&lt;...>">
+            <layoutData xsi:type="gmfgraph:GridLayoutData" grabExcessHorizontalSpace="true" grabExcessVerticalSpace="true"/>
+          </children>
+        </children>
+      </actualFigure>
+      <accessors figure="//@figures.0/@descriptors.0/@actualFigure/@children.0/@children.0"/>
+      <accessors figure="//@figures.0/@descriptors.0/@actualFigure/@children.0/@children.1"/>
+      <accessors figure="//@figures.0/@descriptors.0/@actualFigure/@children.1/@children.0"/>
+    </descriptors>
+    <descriptors name="ProtocolFigure">
+      <actualFigure xsi:type="gmfgraph:Rectangle" name="ProtocolFigure" outline="false" fill="false">
+        <layout xsi:type="gmfgraph:BorderLayout">
+          <spacing dx="2" dy="2"/>
+        </layout>
+        <children xsi:type="gmfgraph:Rectangle" name="ProtocolNameRectangleFigure">
+          <layoutData xsi:type="gmfgraph:BorderLayoutData" alignment="FILL"/>
+          <layout xsi:type="gmfgraph:GridLayout"/>
+          <foregroundColor xsi:type="gmfgraph:ConstantColor" value="black"/>
+          <preferredSize dx="100" dy="50"/>
+          <insets top="2" left="2" bottom="2" right="2"/>
+          <children xsi:type="gmfgraph:Label" name="ProtocolNameFigure" text="&lt;...>">
+            <layoutData xsi:type="gmfgraph:GridLayoutData" grabExcessHorizontalSpace="true" grabExcessVerticalSpace="true" horizontalAlignment="FILL"/>
+            <font xsi:type="gmfgraph:BasicFont" faceName="" style="BOLD"/>
+          </children>
+        </children>
+        <children xsi:type="gmfgraph:Ellipse" name="ProtocolVersionEllipseFigure">
+          <layoutData xsi:type="gmfgraph:BorderLayoutData" alignment="END"/>
+          <layout xsi:type="gmfgraph:GridLayout"/>
+          <preferredSize dx="50" dy="50"/>
+          <children xsi:type="gmfgraph:Label" name="ProtocolVersionFigure" text="&lt;...>">
+            <layoutData xsi:type="gmfgraph:GridLayoutData" grabExcessHorizontalSpace="true" grabExcessVerticalSpace="true"/>
+          </children>
+        </children>
+      </actualFigure>
+      <accessors figure="//@figures.0/@descriptors.1/@actualFigure/@children.0/@children.0"/>
+      <accessors figure="//@figures.0/@descriptors.1/@actualFigure/@children.1/@children.0"/>
+    </descriptors>
+    <descriptors name="OperatingSystemFigure">
+      <actualFigure xsi:type="gmfgraph:Rectangle" name="OperatingSystemFigure" outline="false" fill="false">
+        <layout xsi:type="gmfgraph:BorderLayout">
+          <spacing dy="2"/>
+        </layout>
+        <children xsi:type="gmfgraph:Rectangle" name="OperatingSystemNameRectangleFigure">
+          <layoutData xsi:type="gmfgraph:BorderLayoutData" alignment="FILL" vertical="true"/>
+          <layout xsi:type="gmfgraph:GridLayout"/>
+          <foregroundColor xsi:type="gmfgraph:ConstantColor" value="black"/>
+          <preferredSize dx="150" dy="50"/>
+          <insets top="2" left="2" bottom="2" right="2"/>
+          <children xsi:type="gmfgraph:Label" name="OperatingSystemNameFigure" text="&lt;...>">
+            <layoutData xsi:type="gmfgraph:GridLayoutData" grabExcessHorizontalSpace="true" grabExcessVerticalSpace="true" horizontalAlignment="FILL"/>
+            <font xsi:type="gmfgraph:BasicFont" faceName="" style="BOLD"/>
+          </children>
+        </children>
+        <children xsi:type="gmfgraph:Rectangle" name="VersionAndRevisionRectangleFigure" outline="false" fill="false">
+          <layoutData xsi:type="gmfgraph:BorderLayoutData" alignment="END"/>
+          <layout xsi:type="gmfgraph:GridLayout" numColumns="2">
+            <margins/>
+          </layout>
+          <children xsi:type="gmfgraph:Ellipse" name="OperatingSystemVersionEllipseFigure">
+            <layout xsi:type="gmfgraph:GridLayout"/>
+            <preferredSize dx="50" dy="50"/>
+            <children xsi:type="gmfgraph:Label" name="OperatingSystemVersionFigure" text="&lt;...>">
+              <layoutData xsi:type="gmfgraph:GridLayoutData" grabExcessHorizontalSpace="true" grabExcessVerticalSpace="true"/>
+            </children>
+          </children>
+          <children xsi:type="gmfgraph:Ellipse" name="OperatingSystemRevisionEllipseFigure">
+            <layout xsi:type="gmfgraph:GridLayout"/>
+            <preferredSize dx="50" dy="50"/>
+            <children xsi:type="gmfgraph:Label" name="OperatingSystemRevisionFigure" text="&lt;...>">
+              <layoutData xsi:type="gmfgraph:GridLayoutData" grabExcessHorizontalSpace="true" grabExcessVerticalSpace="true"/>
+            </children>
+          </children>
+        </children>
+      </actualFigure>
+      <accessors figure="//@figures.0/@descriptors.2/@actualFigure/@children.0/@children.0"/>
+      <accessors figure="//@figures.0/@descriptors.2/@actualFigure/@children.1/@children.0/@children.0"/>
+      <accessors figure="//@figures.0/@descriptors.2/@actualFigure/@children.1/@children.1/@children.0"/>
+    </descriptors>
+    <descriptors name="ProgrammingLanguageFigure">
+      <actualFigure xsi:type="gmfgraph:Rectangle" name="ProgrammingLanguageFigure" outline="false" fill="false">
+        <layout xsi:type="gmfgraph:BorderLayout">
+          <spacing dx="2" dy="2"/>
+        </layout>
+        <children xsi:type="gmfgraph:Rectangle" name="ProgrammingLanguageNameAndProfileRectangleFigure">
+          <layoutData xsi:type="gmfgraph:BorderLayoutData" alignment="FILL"/>
+          <layout xsi:type="gmfgraph:GridLayout"/>
+          <foregroundColor xsi:type="gmfgraph:ConstantColor" value="black"/>
+          <preferredSize dx="150" dy="50"/>
+          <insets top="2" left="2" bottom="2" right="2"/>
+          <children xsi:type="gmfgraph:Label" name="ProgrammingLanguageNameFigure" text="&lt;...>">
+            <layoutData xsi:type="gmfgraph:GridLayoutData" grabExcessHorizontalSpace="true" horizontalAlignment="FILL"/>
+            <font xsi:type="gmfgraph:BasicFont" style="BOLD"/>
+          </children>
+          <children xsi:type="gmfgraph:Label" name="ProgrammingLanguageProfileFigure" text="&lt;...>">
+            <layoutData xsi:type="gmfgraph:GridLayoutData" grabExcessHorizontalSpace="true" horizontalAlignment="FILL"/>
+          </children>
+        </children>
+        <children xsi:type="gmfgraph:Rectangle" name="ProgrammingLanguageVersionAndRevisionRectangleFigure" outline="false" fill="false">
+          <layoutData xsi:type="gmfgraph:BorderLayoutData" alignment="END"/>
+          <layout xsi:type="gmfgraph:GridLayout" numColumns="2">
+            <margins/>
+          </layout>
+          <children xsi:type="gmfgraph:Ellipse" name="ProgrammingLanguageVersionEllipseFigure">
+            <layout xsi:type="gmfgraph:GridLayout"/>
+            <preferredSize dx="50" dy="50"/>
+            <children xsi:type="gmfgraph:Label" name="ProgrammingLanguageVersionFigure" text="&lt;...>">
+              <layoutData xsi:type="gmfgraph:GridLayoutData" grabExcessHorizontalSpace="true" grabExcessVerticalSpace="true"/>
+            </children>
+          </children>
+          <children xsi:type="gmfgraph:Ellipse" name="ProgrammingLanguageRevisionEllipseFigure">
+            <layout xsi:type="gmfgraph:GridLayout"/>
+            <preferredSize dx="50" dy="50"/>
+            <children xsi:type="gmfgraph:Label" name="ProgrammingLanguageRevisionFigure" text="&lt;...>">
+              <layoutData xsi:type="gmfgraph:GridLayoutData" grabExcessHorizontalSpace="true" grabExcessVerticalSpace="true"/>
+            </children>
+          </children>
+        </children>
+      </actualFigure>
+      <accessors figure="//@figures.0/@descriptors.3/@actualFigure/@children.0/@children.0"/>
+      <accessors figure="//@figures.0/@descriptors.3/@actualFigure/@children.1/@children.0/@children.0"/>
+      <accessors figure="//@figures.0/@descriptors.3/@actualFigure/@children.0/@children.1"/>
+      <accessors figure="//@figures.0/@descriptors.3/@actualFigure/@children.1/@children.1/@children.0"/>
+    </descriptors>
+    <descriptors name="DeviceFigure">
+      <actualFigure xsi:type="gmfgraph:Rectangle" name="DeviceFigure" fill="false">
+        <layout xsi:type="gmfgraph:FlowLayout" vertical="true" matchMinorSize="true" forceSingleLine="true" majorSpacing="0" minorSpacing="0"/>
+        <foregroundColor xsi:type="gmfgraph:ConstantColor" value="black"/>
+        <backgroundColor xsi:type="gmfgraph:RGBColor" red="220" green="220" blue="220"/>
+        <border xsi:type="gmfgraph:MarginBorder">
+          <insets top="2" left="2" bottom="2" right="2"/>
+        </border>
+        <children xsi:type="gmfgraph:Rectangle" name="DeviceNameRectangleFigure" outline="false" fill="false">
+          <layout xsi:type="gmfgraph:BorderLayout">
+            <spacing dx="5"/>
+          </layout>
+          <children xsi:type="gmfgraph:Label" name="DeviceNameFigure" text="&lt;...>">
+            <layoutData xsi:type="gmfgraph:BorderLayoutData" alignment="FILL"/>
+            <font xsi:type="gmfgraph:BasicFont" style="BOLD"/>
+          </children>
+          <children xsi:type="gmfgraph:Label" name="DeviceIdFigure" text="&lt;...>">
+            <layoutData xsi:type="gmfgraph:BorderLayoutData" alignment="BEGINNING"/>
+          </children>
+        </children>
+      </actualFigure>
+      <accessors figure="//@figures.0/@descriptors.4/@actualFigure/@children.0/@children.0"/>
+      <accessors figure="//@figures.0/@descriptors.4/@actualFigure/@children.0/@children.1"/>
+    </descriptors>
+    <descriptors name="DeviceToConnectionFigure">
+      <actualFigure xsi:type="gmfgraph:PolylineConnection" name="DeviceToConnectionEdgeFigure">
+        <foregroundColor xsi:type="gmfgraph:ConstantColor" value="black"/>
+      </actualFigure>
+    </descriptors>
+    <descriptors name="ConnectionFigure">
+      <actualFigure xsi:type="gmfgraph:RoundedRectangle" name="ConnectionFigure">
+        <layout xsi:type="gmfgraph:FlowLayout" vertical="true" matchMinorSize="true" forceSingleLine="true" majorSpacing="0" minorSpacing="0"/>
+        <foregroundColor xsi:type="gmfgraph:ConstantColor" value="black"/>
+        <border xsi:type="gmfgraph:MarginBorder">
+          <insets top="2" left="2" bottom="2" right="2"/>
+        </border>
+        <children xsi:type="gmfgraph:Rectangle" name="ConnectionNameRectangleFigure" outline="false" fill="false">
+          <layout xsi:type="gmfgraph:BorderLayout">
+            <spacing dx="5"/>
+          </layout>
+          <children xsi:type="gmfgraph:Label" name="ConnectionNameFigure" text="&lt;...>">
+            <layoutData xsi:type="gmfgraph:BorderLayoutData" alignment="FILL"/>
+            <font xsi:type="gmfgraph:BasicFont" style="BOLD"/>
+          </children>
+          <children xsi:type="gmfgraph:Label" name="ConnectionIdFigure" text="&lt;...>">
+            <layoutData xsi:type="gmfgraph:BorderLayoutData" alignment="BEGINNING"/>
+          </children>
+        </children>
+      </actualFigure>
+      <accessors figure="//@figures.0/@descriptors.6/@actualFigure/@children.0/@children.1"/>
+      <accessors figure="//@figures.0/@descriptors.6/@actualFigure/@children.0/@children.0"/>
+    </descriptors>
+    <descriptors name="ConnectionToDeviceFigure">
+      <actualFigure xsi:type="gmfgraph:PolylineConnection" name="ConnectionToDeviceEdgeFigure">
+        <foregroundColor xsi:type="gmfgraph:ConstantColor" value="black"/>
+      </actualFigure>
+    </descriptors>
+    <descriptors name="ConnectionPlatformFigure">
+      <actualFigure xsi:type="gmfgraph:Rectangle" name="ConnectionPlatformFigure" outline="false" fill="false">
+        <layout xsi:type="gmfgraph:BorderLayout">
+          <spacing dx="5"/>
+        </layout>
+        <border xsi:type="gmfgraph:MarginBorder">
+          <insets top="2" left="2" bottom="2" right="2"/>
+        </border>
+        <children xsi:type="gmfgraph:Label" name="ConnectionPlatformNameFigure" text="&lt;...>">
+          <layoutData xsi:type="gmfgraph:BorderLayoutData" alignment="FILL"/>
+        </children>
+        <children xsi:type="gmfgraph:Label" name="ConnectionPlatformIdFigure" text="&lt;...>">
+          <layoutData xsi:type="gmfgraph:BorderLayoutData" alignment="BEGINNING"/>
+        </children>
+      </actualFigure>
+      <accessors figure="//@figures.0/@descriptors.8/@actualFigure/@children.0"/>
+      <accessors figure="//@figures.0/@descriptors.8/@actualFigure/@children.1"/>
+    </descriptors>
+    <descriptors name="DevicePlatformFigure">
+      <actualFigure xsi:type="gmfgraph:Rectangle" name="DevicePlatformFigure" outline="false" fill="false">
+        <layout xsi:type="gmfgraph:BorderLayout">
+          <spacing dx="5"/>
+        </layout>
+        <border xsi:type="gmfgraph:MarginBorder">
+          <insets top="2" left="2" bottom="2" right="2"/>
+        </border>
+        <children xsi:type="gmfgraph:Label" name="DevicePlatformNameFigure" text="&lt;...>">
+          <layoutData xsi:type="gmfgraph:BorderLayoutData" alignment="FILL"/>
+        </children>
+        <children xsi:type="gmfgraph:Label" name="DevicePlatformIdFigure" text="&lt;...>">
+          <layoutData xsi:type="gmfgraph:BorderLayoutData" alignment="BEGINNING"/>
+        </children>
+      </actualFigure>
+      <accessors figure="//@figures.0/@descriptors.9/@actualFigure/@children.0"/>
+      <accessors figure="//@figures.0/@descriptors.9/@actualFigure/@children.1"/>
+    </descriptors>
+    <descriptors name="InformationFigure">
+      <actualFigure xsi:type="gmfgraph:Rectangle" name="InformationFigure" outline="false" fill="false">
+        <layout xsi:type="gmfgraph:BorderLayout">
+          <spacing dx="5"/>
+        </layout>
+        <border xsi:type="gmfgraph:MarginBorder">
+          <insets top="2" left="2" bottom="2" right="2"/>
+        </border>
+        <children xsi:type="gmfgraph:Label" name="InformationNameFigure" text="&lt;...>">
+          <layoutData xsi:type="gmfgraph:BorderLayoutData" alignment="BEGINNING"/>
+        </children>
+      </actualFigure>
+      <accessors figure="//@figures.0/@descriptors.10/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors name="EntityFigure">
+      <actualFigure xsi:type="gmfgraph:Rectangle" name="EntityNameFigure" outline="false" fill="false">
+        <layout xsi:type="gmfgraph:BorderLayout">
+          <spacing dx="5"/>
+        </layout>
+        <border xsi:type="gmfgraph:MarginBorder">
+          <insets top="2" left="2" bottom="2" right="2"/>
+        </border>
+        <children xsi:type="gmfgraph:Label" name="EntityNameLabelFigure" text="&lt;...>">
+          <layoutData xsi:type="gmfgraph:BorderLayoutData" alignment="FILL"/>
+        </children>
+      </actualFigure>
+      <accessors figure="//@figures.0/@descriptors.11/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors name="DevicePlatformContainerFigure">
+      <actualFigure xsi:type="gmfgraph:Rectangle" name="DevicePlatformCompartmentRectangleFigure" outline="false" fill="false">
+        <layout xsi:type="gmfgraph:StackLayout"/>
+      </actualFigure>
+      <accessors figure="//@figures.0/@descriptors.9/@actualFigure"/>
+    </descriptors>
+    <descriptors name="InformationContainerFigure">
+      <actualFigure xsi:type="gmfgraph:Rectangle" name="InformationContainerRectangleFigure" outline="false">
+        <layout xsi:type="gmfgraph:StackLayout"/>
+      </actualFigure>
+      <accessors figure="//@figures.0/@descriptors.13/@actualFigure"/>
+    </descriptors>
+    <descriptors name="ConnectionPlatformContainerFigure">
+      <actualFigure xsi:type="gmfgraph:Rectangle" name="ConnectionPlatformContainerFigure" outline="false">
+        <layout xsi:type="gmfgraph:StackLayout"/>
+      </actualFigure>
+      <accessors figure="//@figures.0/@descriptors.14/@actualFigure"/>
+    </descriptors>
+    <descriptors name="EntityCompartmentFigure">
+      <actualFigure xsi:type="gmfgraph:Rectangle" name="EntityRectangleCompartmentFigure">
+        <layout xsi:type="gmfgraph:StackLayout"/>
+      </actualFigure>
+      <accessors figure="//@figures.0/@descriptors.15/@actualFigure"/>
+    </descriptors>
+  </figures>
+  <nodes name="Medium" figure="MediumFigure"/>
+  <nodes name="Protocol" figure="ProtocolFigure"/>
+  <nodes name="OperatingSystem" figure="OperatingSystemFigure"/>
+  <nodes name="ProgrammingLanguage" figure="ProgrammingLanguageFigure"/>
+  <nodes name="Device" figure="DeviceFigure"/>
+  <nodes name="Connection" figure="ConnectionFigure"/>
+  <nodes name="ConnectionPlatform" figure="ConnectionPlatformFigure">
+    <facets xsi:type="gmfgraph:DefaultSizeFacet">
+      <defaultSize dx="50" dy="20"/>
+    </facets>
+  </nodes>
+  <nodes name="DevicePlatform" figure="DevicePlatformFigure">
+    <facets xsi:type="gmfgraph:DefaultSizeFacet">
+      <defaultSize dx="50" dy="20"/>
+    </facets>
+  </nodes>
+  <nodes name="Information" figure="InformationFigure">
+    <facets xsi:type="gmfgraph:DefaultSizeFacet">
+      <defaultSize dx="50" dy="20"/>
+    </facets>
+  </nodes>
+  <nodes name="Entity" figure="EntityFigure">
+    <facets xsi:type="gmfgraph:DefaultSizeFacet">
+      <defaultSize dx="50" dy="20"/>
+    </facets>
+  </nodes>
+  <connections name="DeviceToConnection" figure="DeviceToConnectionFigure"/>
+  <connections name="ConnectionToDevice" figure="ConnectionToDeviceFigure"/>
+  <compartments name="DevicePlatformCompartment" figure="DevicePlatformContainerFigure"/>
+  <compartments name="ConnectionPlatformCompartment" figure="ConnectionPlatformContainerFigure"/>
+  <compartments name="InformationCompartment" figure="InformationContainerFigure"/>
+  <compartments name="EntityCompartment" figure="EntityCompartmentFigure"/>
+  <labels name="MediumType" figure="MediumFigure" accessor="//@figures.0/@descriptors.0/@accessors.0"/>
+  <labels name="MediumTechnology" figure="MediumFigure" elementIcon="false" accessor="//@figures.0/@descriptors.0/@accessors.1"/>
+  <labels name="Medium Version" figure="MediumFigure" elementIcon="false" accessor="//@figures.0/@descriptors.0/@accessors.2"/>
+  <labels name="ProtocolName" figure="ProtocolFigure" accessor="//@figures.0/@descriptors.1/@accessors.0"/>
+  <labels name="ProtocolVersion" figure="ProtocolFigure" elementIcon="false" accessor="//@figures.0/@descriptors.1/@accessors.1"/>
+  <labels name="OperatingSystemName" figure="OperatingSystemFigure" accessor="//@figures.0/@descriptors.2/@accessors.0"/>
+  <labels name="OperatingSystemVersion" figure="OperatingSystemFigure" elementIcon="false" accessor="//@figures.0/@descriptors.2/@accessors.1"/>
+  <labels name="OperatingSystemRevision" figure="OperatingSystemFigure" elementIcon="false" accessor="//@figures.0/@descriptors.2/@accessors.2"/>
+  <labels name="ProgrammingLanguageName" figure="ProgrammingLanguageFigure" accessor="//@figures.0/@descriptors.3/@accessors.0"/>
+  <labels name="ProgrammingLanguageVersion" figure="ProgrammingLanguageFigure" elementIcon="false" accessor="//@figures.0/@descriptors.3/@accessors.1"/>
+  <labels name="ProgrammingLanguageProfile" figure="ProgrammingLanguageFigure" elementIcon="false" accessor="//@figures.0/@descriptors.3/@accessors.2"/>
+  <labels name="ProgrammingLanguageRevision" figure="ProgrammingLanguageFigure" elementIcon="false" accessor="//@figures.0/@descriptors.3/@accessors.3"/>
+  <labels name="DeviceName" figure="DeviceFigure" elementIcon="false" accessor="//@figures.0/@descriptors.4/@accessors.0"/>
+  <labels name="DeviceId" figure="DeviceFigure" accessor="//@figures.0/@descriptors.4/@accessors.1"/>
+  <labels name="ConnectionName" figure="ConnectionFigure" elementIcon="false" accessor="//@figures.0/@descriptors.6/@accessors.1"/>
+  <labels name="ConnectionId" figure="ConnectionFigure" accessor="//@figures.0/@descriptors.6/@accessors.0"/>
+  <labels name="ConnectionPlatformName" figure="ConnectionPlatformFigure" elementIcon="false" accessor="//@figures.0/@descriptors.8/@accessors.0"/>
+  <labels name="ConnectionPlatformId" figure="ConnectionPlatformFigure" accessor="//@figures.0/@descriptors.8/@accessors.1"/>
+  <labels name="DevicePlatformName" figure="DevicePlatformFigure" elementIcon="false" accessor="//@figures.0/@descriptors.9/@accessors.0"/>
+  <labels name="DevicePlatformId" figure="DevicePlatformFigure" accessor="//@figures.0/@descriptors.9/@accessors.1"/>
+  <labels name="InformationName" figure="InformationFigure" accessor="//@figures.0/@descriptors.10/@accessors.0"/>
+  <labels name="EntityName" figure="EntityFigure" accessor="//@figures.0/@descriptors.11/@accessors.0"/>
+</gmfgraph:Canvas>

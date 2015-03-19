@@ -1,0 +1,397 @@
+/**
+ *
+ * Template Transformation Example
+ *
+ */
+texttransformation ExampleTransformation (
+in map:deployment,
+//in rsmm:rsmm,
+in ifmm:ifmm,
+in ecmm:ecmm) {  
+
+  var appPath:String; 
+  var appPackage:String;
+ 
+  map.DevelopmentEnvironment::main () {
+    appPackage=self.getPackageName();
+	appPath=self.getSystemName() + "/src/"+appPackage+"/";
+	self.devices->forEach(d:map.Device){
+		d.mapDevice();
+	}
+	self.connections->forEach(c:map.Connection){
+		c.mapConnection();	
+	}
+	mapEntities();
+	mapInformationFlows();	
+  }    
+  
+  map.DevelopmentEnvironment::getPackageName():String{result = self.name.replace("-","").replace("_","").firstToLower(); }
+  map.DevelopmentEnvironment::getSystemName():String{result = self.name.replace("-","").replace("_","").firstToUpper(); }
+  
+  map.Connection::mapConnection(){
+  	file connectionFile(self.getFileName());
+  	self.mapConnectionClass();  
+  }
+
+
+  mapInformationFlows(){
+	ifmm.objectsOfType(ifmm.InformationFlow)->forEach(i:ifmm.InformationFlow){
+      i.mapInformationFlowClass();
+  	}  
+  }  
+  
+  mapEntities(){
+    ecmm.objectsOfType(ecmm.EntityContext)->forEach(e:ecmm.EntityContext){
+      e.mapEntityClass();  
+  	}
+  }
+
+  ecmm.EntityContext::getBaseName(){result=self.name.replace("-","").replace("_","").firstToUpper();}
+  ecmm.EntityContext::getClassName(){result=self.getBaseName()+"Entity";}
+  ecmm.EntityContext::getPackageName(){result=appPackage+".entities";}
+  ecmm.EntityContext::getFileName(){result=appPath+"entities/"+self.getClassName()+".java";}
+
+  
+  map.Connection::mapConnectionClass(){
+'	package 'self.getPackageName()';
+'
+	
+	self.information.
+	self.information->forEach(i:map.Information){
+'	import framework.connections.AbstractConnection;
+	import 'appPackage'.flows.'i.getClassName()';\n'
+	}
+	
+'	public class 'self.getClassName()' extends AbstractConnection {
+		
+		public 'self.getClassName()'(){\n'
+			self.information->forEach(i:map.Information){
+'			addFlow(new 'i.getInformationFlow().getClassName()'("'i.getInformationFlow().getClassName()'",this));\n'
+			}
+'		}
+
+	}'  
+  }  
+
+  map.Information::getClassName():String{result=self.getInformationFlow().getClassName();}
+
+  map.Information::getInformationFlow():ifmm.InformationFlow{
+	var answer:ifmm.InformationFlow=null;        
+	ifmm.objectsOfType(ifmm.PointToPointInformationFlow)
+	  ->forEach(i:ifmm.PointToPointInformationFlow){if(i.name.trim()==self.name.trim()){answer=i;}}		
+  	ifmm.objectsOfType(ifmm.BroadcastInformationFlow)
+	  ->forEach(i:ifmm.BroadcastInformationFlow){if(i.name.trim()==self.name.trim()){answer=i;}}
+	result=answer;		
+  }
+
+  ifmm.InformationFlow::getClassName(){result=self.name.replace("-","").replace("_","").firstToUpper();}
+  
+  ifmm.BroadcastInformationFlow::mapInformationFlowClass(){
+    file bInformationFlowFile(self.getFileName());
+'	package 'self.getPackageName()';
+	
+	import framework.flows.BroadcastInformationFlow;
+	import framework.connections.AbstractConnection;
+	
+	public class 'self.getClassName()' extends BroadcastInformationFlow {
+		
+		public 'self.getClassName()'(String name, AbstractConnection c){
+		  super(name, c);\n'
+/*			self.information->forEach(i:map.Information){
+'			addFlow(new 'i.getClassName()'());\n'
+			}*/
+'		}
+	}'    
+  }
+
+  ifmm.PointToPointInformationFlow::mapInformationFlowClass(){
+    file p2pInformationFlowFile(self.getFileName());    
+'	package 'self.getPackageName()';
+	
+	import framework.flows.PointToPointInformationFlow;
+	import framework.connections.AbstractConnection;
+	
+	public class 'self.getClassName()' extends PointToPointInformationFlow {
+		
+		public 'self.getClassName()'(String name, AbstractConnection c){
+		  super(name, c);\n'
+/*			self.information->forEach(i:map.Information){
+'			addFlow(new 'i.getClassName()'());\n'
+			}*/
+'		}
+	}'    
+  }
+
+
+  ifmm.BroadcastInformationFlow::getBaseName(){result=self.name.replace("-","").replace("_","").firstToUpper();}
+  ifmm.BroadcastInformationFlow::getClassName(){result=self.getBaseName()+"InformationFlow";}
+  ifmm.BroadcastInformationFlow::getPackageName(){result=appPackage+".flows";}
+  ifmm.BroadcastInformationFlow::getFileName(){result=appPath+"flows/"+self.getClassName()+".java";}
+
+  ifmm.PointToPointInformationFlow::getBaseName(){result=self.name.replace("-","").replace("_","").firstToUpper();}
+  ifmm.PointToPointInformationFlow::getClassName(){result=self.getBaseName()+"InformationFlow";}
+  ifmm.PointToPointInformationFlow::getPackageName(){result=appPackage+".flows";}
+  ifmm.PointToPointInformationFlow::getFileName(){result=appPath+"flows/"+self.getClassName()+".java";}
+
+
+
+  map.Connection::getBaseName(){result=self.name.replace("-","").replace("_","").firstToUpper();}
+  map.Connection::getClassName(){result=self.getBaseName()+"Connection";}
+  map.Connection::getPackageName(){result=appPackage+".connections";}
+  map.Connection::getFileName(){result=appPath+"connections/"+self.getClassName()+".java";}
+  
+  map.Device::mapDevice(){  	
+	self.mapDeviceClass();
+  }
+  
+  map.Device::mapDeviceClass(){
+    file deviceFile(self.getFileName());
+'	package 'self.getPackageName()';
+	import framework.devices.AbstractDevice;
+'
+
+	self.entities->forEach(e:map.Entity){
+'	import 'e.getPackageName()'.'e.getClassName()';
+	import framework.connections.AbstractConnection;\n'
+	
+	self.incoming->forEach(ed: map.ConnectionToDeviceEdge){
+'	import 'ed.source.getPackageName()'.'ed.source.getClassName()';\n'
+  	}
+  	self.ongoing->forEach(ed: map.DeviceToConnectionEdge){
+'	import 'ed.target.getPackageName()'.'ed.target.getClassName()';\n'
+  	}
+	
+	}
+'	
+	public class 'self.getClassName()' extends AbstractDevice {
+		
+
+		public 'self.getClassName()'(){
+		  	super();\n'		  			  	
+		  	
+		  	self.incoming->forEach(ed: map.ConnectionToDeviceEdge){
+'			AbstractConnection connectionToDevice = new 'ed.source.getClassName()'();
+			addConnection(connectionToDevice);
+			connectionToDevice.setTarget(this);\n'
+		  	}
+		  	self.ongoing->forEach(ed: map.DeviceToConnectionEdge){
+'			AbstractConnection deviceToConnection = new 'ed.target.getClassName()'();
+			addConnection(deviceToConnection);
+			deviceToConnection.setSource(this);\n'
+		  	}
+		  	
+			self.entities->forEach(e:map.Entity){
+'			addEntity(new ' + e.getClassName() + '());\n'
+			}
+'		}
+	}'
+  }
+
+  map.Entity::getClassName():String{
+    result=self.getEntityContext().getClassName();      
+  }
+
+  map.Entity::getPackageName():String{
+    result=self.getEntityContext().getPackageName();      
+  }
+
+  map.Entity::getEntityContext():ecmm.EntityContext{
+	ecmm.objectsOfType(ecmm.EntityContext)
+		->forEach(e:ecmm.EntityContext){		  	
+		  	if(self.name.trim()=e.entity.trim()){result=e;}
+		 }		 
+  }
+  
+  map.Device::getBaseName():String{result=self.name.replace("-","").replace("_","").firstToUpper();}
+  map.Device::getClassName():String{result=self.getBaseName()+"Device";}
+  map.Device::getPackageName():String{result=appPackage+".devices";}
+  map.Device::getFileName():String{result=appPath+"devices/"+self.getClassName()+".java";}
+ 
+ 
+  ecmm.EntityContext::getBaseName():String {result=self.entity.replace("-","").replace("_","").firstToUpper();}
+  ecmm.EntityContext::getClassName():String {
+    result=self.getBaseName()+"Entity";
+  }
+  ecmm.EntityContext::getPackageName():String {
+    result=appPackage+".entities";  
+  }
+ 
+  ecmm.EntityContext::mapEntityClass() {
+	file entityFile(self.getFileName());      
+'	package 'self.getPackageName()';
+
+	import framework.entities.AbstractEntity;
+	import framework.entities.AbstractSituation;
+	import framework.entities.conditions.MemoryContextCondition;
+	import framework.entities.conditions.SensingCondition;
+	import framework.entities.ContextAction;
+'
+	self.state->forEach(m:ecmm.ContextMemory){
+	  m.importMemory();			
+	}
+'	
+	public class 'self.getClassName()' extends AbstractEntity {
+		
+		private 'self.getClassName()'Core core;\n\n'
+		
+		self.state->forEach(m:ecmm.ContextMemory){
+			m.addMemoryField();			
+		}
+		
+'\n		public 'self.getClassName()'(){\n'
+
+		self.state->forEach(m:ecmm.ContextMemory){
+			m.createMemory();			
+		}
+
+    	self.situations->forEach(s:ecmm.ContextSituation){
+			s.addSituation();
+		}
+'\n			setCore(new 'self.getClassName()'Core());\n' 
+'		}
+
+'    
+    	self.situations->forEach(s:ecmm.ContextSituation){
+			s.mapSituationClasses();
+		}
+'\n'
+		self.mapEntityCoreClass();
+		     
+    '}';
+  }
+  
+  ecmm.ContextSituation::mapSituationClasses(){
+'		private class 'self.getClassName()' extends AbstractSituation{\n
+			public 'self.getClassName()'(){\n'
+			  self.sensingConditions->forEach(sc:ecmm.SensingContextCondition){
+			  	sc.addSensor();
+			  }			  
+			  self.memoryConditions->forEach(mc:ecmm.MemoryContextCondition){
+			  	mc.addCondition();
+			  }
+			  self.actions->forEach(a:ecmm.ContextAction){
+			  	a.addAction();
+			  }
+'			}
+		}\n'; 
+  }
+
+  ecmm.EntityContext::mapEntityCoreClass(){
+'		private class 'self.getClassName()'Core {\n
+			public 'self.getClassName()'Core(){\n'
+'			}\n'
+		  self.situations->forEach(s:ecmm.ContextSituation){
+'			public void on's.getClassName().firstToUpper()'(){}\n'			  	
+		  }
+'		}\n'; 
+  }
+
+  ecmm.ContextSituation::addSituation(){
+'			addSituation(new 'self.getClassName()'());\n';
+  }
+
+  ecmm.ContextSituation::getClassName():String{
+    var answer:String = self.name.firstToUpper().replace("-","").replace("_","");    
+  	result=answer+"Situation";
+  }
+
+  ecmm.HolderMemory::getAttributeName():String{
+  	var name:String=self.name.replace("-","").replace("_","");  	
+  	result=name.subStringBefore(".").firstToLower()+name.subStringAfter(".").firstToUpper();
+  }
+
+  ecmm.TimeMemory::getAttributeName():String{
+  	var name:String=self.name.replace("-","").replace("_","");  	
+  	result=name.subStringBefore(".").firstToLower()+name.subStringAfter(".").firstToUpper();
+  }
+
+  ecmm.DictionaryMemory::getAttributeName():String{
+  	var name:String=self.name.replace("-","").replace("_","");  	
+  	result=name.subStringBefore(".").firstToLower()+name.subStringAfter(".").firstToUpper();
+  }
+  
+  ecmm.LogicMemory::getAttributeName():String{
+  	var name:String=self.name.replace("-","").replace("_","");  	
+  	result=name.subStringBefore(".").firstToLower()+name.subStringAfter(".").firstToUpper();
+  }
+
+  ecmm.StackMemory::getAttributeName():String{
+  	var name:String=self.name.replace("-","").replace("_","");  	
+  	result=name.subStringBefore(".").firstToLower()+name.subStringAfter(".").firstToUpper();
+  }
+
+
+  
+  ecmm.HolderMemory::addMemoryField(){
+'		private HolderMemory 'self.getAttributeName()';\n'  
+  }
+
+  ecmm.TimeMemory::addMemoryField(){
+'		private TimeMemory 'self.getAttributeName()';\n'  
+  }
+
+  ecmm.DictionaryMemory::addMemoryField(){
+'		private DictionaryMemory 'self.getAttributeName()';\n'  
+  }
+
+  ecmm.LogicMemory::addMemoryField(){
+'		private LogicMemory 'self.getAttributeName()';\n'  
+  }
+
+  ecmm.StackMemory::addMemoryField(){
+'		private StackMemory 'self.getAttributeName()';\n'  
+  }
+
+  ecmm.HolderMemory::createMemory(){
+'			'self.getAttributeName()'= new HolderMemory();\n'  
+  }
+
+  ecmm.TimeMemory::createMemory(){
+'			'self.getAttributeName()'= new TimeMemory();\n'  
+  }
+
+  ecmm.DictionaryMemory::createMemory(){
+'			'self.getAttributeName()'=new DictionaryMemory();\n'  
+  }
+
+  ecmm.LogicMemory::createMemory(){    
+'			'self.getAttributeName()'= new LogicMemory();\n'  
+  }
+
+  ecmm.StackMemory::createMemory(){
+'			'self.getAttributeName()'= new StackMemory();\n'  
+  }
+  
+  ecmm.HolderMemory::importMemory(){
+'	import framework.entities.memories.HolderMemory;\n'    
+  }
+
+  ecmm.TimeMemory::importMemory(){
+'	import framework.entities.memories.TimeMemory;\n' 
+  }
+
+  ecmm.DictionaryMemory::importMemory(){
+'	import framework.entities.memories.DictionaryMemory;\n'  
+  }
+
+  ecmm.LogicMemory::importMemory(){    
+'	import framework.entities.memories.LogicMemory;\n'  
+  }
+
+  ecmm.StackMemory::importMemory(){
+'	import framework.entities.memories.StackMemory;\n' 
+  }  
+  
+  ecmm.MemoryContextCondition::addCondition(){
+'				addMemoryCondition(new MemoryContextCondition(this,"'self.contextMemory.getAttributeName()'","'self.expression'"));\n'  	
+  }
+
+  ecmm.ContextAction::addAction(){
+'				addAction(new ContextAction("'self.memory.getAttributeName()'","'self.expression'"));\n'  
+  }
+
+  ecmm.SensingContextCondition::addSensor(){
+'				addSensingCondition(new SensingCondition("'self.informationflow'"));\n'  
+  }
+    
+}

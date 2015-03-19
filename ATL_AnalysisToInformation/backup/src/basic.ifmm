@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ifmm:SystemInformaitonFlow xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ifmm="ifmm">
+  <entities id="1" name="A" ongoingInformationFlows="//@edges.0"/>
+  <entities id="2" name="B" incomingInformationFlows="//@edges.1"/>
+  <informationFlows xsi:type="ifmm:PointToPointInformationFlow" id="3" name="f" source="//@edges.0" target="//@edges.1">
+    <outputData definition="x"/>
+    <inputData definition="y"/>
+  </informationFlows>
+  <edges xsi:type="ifmm:EntityToPointToPointInformationFlowEdge" source="1" target="3"/>
+  <edges xsi:type="ifmm:PointToPointInformationFlowToEntityEdge" target="2" source="3"/>
+</ifmm:SystemInformaitonFlow>

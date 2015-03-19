@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<ecmm:SystemContext xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecmm="ecmm" name="somm-diagram">
+  <entities entity="Printer" id="0">
+    <situations name="Print" id="13">
+      <actions memory="10" expression="PDA(click, print),*"/>
+      <memoryConditions id="15" expression="PDA,Printer" contextMemory="8"/>
+      <memoryConditions id="16" expression="PDA(release, print), PDA(acEvent, action)*, PDA(enter, aPrintingZone),*,aPrinter(in, aPrinterZone),*" contextMemory="10"/>
+      <memoryConditions id="17" expression="not Printer.printing" contextMemory="12"/>
+    </situations>
+    <situations name="Cancel" id="21">
+      <actions memory="10" expression="PDA(click,cancel),*"/>
+      <memoryConditions id="23" expression="PDA,Printer" contextMemory="8"/>
+      <memoryConditions id="24" expression="PDA(release,cancel),*" contextMemory="10"/>
+      <memoryConditions id="25" expression="(Printer.printing)" contextMemory="12"/>
+    </situations>
+    <state xsi:type="ecmm:HolderMemory" name="roleMemory" id="8"/>
+    <state xsi:type="ecmm:StackMemory" name="spaceMemory" id="10"/>
+    <state xsi:type="ecmm:LogicMemory" name="logicMemory" id="12"/>
+    <variables id="1"/>
+    <variables name="document" id="2"/>
+    <variables name="cancel" id="3"/>
+  </entities>
+  <entities entity="PDA" id="4">
+    <situations name="Print" id="14">
+      <actions memory="9" expression="PDA(click, print),*"/>
+      <memoryConditions id="18" expression="PDA,Printer" contextMemory="7"/>
+      <memoryConditions id="19" expression="PDA(release, print), PDA(acEvent, action)*, PDA(enter, aPrintingZone),*,aPrinter(in, aPrinterZone),*" contextMemory="9"/>
+      <memoryConditions id="20" expression="not Printer.printing" contextMemory="11"/>
+    </situations>
+    <situations name="Cancel" id="22">
+      <actions memory="9" expression="PDA(click,cancel),*"/>
+      <memoryConditions id="26" expression="PDA,Printer" contextMemory="7"/>
+      <memoryConditions id="27" expression="PDA(release,cancel),*" contextMemory="9"/>
+      <memoryConditions id="28" expression="(Printer.printing)" contextMemory="11"/>
+    </situations>
+    <state xsi:type="ecmm:HolderMemory" name="roleMemory" id="7"/>
+    <state xsi:type="ecmm:StackMemory" name="spaceMemory" id="9"/>
+    <state xsi:type="ecmm:LogicMemory" name="logicMemory" id="11"/>
+    <variables name="document" id="5"/>
+    <variables name="cancel" id="6"/>
+  </entities>
+</ecmm:SystemContext>

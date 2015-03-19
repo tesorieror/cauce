@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<deployment:DevelopmentEnvironment xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:deployment="deployment" name="LightController">
+  <mediums type="WiFi" technology="802.11" version="G"/>
+  <mediums type="Bluetooth" technology="Class 2" version="2.1"/>
+  <protocols name="SOAP" version="1.2"/>
+  <protocols name="WSDL" version="1.1"/>
+  <languages name="Java" version="5" profile="EE" revision="0"/>
+  <languages name="CSharp" version="3" profile="Compact Framework" revision="0"/>
+  <os name="Linux RedHat" version="9" revision="0"/>
+  <os name="Windows Embebbed" version="5" revision="0"/>
+  <os name="Windows Mobile PC" version="6.1" revision="0"/>
+  <connections name="PDA2BlindManager" id="3" ongoing="//@edges.1" incoming="//@edges.0">
+    <platforms name="SOAPonBluetooth" id="14" protocol="1.2" medium="//@mediums.1"/>
+    <platforms name="WSDLonBluetooth" id="15" protocol="1.1" medium="//@mediums.1"/>
+    <information name="SetLightIntensity"/>
+  </connections>
+  <connections name="BlindManager2Blind" id="8" ongoing="//@edges.3" incoming="//@edges.2">
+    <platforms name="SOAPonWiFi" id="18" protocol="1.2" medium="//@mediums.0"/>
+    <platforms name="WSDLonWiFi" id="19" protocol="1.1" medium="//@mediums.0"/>
+    <information name="SetLightIntensity2"/>
+  </connections>
+  <connections name="Blind2LightSensor" id="10" ongoing="//@edges.5" incoming="//@edges.4">
+    <platforms name="SOAPonWiFi" id="16" protocol="1.2" medium="//@mediums.0"/>
+    <platforms name="WSDLonWiFi" id="17" protocol="1.1" medium="//@mediums.0"/>
+    <information name="GetLightIntensity"/>
+  </connections>
+  <devices name="PDA" id="1" ongoing="//@edges.0">
+    <platforms name="CSharpForWindowsMobile" id="11" language="//@languages.1" os="//@os.2"/>
+    <entities name="PDA"/>
+    <entities name="SetButton"/>
+    <entities name="PDAControl"/>
+    <entities name="LightIntensityEntry"/>
+    <entities name="LocationManager"/>
+    <entities name="GPS"/>
+  </devices>
+  <devices name="Blind" id="5" ongoing="//@edges.4" incoming="//@edges.3">
+    <platforms name="CShaptForWindowsEmbbebbed" id="13" language="//@languages.1" os="//@os.1"/>
+    <entities name="Blind"/>
+  </devices>
+  <devices name="LightSensor" id="6" incoming="//@edges.5">
+    <platforms name="Device platform" id="20" language="//@languages.1" os="//@os.1"/>
+    <entities name="LightSensor"/>
+  </devices>
+  <devices name="BlindManager" id="7" ongoing="//@edges.2" incoming="//@edges.1">
+    <platforms name="JavaEEForLinux" id="12" language="//@languages.0" os="//@os.0"/>
+    <entities name="BlindManager"/>
+  </devices>
+  <edges xsi:type="deployment:DeviceToConnectionEdge" source="1" target="3"/>
+  <edges xsi:type="deployment:ConnectionToDeviceEdge" source="3" target="7"/>
+  <edges xsi:type="deployment:DeviceToConnectionEdge" source="7" target="8"/>
+  <edges xsi:type="deployment:ConnectionToDeviceEdge" source="8" target="5"/>
+  <edges xsi:type="deployment:DeviceToConnectionEdge" source="5" target="10"/>
+  <edges xsi:type="deployment:ConnectionToDeviceEdge" source="10" target="6"/>
+</deployment:DevelopmentEnvironment>

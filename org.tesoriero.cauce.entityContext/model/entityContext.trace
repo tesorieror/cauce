@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<trace:TraceModel
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:trace="http://www.eclipse.org/gmf/2006/Trace">
+  <nodeTraces
+      visualID="2001"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://tesoriero.org/cauce/entityContext/1.0' and _eClass_.name = 'EntityContext') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://tesoriero.org/cauce/entityContext/1.0' and _eClass_.name = 'SystemContext') and _containmentMF_.name = 'entities')">
+    <nodeLabelTraces
+        visualID="5019"
+        queryText="true"/>
+    <nodeLabelTraces
+        visualID="5020"
+        queryText="true"/>
+    <compartmentTraces
+        visualID="7001"
+        queryText="true"/>
+    <compartmentTraces
+        visualID="7002"
+        queryText="true"/>
+    <compartmentTraces
+        visualID="7003"
+        queryText="true"/>
+  </nodeTraces>
+  <childNodeTraces
+      visualID="3001"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://tesoriero.org/cauce/entityContext/1.0' and _eClass_.name = 'HolderMemory') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://tesoriero.org/cauce/entityContext/1.0' and _eClass_.name = 'EntityContext') and _containmentMF_.name = 'state')">
+    <nodeLabelTraces
+        visualID="5001"
+        queryText="true"/>
+    <nodeLabelTraces
+        visualID="5002"
+        queryText="true"/>
+  </childNodeTraces>
+  <childNodeTraces
+      visualID="3002"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://tesoriero.org/cauce/entityContext/1.0' and _eClass_.name = 'LogicMemory') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://tesoriero.org/cauce/entityContext/1.0' and _eClass_.name = 'EntityContext') and _containmentMF_.name = 'state')">
+    <nodeLabelTraces
+        visualID="5003"
+        queryText="true"/>
+    <nodeLabelTraces
+        visualID="5004"
+        queryText="true"/>
+  </childNodeTraces>
+  <childNodeTraces
+      visualID="3003"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://tesoriero.org/cauce/entityContext/1.0' and _eClass_.name = 'TimeMemory') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://tesoriero.org/cauce/entityContext/1.0' and _eClass_.name = 'EntityContext') and _containmentMF_.name = 'state')">
+    <nodeLabelTraces
+        visualID="5005"
+        queryText="true"/>
+    <nodeLabelTraces
+        visualID="5006"
+        queryText="true"/>
+  </childNodeTraces>
+  <childNodeTraces
+      visualID="3004"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://tesoriero.org/cauce/entityContext/1.0' and _eClass_.name = 'StackMemory') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://tesoriero.org/cauce/entityContext/1.0' and _eClass_.name = 'EntityContext') and _containmentMF_.name = 'state')">
+    <nodeLabelTraces
+        visualID="5007"
+        queryText="true"/>
+    <nodeLabelTraces
+        visualID="5008"
+        queryText="true"/>
+  </childNodeTraces>
+  <childNodeTraces
+      visualID="3005"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://tesoriero.org/cauce/entityContext/1.0' and _eClass_.name = 'DictionaryMemory') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://tesoriero.org/cauce/entityContext/1.0' and _eClass_.name = 'EntityContext') and _containmentMF_.name = 'state')">
+    <nodeLabelTraces
+        visualID="5009"
+        queryText="true"/>
+    <nodeLabelTraces
+        visualID="5010"
+        queryText="true"/>
+  </childNodeTraces>
+  <childNodeTraces
+      visualID="3006"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://tesoriero.org/cauce/entityContext/1.0' and _eClass_.name = 'ContextSituation') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://tesoriero.org/cauce/entityContext/1.0' and _eClass_.name = 'EntityContext') and _containmentMF_.name = 'situations')">
+    <nodeLabelTraces
+        visualID="5016"
+        queryText="true"/>
+    <nodeLabelTraces
+        visualID="5017"
+        queryText="true"/>
+    <compartmentTraces
+        visualID="7004"
+        queryText="true"/>
+    <compartmentTraces
+        visualID="7005"
+        queryText="true"/>
+    <compartmentTraces
+        visualID="7006"
+        queryText="true"/>
+  </childNodeTraces>
+  <childNodeTraces
+      visualID="3007"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://tesoriero.org/cauce/entityContext/1.0' and _eClass_.name = 'MemoryContextCondition') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://tesoriero.org/cauce/entityContext/1.0' and _eClass_.name = 'ContextSituation') and _containmentMF_.name = 'memoryConditions')">
+    <nodeLabelTraces
+        visualID="5011"
+        queryText="true"/>
+    <nodeLabelTraces
+        visualID="5012"
+        queryText="true"/>
+  </childNodeTraces>
+  <childNodeTraces
+      visualID="3008"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://tesoriero.org/cauce/entityContext/1.0' and _eClass_.name = 'SensingContextCondition') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://tesoriero.org/cauce/entityContext/1.0' and _eClass_.name = 'ContextSituation') and _containmentMF_.name = 'sensingConditions')">
+    <nodeLabelTraces
+        visualID="5013"
+        queryText="true"/>
+  </childNodeTraces>
+  <childNodeTraces
+      visualID="3009"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://tesoriero.org/cauce/entityContext/1.0' and _eClass_.name = 'ContextAction') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://tesoriero.org/cauce/entityContext/1.0' and _eClass_.name = 'ContextSituation') and _containmentMF_.name = 'actions')">
+    <nodeLabelTraces
+        visualID="5014"
+        queryText="true"/>
+    <nodeLabelTraces
+        visualID="5015"
+        queryText="true"/>
+  </childNodeTraces>
+  <childNodeTraces
+      visualID="3010"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://tesoriero.org/cauce/entityContext/1.0' and _eClass_.name = 'VariableDataDefinition') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://tesoriero.org/cauce/entityContext/1.0' and _eClass_.name = 'EntityContext') and _containmentMF_.name = 'variables')">
+    <nodeLabelTraces
+        visualID="5018"
+        queryText="true"/>
+  </childNodeTraces>
+</trace:TraceModel>

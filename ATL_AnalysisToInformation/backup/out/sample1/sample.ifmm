@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<ifmm:SystemInformaitonFlow xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ifmm="ifmm" name="somm-diagram">
+  <entities id="1" name="A" ongoingInformationFlows="//@edges.0 //@edges.5 //@edges.8" incomingInformationFlows="//@edges.3 //@edges.6 //@edges.11"/>
+  <entities id="2" name="B" ongoingInformationFlows="//@edges.1 //@edges.4 //@edges.10" incomingInformationFlows="//@edges.2 //@edges.7 //@edges.9"/>
+  <entities id="3" name="D"/>
+  <informationFlows xsi:type="ifmm:BroadcastInformationFlow" id="4" name="A_to_B-AtoB" source="//@edges.0" target="//@edges.2">
+    <data definition="x"/>
+  </informationFlows>
+  <informationFlows xsi:type="ifmm:BroadcastInformationFlow" id="5" name="B_to_A-AtoB" source="//@edges.1" target="//@edges.3">
+    <data definition="y"/>
+  </informationFlows>
+  <informationFlows xsi:type="ifmm:PointToPointInformationFlow" id="6" name="B_to_A-anA2aB" source="//@edges.4" target="//@edges.6">
+    <outputData definition="w"/>
+  </informationFlows>
+  <informationFlows xsi:type="ifmm:PointToPointInformationFlow" id="7" name="A_to_B-anA2aB" source="//@edges.5" target="//@edges.7">
+    <outputData definition="z"/>
+  </informationFlows>
+  <informationFlows xsi:type="ifmm:BroadcastInformationFlow" id="8" name="A_to_B-Mix" source="//@edges.8" target="//@edges.9">
+    <data definition="m"/>
+  </informationFlows>
+  <informationFlows xsi:type="ifmm:PointToPointInformationFlow" id="9" name="B_to_A-Mix" source="//@edges.10" target="//@edges.11">
+    <outputData definition="n"/>
+  </informationFlows>
+  <edges xsi:type="ifmm:EntityToBroadcastInformationFlowEdge" source="1" target="4"/>
+  <edges xsi:type="ifmm:EntityToBroadcastInformationFlowEdge" source="2" target="5"/>
+  <edges xsi:type="ifmm:BroadcastInformationFlowToEntityEdge" target="2" source="4"/>
+  <edges xsi:type="ifmm:BroadcastInformationFlowToEntityEdge" target="1" source="5"/>
+  <edges xsi:type="ifmm:EntityToPointToPointInformationFlowEdge" source="2" target="6"/>
+  <edges xsi:type="ifmm:EntityToPointToPointInformationFlowEdge" source="1" target="7"/>
+  <edges xsi:type="ifmm:PointToPointInformationFlowToEntityEdge" target="1" source="6"/>
+  <edges xsi:type="ifmm:PointToPointInformationFlowToEntityEdge" target="2" source="7"/>
+  <edges xsi:type="ifmm:EntityToBroadcastInformationFlowEdge" source="1" target="8"/>
+  <edges xsi:type="ifmm:BroadcastInformationFlowToEntityEdge" target="2" source="8"/>
+  <edges xsi:type="ifmm:EntityToPointToPointInformationFlowEdge" source="2" target="9"/>
+  <edges xsi:type="ifmm:PointToPointInformationFlowToEntityEdge" target="1" source="9"/>
+</ifmm:SystemInformaitonFlow>

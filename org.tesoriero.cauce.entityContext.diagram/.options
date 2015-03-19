@@ -1,0 +1,7 @@
+# Tracing options for the org.tesoriero.cauce.entityContext.diagram plug-in
+
+# Common issues
+org.tesoriero.cauce.entityContext.diagram/debug=false
+
+# Visual IDs
+org.tesoriero.cauce.entityContext.diagram/debug/visualID=false

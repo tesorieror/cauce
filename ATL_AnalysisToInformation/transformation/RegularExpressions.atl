@@ -1,0 +1,12 @@
+library RegularExpressions; -- Library Template
+
+helper context String def:isAbstractEvent():Boolean=
+	'ABCDEFGHIJKLMNOPQRSTUVWXYZ'->indexOf(self->substring(1,1))>=0;
+
+helper def:turnExpressionElementsIntoEvents(elements:Sequence(String)):Set(TupleType(entity:String, event:String, space:String))=
+	if(elements->size()=0) then Set{}
+	else thisModule->turnExpressionElementsIntoEvents(elements->subSequence(4,elements->size()))->including(Tuple{entity=elements->at(1), event=elements->at(2), space=elements->at(3)})endif;
+
+helper context String def: getSocialExpressionEntities():Set(SoMetamodel!Role)=
+	self->split('[,+()]')->collect(s | s.trim().getRoleListFromSocialInstance())->flatten()
+		->collect(e| e.getEntities())->flatten()->asSet();

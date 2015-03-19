@@ -1,0 +1,260 @@
+library TaskModelLibrary; -- Library Template
+
+uses RegularExpressions;
+uses SocialModelLibrary;
+uses SpaceModelLibrary;
+
+helper context String def:getSimpleTask():TaMetamodel!SimpleTask=
+	TaMetamodel!SimpleTask.allInstances()->any(st | st.name=self);
+
+
+--helper def: addSpaceVariablesTo(spaceExpression:String, varaibleMap:Map(String, Set(String))):Map(String, Set(String))=
+--	if(spaceExpression.oclIsUndefined())then varaibleMap else
+--		let spaceVaraibles: Map(String, Set(String)) = spaceExpression->clean()->getVaraiblesFromSpaceExpression() in
+--			spaceVaraibles->getKeys()->iterate(si; answer: Map(String, Set(String))= varaibleMap | 
+--				if(answer->getKeys()->includes(si))then
+--					answer->including(si, answer.get(si).union(spaceVaraibles->get(si)))
+--				else
+--					answer->including(si, spaceVaraibles->get(si))
+--				endif
+--			)
+--		endif;
+
+
+helper context TaMetamodel!SimpleTask def: getSpaceInformationFlows():
+	Set(TupleType(name:String, fromRole:String, toRole:String, vars:Set(String)))=
+	let spaceExpression:String = 
+		if (self.incoming.source.spaceExpression.oclIsUndefined()) then '' else self.incoming.source.spaceExpression endif + '+' + 
+		if (self.ongoing.target.spaceExpression.oclIsUndefined()) then '' else self.ongoing.target.spaceExpression endif in		
+		let vfse: Set(TupleType(event:String, si:String, space:String)) = spaceExpression->clean()->getVaraiblesFromSpaceExpression() in
+			let sis: Set(String) = vfse->collect(t| t.si) in
+				vfse->iterate(t; answer:Set(TupleType(name:String, fromRole:String, toRole:String, vars:Set(String)))=Set{}|
+					answer->union(sis->excluding(t.si)->collect(si | Tuple{name=t.event, fromRole=t.si, toRole=si, vars=Set{t.space}})))
+					-- remove repetitions (per / post)
+					->iterate(flow; answer:Set(TupleType(name:String, fromRole:String, toRole:String, vars:Set(String)))=Set{}|
+						if(answer->forAll(x | not( 
+							x.fromRole=flow.fromRole 
+							and x.toRole=flow.ToRole 
+							and x.name = flow.name
+							and x.vars->size()=flow.vars->size()
+							and x.vars->intersection(flow.vars)->size()=x.vars->size()))) then answer->including(flow)							
+						else answer
+						endif
+					);
+		
+
+helper context TaMetamodel!SimpleTask def: getDataInformationFlows():
+	Set(TupleType(name:String, fromRole:String, toRole:String, vars:Set(String)))=	
+	let preCondMap : Map(String, Set(String)) =		
+		if(self.incoming.source.dataExpression.oclIsUndefined()) then 
+			Map{} 
+		else
+			thisModule->getVaraibleMapFromExpression(self.incoming.source.dataExpression->normalize())					
+		endif
+		in
+	let postCondMap : Map(String, Set(String)) =		
+		if(self.ongoing.target.dataExpression.oclIsUndefined()) then 
+			Map{} 
+		else
+			thisModule->getVaraibleMapFromExpression(self.ongoing.target.dataExpression->normalize()) 
+		endif in
+	preCondMap->getKeys()->collect(preKey |		
+		postCondMap->getKeys()->collect(postKey |
+			Tuple{	
+			fromRole=preKey,		
+			toRole=postKey,
+			vars=preCondMap->get(preKey)->select(v| postCondMap->get(postKey)->includes(v))}
+	))->flatten()->select(t | t.fromRole<>t.toRole);
+
+helper context TaMetamodel!SimpleTask def: getBasicInformationFlows():
+	Set(TupleType(name:String, fromRole:String, toRole:String, vars:Set(String)))=	
+--	self->getDataInformationFlows()->union(self->getSpaceInformationFlows());			
+	self->getDataInformationFlows();
+			
+			
+helper def: specializeInformationFlows(flows : Set(TupleType(name:String, fromRole:String, toRole:String, vars:Set(String)))):
+	Set(TupleType(name:String, fromRole:String, toRole:String, vars:Set(String)))=
+	flows
+	->collect(flow|	flow.fromRole.getRootRoles()->collect(r |Tuple{name=flow.name, fromRole=r, toRole=flow.toRole, vars=flow.vars}))->flatten()
+	->collect(flow|	flow.toRole.getRootRoles()->collect(r |Tuple{name=flow.name, fromRole=flow.fromRole, toRole=r, vars=flow.vars}))->flatten();
+		
+helper context TaMetamodel!SimpleTask def: getBroadcastInformationFlows():		
+	Set(TupleType(name:String, fromRole:String, toRole:String, vars:Set(String)))=
+	thisModule->specializeInformationFlows(
+	self.getBasicInformationFlows() 
+		->select(f | f.toRole.isRole())
+	->collect(t|
+		t.fromRole.getRoleListFromSocialInstance()->collect(fromR |
+			t.toRole.getRoleListFromSocialInstance()->collect(toR |
+				Tuple{name=t.name, fromRole=fromR, toRole=toR, vars=t.vars}			
+			)	
+		)->flatten()			
+	)->flatten());
+
+
+helper context TaMetamodel!SimpleTask def: getBroadcastInformationFlowVariables():Set(String)=
+	self.getBroadcastInformationFlows()->collect(f | f.vars)->flatten();
+
+helper context TaMetamodel!SimpleTask def: getPointToPointInformationFlows():		
+	Set(TupleType(fromRole:String, toRole:String, vars:Set(String)))=
+	thisModule->specializeInformationFlows(
+	self.getBasicInformationFlows()->select(f | not f.toRole.isRole())
+	->collect(t|
+		t.fromRole.getRoleListFromSocialInstance()->collect(fromR |
+			t.toRole.getRoleListFromSocialInstance()->collect(toR |
+				Tuple{fromRole=fromR, toRole=toR, vars=t.vars}			
+			)	
+		)->flatten()			
+	)->flatten());
+
+helper context TaMetamodel!SimpleTask def: getPointToPointInformationFlowVariables():Set(String)=
+	self.getPointToPointInformationFlows()->collect(f | f.vars)->flatten();
+
+helper context String def: turnSocialConditionIntoEntities():Set(String)=
+	self->split('[,+()]')->collect(s | s.trim().getRoleListFromSocialInstance())->flatten()->collect(e| e.getRootRoles())->flatten()->asSet();
+
+--helper context TaMetamodel!PreCondition def: getEntities():Set(String)=
+--	self.socialExpression->turnSocialConditionIntoEntities();
+
+helper context TaMetamodel!SimpleTask def: getSituations():
+	Set(TupleType(entity:String, name:String))=
+	self.incoming.source.socialExpression->turnSocialConditionIntoEntities()->collect(ent |		
+		Tuple{entity=ent, name=self.name}		
+	);
+
+--helper context TaMetamodel!SimpleTask def: getMemoryConditions():Set(TupleType(entity:String, condition:String, memory:String)) =	
+--	self.incoming.source.socialExpression->turnSocialConditionIntoEntities()->collect(ent |
+--		self->addLogicConditionTo(self->addSpaceConditionTo(self->addTaskConditionTo(self->addSocialConditionTo(Set{}))))
+--			->collect(c | Tuple{entity=ent, memory=c.memory, condition=c.condition}))->flatten()->select(c| c.condition.trim().size()>0);
+
+helper context TaMetamodel!SimpleTask def: getMemoryConditions():Set(TupleType(entity:String, condition:String, memory:String)) =	
+	self.incoming.source.socialExpression->turnSocialConditionIntoEntities()->collect(ent |
+		self->addLogicConditionTo(self->addSpaceConditionTo(self->addTaskConditionTo(self->addSocialConditionTo(Set{}))))
+			->collect(c | Tuple{entity=ent, memory=c.memory, condition=c.condition}))->flatten()->select(c| c.condition.trim().size()>0);
+
+helper context TaMetamodel!SystemTask def: addSocialConditionTo(conditions: Set(TupleType(condition:String, memory:String))):Set(TupleType(condition:String, memory:String)) =	
+	if (not self.incoming.source.socialExpression.oclIsUndefined()) then 
+		 conditions->including(Tuple{memory='social', condition=self.incoming.source.socialExpression})->select(c| c.condition.trim().size()>0) else  conditions endif;
+	
+helper context TaMetamodel!SystemTask def: addTaskConditionTo(conditions: Set(TupleType(condition:String, memory:String))):Set(TupleType(condition:String, memory:String)) =	
+	if (not self.incoming.source.taskExpression.oclIsUndefined()) then 
+		 conditions->including(Tuple{memory='task', condition=self.incoming.source.taskExpression})->select(c| c.condition.trim().size()>0) else  conditions endif;
+
+helper context TaMetamodel!SystemTask def: addSpaceConditionTo(conditions: Set(TupleType(condition:String, memory:String))):Set(TupleType(condition:String, memory:String)) =	
+	if (not self.incoming.source.spaceExpression.oclIsUndefined()) then 
+		 conditions->including(Tuple{memory='space', condition=self.incoming.source.spaceExpression})->select(c| c.condition.trim().size()>0) else  conditions endif;
+
+helper context TaMetamodel!SystemTask def: addLogicConditionTo(conditions: Set(TupleType(condition:String, memory:String))):Set(TupleType(condition:String, memory:String)) =	
+	if (not self.incoming.source.logicExpression.oclIsUndefined()) then 
+		 conditions->including(Tuple{memory='logic', condition=self.incoming.source.logicExpression})->select(c| c.condition.trim().size()>0) else  conditions endif;
+
+helper context TaMetamodel!SimpleTask def: getMemoryActions():Set(TupleType(entity:String, action:String, memory:String)) =	
+	self.ongoing.target.socialExpression->turnSocialConditionIntoEntities()->collect(ent |
+		self->addSpaceActionsTo(self->addTaskActionsTo(self->addSocialActionsTo(Set{})))
+			->collect(c | Tuple{entity=ent, memory=c.memory, action=c.action}))->flatten()->select(c| c.action.trim().size()>0)
+	->union(self->getDataActions())	
+	->collect(t | t.entity->getRootRoles()->collect(r | Tuple{entity=r, memory=t.memory, action=t.action} ))->flatten();
+
+helper context TaMetamodel!SystemTask def: addSpaceActionsTo(actions: Set(TupleType(action:String, memory:String))):Set(TupleType(action:String, memory:String)) =	
+	if (not self.ongoing.target.spaceExpression.oclIsUndefined()) then 
+		 actions->including(Tuple{memory='space', action=self.ongoing.target.spaceExpression})->select(c| c.action.trim().size()>0) else  actions endif;
+	
+helper context TaMetamodel!SystemTask def: addTaskActionsTo(actions: Set(TupleType(action:String, memory:String))):Set(TupleType(action:String, memory:String)) =	
+	if (not self.ongoing.target.taskExpression.oclIsUndefined()) then 
+		 actions->including(Tuple{memory='task', action=self.ongoing.target.taskExpression})->select(c| c.action.trim().size()>0) else  actions endif;
+
+helper context TaMetamodel!SystemTask def: addLogicActionsTo(actions: Set(TupleType(action:String, memory:String))):Set(TupleType(action:String, memory:String)) =	
+	if (not self.ongoing.target.logicExpression.oclIsUndefined()) then 
+		 actions->including(Tuple{memory='logic', action=self.ongoing.target.logicExpression})->select(c| c.action.trim().size()>0) else  actions endif;
+
+helper context TaMetamodel!SystemTask def: addDataActionsTo(actions: Set(TupleType(action:String, memory:String))):Set(TupleType(action:String, memory:String)) =	
+	if (not self.ongoing.target.logicExpression.oclIsUndefined()) then 
+		 actions->including(Tuple{memory='data', action=self.ongoing.target.dataExpression})->select(c| c.action.trim().size()>0) else  actions endif;
+
+
+
+helper context TaMetamodel!SystemTask def: getDataActions():Set(TupleType(entity:String, action:String, memory:String)) =	
+	let de:Map(String, Set(String)) = if (not self.ongoing.target.dataExpression.oclIsUndefined()) then thisModule->getVaraibleMapFromExpression(self.ongoing.target.dataExpression) else Map{} endif in
+		de.getKeys()->iterate(k; answer:Set(TupleType(entity:String, action:String, memory:String))=Set{} |
+			de.get(k)->iterate(v; answer2:Set(TupleType(entity:String, action:String, memory:String))=Set{}| 
+				answer2->including(Tuple{entity=k, memory='data', action=v}))			
+		)->flatten()
+			->collect(t | t.entity->getRoleListFromSocialInstance()
+				->collect(r | Tuple{entity=r, memory=t.memory, action=t.action})
+			)->flatten();
+
+helper context TaMetamodel!SystemTask def: addSocialActionsTo(actions: Set(TupleType(action:String, memory:String))):Set(TupleType(action:String, memory:String)) =	
+	actions;
+--	if (not self.ongoing.target.socialExpression.oclIsUndefined()) then 
+--		actions->including(Tuple{memory='social', action=self.ongoing.target.socialExpression})->select(c| c.action.trim().size()>0) else  actions endif;
+
+
+helper def: getSocialMemories():Set(String)=
+	TaMetamodel!PreCondition.allInstances()->select(p| not p.socialExpression.oclIsUndefined())
+		->select(p| p.socialExpression.trim().size()>0)
+		->collect(p | p.socialExpression.turnSocialConditionIntoEntities())->flatten()->asSet();
+
+helper def: getTaskMemories():Set(String)=
+	TaMetamodel!PreCondition.allInstances()->select(p| not p.taskExpression.oclIsUndefined())
+		->select(p| p.taskExpression.trim().size()>0)
+		->collect(p | p.socialExpression.turnSocialConditionIntoEntities())->flatten()->asSet();
+
+helper def: getLogicMemories():Set(String)=
+	TaMetamodel!PreCondition.allInstances()->select(p| not p.logicExpression.oclIsUndefined())
+		->select(p| p.logicExpression.trim().size()>0)
+		->collect(p | p.socialExpression.turnSocialConditionIntoEntities())->flatten()->asSet();
+
+helper def: getSpaceMemories():Set(String)=
+	TaMetamodel!PreCondition.allInstances()->select(p| not p.spaceExpression.oclIsUndefined())
+		->select(p| p.spaceExpression.trim().size()>0)
+		->collect(p | p.socialExpression.turnSocialConditionIntoEntities())->flatten()->asSet();
+
+helper def: getDataMemories():Set(String)=
+	TaMetamodel!PostCondition.allInstances()->select(p| not p.dataExpression.oclIsUndefined())
+		->select(p| p.dataExpression.trim().size()>0)
+		->collect(p | p.socialExpression.turnSocialConditionIntoEntities())->flatten()->asSet();
+
+helper context TaMetamodel!SimpleTask  def: getSensingConditions():Set(TupleType(informationFlow:String,entity:String))=
+--	 self->getBasicInformationFlows()->collect(f | Tuple{entity=f.toRole, informationflow=f.fromRole+'_to_'+f.toRole+'-'+ self.name});
+	 self->getBasicInformationFlows()->collect(f |
+	 	f.toRole->getRoleListFromSocialInstance()->collect(r |
+	 		Tuple{entity=r, informationflow=f.fromRole+'_to_'+r+'-'+ self.name}
+	 	)
+	 )->flatten();
+
+
+
+helper def: getInitSituation():
+	Set(TupleType(entity:String, name:String))=
+	self.incoming.source.socialExpression->turnSocialConditionIntoEntities()->collect(ent |		
+		Tuple{entity=ent, name=self.name}		
+	);
+
+
+
+helper context TaMetamodel!SkipTask def: getEventConditions():Set(TupleType(entity:String, condition:String, memory:String)) =	
+	self.incoming.source.socialExpression->turnSocialConditionIntoEntities()->collect(ent |
+		self->addLogicConditionTo(self->addSpaceConditionTo(self->addTaskConditionTo(self->addSocialConditionTo(Set{}))))
+			->collect(c | Tuple{entity=ent, memory=c.memory, condition=c.condition}))->flatten()->select(c| c.condition.trim().size()>0);
+
+
+
+
+
+--helper def: getTaskMemories():Set(String)=
+--	TaMetamodel!PreCondition.allInstances()->select(p| not p.taskExpression.oclIsUndefined())
+--		->collect(p | 
+--			thisModule->getVaraibleMapFromExpression(p.taskExpression.normalize())
+--				->getKeys()->collect(k | k->getRootRoles())->flatten())->flatten()->asSet();
+--
+--helper def: getLogicMemories():Set(String)=
+--	TaMetamodel!PreCondition.allInstances()->select(p| not p.logicExpression.oclIsUndefined())
+--		->collect(p | 
+--			thisModule->getVaraibleMapFromExpression(p.logicExpression.normalize())
+--				->getKeys()->collect(k | k->getRootRoles())->flatten())->flatten()->asSet();
+--
+--helper def: getSpaceMemories():Set(String)=
+--	TaMetamodel!PreCondition.allInstances()->select(p| not p.spaceExpression.oclIsUndefined())
+--		->collect(p | 
+--			thisModule->getVaraibleMapFromExpression(p.spaceExpression.normalize())
+--				->getKeys()->collect(k | k->getRootRoles())->flatten())->flatten()->asSet();

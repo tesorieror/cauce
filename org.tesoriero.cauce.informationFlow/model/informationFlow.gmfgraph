@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gmfgraph:Canvas xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:gmfgraph="http://www.eclipse.org/gmf/2006/GraphicalDefinition" name="ifmm">
+  <figures name="Default">
+    <descriptors name="ContextAwareEntityFigure">
+      <actualFigure xsi:type="gmfgraph:Rectangle" name="ContextAwareEntityFigure">
+        <layout xsi:type="gmfgraph:FlowLayout" matchMinorSize="true" forceSingleLine="true"/>
+        <children xsi:type="gmfgraph:Label" name="ContextAwareEntityIdFigure"/>
+        <children xsi:type="gmfgraph:Label" name="ContextAwareEntityNameFigure" text="&lt;...>"/>
+      </actualFigure>
+      <accessors figure="//@figures.0/@descriptors.0/@actualFigure/@children.0"/>
+      <accessors figure="//@figures.0/@descriptors.0/@actualFigure/@children.1"/>
+    </descriptors>
+    <descriptors name="PointToPointInformationFlowFigure">
+      <actualFigure xsi:type="gmfgraph:RoundedRectangle" name="PointToPointInformationFlowRectangleFigure">
+        <layout xsi:type="gmfgraph:FlowLayout" vertical="true" matchMinorSize="true" forceSingleLine="true" majorAlignment="CENTER" minorAlignment="CENTER" majorSpacing="0" minorSpacing="0"/>
+        <children xsi:type="gmfgraph:Rectangle" name="PointToPointInformationFlowTitleFigure" xorOutline="true">
+          <layout xsi:type="gmfgraph:FlowLayout" matchMinorSize="true" forceSingleLine="true"/>
+          <children xsi:type="gmfgraph:Label" name="PointToPointInformationFlowIdFigure" text="">
+            <border xsi:type="gmfgraph:MarginBorder">
+              <insets bottom="5" right="5"/>
+            </border>
+          </children>
+          <children xsi:type="gmfgraph:Label" name="PointToPointInformationFlowNameFigure" text="&lt;...>">
+            <border xsi:type="gmfgraph:MarginBorder">
+              <insets bottom="5" right="5"/>
+            </border>
+          </children>
+        </children>
+        <children xsi:type="gmfgraph:Rectangle" name="PointToPointInformationFlowOutputDataContainerRectangleFigure" outline="false" fill="false">
+          <layout xsi:type="gmfgraph:StackLayout"/>
+        </children>
+        <children xsi:type="gmfgraph:Rectangle" name="PointToPointInformationFlowInputDataContainerRectangleFigure" outline="false" fill="false">
+          <layout xsi:type="gmfgraph:StackLayout"/>
+        </children>
+      </actualFigure>
+      <accessors figure="//@figures.0/@descriptors.1/@actualFigure/@children.2"/>
+      <accessors figure="//@figures.0/@descriptors.1/@actualFigure/@children.1"/>
+      <accessors figure="//@figures.0/@descriptors.1/@actualFigure/@children.0/@children.1"/>
+      <accessors figure="//@figures.0/@descriptors.1/@actualFigure/@children.0/@children.0"/>
+    </descriptors>
+    <descriptors name="BroadcastInformationFlowFigure">
+      <actualFigure xsi:type="gmfgraph:RoundedRectangle" name="BroadcastInformationFlowRectangleFigure" lineKind="LINE_DASH">
+        <layout xsi:type="gmfgraph:FlowLayout" vertical="true" matchMinorSize="true" forceSingleLine="true" majorAlignment="CENTER" minorAlignment="CENTER" majorSpacing="0" minorSpacing="0"/>
+        <children xsi:type="gmfgraph:Rectangle" name="BroadcastInformationFlowTitleFigure" lineKind="LINE_DASH" xorOutline="true">
+          <layout xsi:type="gmfgraph:FlowLayout" matchMinorSize="true" forceSingleLine="true"/>
+          <children xsi:type="gmfgraph:Label" name="BroadcastInformationFlowIdFigure">
+            <border xsi:type="gmfgraph:MarginBorder">
+              <insets top="5" bottom="5"/>
+            </border>
+          </children>
+          <children xsi:type="gmfgraph:Label" name="BroadcastInformationFlowNameFigure" text="&lt;...>">
+            <border xsi:type="gmfgraph:MarginBorder">
+              <insets top="5" bottom="5"/>
+            </border>
+          </children>
+        </children>
+        <children xsi:type="gmfgraph:Rectangle" name="BroadcastInformationFlowOutputDataContainerRectangleFigure" outline="false" fill="false" lineKind="LINE_DASH">
+          <layout xsi:type="gmfgraph:StackLayout"/>
+        </children>
+      </actualFigure>
+      <accessors figure="//@figures.0/@descriptors.2/@actualFigure/@children.0/@children.0"/>
+      <accessors figure="//@figures.0/@descriptors.2/@actualFigure/@children.0/@children.1"/>
+      <accessors figure="//@figures.0/@descriptors.2/@actualFigure/@children.1"/>
+    </descriptors>
+    <descriptors name="OutputDataFigure">
+      <actualFigure xsi:type="gmfgraph:Rectangle" name="OutputDataRectangleFigure" outline="false">
+        <layout xsi:type="gmfgraph:FlowLayout"/>
+        <children xsi:type="gmfgraph:Label" name="OutputDataDefinitionFigure" text="&lt;...>"/>
+      </actualFigure>
+      <accessors figure="//@figures.0/@descriptors.3/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors name="InputDataFigure">
+      <actualFigure xsi:type="gmfgraph:Rectangle" name="InputDataFigure" outline="false">
+        <layout xsi:type="gmfgraph:FlowLayout"/>
+        <children xsi:type="gmfgraph:Label" name="InputDataDefinitionFigure" text="&lt;...>"/>
+      </actualFigure>
+      <accessors figure="//@figures.0/@descriptors.4/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors name="EntityToBroadcastInformationFlowEdgeFigure">
+      <actualFigure xsi:type="gmfgraph:PolylineConnection" name="EntityToBroadcastInformationFlowEdgeFigure" lineKind="LINE_DASH"/>
+    </descriptors>
+    <descriptors name="EntityToPointToPointInformationFlowEdgeFigure">
+      <actualFigure xsi:type="gmfgraph:PolylineConnection" name="EntityToPointToPointInformationFlowEdgeFigure"/>
+    </descriptors>
+    <descriptors name="BroadcastInformationFlowToEntityEdgeFigure">
+      <actualFigure xsi:type="gmfgraph:PolylineConnection" name="BroadcastInformationFlowToEntityEdgeFigure" lineKind="LINE_DASH" targetDecoration="//@figures.0/@descriptors.7/@actualFigure/@children.0">
+        <children xsi:type="gmfgraph:PolylineDecoration" name="BroadcastInformationFlowToEntityEdgeDecoration"/>
+      </actualFigure>
+    </descriptors>
+    <descriptors name="PointToPointInformationFlowToEntityEdgeFigure">
+      <actualFigure xsi:type="gmfgraph:PolylineConnection" name="PointToPointInformationFlowToEntityEdgeFigure" targetDecoration="//@figures.0/@descriptors.8/@actualFigure/@children.0">
+        <children xsi:type="gmfgraph:PolylineDecoration" name="PointToPointInformationFlowToEntityEdgeDecoration"/>
+      </actualFigure>
+    </descriptors>
+  </figures>
+  <nodes name="ContextAwareEntity" figure="ContextAwareEntityFigure">
+    <facets xsi:type="gmfgraph:DefaultSizeFacet">
+      <defaultSize dx="150" dy="30"/>
+    </facets>
+  </nodes>
+  <nodes name="PointToPointInformationFlow" figure="PointToPointInformationFlowFigure">
+    <facets xsi:type="gmfgraph:DefaultSizeFacet">
+      <defaultSize dx="150" dy="30"/>
+    </facets>
+  </nodes>
+  <nodes name="BroadcastInformationFlow" figure="BroadcastInformationFlowFigure">
+    <facets xsi:type="gmfgraph:DefaultSizeFacet">
+      <defaultSize dx="150" dy="50"/>
+    </facets>
+  </nodes>
+  <nodes name="OutputData" figure="OutputDataFigure">
+    <facets xsi:type="gmfgraph:DefaultSizeFacet">
+      <defaultSize dx="50" dy="20"/>
+    </facets>
+  </nodes>
+  <nodes name="InputData" figure="InputDataFigure">
+    <facets xsi:type="gmfgraph:DefaultSizeFacet">
+      <defaultSize dx="50" dy="20"/>
+    </facets>
+  </nodes>
+  <connections name="EntityToBroadcastInformationFlowEdge" figure="EntityToBroadcastInformationFlowEdgeFigure"/>
+  <connections name="EntityToPointToPointInformationFlowEdge" figure="EntityToPointToPointInformationFlowEdgeFigure"/>
+  <connections name="BroadcastInformationFlowToEntityEdge" figure="BroadcastInformationFlowToEntityEdgeFigure"/>
+  <connections name="PointToPointInformationFlowToEntityEdge" figure="PointToPointInformationFlowToEntityEdgeFigure"/>
+  <compartments name="B-Output Data" figure="BroadcastInformationFlowFigure" collapsible="true" needsTitle="true" accessor="//@figures.0/@descriptors.2/@accessors.2"/>
+  <compartments name="P2P-Output Data" figure="PointToPointInformationFlowFigure" collapsible="true" needsTitle="true" accessor="//@figures.0/@descriptors.1/@accessors.1"/>
+  <compartments name="P2P-Input Data" figure="PointToPointInformationFlowFigure" collapsible="true" needsTitle="true" accessor="//@figures.0/@descriptors.1/@accessors.0"/>
+  <labels name="ContextAwareEntityName" figure="ContextAwareEntityFigure" elementIcon="false" accessor="//@figures.0/@descriptors.0/@accessors.1"/>
+  <labels name="ContextAwareEntityId" figure="ContextAwareEntityFigure" accessor="//@figures.0/@descriptors.0/@accessors.0"/>
+  <labels name="PointToPointInformationFlowName" figure="PointToPointInformationFlowFigure" elementIcon="false" accessor="//@figures.0/@descriptors.1/@accessors.2"/>
+  <labels name="PointToPointInformationFlowId" figure="PointToPointInformationFlowFigure" accessor="//@figures.0/@descriptors.1/@accessors.3"/>
+  <labels name="BroadcastInformationFlowName" figure="BroadcastInformationFlowFigure" elementIcon="false" accessor="//@figures.0/@descriptors.2/@accessors.1"/>
+  <labels name="BroadcastInformationFlowId" figure="BroadcastInformationFlowFigure" accessor="//@figures.0/@descriptors.2/@accessors.0"/>
+  <labels name="OutputDataDefinition" figure="OutputDataFigure" accessor="//@figures.0/@descriptors.3/@accessors.0"/>
+  <labels name="InputDataDefinition" figure="InputDataFigure" accessor="//@figures.0/@descriptors.4/@accessors.0"/>
+</gmfgraph:Canvas>

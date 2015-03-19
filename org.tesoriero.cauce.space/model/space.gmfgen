@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gmfgen:GenEditorGenerator xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:gmfgen="http://www.eclipse.org/gmf/2009/GenModel" diagramFileExtension="spmmdiag">
+  <audits>
+    <categories id="SocialMetamodelAuditContainer" name="SocialMetamodelAuditContainer" description="SocialMetamodelAuditContainer" path="//@audits/@categories.0"/>
+    <categories id="LinkRestrictionsAuditContainer" name="LinkRestrictionsAuditContainer" description="LinkRestrictionsAuditContainer" path="//@audits/@categories.0 //@audits/@categories.1" audits="//@audits/@rules.0 //@audits/@rules.1 //@audits/@rules.2 //@audits/@rules.3 //@audits/@rules.4 //@audits/@rules.5 //@audits/@rules.6 //@audits/@rules.7 //@audits/@rules.8 //@audits/@rules.9"/>
+    <categories id="PhysicalSpaceAuditContainer" name="PhysicalSpaceAuditContainer" description="PhysicalSpaceAuditContainer" path="//@audits/@categories.0 //@audits/@categories.2" audits="//@audits/@rules.10 //@audits/@rules.11"/>
+    <categories id="VirtualSpaceAuditContainer" name="VirtualSpaceAuditContainer" description="VirtualSpaceAuditContainer" path="//@audits/@categories.0 //@audits/@categories.3" audits="//@audits/@rules.12 //@audits/@rules.13"/>
+    <categories id="SpaceAuditContainer" name="SpaceAuditContainer" description="SpaceAuditContainer" path="//@audits/@categories.0 //@audits/@categories.4" audits="//@audits/@rules.14 //@audits/@rules.15"/>
+    <rules name="SelfGroupingRule" description="Avoiding self grouping" id="SelfGrouping" rule="//@expressionProviders/@providers.0/@expressions.7" message="No space can be grouped to itself" useInLiveMode="true" category="//@audits/@categories.1">
+      <target xsi:type="gmfgen:GenDomainElementTarget" contextSelector="//@audits/@clientContexts.0">
+        <element href="space.genmodel#//spmm/Grouping"/>
+      </target>
+    </rules>
+    <rules name="SelfContainmentRule" description="Avoid self containment" id="SelfContainment" rule="//@expressionProviders/@providers.0/@expressions.8" message="No space can be self contained" useInLiveMode="true" category="//@audits/@categories.1">
+      <target xsi:type="gmfgen:GenDomainElementTarget" contextSelector="//@audits/@clientContexts.0">
+        <element href="space.genmodel#//spmm/Contention"/>
+      </target>
+    </rules>
+    <rules name="SelfGeneralizationRule" description="Avoid space self generalization" id="SelfGeneralization" rule="//@expressionProviders/@providers.0/@expressions.9" message="No space can be self generalized" useInLiveMode="true" category="//@audits/@categories.1">
+      <target xsi:type="gmfgen:GenDomainElementTarget" contextSelector="//@audits/@clientContexts.0">
+        <element href="space.genmodel#//spmm/Generalization"/>
+      </target>
+    </rules>
+    <rules name="DoubleGroupingRule" description="Avoid double grouping definitions" id="DoubleGrouping" rule="//@expressionProviders/@providers.0/@expressions.10" message="Grouping relationship already defined" useInLiveMode="true" category="//@audits/@categories.1">
+      <target xsi:type="gmfgen:GenDomainElementTarget" contextSelector="//@audits/@clientContexts.0">
+        <element href="space.genmodel#//spmm/Grouping"/>
+      </target>
+    </rules>
+    <rules name="DoubleGeneralizationRule" description="Avoid double generalization definitions" id="DoubleGeneralization" rule="//@expressionProviders/@providers.0/@expressions.11" message="Generalization relationship already defined" useInLiveMode="true" category="//@audits/@categories.1">
+      <target xsi:type="gmfgen:GenDomainElementTarget" contextSelector="//@audits/@clientContexts.0">
+        <element href="space.genmodel#//spmm/Generalization"/>
+      </target>
+    </rules>
+    <rules name="DoubleContentionRule" description="Avoid double contention definitions" id="DoubleContention" rule="//@expressionProviders/@providers.0/@expressions.12" message="Contention relationship already defined" useInLiveMode="true" category="//@audits/@categories.1">
+      <target xsi:type="gmfgen:GenDomainElementTarget" contextSelector="//@audits/@clientContexts.0">
+        <element href="space.genmodel#//spmm/Contention"/>
+      </target>
+    </rules>
+    <rules name="UniqueGroupingIdAuditRule" description="UniqueGroupingIdAuditRule" id="UniqueGroupingIdAuditRule" rule="//@expressionProviders/@providers.0/@expressions.13" message="Grouping relationship ID must be unique" category="//@audits/@categories.1">
+      <target xsi:type="gmfgen:GenDomainElementTarget" contextSelector="//@audits/@clientContexts.0">
+        <element href="space.genmodel#//spmm/Grouping"/>
+      </target>
+    </rules>
+    <rules name="UniqueContainmentIdAuditRule" description="UniqueContainmentIdAuditRule" id="UniqueContainmentIdAuditRule" rule="//@expressionProviders/@providers.0/@expressions.14" message="Containment relationship ID must be unique" category="//@audits/@categories.1">
+      <target xsi:type="gmfgen:GenDomainElementTarget" contextSelector="//@audits/@clientContexts.0">
+        <element href="space.genmodel#//spmm/Contention"/>
+      </target>
+    </rules>
+    <rules name="UniqueGeneralizationIdAuditRule" description="UniqueGeneralizationIdAuditRule" id="UniqueGeneralizationIdAuditRule" rule="//@expressionProviders/@providers.0/@expressions.15" message="Generalization relationship ID must be unique" category="//@audits/@categories.1">
+      <target xsi:type="gmfgen:GenDomainElementTarget" contextSelector="//@audits/@clientContexts.0">
+        <element href="space.genmodel#//spmm/Generalization"/>
+      </target>
+    </rules>
+    <rules name="NotNullSpaceRelationshipIdAuditRule" description="NotNullSpaceRelationshipIdAuditRule" id="NotNullSpaceRelationshipIdAuditRule" rule="//@expressionProviders/@providers.0/@expressions.16" message="Space relationship ID must not be null" category="//@audits/@categories.1">
+      <target xsi:type="gmfgen:GenDomainAttributeTarget" contextSelector="//@audits/@clientContexts.0" nullAsError="true">
+        <attribute href="space.genmodel#//spmm/SpaceRelationship/id"/>
+      </target>
+    </rules>
+    <rules name="PhysicalSpaceNameUniqueAuditRule" description="PhysicalSpaceNameUniqueAuditRule" id="PhysicalSpaceNameUniqueAuditRule" rule="//@expressionProviders/@providers.0/@expressions.17" message="PhysicalSpace name must be unique" category="//@audits/@categories.2">
+      <target xsi:type="gmfgen:GenDomainElementTarget" contextSelector="//@audits/@clientContexts.0">
+        <element href="space.genmodel#//spmm/PhysicalSpace"/>
+      </target>
+    </rules>
+    <rules name="PhysicalSpaceIdUniqueAuditRule" description="PhysicalSpaceIdUniqueAuditRule" id="PhysicalSpaceIdUniqueAuditRule" rule="//@expressionProviders/@providers.0/@expressions.18" message="PhysicalSpace ID must be unique" category="//@audits/@categories.2">
+      <target xsi:type="gmfgen:GenDomainElementTarget" contextSelector="//@audits/@clientContexts.0">
+        <element href="space.genmodel#//spmm/PhysicalSpace"/>
+      </target>
+    </rules>
+    <rules name="VirtualSpaceNameUniqueAuditRule" description="VirtualSpaceNameUniqueAuditRule" id="VirtualSpaceNameUniqueAuditRule" rule="//@expressionProviders/@providers.0/@expressions.19" message="VirtualSpace name must be unique" category="//@audits/@categories.3">
+      <target xsi:type="gmfgen:GenDomainElementTarget" contextSelector="//@audits/@clientContexts.0">
+        <element href="space.genmodel#//spmm/VirtualSpace"/>
+      </target>
+    </rules>
+    <rules name="VirtualSpaceIdUniqueAuditRule" description="VirtualSpaceIdUniqueAuditRule" id="VirtualSpaceIdUniqueAuditRule" rule="//@expressionProviders/@providers.0/@expressions.20" message="VirtualSpace ID must be unique" category="//@audits/@categories.3">
+      <target xsi:type="gmfgen:GenDomainElementTarget" contextSelector="//@audits/@clientContexts.0">
+        <element href="space.genmodel#//spmm/VirtualSpace"/>
+      </target>
+    </rules>
+    <rules name="SpaceIdNotNullAuditRule" description="SpaceIdNotNullAuditRule" id="SpaceIdNotNullAuditRule" rule="//@expressionProviders/@providers.0/@expressions.21" message="Space ID must not be null" category="//@audits/@categories.4">
+      <target xsi:type="gmfgen:GenDomainAttributeTarget" contextSelector="//@audits/@clientContexts.0" nullAsError="true">
+        <attribute href="space.genmodel#//spmm/Space/id"/>
+      </target>
+    </rules>
+    <rules name="SpaceNameNotNullAuditRule" description="SpaceNameNotNullAuditRule" id="SpaceNameNotNullAuditRule" rule="//@expressionProviders/@providers.0/@expressions.22" message="Space name must not be null" category="//@audits/@categories.4">
+      <target xsi:type="gmfgen:GenDomainAttributeTarget" contextSelector="//@audits/@clientContexts.0" nullAsError="true">
+        <attribute href="space.genmodel#//spmm/Space/name"/>
+      </target>
+    </rules>
+    <clientContexts ruleTargets="//@audits/@rules.0/@target //@audits/@rules.1/@target //@audits/@rules.2/@target //@audits/@rules.3/@target //@audits/@rules.4/@target //@audits/@rules.5/@target //@audits/@rules.6/@target //@audits/@rules.7/@target //@audits/@rules.8/@target //@audits/@rules.9/@target //@audits/@rules.10/@target //@audits/@rules.11/@target //@audits/@rules.12/@target //@audits/@rules.13/@target //@audits/@rules.14/@target //@audits/@rules.15/@target"/>
+  </audits>
+  <diagram visualID="1000" editPartClassName="UniverseEditPart" itemSemanticEditPolicyClassName="UniverseItemSemanticEditPolicy" canonicalEditPolicyClassName="UniverseCanonicalEditPolicy" notationViewProviderPriority="High" iconProviderPriority="High" shortcutsDecoratorProviderPriority="High" validationProviderPriority="Low" validationEnabled="true" validationDecorators="true" validationDecoratorProviderPriority="High" liveValidationUIFeedback="true">
+    <diagramRunTimeClass href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Diagram"/>
+    <elementType xsi:type="gmfgen:MetamodelType" editHelperClassName="UniverseEditHelper"/>
+    <viewmap xsi:type="gmfgen:FigureViewmap" figureQualifiedClassName="org.eclipse.draw2d.FreeformLayer"/>
+    <domainDiagramElement href="space.genmodel#//spmm/Universe"/>
+    <topLevelNodes visualID="2001" editPartClassName="PhysicalSpaceEditPart" itemSemanticEditPolicyClassName="PhysicalSpaceItemSemanticEditPolicy" canonicalEditPolicyClassName="PhysicalSpaceCanonicalEditPolicy" graphicalNodeEditPolicyClassName="PhysicalSpaceGraphicalNodeEditPolicy" createCommandClassName="PhysicalSpaceCreateCommand">
+      <diagramRunTimeClass href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <elementType xsi:type="gmfgen:MetamodelType" editHelperClassName="PhysicalSpaceEditHelper"/>
+      <viewmap xsi:type="gmfgen:InnerClassViewmap" layoutType="FLOW_LAYOUT" className="PhysicalSpaceFigure" classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class PhysicalSpaceFigure extends org.eclipse.draw2d.RectangleFigure {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigurePhysicalSpaceNameFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public PhysicalSpaceFigure() {&#xA;&#x9;&#x9;&#xA;&#x9;org.eclipse.draw2d.FlowLayout layoutThis = new org.eclipse.draw2d.FlowLayout();&#xA;&#x9;layoutThis.setStretchMinorAxis(false);&#xA;&#x9;layoutThis.setMinorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_CENTER&#xA;);&#xA;&#xA;&#x9;layoutThis.setMajorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_CENTER&#xA;);&#xA;&#x9;layoutThis.setMajorSpacing(5);&#xA;&#x9;layoutThis.setMinorSpacing(5);&#xA;&#x9;layoutThis.setHorizontal(false);&#xA;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;this.setPreferredSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(120)&#xA;, getMapMode().DPtoLP(40)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigurePhysicalSpaceNameFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigurePhysicalSpaceNameFigure.setText(&quot;&lt;...>&quot;);&#xA;fFigurePhysicalSpaceNameFigure.setBorder(new org.eclipse.draw2d.MarginBorder(getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;));&#xA;&#xA;this.add(fFigurePhysicalSpaceNameFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigurePhysicalSpaceNameFigure() {&#xA;&#x9;&#x9;return fFigurePhysicalSpaceNameFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;">
+        <attributes xsi:type="gmfgen:DefaultSizeAttributes" width="120" height="40"/>
+      </viewmap>
+      <modelFacet>
+        <metaClass href="space.genmodel#//spmm/PhysicalSpace"/>
+        <containmentMetaFeature href="space.genmodel#//spmm/Universe/physicalSpaces"/>
+        <childMetaFeature href="space.genmodel#//spmm/Universe/physicalSpaces"/>
+        <modelElementInitializer xsi:type="gmfgen:GenFeatureSeqInitializer">
+          <initializers xsi:type="gmfgen:GenFeatureValueSpec" value="//@expressionProviders/@providers.0/@expressions.0">
+            <feature href="space.genmodel#//spmm/Space/id"/>
+          </initializers>
+          <initializers xsi:type="gmfgen:GenFeatureValueSpec" value="//@expressionProviders/@providers.0/@expressions.1">
+            <feature href="space.genmodel#//spmm/Space/name"/>
+          </initializers>
+        </modelElementInitializer>
+      </modelFacet>
+      <labels visualID="5001" editPartClassName="PhysicalSpaceNameEditPart" itemSemanticEditPolicyClassName="PhysicalSpaceNameItemSemanticEditPolicy" elementIcon="true">
+        <diagramRunTimeClass href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <viewmap xsi:type="gmfgen:ParentAssignedViewmap" getterName="getFigurePhysicalSpaceNameFigure" figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
+        <modelFacet xsi:type="gmfgen:FeatureLabelModelFacet" parser="//@labelParsers/@implementations.0">
+          <metaFeatures href="space.genmodel#//spmm/Space/name"/>
+        </modelFacet>
+      </labels>
+    </topLevelNodes>
+    <topLevelNodes visualID="2002" editPartClassName="VirtualSpaceEditPart" itemSemanticEditPolicyClassName="VirtualSpaceItemSemanticEditPolicy" canonicalEditPolicyClassName="VirtualSpaceCanonicalEditPolicy" graphicalNodeEditPolicyClassName="VirtualSpaceGraphicalNodeEditPolicy" createCommandClassName="VirtualSpaceCreateCommand">
+      <diagramRunTimeClass href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <elementType xsi:type="gmfgen:MetamodelType" editHelperClassName="VirtualSpaceEditHelper"/>
+      <viewmap xsi:type="gmfgen:InnerClassViewmap" layoutType="FLOW_LAYOUT" className="VirtualSpaceFigure" classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class VirtualSpaceFigure extends org.eclipse.draw2d.RectangleFigure {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureVirtualSpaceNameFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public VirtualSpaceFigure() {&#xA;&#x9;&#x9;&#xA;&#x9;org.eclipse.draw2d.FlowLayout layoutThis = new org.eclipse.draw2d.FlowLayout();&#xA;&#x9;layoutThis.setStretchMinorAxis(false);&#xA;&#x9;layoutThis.setMinorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_CENTER&#xA;);&#xA;&#xA;&#x9;layoutThis.setMajorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_CENTER&#xA;);&#xA;&#x9;layoutThis.setMajorSpacing(5);&#xA;&#x9;layoutThis.setMinorSpacing(5);&#xA;&#x9;layoutThis.setHorizontal(false);&#xA;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;this.setLineStyle(org.eclipse.draw2d.Graphics.LINE_DASH);&#xA;this.setPreferredSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(120)&#xA;, getMapMode().DPtoLP(40)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureVirtualSpaceNameFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureVirtualSpaceNameFigure.setText(&quot;&lt;...>&quot;);&#xA;fFigureVirtualSpaceNameFigure.setBorder(new org.eclipse.draw2d.MarginBorder(getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;));&#xA;&#xA;this.add(fFigureVirtualSpaceNameFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureVirtualSpaceNameFigure() {&#xA;&#x9;&#x9;return fFigureVirtualSpaceNameFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;">
+        <attributes xsi:type="gmfgen:ResizeConstraints" resizeHandles="24"/>
+        <attributes xsi:type="gmfgen:DefaultSizeAttributes" width="120" height="40"/>
+      </viewmap>
+      <modelFacet>
+        <metaClass href="space.genmodel#//spmm/VirtualSpace"/>
+        <containmentMetaFeature href="space.genmodel#//spmm/Universe/virtualSpaces"/>
+        <childMetaFeature href="space.genmodel#//spmm/Universe/virtualSpaces"/>
+        <modelElementInitializer xsi:type="gmfgen:GenFeatureSeqInitializer">
+          <initializers xsi:type="gmfgen:GenFeatureValueSpec" value="//@expressionProviders/@providers.0/@expressions.2">
+            <feature href="space.genmodel#//spmm/Space/id"/>
+          </initializers>
+          <initializers xsi:type="gmfgen:GenFeatureValueSpec" value="//@expressionProviders/@providers.0/@expressions.3">
+            <feature href="space.genmodel#//spmm/Space/name"/>
+          </initializers>
+        </modelElementInitializer>
+      </modelFacet>
+      <labels visualID="5002" editPartClassName="VirtualSpaceNameEditPart" itemSemanticEditPolicyClassName="VirtualSpaceNameItemSemanticEditPolicy" elementIcon="true">
+        <diagramRunTimeClass href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <viewmap xsi:type="gmfgen:ParentAssignedViewmap" getterName="getFigureVirtualSpaceNameFigure" figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
+        <modelFacet xsi:type="gmfgen:FeatureLabelModelFacet" parser="//@labelParsers/@implementations.0">
+          <metaFeatures href="space.genmodel#//spmm/Space/name"/>
+        </modelFacet>
+      </labels>
+    </topLevelNodes>
+    <links visualID="4001" editPartClassName="GroupingEditPart" itemSemanticEditPolicyClassName="GroupingItemSemanticEditPolicy" createCommandClassName="GroupingCreateCommand" reorientCommandClassName="GroupingReorientCommand">
+      <diagramRunTimeClass href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Edge"/>
+      <elementType xsi:type="gmfgen:MetamodelType" editHelperClassName="GroupingEditHelper"/>
+      <viewmap xsi:type="gmfgen:InnerClassViewmap" className="GroupingFigure" classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class GroupingFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.PolylineConnectionEx {&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public GroupingFigure() {&#xA;&#x9;&#x9;&#x9;this.setForegroundColor(org.eclipse.draw2d.ColorConstants.lightGray);&#xA;&#xA;&#x9;&#x9;setSourceDecoration(createSourceDecoration());&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RotatableDecoration createSourceDecoration() {&#xA;&#x9;&#x9;org.eclipse.draw2d.PolygonDecoration df = new org.eclipse.draw2d.PolygonDecoration();&#xA;df.setFill(true);&#xA;&#x9;df.setForegroundColor(org.eclipse.draw2d.ColorConstants.lightGray);&#xA;&#x9;df.setBackgroundColor(org.eclipse.draw2d.ColorConstants.white);&#xA;org.eclipse.draw2d.geometry.PointList pl = new org.eclipse.draw2d.geometry.PointList();&#xA;pl.addPoint(getMapMode().DPtoLP(0)&#xA;, getMapMode().DPtoLP(0)&#xA;);&#xA;pl.addPoint(getMapMode().DPtoLP(-2)&#xA;, getMapMode().DPtoLP(-1)&#xA;);&#xA;pl.addPoint(getMapMode().DPtoLP(-4)&#xA;, getMapMode().DPtoLP(0)&#xA;);&#xA;pl.addPoint(getMapMode().DPtoLP(-2)&#xA;, getMapMode().DPtoLP(1)&#xA;);&#xA;pl.addPoint(getMapMode().DPtoLP(0)&#xA;, getMapMode().DPtoLP(0)&#xA;);&#xA;df.setTemplate(pl);&#xA;df.setScale(getMapMode().DPtoLP(7)&#xA;, getMapMode().DPtoLP(3)&#xA;);&#xA;&#x9;&#x9;return df;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;">
+        <attributes xsi:type="gmfgen:StyleAttributes" fixedForeground="true"/>
+      </viewmap>
+      <modelFacet xsi:type="gmfgen:TypeLinkModelFacet">
+        <metaClass href="space.genmodel#//spmm/Grouping"/>
+        <containmentMetaFeature href="space.genmodel#//spmm/Universe/groupings"/>
+        <childMetaFeature href="space.genmodel#//spmm/Universe/groupings"/>
+        <modelElementInitializer xsi:type="gmfgen:GenFeatureSeqInitializer">
+          <initializers xsi:type="gmfgen:GenFeatureValueSpec" value="//@expressionProviders/@providers.0/@expressions.4">
+            <feature href="space.genmodel#//spmm/SpaceRelationship/id"/>
+          </initializers>
+        </modelElementInitializer>
+        <sourceMetaFeature href="space.genmodel#//spmm/Grouping/parent"/>
+        <targetMetaFeature href="space.genmodel#//spmm/Grouping/child"/>
+      </modelFacet>
+    </links>
+    <links visualID="4002" editPartClassName="ContentionEditPart" itemSemanticEditPolicyClassName="ContentionItemSemanticEditPolicy" createCommandClassName="ContentionCreateCommand" reorientCommandClassName="ContentionReorientCommand">
+      <diagramRunTimeClass href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Edge"/>
+      <elementType xsi:type="gmfgen:MetamodelType" editHelperClassName="ContentionEditHelper"/>
+      <viewmap xsi:type="gmfgen:InnerClassViewmap" className="ContentionFigure" classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ContentionFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.PolylineConnectionEx {&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ContentionFigure() {&#xA;&#x9;&#x9;&#x9;this.setForegroundColor(org.eclipse.draw2d.ColorConstants.lightGray);&#xA;&#xA;&#x9;&#x9;setSourceDecoration(createSourceDecoration());&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RotatableDecoration createSourceDecoration() {&#xA;&#x9;&#x9;org.eclipse.draw2d.PolygonDecoration df = new org.eclipse.draw2d.PolygonDecoration();&#xA;df.setFill(true);&#xA;&#x9;df.setForegroundColor(org.eclipse.draw2d.ColorConstants.lightGray);&#xA;&#x9;df.setBackgroundColor(org.eclipse.draw2d.ColorConstants.lightGray);&#xA;org.eclipse.draw2d.geometry.PointList pl = new org.eclipse.draw2d.geometry.PointList();&#xA;pl.addPoint(getMapMode().DPtoLP(0)&#xA;, getMapMode().DPtoLP(0)&#xA;);&#xA;pl.addPoint(getMapMode().DPtoLP(-2)&#xA;, getMapMode().DPtoLP(-1)&#xA;);&#xA;pl.addPoint(getMapMode().DPtoLP(-4)&#xA;, getMapMode().DPtoLP(0)&#xA;);&#xA;pl.addPoint(getMapMode().DPtoLP(-2)&#xA;, getMapMode().DPtoLP(1)&#xA;);&#xA;pl.addPoint(getMapMode().DPtoLP(0)&#xA;, getMapMode().DPtoLP(0)&#xA;);&#xA;df.setTemplate(pl);&#xA;df.setScale(getMapMode().DPtoLP(7)&#xA;, getMapMode().DPtoLP(3)&#xA;);&#xA;&#x9;&#x9;return df;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;">
+        <attributes xsi:type="gmfgen:StyleAttributes" fixedForeground="true"/>
+      </viewmap>
+      <modelFacet xsi:type="gmfgen:TypeLinkModelFacet">
+        <metaClass href="space.genmodel#//spmm/Contention"/>
+        <containmentMetaFeature href="space.genmodel#//spmm/Universe/contentions"/>
+        <childMetaFeature href="space.genmodel#//spmm/Universe/contentions"/>
+        <modelElementInitializer xsi:type="gmfgen:GenFeatureSeqInitializer">
+          <initializers xsi:type="gmfgen:GenFeatureValueSpec" value="//@expressionProviders/@providers.0/@expressions.5">
+            <feature href="space.genmodel#//spmm/SpaceRelationship/id"/>
+          </initializers>
+        </modelElementInitializer>
+        <sourceMetaFeature href="space.genmodel#//spmm/Contention/parent"/>
+        <targetMetaFeature href="space.genmodel#//spmm/Contention/child"/>
+      </modelFacet>
+    </links>
+    <links visualID="4003" editPartClassName="GeneralizationEditPart" itemSemanticEditPolicyClassName="GeneralizationItemSemanticEditPolicy" createCommandClassName="GeneralizationCreateCommand" reorientCommandClassName="GeneralizationReorientCommand">
+      <diagramRunTimeClass href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Edge"/>
+      <elementType xsi:type="gmfgen:MetamodelType" editHelperClassName="GeneralizationEditHelper"/>
+      <viewmap xsi:type="gmfgen:InnerClassViewmap" className="GeneralizationFigure" classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class GeneralizationFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.PolylineConnectionEx {&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public GeneralizationFigure() {&#xA;&#x9;&#x9;&#x9;this.setForegroundColor(org.eclipse.draw2d.ColorConstants.lightGray);&#xA;&#xA;&#x9;&#x9;setSourceDecoration(createSourceDecoration());&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RotatableDecoration createSourceDecoration() {&#xA;&#x9;&#x9;org.eclipse.draw2d.PolygonDecoration df = new org.eclipse.draw2d.PolygonDecoration();&#xA;df.setFill(true);&#xA;&#x9;df.setBackgroundColor(org.eclipse.draw2d.ColorConstants.white);&#xA;org.eclipse.draw2d.geometry.PointList pl = new org.eclipse.draw2d.geometry.PointList();&#xA;pl.addPoint(getMapMode().DPtoLP(0)&#xA;, getMapMode().DPtoLP(0)&#xA;);&#xA;pl.addPoint(getMapMode().DPtoLP(-2)&#xA;, getMapMode().DPtoLP(-1)&#xA;);&#xA;pl.addPoint(getMapMode().DPtoLP(-2)&#xA;, getMapMode().DPtoLP(1)&#xA;);&#xA;pl.addPoint(getMapMode().DPtoLP(0)&#xA;, getMapMode().DPtoLP(0)&#xA;);&#xA;df.setTemplate(pl);&#xA;df.setScale(getMapMode().DPtoLP(7)&#xA;, getMapMode().DPtoLP(3)&#xA;);&#xA;&#x9;&#x9;return df;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;">
+        <attributes xsi:type="gmfgen:StyleAttributes" fixedForeground="true"/>
+      </viewmap>
+      <modelFacet xsi:type="gmfgen:TypeLinkModelFacet">
+        <metaClass href="space.genmodel#//spmm/Generalization"/>
+        <containmentMetaFeature href="space.genmodel#//spmm/Universe/generalizations"/>
+        <childMetaFeature href="space.genmodel#//spmm/Universe/generalizations"/>
+        <modelElementInitializer xsi:type="gmfgen:GenFeatureSeqInitializer">
+          <initializers xsi:type="gmfgen:GenFeatureValueSpec" value="//@expressionProviders/@providers.0/@expressions.6">
+            <feature href="space.genmodel#//spmm/SpaceRelationship/id"/>
+          </initializers>
+        </modelElementInitializer>
+        <sourceMetaFeature href="space.genmodel#//spmm/Generalization/parent"/>
+        <targetMetaFeature href="space.genmodel#//spmm/Generalization/generalizes"/>
+      </modelFacet>
+    </links>
+    <palette>
+      <groups title="spmm">
+        <entries xsi:type="gmfgen:ToolEntry" title="VirtualSpace" description="Create new VirtualSpace" genNodes="//@diagram/@topLevelNodes.1"/>
+        <entries xsi:type="gmfgen:ToolEntry" title="PhysicalSpace" description="Create new PhysicalSpace" genNodes="//@diagram/@topLevelNodes.0"/>
+        <entries xsi:type="gmfgen:Separator"/>
+        <entries xsi:type="gmfgen:ToolEntry" title="Grouping" description="Create new Grouping" genLinks="//@diagram/@links.0"/>
+        <entries xsi:type="gmfgen:ToolEntry" title="Generalization" description="Create new Generalization" genLinks="//@diagram/@links.2"/>
+        <entries xsi:type="gmfgen:ToolEntry" title="Contention" description="Create new Contention" genLinks="//@diagram/@links.1"/>
+      </groups>
+    </palette>
+    <preferencePages xsi:type="gmfgen:GenStandardPreferencePage" iD="org.tesoriero.cauce.space.diagram.general" name="Space Diagram">
+      <children xsi:type="gmfgen:GenStandardPreferencePage" iD="org.tesoriero.cauce.space.diagram.appearance" name="Appearance" kind="Appearance"/>
+      <children xsi:type="gmfgen:GenStandardPreferencePage" iD="org.tesoriero.cauce.space.diagram.connections" name="Connections" kind="Connections"/>
+      <children xsi:type="gmfgen:GenStandardPreferencePage" iD="org.tesoriero.cauce.space.diagram.printing" name="Printing" kind="Printing"/>
+      <children xsi:type="gmfgen:GenStandardPreferencePage" iD="org.tesoriero.cauce.space.diagram.rulersAndGrid" name="Rulers And Grid" kind="RulersAndGrid"/>
+    </preferencePages>
+  </diagram>
+  <plugin>
+    <requiredPlugins>org.eclipse.gmf.tooling.runtime</requiredPlugins>
+    <requiredPlugins>org.eclipse.draw2d</requiredPlugins>
+    <requiredPlugins>org.eclipse.gmf.runtime.draw2d.ui</requiredPlugins>
+  </plugin>
+  <editor/>
+  <navigator>
+    <childReferences child="//@diagram"/>
+    <childReferences parent="//@diagram" child="//@diagram/@topLevelNodes.0"/>
+    <childReferences parent="//@diagram" child="//@diagram/@topLevelNodes.1"/>
+    <childReferences parent="//@diagram" child="//@diagram/@links.0" groupName="links" groupIcon="icons/linksNavigatorGroup.gif"/>
+    <childReferences parent="//@diagram/@links.0" child="//@diagram/@topLevelNodes.0" referenceType="out_target" groupName="target" groupIcon="icons/linkTargetNavigatorGroup.gif"/>
+    <childReferences parent="//@diagram/@topLevelNodes.0" child="//@diagram/@links.0" referenceType="in_source" groupName="incoming links" groupIcon="icons/incomingLinksNavigatorGroup.gif"/>
+    <childReferences parent="//@diagram/@links.0" child="//@diagram/@topLevelNodes.1" referenceType="out_target" groupName="target" groupIcon="icons/linkTargetNavigatorGroup.gif"/>
+    <childReferences parent="//@diagram/@topLevelNodes.1" child="//@diagram/@links.0" referenceType="in_source" groupName="incoming links" groupIcon="icons/incomingLinksNavigatorGroup.gif"/>
+    <childReferences parent="//@diagram/@links.0" child="//@diagram/@topLevelNodes.1" referenceType="in_source" groupName="source" groupIcon="icons/linkSourceNavigatorGroup.gif"/>
+    <childReferences parent="//@diagram/@topLevelNodes.1" child="//@diagram/@links.0" referenceType="out_target" groupName="outgoing links" groupIcon="icons/outgoingLinksNavigatorGroup.gif"/>
+    <childReferences parent="//@diagram" child="//@diagram/@links.1" groupName="links" groupIcon="icons/linksNavigatorGroup.gif"/>
+    <childReferences parent="//@diagram/@links.1" child="//@diagram/@topLevelNodes.0" referenceType="out_target" groupName="target" groupIcon="icons/linkTargetNavigatorGroup.gif"/>
+    <childReferences parent="//@diagram/@topLevelNodes.0" child="//@diagram/@links.1" referenceType="in_source" groupName="incoming links" groupIcon="icons/incomingLinksNavigatorGroup.gif"/>
+    <childReferences parent="//@diagram/@links.1" child="//@diagram/@topLevelNodes.0" referenceType="in_source" groupName="source" groupIcon="icons/linkSourceNavigatorGroup.gif"/>
+    <childReferences parent="//@diagram/@topLevelNodes.0" child="//@diagram/@links.1" referenceType="out_target" groupName="outgoing links" groupIcon="icons/outgoingLinksNavigatorGroup.gif"/>
+    <childReferences parent="//@diagram" child="//@diagram/@links.2" groupName="links" groupIcon="icons/linksNavigatorGroup.gif"/>
+    <childReferences parent="//@diagram/@links.2" child="//@diagram/@topLevelNodes.0" referenceType="out_target" groupName="target" groupIcon="icons/linkTargetNavigatorGroup.gif"/>
+    <childReferences parent="//@diagram/@topLevelNodes.0" child="//@diagram/@links.2" referenceType="in_source" groupName="incoming links" groupIcon="icons/incomingLinksNavigatorGroup.gif"/>
+    <childReferences parent="//@diagram/@links.2" child="//@diagram/@topLevelNodes.1" referenceType="out_target" groupName="target" groupIcon="icons/linkTargetNavigatorGroup.gif"/>
+    <childReferences parent="//@diagram/@topLevelNodes.1" child="//@diagram/@links.2" referenceType="in_source" groupName="incoming links" groupIcon="icons/incomingLinksNavigatorGroup.gif"/>
+    <childReferences parent="//@diagram/@links.2" child="//@diagram/@topLevelNodes.1" referenceType="in_source" groupName="source" groupIcon="icons/linkSourceNavigatorGroup.gif"/>
+    <childReferences parent="//@diagram/@topLevelNodes.1" child="//@diagram/@links.2" referenceType="out_target" groupName="outgoing links" groupIcon="icons/outgoingLinksNavigatorGroup.gif"/>
+  </navigator>
+  <diagramUpdater/>
+  <propertySheet>
+    <tabs xsi:type="gmfgen:GenStandardPropertyTab" iD="appearance"/>
+    <tabs xsi:type="gmfgen:GenStandardPropertyTab" iD="diagram"/>
+    <tabs xsi:type="gmfgen:GenCustomPropertyTab" iD="domain" label="Core">
+      <filter xsi:type="gmfgen:TypeTabFilter">
+        <types>org.eclipse.gmf.runtime.notation.View</types>
+        <types>org.eclipse.gef.EditPart</types>
+        <generatedTypes>abstractNavigatorItem</generatedTypes>
+      </filter>
+    </tabs>
+  </propertySheet>
+  <domainGenModel href="space.genmodel#/"/>
+  <expressionProviders>
+    <providers xsi:type="gmfgen:GenExpressionInterpreter">
+      <expressions body="universe.physicalSpaces->iterate(c; m:Integer=0 | m.max(c.id)).max(universe.virtualSpaces->iterate(c; m:Integer=0 | m.max(c.id))).max(universe.generalizations->iterate(c; m:Integer=0 | m.max(c.id))).max(universe.representations->iterate(c; m:Integer=0 | m.max(c.id))).max(universe.groupings->iterate(c; m:Integer=0 | m.max(c.id))).max(universe.contentions->iterate(c; m:Integer=0 | m.max(c.id))) +1"/>
+      <expressions body="'PhysicalSpace'.concat( let number: Integer = id in OrderedSet{1000000, 10000, 1000, 100, 10, 1}&#xD;&#xA;->iterate(denominator : Integer; s : String = '' | let numberAsString : String= OrderedSet{'0','1','2','3','4','5','6','7','8','9'}&#xD;&#xA;->at(number.div(denominator).mod(10) + 1)&#xD;&#xA;in if s='' and numberAsString = '0' then s else s.concat(numberAsString) endif))"/>
+      <expressions body="universe.physicalSpaces->iterate(c; m:Integer=0 | m.max(c.id)).max(universe.virtualSpaces->iterate(c; m:Integer=0 | m.max(c.id))).max(universe.generalizations->iterate(c; m:Integer=0 | m.max(c.id))).max(universe.representations->iterate(c; m:Integer=0 | m.max(c.id))).max(universe.groupings->iterate(c; m:Integer=0 | m.max(c.id))).max(universe.contentions->iterate(c; m:Integer=0 | m.max(c.id))) +1"/>
+      <expressions body="'VirtualSpace'.concat( let number: Integer = id in OrderedSet{1000000, 10000, 1000, 100, 10, 1}&#xD;&#xA;->iterate(denominator : Integer; s : String = '' | let numberAsString : String= OrderedSet{'0','1','2','3','4','5','6','7','8','9'}&#xD;&#xA;->at(number.div(denominator).mod(10) + 1)&#xD;&#xA;in if s='' and numberAsString = '0' then s else s.concat(numberAsString) endif))"/>
+      <expressions body="universe.physicalSpaces->iterate(c; m:Integer=0 | m.max(c.id)).max(universe.virtualSpaces->iterate(c; m:Integer=0 | m.max(c.id))).max(universe.generalizations->iterate(c; m:Integer=0 | m.max(c.id))).max(universe.representations->iterate(c; m:Integer=0 | m.max(c.id))).max(universe.groupings->iterate(c; m:Integer=0 | m.max(c.id))).max(universe.contentions->iterate(c; m:Integer=0 | m.max(c.id))) +1"/>
+      <expressions body="universe.physicalSpaces->iterate(c; m:Integer=0 | m.max(c.id)).max(universe.virtualSpaces->iterate(c; m:Integer=0 | m.max(c.id))).max(universe.generalizations->iterate(c; m:Integer=0 | m.max(c.id))).max(universe.representations->iterate(c; m:Integer=0 | m.max(c.id))).max(universe.groupings->iterate(c; m:Integer=0 | m.max(c.id))).max(universe.contentions->iterate(c; m:Integer=0 | m.max(c.id))) +1"/>
+      <expressions body="universe.physicalSpaces->iterate(c; m:Integer=0 | m.max(c.id)).max(universe.virtualSpaces->iterate(c; m:Integer=0 | m.max(c.id))).max(universe.generalizations->iterate(c; m:Integer=0 | m.max(c.id))).max(universe.representations->iterate(c; m:Integer=0 | m.max(c.id))).max(universe.groupings->iterate(c; m:Integer=0 | m.max(c.id))).max(universe.contentions->iterate(c; m:Integer=0 | m.max(c.id))) +1"/>
+      <expressions xsi:type="gmfgen:GenConstraint" body="parent.id&lt;>child.id"/>
+      <expressions xsi:type="gmfgen:GenConstraint" body="parent.id&lt;>child.id"/>
+      <expressions xsi:type="gmfgen:GenConstraint" body="generalizes.id&lt;>parent.id"/>
+      <expressions xsi:type="gmfgen:GenConstraint" body="universe.groupings->forAll(g| (g.parent.id&lt;>parent.id or g.child.id&lt;>child.id) or (g.id=id))"/>
+      <expressions xsi:type="gmfgen:GenConstraint" body="universe.generalizations->forAll(g| (g.parent.id&lt;>parent.id or g.generalizes.id&lt;>generalizes.id) or (g.id=id))"/>
+      <expressions xsi:type="gmfgen:GenConstraint" body="universe.contentions->forAll(g| (g.parent.id&lt;>parent.id or g.child.id&lt;>child.id) or (g.id=id))"/>
+      <expressions xsi:type="gmfgen:GenConstraint" body="(universe.id&lt;>self.id) and&#xD;&#xA;universe.physicalSpaces->forAll(phs|  (phs.id&lt;>self.id)) and&#xD;&#xA;universe.virtualSpaces->forAll(vs| (vs.id&lt;>self.id)) and&#xD;&#xA;universe.groupings->forAll(g | (g&lt;>self) implies (g.id&lt;>self.id)) and&#xD;&#xA;universe.generalizations->forAll(gens | (gens.id&lt;>self.id)) and&#xD;&#xA;universe.contentions->forAll(c | (c.id&lt;>self.id))"/>
+      <expressions xsi:type="gmfgen:GenConstraint" body="(universe.id&lt;>self.id) and&#xD;&#xA;universe.physicalSpaces->forAll(phs|  (phs.id&lt;>self.id)) and&#xD;&#xA;universe.virtualSpaces->forAll(vs| (vs.id&lt;>self.id)) and&#xD;&#xA;universe.groupings->forAll(g | g.id&lt;>self.id) and&#xD;&#xA;universe.generalizations->forAll(gens | (gens.id&lt;>self.id)) and&#xD;&#xA;universe.contentions->forAll(c | (c&lt;>self) implies (c.id&lt;>self.id))"/>
+      <expressions xsi:type="gmfgen:GenConstraint" body="(universe.id&lt;>self.id) and&#xD;&#xA;universe.physicalSpaces->forAll(phs | (phs.id&lt;>self.id)) and&#xD;&#xA;universe.virtualSpaces->forAll(vs | (vs.id&lt;>self.id)) and&#xD;&#xA;universe.groupings->forAll(g | g.id&lt;>self.id) and&#xD;&#xA;universe.generalizations->forAll(gens | (gens&lt;>self) implies (gens.id&lt;>self.id)) and&#xD;&#xA;universe.contentions->forAll(c | c.id&lt;>self.id)"/>
+      <expressions xsi:type="gmfgen:GenConstraint" body="self>0"/>
+      <expressions xsi:type="gmfgen:GenConstraint" body="(universe.name&lt;>self.name) and&#xD;&#xA;universe.physicalSpaces->forAll(phs | (phs&lt;>self) implies (phs.name&lt;>self.name)) and&#xD;&#xA;universe.virtualSpaces->forAll(vs | (vs.name&lt;>self.name))"/>
+      <expressions xsi:type="gmfgen:GenConstraint" body="(universe.id&lt;>self.id) and&#xD;&#xA;universe.physicalSpaces->forAll(phs | (phs&lt;>self) implies (phs.id&lt;>self.id)) and&#xD;&#xA;universe.virtualSpaces->forAll(vs | (vs.id&lt;>self.id)) and&#xD;&#xA;universe.groupings->forAll(g | g.id&lt;>self.id) and&#xD;&#xA;universe.generalizations->forAll(gens | gens.id&lt;>self.id) and&#xD;&#xA;universe.contentions->forAll(c | c.id&lt;>self.id)"/>
+      <expressions xsi:type="gmfgen:GenConstraint" body="(universe.name&lt;>self.name) and&#xD;&#xA;universe.physicalSpaces->forAll(phs |  (phs.name&lt;>self.name)) and&#xD;&#xA;universe.virtualSpaces->forAll(vs | (vs&lt;>self) implies (vs.name&lt;>self.name))"/>
+      <expressions xsi:type="gmfgen:GenConstraint" body="(universe.id&lt;>self.id) and&#xD;&#xA;universe.physicalSpaces->forAll(phs | phs.id&lt;>self.id) and&#xD;&#xA;universe.virtualSpaces->forAll(vs | (self&lt;>vs) implies (vs.id&lt;>self.id)) and&#xD;&#xA;universe.groupings->forAll(g | g.id&lt;>self.id) and&#xD;&#xA;universe.generalizations->forAll(gens | gens.id&lt;>self.id) and&#xD;&#xA;universe.contentions->forAll(c | c.id&lt;>self.id)"/>
+      <expressions xsi:type="gmfgen:GenConstraint" body="self>0"/>
+      <expressions xsi:type="gmfgen:GenConstraint" body="self.size()>0"/>
+    </providers>
+  </expressionProviders>
+  <labelParsers extensibleViaService="true">
+    <implementations xsi:type="gmfgen:PredefinedParser" uses="//@diagram/@topLevelNodes.0/@labels.0/@modelFacet //@diagram/@topLevelNodes.1/@labels.0/@modelFacet"/>
+  </labelParsers>
+  <contextMenus context="//@diagram">
+    <items xsi:type="gmfgen:LoadResourceAction"/>
+  </contextMenus>
+</gmfgen:GenEditorGenerator>

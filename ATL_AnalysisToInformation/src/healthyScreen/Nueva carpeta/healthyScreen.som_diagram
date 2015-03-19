@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.1/notation" xmlns:som="som" xmi:id="_DLwdMXEvEd6i99zjb1ZH1A" type="Som" name="healthyScreen.som_diagram" measurementUnit="Pixel">
+  <children xmi:type="notation:Node" xmi:id="_D3zD0HEvEd6i99zjb1ZH1A" type="1002">
+    <children xmi:type="notation:Node" xmi:id="_D30R8HEvEd6i99zjb1ZH1A" type="4003"/>
+    <children xmi:type="notation:Node" xmi:id="_D305AHEvEd6i99zjb1ZH1A" type="4004"/>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_D3zD0XEvEd6i99zjb1ZH1A" fontName="Segoe UI"/>
+    <element xmi:type="som:Role" href="healthyScreen.som#1"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_D3zD0nEvEd6i99zjb1ZH1A" x="212" y="109"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_EgwhQHEvEd6i99zjb1ZH1A" type="1002">
+    <children xmi:type="notation:Node" xmi:id="_EgxIUHEvEd6i99zjb1ZH1A" type="4003"/>
+    <children xmi:type="notation:Node" xmi:id="_EgxIUXEvEd6i99zjb1ZH1A" type="4004"/>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_EgwhQXEvEd6i99zjb1ZH1A" fontName="Segoe UI"/>
+    <element xmi:type="som:Role" href="healthyScreen.som#2"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_EgwhQnEvEd6i99zjb1ZH1A" x="356" y="108"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_N8GvcHExEd6i99zjb1ZH1A" type="1001">
+    <children xmi:type="notation:Node" xmi:id="_N8H9kHExEd6i99zjb1ZH1A" type="4001">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_N8H9kXExEd6i99zjb1ZH1A" y="5"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_N8IkoHExEd6i99zjb1ZH1A" type="4002">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_N8IkoXExEd6i99zjb1ZH1A" x="-20" y="60"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_N8GvcXExEd6i99zjb1ZH1A" fontName="Segoe UI"/>
+    <element xmi:type="som:IndividualInstance" href="healthyScreen.som#3"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_N8GvcnExEd6i99zjb1ZH1A" x="230" y="195"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_PKdY8HExEd6i99zjb1ZH1A" type="1001">
+    <children xmi:type="notation:Node" xmi:id="_PKdY83ExEd6i99zjb1ZH1A" type="4001">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_PKdY9HExEd6i99zjb1ZH1A" y="5"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_PKeAAHExEd6i99zjb1ZH1A" type="4002">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_PKeAAXExEd6i99zjb1ZH1A" x="-20" y="60"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_PKdY8XExEd6i99zjb1ZH1A" fontName="Segoe UI"/>
+    <element xmi:type="som:IndividualInstance" href="healthyScreen.som#4"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_PKdY8nExEd6i99zjb1ZH1A" x="370" y="200"/>
+  </children>
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_DLwdMnEvEd6i99zjb1ZH1A"/>
+  <element xmi:type="som:Society" href="healthyScreen.som#/"/>
+  <edges xmi:type="notation:Edge" xmi:id="_ROyoMHExEd6i99zjb1ZH1A" type="3002" source="_PKdY8HExEd6i99zjb1ZH1A" target="_EgwhQHEvEd6i99zjb1ZH1A">
+    <styles xmi:type="notation:RoutingStyle" xmi:id="_ROyoMXExEd6i99zjb1ZH1A"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_ROyoMnExEd6i99zjb1ZH1A" fontName="Segoe UI"/>
+    <element xmi:type="som:IndividualRealization" href="healthyScreen.som#5"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_ROyoM3ExEd6i99zjb1ZH1A" points="[8, -17, -37, 81]$[44, -106, -1, -8]"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_RO4u0HExEd6i99zjb1ZH1A" id="(0.4861111,0.2)"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_RkDGgHExEd6i99zjb1ZH1A" type="3002" source="_N8GvcHExEd6i99zjb1ZH1A" target="_D3zD0HEvEd6i99zjb1ZH1A">
+    <styles xmi:type="notation:RoutingStyle" xmi:id="_RkDGgXExEd6i99zjb1ZH1A"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_RkDGgnExEd6i99zjb1ZH1A" fontName="Segoe UI"/>
+    <element xmi:type="som:IndividualRealization" href="healthyScreen.som#6"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_RkDGg3ExEd6i99zjb1ZH1A" points="[-1, -20, 4, 66]$[-4, -66, 1, 20]"/>
+  </edges>
+</notation:Diagram>

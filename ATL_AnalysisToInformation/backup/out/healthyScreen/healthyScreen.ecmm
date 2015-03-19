@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecmm:SystemContext xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecmm="ecmm" name="somm-diagram">
+  <entities entity="PDA" id="1">
+    <situations name="init-PDA" id="4">
+      <actions memory="2" expression="(on,0)" id="6"/>
+      <actions memory="3" expression="PDA" id="7"/>
+      <memoryConditions id="5" expression="off" contextMemory="2"/>
+    </situations>
+    <situations name="SetPastelColors" id="15">
+      <memoryConditions id="16" expression="PDA" contextMemory="3"/>
+    </situations>
+    <situations name="SetSolidColors" id="17">
+      <memoryConditions id="18" expression="PDA" contextMemory="3"/>
+    </situations>
+    <state xsi:type="ecmm:HolderMemory" name="PDA.role" id="3"/>
+    <state xsi:type="ecmm:TimeMemory" name="PDA.init" id="2"/>
+  </entities>
+  <entities entity="CardiacPulseSensor" id="8">
+    <situations name="init-CardiacPulseSensor" id="11">
+      <actions memory="9" expression="(on,0)" id="13"/>
+      <actions memory="10" expression="CardiacPulseSensor" id="14"/>
+      <memoryConditions id="12" expression="off" contextMemory="9"/>
+    </situations>
+    <situations name="GetCardiacPulseEvent" id="19">
+      <memoryConditions id="20" expression="PDA" contextMemory="3"/>
+      <memoryConditions id="21" expression="CardiacPulseSensor" contextMemory="10"/>
+      <sensingConditions id="22" informationflow="GetCardiacPulse"/>
+    </situations>
+    <state xsi:type="ecmm:HolderMemory" name="CardiacPulseSensor.role" id="10"/>
+    <state xsi:type="ecmm:TimeMemory" name="CardiacPulseSensor.init" id="9"/>
+  </entities>
+</ecmm:SystemContext>

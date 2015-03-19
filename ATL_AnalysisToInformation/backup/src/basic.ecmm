@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecmm:SystemContext xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecmm="ecmm">
+  <entities entity="A" id="1">
+    <state xsi:type="ecmm:HolderMemory" name="A.roleMemory" id="3"/>
+    <state xsi:type="ecmm:HolderMemory" name="A.Memory" id="9"/>
+    <variables name="x" definition="String" id="15"/>
+    <variables name="y" definition="String" id="16"/>
+  </entities>
+  <entities entity="B" id="2">
+    <situations name="fSituation" id="5">
+      <actions memory="9" expression="y" id="11"/>
+      <actions memory="10" expression="x" id="12"/>
+      <memoryConditions id="6" expression="A" contextMemory="3"/>
+      <memoryConditions id="7" expression="B" contextMemory="4"/>
+      <sensingConditions id="8" informationflow="f"/>
+    </situations>
+    <state xsi:type="ecmm:HolderMemory" name="B.roleMemory" id="4"/>
+    <state xsi:type="ecmm:HolderMemory" name="B.Memory" id="10"/>
+    <variables name="x" definition="String" id="13"/>
+    <variables name="y" definition="String" id="14"/>
+  </entities>
+</ecmm:SystemContext>

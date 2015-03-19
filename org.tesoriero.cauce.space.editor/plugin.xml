@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated space -->
+      <wizard
+            id="spmm.presentation.SpmmModelWizardID"
+            name="%_UI_SpmmModelWizard_label"
+            class="spmm.presentation.SpmmModelWizard"
+            category="org.tesoriero.cauce.model.category.ID"
+            icon="icons/full/obj16/SpmmModelFile.gif">
+         <description>%_UI_SpmmModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated space -->
+      <editor
+            id="spmm.presentation.SpmmEditorID"
+            name="%_UI_SpmmEditor_label"
+            icon="icons/full/obj16/SpmmModelFile.gif"
+            extensions="spmm"
+            class="spmm.presentation.SpmmEditor"
+            contributorClass="spmm.presentation.SpmmActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

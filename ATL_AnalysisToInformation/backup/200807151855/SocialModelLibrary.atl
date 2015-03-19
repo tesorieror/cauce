@@ -1,0 +1,61 @@
+library SocialModelLibrary; -- Library Template
+uses RegularExpressions; 
+
+helper context String def: isRole():Boolean =
+	soModel!Role.allInstances()->iterate(r; ans : Boolean = false| ans or self = r.name);
+
+helper context String def: isIndividualInstance():Boolean =
+	soModel!IndividualInstance.allInstances()->iterate(r; ans : Boolean = false| ans or self = r.name);
+
+helper context String def: getRole():so!Role =
+	soModel!Role.allInstances()->any(r | self = r.name);
+
+helper context String def: getIndividualInstance():soModel!IndividualInstance =
+	soModel!IndividualInstance.allInstances()->any(r | self = r.name);
+
+helper context String def: isRootRole():Boolean =
+	if(self.isRole()) then self.getRole()->isRoot()
+	else false endif;
+
+helper context String def: getRoleListFromSocialInstance():Set(String) = 
+	if(self.isRole()) then Set{self} else self.getIndividualInstance().realizes->collect(r|r.target.name) endif;
+
+helper context String def: getRootRoles():Set(String)=
+	self.getRoleListFromSocialInstance()->collect(r | r.getRole().getRootRoles())->flatten()->asSet();
+
+helper context soModel!Role def: isRoot():Boolean = 
+	self.children->size()=0;
+
+helper context soModel!Role def: getRootRoles():Set(String)=
+	self.getParentRoles()->select(r| r.isRoot())->collect(r|r.name);
+
+helper context soModel!Role def: getParentRoles():Set(soModel!Role)=
+	if(self.children->size()>0)then
+		self.children->collect(spec | spec.target->getParentRoles())->flatten()->including(self)
+	else Set{self} endif->asSet();
+	
+helper context soModel!IndividualInstance def: getParentRoles():Set(soModel!Role)=
+	self.realizes->collect(real | real.target.getParentRoles())->flatten();	
+	
+helper context soModel!Role def: getIndividualInstances():Set(soModel!IndividualInstance)=
+	self.getChildRoles()->collect(r | r.isRealizedByIndividual->collect(real | real.source))
+	->flatten()->union(self.isRealizedByIndividual->collect(real | real.source))->asSet();
+
+helper context soModel!Role def: getChildRoles():Set(soModel!Role)=
+	if(self.parent->size()>0)then
+		self.parent->collect(spec | spec.source->getChildRoles())->flatten()->including(self)
+	else Set{self} endif->asSet();
+	
+helper context soModel!Role def: getMyOwnVaraibles():Set(String)=
+	if(thisModule->getSystemVaraibleMap()->getKeys()->includes(self.name)) then
+	thisModule->getSystemVaraibleMap()->get(self.name)
+	else Set{} endif;
+	
+helper context soModel!Role def: getVaraiblesInSystem():Set(String)=		
+	self->getChildRoles()->collect(r | r->getMyOwnVaraibles())->flatten()->	
+	union(self.getIndividualInstances()->collect(i | 
+		thisModule->getSystemVaraibleMap()->get(i.name))->flatten()
+	)->asSet();
+
+
+

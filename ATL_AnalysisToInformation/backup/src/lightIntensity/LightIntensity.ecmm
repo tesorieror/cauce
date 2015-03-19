@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecmm:SystemContext xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecmm="ecmm" name="somm-diagram">
+  <entities entity="PDA" id="10">
+    <situations name="init-PDA" id="23">
+      <actions memory="22" expression="(on,0)" id="25"/>
+      <memoryConditions id="24" expression="off" contextMemory="22"/>
+    </situations>
+    <situations name="PDA-anEvent-0" id="20">
+      <memoryConditions id="21" expression="aPDA(release, SetButton),aPDA(action, PDAControl)*, aPDA(enter, Room)" contextMemory="5"/>
+    </situations>
+    <situations name="SetLightIntensity" id="54">
+      <actions memory="5" expression="*" id="61"/>
+      <memoryConditions id="57" expression="aPDA,Blind" contextMemory="2"/>
+      <memoryConditions id="58" expression="aPDA(action, PDAControl)*, aPDA(enter, Room), Blind(enter, Room)" contextMemory="5"/>
+    </situations>
+    <situations name="getLocationSituation" id="81">
+      <actions memory="80" expression="(on,5000)" id="83"/>
+      <memoryConditions id="82" expression="off" contextMemory="80"/>
+    </situations>
+    <situations name="SetIntensityButtonSituation" id="87">
+      <actions memory="5" expression="PDA(setButton, event),*" id="90"/>
+      <sensingConditions id="89" informationflow="SetButtonEvent"/>
+    </situations>
+    <state xsi:type="ecmm:HolderMemory" name="roleMemory" id="2"/>
+    <state xsi:type="ecmm:StackMemory" name="PDA.spaceMemory" id="5"/>
+    <state xsi:type="ecmm:DictionaryMemory" name="dataMemory" id="8"/>
+    <state xsi:type="ecmm:TimeMemory" name="initMemory" id="22"/>
+    <state xsi:type="ecmm:TimeMemory" name="getLocationPooling" id="80"/>
+    <variables name="li" definition="String" id="15"/>
+    <variables name="Room" definition=" RoomB+ RoomA" id="17"/>
+    <variables name="SetButton" definition="String" id="18"/>
+    <variables name="PDAControl" definition=" SetButton" id="19"/>
+    <variables name="aPDA" definition="PDA" id="16"/>
+    <variables name="utm" definition="utmlong, utmlat" id="84"/>
+    <variables name="utmlong" definition="double" id="85"/>
+    <variables name="utmlat" definition="double" id="86"/>
+    <variables name="event" definition="pressed + released + click" id="88"/>
+  </entities>
+  <entities entity="Blind" id="26">
+    <situations name="init-Blind" id="36">
+      <actions memory="35" expression="(on,0)" id="38"/>
+      <actions memory="4" expression="Blind(enter, Room)" id="39"/>
+      <memoryConditions id="37" expression="off" contextMemory="35"/>
+    </situations>
+    <situations name="SetLightIntensity" id="53">
+      <actions memory="4" expression="*" id="60"/>
+      <actions memory="7" expression="li" id="62"/>
+      <memoryConditions id="55" expression="aPDA,Blind" contextMemory="1"/>
+      <memoryConditions id="56" expression="aPDA(action, PDAControl)*, aPDA(enter, Room), Blind(enter, Room)" contextMemory="4"/>
+      <sensingConditions id="59" informationflow="BlindManager_to_Blind-SetLightIntensity"/>
+    </situations>
+    <situations name="GetLightIntensity" id="63">
+      <actions memory="4" expression="*" id="70"/>
+      <actions memory="7" expression="li" id="72"/>
+      <memoryConditions id="65" expression="Blind, aLightSensor" contextMemory="1"/>
+      <memoryConditions id="66" expression="(aLightSensor(enter, Room), Blind(enter, Room)) + (Blind(enter, Room), LightSensor(enter, Room))" contextMemory="4"/>
+      <sensingConditions id="69" informationflow="aLightSensor_to_Blind-GetLightIntensity"/>
+    </situations>
+    <state xsi:type="ecmm:HolderMemory" name="roleMemory" id="1"/>
+    <state xsi:type="ecmm:StackMemory" name="spaceMemory" id="4"/>
+    <state xsi:type="ecmm:DictionaryMemory" name="dataMemory" id="7"/>
+    <state xsi:type="ecmm:TimeMemory" name="initMemory" id="35"/>
+    <variables name="li" definition="String" id="31"/>
+    <variables name="Room" definition=" RoomB+ RoomA" id="34"/>
+    <variables name="aPDA" definition="PDA" id="32"/>
+    <variables name="aLightSensor" definition="LightSensor" id="33"/>
+  </entities>
+  <entities entity="LightSensor" id="40">
+    <situations name="init-LightSensor" id="49">
+      <actions memory="48" expression="(on,0)" id="51"/>
+      <actions memory="6" expression="LightSensor(enter, Room)" id="52"/>
+      <memoryConditions id="50" expression="off" contextMemory="48"/>
+    </situations>
+    <situations name="GetLightIntensity" id="64">
+      <actions memory="6" expression="*" id="71"/>
+      <memoryConditions id="67" expression="Blind, aLightSensor" contextMemory="3"/>
+      <memoryConditions id="68" expression="(aLightSensor(enter, Room), Blind(enter, Room)) + (Blind(enter, Room), LightSensor(enter, Room))" contextMemory="6"/>
+    </situations>
+    <state xsi:type="ecmm:HolderMemory" name="roleMemory" id="3"/>
+    <state xsi:type="ecmm:StackMemory" name="spaceMemory" id="6"/>
+    <state xsi:type="ecmm:DictionaryMemory" name="dataMemory" id="9"/>
+    <state xsi:type="ecmm:TimeMemory" name="initMemory" id="48"/>
+    <variables name="li" definition="String" id="45"/>
+    <variables name="Room" definition=" RoomB+ RoomA" id="47"/>
+    <variables name="aLightSensor" definition="LightSensor" id="46"/>
+  </entities>
+  <entities entity="GPS" id="73">
+    <situations name="getLocationSituation" id="74">
+      <sensingConditions id="75" informationflow="getLocation"/>
+    </situations>
+    <variables name="utm" definition="utmlong, utmlat" id="76"/>
+    <variables name="utmlong" definition="double" id="77"/>
+    <variables name="utmlat" definition="double" id="78"/>
+  </entities>
+  <entities entity="SetButton" id="91">
+    <situations name="SetIntensityButtonSituation" id="92"/>
+    <variables name="event" definition="pressed + released + click" id="93"/>
+  </entities>
+  <entities entity="SetEntry" id="94">
+    <situations name="GetLightIntensitySituation" id="96">
+      <sensingConditions id="97" informationflow="GetLightIntensity"/>
+    </situations>
+    <variables name="li" definition="String" id="95"/>
+  </entities>
+  <entities entity="LocationManager" id="98">
+    <situations name="SetLightIntensitySituation" id="100">
+      <sensingConditions id="101" informationflow="PDA_to_LocationManager-SetLightIntensity"/>
+    </situations>
+    <variables name="li" definition="String" id="99"/>
+  </entities>
+  <entities entity="BlindManager" id="102">
+    <situations name="SetLightIntensitySituation" id="104">
+      <sensingConditions id="105" informationflow="LocationManager_to_BlindManager-SetLightIntensity"/>
+    </situations>
+    <variables name="li" definition="String" id="103"/>
+  </entities>
+</ecmm:SystemContext>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.1/notation" xmlns:som="som" xmi:id="_DwF6gGxnEd62zsZCAMfpag" type="Som" name="sample2.som_diagram" measurementUnit="Pixel">
+  <children xmi:type="notation:Node" xmi:id="_EOGsMGxnEd62zsZCAMfpag" type="1002">
+    <children xmi:type="notation:Node" xmi:id="_EOHTQGxnEd62zsZCAMfpag" type="4003"/>
+    <children xmi:type="notation:Node" xmi:id="_EOHTQWxnEd62zsZCAMfpag" type="4004"/>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_EOGsMWxnEd62zsZCAMfpag" fontName="Segoe UI"/>
+    <element xmi:type="som:Role" href="sample2.som#1"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_EOGsMmxnEd62zsZCAMfpag" x="198" y="99"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_EZHpYGxnEd62zsZCAMfpag" type="1002">
+    <children xmi:type="notation:Node" xmi:id="_EZIQcGxnEd62zsZCAMfpag" type="4003"/>
+    <children xmi:type="notation:Node" xmi:id="_EZIQcWxnEd62zsZCAMfpag" type="4004"/>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_EZHpYWxnEd62zsZCAMfpag" fontName="Segoe UI"/>
+    <element xmi:type="som:Role" href="sample2.som#2"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_EZHpYmxnEd62zsZCAMfpag" x="350" y="100"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_Ij9csGxoEd62zsZCAMfpag" type="1001">
+    <children xmi:type="notation:Node" xmi:id="_Ij-DwGxoEd62zsZCAMfpag" type="4001">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_Ij-DwWxoEd62zsZCAMfpag" x="20" y="60"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_Ij-q0GxoEd62zsZCAMfpag" type="4002">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_Ij-q0WxoEd62zsZCAMfpag" x="-20" y="60"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_Ij9csWxoEd62zsZCAMfpag" fontName="Segoe UI"/>
+    <element xmi:type="som:IndividualInstance" href="sample2.som#4"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Ij9csmxoEd62zsZCAMfpag" x="360" y="190"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_Jqu3gGxoEd62zsZCAMfpag" type="1001">
+    <children xmi:type="notation:Node" xmi:id="_JqvekGxoEd62zsZCAMfpag" type="4001">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_JqvekWxoEd62zsZCAMfpag" x="15" y="60"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_JqvekmxoEd62zsZCAMfpag" type="4002">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_Jqvek2xoEd62zsZCAMfpag" x="-20" y="60"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_Jqu3gWxoEd62zsZCAMfpag" fontName="Segoe UI"/>
+    <element xmi:type="som:IndividualInstance" href="sample2.som#5"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Jqu3gmxoEd62zsZCAMfpag" x="205" y="185"/>
+  </children>
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_DwF6gWxnEd62zsZCAMfpag"/>
+  <element xmi:type="som:Society" href="sample2.som#/"/>
+  <edges xmi:type="notation:Edge" xmi:id="_LgVuQGxoEd62zsZCAMfpag" type="3002" source="_Ij9csGxoEd62zsZCAMfpag" target="_EZHpYGxnEd62zsZCAMfpag">
+    <styles xmi:type="notation:RoutingStyle" xmi:id="_LgVuQWxoEd62zsZCAMfpag"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_LgVuQmxoEd62zsZCAMfpag" fontName="Segoe UI"/>
+    <element xmi:type="som:IndividualRealization" href="sample2.som#6"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_LgVuQ2xoEd62zsZCAMfpag" points="[1, -20, -6, 85]$[8, -125, 1, -20]"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_L3XHIGxoEd62zsZCAMfpag" type="3002" source="_Jqu3gGxoEd62zsZCAMfpag" target="_EOGsMGxnEd62zsZCAMfpag">
+    <styles xmi:type="notation:RoutingStyle" xmi:id="_L3XHIWxoEd62zsZCAMfpag"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_L3XHImxoEd62zsZCAMfpag" fontName="Segoe UI"/>
+    <element xmi:type="som:IndividualRealization" href="sample2.som#7"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_L3XHI2xoEd62zsZCAMfpag" points="[-2, -20, 1, 79]$[-27, -79, -24, 20]"/>
+  </edges>
+</notation:Diagram>

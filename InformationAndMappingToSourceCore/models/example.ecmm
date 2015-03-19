@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecmm:SystemContext xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecmm="ecmm">
+  <entities entity="EntityA" id="1">
+    <situations name="EntityA-init" id="14">
+      <actions memory="21" expression="(on,0)" id="19"/>
+      <actions memory="3" expression="EntityA" id="20"/>
+      <memoryConditions id="22" expression="off" contextMemory="21"/>
+    </situations>
+    <state xsi:type="ecmm:HolderMemory" name="EntityA.role" id="3"/>
+    <state xsi:type="ecmm:TimeMemory" name="EntityA.init" id="21"/>
+    <variables name="parameter" definition="String" id="17"/>
+    <variables name="result" definition="String" id="18"/>
+  </entities>
+  <entities entity="EntityB" id="2">
+    <situations name="onF" id="5">
+      <memoryConditions id="6" expression="EntityA" contextMemory="3"/>
+      <memoryConditions id="7" expression="EntityB" contextMemory="4"/>
+      <sensingConditions id="12" informationflow="f"/>
+    </situations>
+    <situations name="EntityB-init" id="8">
+      <actions memory="9" expression="(on, 0)" id="11"/>
+      <actions memory="4" expression="EntityB" id="13"/>
+      <memoryConditions id="10" expression="off" contextMemory="9"/>
+    </situations>
+    <state xsi:type="ecmm:HolderMemory" name="EntityB.role" id="4"/>
+    <state xsi:type="ecmm:TimeMemory" name="EntityB.init" id="9"/>
+    <variables name="parameter" definition="String" id="15"/>
+    <variables name="result" definition="String" id="16"/>
+  </entities>
+</ecmm:SystemContext>

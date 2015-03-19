@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<som:Society xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:som="som">
+  <relaizations target="2" source="4" id="6"/>
+  <relaizations target="1" source="5" id="7"/>
+  <individuals realizes="6" id="4" name="aB"/>
+  <individuals realizes="7" id="5" name="anA"/>
+  <roles isRealizedByIndividual="7" id="1" name="A"/>
+  <roles isRealizedByIndividual="6" id="2" name="B"/>
+</som:Society>

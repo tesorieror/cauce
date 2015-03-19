@@ -1,0 +1,450 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gmfgen:GenEditorGenerator xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:gmfgen="http://www.eclipse.org/gmf/2009/GenModel" diagramFileExtension="ifmmdiag">
+  <audits>
+    <categories id="InformaitonFlowAuditContainer" name="InformaitonFlowAuditContainer" description="Informaiton Flow Audit Container" path="//@audits/@categories.0"/>
+    <categories id="EdgeAuditContainer" name="EdgeAuditContainer" description="EdgeAuditContainer" path="//@audits/@categories.0 //@audits/@categories.1" audits="//@audits/@rules.0 //@audits/@rules.1 //@audits/@rules.2 //@audits/@rules.3"/>
+    <categories id="ContextAwareEntityAuditContainer" name="ContextAwareEntityAuditContainer" description="Context Aware Entity Audit Container" path="//@audits/@categories.0 //@audits/@categories.2" audits="//@audits/@rules.4 //@audits/@rules.5 //@audits/@rules.6 //@audits/@rules.7"/>
+    <categories id="InformationFlowAuditContainer" name="InformationFlowAuditContainer" description="Information Flow Audit Container" path="//@audits/@categories.0 //@audits/@categories.3" audits="//@audits/@rules.8 //@audits/@rules.9 //@audits/@rules.10 //@audits/@rules.11"/>
+    <categories id="DataAuditContainer" name="DataAuditContainer" description="DataAuditContainer" path="//@audits/@categories.0 //@audits/@categories.4" audits="//@audits/@rules.12"/>
+    <categories id="SystemInformationFlowAuditContainer" name="SystemInformationFlowAuditContainer" description="SystemInformationFlowAuditContainer" path="//@audits/@categories.0 //@audits/@categories.5" audits="//@audits/@rules.13 //@audits/@rules.14 //@audits/@rules.15 //@audits/@rules.16"/>
+    <rules name="PointToPointInformationFlowDefineSourceEntity" description="Point To Point Information Flow must define the source entity" id="PointToPointInformationFlowDefineSourceEntity" rule="//@expressionProviders/@providers.0/@expressions.13" message="Point To Point Information Flow must define the source entity" category="//@audits/@categories.1">
+      <target xsi:type="gmfgen:GenDomainElementTarget" contextSelector="//@audits/@clientContexts.0">
+        <element href="informationFlow.genmodel#//ifmm/PointToPointInformationFlow"/>
+      </target>
+    </rules>
+    <rules name="PointToPointInformationFlowDefineTargetEntity" description="Point To Point Information Flow must define the target entity" id="PointToPointInformationFlowDefineTargetEntity" rule="//@expressionProviders/@providers.0/@expressions.14" message="Point To Point Information Flow must define the target entity" category="//@audits/@categories.1">
+      <target xsi:type="gmfgen:GenDomainElementTarget" contextSelector="//@audits/@clientContexts.0">
+        <element href="informationFlow.genmodel#//ifmm/PointToPointInformationFlow"/>
+      </target>
+    </rules>
+    <rules name="BroadcastInformationFlowDefineSourceEntity" description="Broadcast Information Flow must define the source entity" id="BroadcastInformationFlowDefineSourceEntity" rule="//@expressionProviders/@providers.0/@expressions.15" message="Broadcast Information Flow must define the source entity" category="//@audits/@categories.1">
+      <target xsi:type="gmfgen:GenDomainElementTarget" contextSelector="//@audits/@clientContexts.0">
+        <element href="informationFlow.genmodel#//ifmm/BroadcastInformationFlow"/>
+      </target>
+    </rules>
+    <rules name="BroadcastInformationFlowDefineTargetEntity" description="Broadcast Information Flow must define the target entity" id="BroadcastInformationFlowDefineTargetEntity" rule="//@expressionProviders/@providers.0/@expressions.16" message="Broadcast Information Flow must define the target entity" category="//@audits/@categories.1">
+      <target xsi:type="gmfgen:GenDomainElementTarget" contextSelector="//@audits/@clientContexts.0">
+        <element href="informationFlow.genmodel#//ifmm/BroadcastInformationFlow"/>
+      </target>
+    </rules>
+    <rules name="ContextAwareEntityNameSetAuditRule" description="Check ContextAwareEntity Name" id="ContextAwareEntityNameSetAuditRule" rule="//@expressionProviders/@providers.0/@expressions.17" message="ContextAwareEntity name must be set" category="//@audits/@categories.2">
+      <target xsi:type="gmfgen:GenDomainAttributeTarget" contextSelector="//@audits/@clientContexts.0" nullAsError="true">
+        <attribute href="informationFlow.genmodel#//ifmm/ContextAwareEntity/name"/>
+      </target>
+    </rules>
+    <rules name="ContextAwareEntityNameUniqueAuditRule" description="Context Aware Entity Name Unique" id="ContextAwareEntityNameUniqueAuditRule" rule="//@expressionProviders/@providers.0/@expressions.18" message="Context Aware Entity Name must be unique" category="//@audits/@categories.2">
+      <target xsi:type="gmfgen:GenDomainElementTarget" contextSelector="//@audits/@clientContexts.0">
+        <element href="informationFlow.genmodel#//ifmm/ContextAwareEntity"/>
+      </target>
+    </rules>
+    <rules name="ContextAwareEntityIdAuditRule" description="Context Aware Entity Id Audit Rule" id="ContextAwareEntityIdAuditRule" rule="//@expressionProviders/@providers.0/@expressions.19" message="The ContextAwareEntity ID must be set" category="//@audits/@categories.2">
+      <target xsi:type="gmfgen:GenDomainAttributeTarget" contextSelector="//@audits/@clientContexts.0" nullAsError="true">
+        <attribute href="informationFlow.genmodel#//ifmm/ContextAwareEntity/id"/>
+      </target>
+    </rules>
+    <rules name="ContextAwareEntityIdUniqueAuditRule" description="ContextAwareEntity ID Unique Audit Rule" id="ContextAwareEntityIdUniqueAuditRule" rule="//@expressionProviders/@providers.0/@expressions.20" message="The ContextAwareEntity ID must be unique" category="//@audits/@categories.2">
+      <target xsi:type="gmfgen:GenDomainElementTarget" contextSelector="//@audits/@clientContexts.0">
+        <element href="informationFlow.genmodel#//ifmm/ContextAwareEntity"/>
+      </target>
+    </rules>
+    <rules name="InformationFlowIdSetAuditRule" description="Information Flow Id Set" id="InformationFlowIdSetAuditRule" rule="//@expressionProviders/@providers.0/@expressions.21" message="An Information Flow ID must be set" category="//@audits/@categories.3">
+      <target xsi:type="gmfgen:GenDomainAttributeTarget" contextSelector="//@audits/@clientContexts.0" nullAsError="true">
+        <attribute href="informationFlow.genmodel#//ifmm/InformationFlow/id"/>
+      </target>
+    </rules>
+    <rules name="InformationFlowIdUniqueAuditRule" description="Information Flow Id Unique Audit Rule" id="InformationFlowIdUniqueAuditRule" rule="//@expressionProviders/@providers.0/@expressions.22" message="An unique Information Flow Id must be set" category="//@audits/@categories.3">
+      <target xsi:type="gmfgen:GenDomainElementTarget" contextSelector="//@audits/@clientContexts.0">
+        <element href="informationFlow.genmodel#//ifmm/InformationFlow"/>
+      </target>
+    </rules>
+    <rules name="InformationFlowNameSetAuditRule" description="InformationFlow Name Set AuditRule" id="InformationFlowNameSetAuditRule" rule="//@expressionProviders/@providers.0/@expressions.23" message="The InformationFlow Name must be set" category="//@audits/@categories.3">
+      <target xsi:type="gmfgen:GenDomainAttributeTarget" contextSelector="//@audits/@clientContexts.0" nullAsError="true">
+        <attribute href="informationFlow.genmodel#//ifmm/InformationFlow/name"/>
+      </target>
+    </rules>
+    <rules name="InformationFlowNameUniqueAuditRule" description="InformationFlow Name Unique AuditRule" id="InformationFlowNameUniqueAuditRule" rule="//@expressionProviders/@providers.0/@expressions.24" message="The InformationFlow Name must be unique" category="//@audits/@categories.3">
+      <target xsi:type="gmfgen:GenDomainElementTarget" contextSelector="//@audits/@clientContexts.0">
+        <element href="informationFlow.genmodel#//ifmm/InformationFlow"/>
+      </target>
+    </rules>
+    <rules name="DataDefinitionNotNull" description="Data Definition not Null" id="DataDefinitionNotNull" rule="//@expressionProviders/@providers.0/@expressions.25" message="The Data Definition must be set" category="//@audits/@categories.4">
+      <target xsi:type="gmfgen:GenDomainAttributeTarget" contextSelector="//@audits/@clientContexts.0" nullAsError="true">
+        <attribute href="informationFlow.genmodel#//ifmm/Data/definition"/>
+      </target>
+    </rules>
+    <rules name="SystemInformationFlowNameSetAuditRule" description="SystemInformationFlow Name Set AuditRule" id="SystemInformationFlowNameSetAuditRule" rule="//@expressionProviders/@providers.0/@expressions.26" message="SystemInformationFlow name must be set" category="//@audits/@categories.5">
+      <target xsi:type="gmfgen:GenDomainAttributeTarget" contextSelector="//@audits/@clientContexts.0" nullAsError="true">
+        <attribute href="informationFlow.genmodel#//ifmm/SystemInformaitonFlow/name"/>
+      </target>
+    </rules>
+    <rules name="SystemInformationFlowNameUniqueAuditRule" description="SystemInformationFlow Name Unique AuditRule" id="SystemInformationFlowNameUniqueAuditRule" rule="//@expressionProviders/@providers.0/@expressions.27" message="SystemInformationFlow name must be unique" category="//@audits/@categories.5">
+      <target xsi:type="gmfgen:GenDomainElementTarget" contextSelector="//@audits/@clientContexts.0">
+        <element href="informationFlow.genmodel#//ifmm/SystemInformaitonFlow"/>
+      </target>
+    </rules>
+    <rules name="SystemInformationFlowIdSetAuditRule" description="SystemInformationFlow Id Set" id="SystemInformationFlowIdSetAuditRule" rule="//@expressionProviders/@providers.0/@expressions.28" message="SystemInformationFlow id must be set" category="//@audits/@categories.5">
+      <target xsi:type="gmfgen:GenDomainAttributeTarget" contextSelector="//@audits/@clientContexts.0" nullAsError="true">
+        <attribute href="informationFlow.genmodel#//ifmm/SystemInformaitonFlow/id"/>
+      </target>
+    </rules>
+    <rules name="SystemInformationFlowIdUniqueAuditRule" description="SystemInformationFlow Id Unique AuditRule" id="SystemInformationFlowIdUniqueAuditRule" rule="//@expressionProviders/@providers.0/@expressions.29" message="SystemInformationFlow ID must be unique" category="//@audits/@categories.5">
+      <target xsi:type="gmfgen:GenDomainElementTarget" contextSelector="//@audits/@clientContexts.0">
+        <element href="informationFlow.genmodel#//ifmm/SystemInformaitonFlow"/>
+      </target>
+    </rules>
+    <clientContexts ruleTargets="//@audits/@rules.0/@target //@audits/@rules.1/@target //@audits/@rules.2/@target //@audits/@rules.3/@target //@audits/@rules.4/@target //@audits/@rules.5/@target //@audits/@rules.6/@target //@audits/@rules.7/@target //@audits/@rules.8/@target //@audits/@rules.9/@target //@audits/@rules.10/@target //@audits/@rules.11/@target //@audits/@rules.12/@target //@audits/@rules.13/@target //@audits/@rules.14/@target //@audits/@rules.15/@target //@audits/@rules.16/@target"/>
+  </audits>
+  <diagram visualID="1000" editPartClassName="SystemInformaitonFlowEditPart" itemSemanticEditPolicyClassName="SystemInformaitonFlowItemSemanticEditPolicy" canonicalEditPolicyClassName="SystemInformaitonFlowCanonicalEditPolicy" notationViewProviderPriority="High" iconProviderPriority="High" validationProviderPriority="Low" validationEnabled="true" validationDecorators="true" validationDecoratorProviderPriority="High" liveValidationUIFeedback="true">
+    <diagramRunTimeClass href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Diagram"/>
+    <elementType xsi:type="gmfgen:MetamodelType" editHelperClassName="SystemInformaitonFlowEditHelper"/>
+    <viewmap xsi:type="gmfgen:FigureViewmap" figureQualifiedClassName="org.eclipse.draw2d.FreeformLayer"/>
+    <domainDiagramElement href="informationFlow.genmodel#//ifmm/SystemInformaitonFlow"/>
+    <childNodes visualID="3001" editPartClassName="OutputDataEditPart" itemSemanticEditPolicyClassName="OutputDataItemSemanticEditPolicy" canonicalEditPolicyClassName="OutputDataCanonicalEditPolicy" graphicalNodeEditPolicyClassName="OutputDataGraphicalNodeEditPolicy" createCommandClassName="OutputDataCreateCommand" containers="//@diagram/@compartments.0">
+      <diagramRunTimeClass href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <elementType xsi:type="gmfgen:MetamodelType" editHelperClassName="OutputDataEditHelper"/>
+      <viewmap xsi:type="gmfgen:InnerClassViewmap" layoutType="FLOW_LAYOUT" className="OutputDataFigure" classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class OutputDataFigure extends org.eclipse.draw2d.RectangleFigure {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureOutputDataDefinitionFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public OutputDataFigure() {&#xA;&#x9;&#x9;&#xA;&#x9;org.eclipse.draw2d.FlowLayout layoutThis = new org.eclipse.draw2d.FlowLayout();&#xA;&#x9;layoutThis.setStretchMinorAxis(false);&#xA;&#x9;layoutThis.setMinorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_LEFTTOP&#xA;);&#xA;&#xA;&#x9;layoutThis.setMajorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_LEFTTOP&#xA;);&#xA;&#x9;layoutThis.setMajorSpacing(5);&#xA;&#x9;layoutThis.setMinorSpacing(5);&#xA;&#x9;layoutThis.setHorizontal(true);&#xA;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;this.setOutline(false);&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureOutputDataDefinitionFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureOutputDataDefinitionFigure.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigureOutputDataDefinitionFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureOutputDataDefinitionFigure() {&#xA;&#x9;&#x9;return fFigureOutputDataDefinitionFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;">
+        <attributes xsi:type="gmfgen:DefaultSizeAttributes" width="50" height="20"/>
+      </viewmap>
+      <modelFacet>
+        <metaClass href="informationFlow.genmodel#//ifmm/OutputData"/>
+        <containmentMetaFeature href="informationFlow.genmodel#//ifmm/BroadcastInformationFlow/data"/>
+        <childMetaFeature href="informationFlow.genmodel#//ifmm/BroadcastInformationFlow/data"/>
+        <modelElementInitializer xsi:type="gmfgen:GenFeatureSeqInitializer">
+          <initializers xsi:type="gmfgen:GenFeatureValueSpec" value="//@expressionProviders/@providers.0/@expressions.2">
+            <feature href="informationFlow.genmodel#//ifmm/Data/definition"/>
+          </initializers>
+        </modelElementInitializer>
+      </modelFacet>
+      <labels visualID="5001" editPartClassName="OutputDataDefinitionEditPart" itemSemanticEditPolicyClassName="OutputDataDefinitionItemSemanticEditPolicy" elementIcon="true">
+        <diagramRunTimeClass href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <viewmap xsi:type="gmfgen:ParentAssignedViewmap" getterName="getFigureOutputDataDefinitionFigure" figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
+        <modelFacet xsi:type="gmfgen:FeatureLabelModelFacet" parser="//@labelParsers/@implementations.0">
+          <metaFeatures href="informationFlow.genmodel#//ifmm/Data/definition"/>
+        </modelFacet>
+      </labels>
+    </childNodes>
+    <childNodes visualID="3002" editPartClassName="OutputData2EditPart" itemSemanticEditPolicyClassName="OutputData2ItemSemanticEditPolicy" canonicalEditPolicyClassName="OutputData2CanonicalEditPolicy" graphicalNodeEditPolicyClassName="OutputData2GraphicalNodeEditPolicy" createCommandClassName="OutputData2CreateCommand" containers="//@diagram/@compartments.1">
+      <diagramRunTimeClass href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <elementType xsi:type="gmfgen:SpecializationType" metamodelType="//@diagram/@childNodes.0/@elementType"/>
+      <viewmap xsi:type="gmfgen:InnerClassViewmap" layoutType="FLOW_LAYOUT" className="OutputDataFigure" classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class OutputDataFigure extends org.eclipse.draw2d.RectangleFigure {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureOutputDataDefinitionFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public OutputDataFigure() {&#xA;&#x9;&#x9;&#xA;&#x9;org.eclipse.draw2d.FlowLayout layoutThis = new org.eclipse.draw2d.FlowLayout();&#xA;&#x9;layoutThis.setStretchMinorAxis(false);&#xA;&#x9;layoutThis.setMinorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_LEFTTOP&#xA;);&#xA;&#xA;&#x9;layoutThis.setMajorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_LEFTTOP&#xA;);&#xA;&#x9;layoutThis.setMajorSpacing(5);&#xA;&#x9;layoutThis.setMinorSpacing(5);&#xA;&#x9;layoutThis.setHorizontal(true);&#xA;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;this.setOutline(false);&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureOutputDataDefinitionFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureOutputDataDefinitionFigure.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigureOutputDataDefinitionFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureOutputDataDefinitionFigure() {&#xA;&#x9;&#x9;return fFigureOutputDataDefinitionFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;">
+        <attributes xsi:type="gmfgen:DefaultSizeAttributes" width="50" height="20"/>
+      </viewmap>
+      <modelFacet>
+        <metaClass href="informationFlow.genmodel#//ifmm/OutputData"/>
+        <containmentMetaFeature href="informationFlow.genmodel#//ifmm/PointToPointInformationFlow/outputData"/>
+        <childMetaFeature href="informationFlow.genmodel#//ifmm/PointToPointInformationFlow/outputData"/>
+        <modelElementInitializer xsi:type="gmfgen:GenFeatureSeqInitializer">
+          <initializers xsi:type="gmfgen:GenFeatureValueSpec" value="//@expressionProviders/@providers.0/@expressions.5">
+            <feature href="informationFlow.genmodel#//ifmm/Data/definition"/>
+          </initializers>
+        </modelElementInitializer>
+      </modelFacet>
+      <labels visualID="5004" editPartClassName="OutputDataDefinition2EditPart" itemSemanticEditPolicyClassName="OutputDataDefinition2ItemSemanticEditPolicy" elementIcon="true">
+        <diagramRunTimeClass href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <viewmap xsi:type="gmfgen:ParentAssignedViewmap" getterName="getFigureOutputDataDefinitionFigure" figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
+        <modelFacet xsi:type="gmfgen:FeatureLabelModelFacet" parser="//@labelParsers/@implementations.0">
+          <metaFeatures href="informationFlow.genmodel#//ifmm/Data/definition"/>
+        </modelFacet>
+      </labels>
+    </childNodes>
+    <childNodes visualID="3003" editPartClassName="InputDataEditPart" itemSemanticEditPolicyClassName="InputDataItemSemanticEditPolicy" canonicalEditPolicyClassName="InputDataCanonicalEditPolicy" graphicalNodeEditPolicyClassName="InputDataGraphicalNodeEditPolicy" createCommandClassName="InputDataCreateCommand" containers="//@diagram/@compartments.2">
+      <diagramRunTimeClass href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <elementType xsi:type="gmfgen:MetamodelType" editHelperClassName="InputDataEditHelper"/>
+      <viewmap xsi:type="gmfgen:InnerClassViewmap" layoutType="FLOW_LAYOUT" className="InputDataFigure" classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class InputDataFigure extends org.eclipse.draw2d.RectangleFigure {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureInputDataDefinitionFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public InputDataFigure() {&#xA;&#x9;&#x9;&#xA;&#x9;org.eclipse.draw2d.FlowLayout layoutThis = new org.eclipse.draw2d.FlowLayout();&#xA;&#x9;layoutThis.setStretchMinorAxis(false);&#xA;&#x9;layoutThis.setMinorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_LEFTTOP&#xA;);&#xA;&#xA;&#x9;layoutThis.setMajorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_LEFTTOP&#xA;);&#xA;&#x9;layoutThis.setMajorSpacing(5);&#xA;&#x9;layoutThis.setMinorSpacing(5);&#xA;&#x9;layoutThis.setHorizontal(true);&#xA;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;this.setOutline(false);&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureInputDataDefinitionFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureInputDataDefinitionFigure.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigureInputDataDefinitionFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureInputDataDefinitionFigure() {&#xA;&#x9;&#x9;return fFigureInputDataDefinitionFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;">
+        <attributes xsi:type="gmfgen:DefaultSizeAttributes" width="50" height="20"/>
+      </viewmap>
+      <modelFacet>
+        <metaClass href="informationFlow.genmodel#//ifmm/InputData"/>
+        <containmentMetaFeature href="informationFlow.genmodel#//ifmm/PointToPointInformationFlow/inputData"/>
+        <childMetaFeature href="informationFlow.genmodel#//ifmm/PointToPointInformationFlow/inputData"/>
+        <modelElementInitializer xsi:type="gmfgen:GenFeatureSeqInitializer">
+          <initializers xsi:type="gmfgen:GenFeatureValueSpec" value="//@expressionProviders/@providers.0/@expressions.6">
+            <feature href="informationFlow.genmodel#//ifmm/Data/definition"/>
+          </initializers>
+        </modelElementInitializer>
+      </modelFacet>
+      <labels visualID="5005" editPartClassName="InputDataDefinitionEditPart" itemSemanticEditPolicyClassName="InputDataDefinitionItemSemanticEditPolicy" elementIcon="true">
+        <diagramRunTimeClass href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <viewmap xsi:type="gmfgen:ParentAssignedViewmap" getterName="getFigureInputDataDefinitionFigure" figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
+        <modelFacet xsi:type="gmfgen:FeatureLabelModelFacet" parser="//@labelParsers/@implementations.0">
+          <metaFeatures href="informationFlow.genmodel#//ifmm/Data/definition"/>
+        </modelFacet>
+      </labels>
+    </childNodes>
+    <topLevelNodes visualID="2001" editPartClassName="BroadcastInformationFlowEditPart" itemSemanticEditPolicyClassName="BroadcastInformationFlowItemSemanticEditPolicy" canonicalEditPolicyClassName="BroadcastInformationFlowCanonicalEditPolicy" compartments="//@diagram/@compartments.0" graphicalNodeEditPolicyClassName="BroadcastInformationFlowGraphicalNodeEditPolicy" createCommandClassName="BroadcastInformationFlowCreateCommand">
+      <diagramRunTimeClass href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <elementType xsi:type="gmfgen:MetamodelType" editHelperClassName="BroadcastInformationFlowEditHelper"/>
+      <viewmap xsi:type="gmfgen:InnerClassViewmap" layoutType="TOOLBAR_LAYOUT" className="BroadcastInformationFlowFigure" classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class BroadcastInformationFlowFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureBroadcastInformationFlowIdFigure; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureBroadcastInformationFlowNameFigure; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RectangleFigure fFigureBroadcastInformationFlowOutputDataContainerRectangleFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public BroadcastInformationFlowFigure() {&#xA;&#x9;&#x9;&#xA;&#x9;org.eclipse.draw2d.ToolbarLayout layoutThis = new org.eclipse.draw2d.ToolbarLayout();&#xA;&#x9;layoutThis.setStretchMinorAxis(true);&#xA;&#x9;layoutThis.setMinorAlignment(org.eclipse.draw2d.ToolbarLayout.ALIGN_CENTER&#xA;);&#xA;&#xA;&#x9;layoutThis.setSpacing(0);&#xA;&#x9;layoutThis.setVertical(true);&#xA;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8)&#xA;, getMapMode().DPtoLP(8)&#xA;));&#xA;this.setLineStyle(org.eclipse.draw2d.Graphics.LINE_DASH);&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;org.eclipse.draw2d.RectangleFigure broadcastInformationFlowTitleFigure0 = new org.eclipse.draw2d.RectangleFigure();&#xA;&#xA;broadcastInformationFlowTitleFigure0.setOutlineXOR(true);&#xA;broadcastInformationFlowTitleFigure0.setLineStyle(org.eclipse.draw2d.Graphics.LINE_DASH);&#xA;&#xA;this.add(broadcastInformationFlowTitleFigure0);&#xA;&#xA;&#x9;org.eclipse.draw2d.ToolbarLayout layoutBroadcastInformationFlowTitleFigure0 = new org.eclipse.draw2d.ToolbarLayout();&#xA;&#x9;layoutBroadcastInformationFlowTitleFigure0.setStretchMinorAxis(true);&#xA;&#x9;layoutBroadcastInformationFlowTitleFigure0.setMinorAlignment(org.eclipse.draw2d.ToolbarLayout.ALIGN_TOPLEFT&#xA;);&#xA;&#xA;&#x9;layoutBroadcastInformationFlowTitleFigure0.setSpacing(5);&#xA;&#x9;layoutBroadcastInformationFlowTitleFigure0.setVertical(false);&#xA;&#xA;&#x9;broadcastInformationFlowTitleFigure0.setLayoutManager(layoutBroadcastInformationFlowTitleFigure0);&#xA;&#xA;&#xA;&#xA;fFigureBroadcastInformationFlowIdFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureBroadcastInformationFlowIdFigure.setText(&quot;&quot;);&#xA;fFigureBroadcastInformationFlowIdFigure.setBorder(new org.eclipse.draw2d.MarginBorder(getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(0)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(0)&#xA;));&#xA;&#xA;broadcastInformationFlowTitleFigure0.add(fFigureBroadcastInformationFlowIdFigure);&#xA;&#xA;&#xA;&#xA;fFigureBroadcastInformationFlowNameFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureBroadcastInformationFlowNameFigure.setText(&quot;&lt;...>&quot;);&#xA;fFigureBroadcastInformationFlowNameFigure.setBorder(new org.eclipse.draw2d.MarginBorder(getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(0)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(0)&#xA;));&#xA;&#xA;broadcastInformationFlowTitleFigure0.add(fFigureBroadcastInformationFlowNameFigure);&#xA;&#xA;&#xA;&#xA;&#xA;fFigureBroadcastInformationFlowOutputDataContainerRectangleFigure = new org.eclipse.draw2d.RectangleFigure();&#xA;&#xA;fFigureBroadcastInformationFlowOutputDataContainerRectangleFigure.setFill(false);&#xA;fFigureBroadcastInformationFlowOutputDataContainerRectangleFigure.setOutline(false);&#xA;fFigureBroadcastInformationFlowOutputDataContainerRectangleFigure.setLineStyle(org.eclipse.draw2d.Graphics.LINE_DASH);&#xA;&#xA;this.add(fFigureBroadcastInformationFlowOutputDataContainerRectangleFigure);&#xA;fFigureBroadcastInformationFlowOutputDataContainerRectangleFigure.setLayoutManager(new org.eclipse.draw2d.StackLayout());&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureBroadcastInformationFlowIdFigure() {&#xA;&#x9;&#x9;return fFigureBroadcastInformationFlowIdFigure;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureBroadcastInformationFlowNameFigure() {&#xA;&#x9;&#x9;return fFigureBroadcastInformationFlowNameFigure;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.draw2d.RectangleFigure getFigureBroadcastInformationFlowOutputDataContainerRectangleFigure() {&#xA;&#x9;&#x9;return fFigureBroadcastInformationFlowOutputDataContainerRectangleFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;">
+        <attributes xsi:type="gmfgen:DefaultSizeAttributes" width="150" height="50"/>
+      </viewmap>
+      <modelFacet>
+        <metaClass href="informationFlow.genmodel#//ifmm/BroadcastInformationFlow"/>
+        <containmentMetaFeature href="informationFlow.genmodel#//ifmm/SystemInformaitonFlow/informationFlows"/>
+        <childMetaFeature href="informationFlow.genmodel#//ifmm/SystemInformaitonFlow/informationFlows"/>
+        <modelElementInitializer xsi:type="gmfgen:GenFeatureSeqInitializer">
+          <initializers xsi:type="gmfgen:GenFeatureValueSpec" value="//@expressionProviders/@providers.0/@expressions.0">
+            <feature href="informationFlow.genmodel#//ifmm/InformationFlow/id"/>
+          </initializers>
+          <initializers xsi:type="gmfgen:GenFeatureValueSpec" value="//@expressionProviders/@providers.0/@expressions.1">
+            <feature href="informationFlow.genmodel#//ifmm/InformationFlow/name"/>
+          </initializers>
+        </modelElementInitializer>
+      </modelFacet>
+      <labels visualID="5002" editPartClassName="BroadcastInformationFlowNameEditPart" itemSemanticEditPolicyClassName="BroadcastInformationFlowNameItemSemanticEditPolicy">
+        <diagramRunTimeClass href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <viewmap xsi:type="gmfgen:ParentAssignedViewmap" getterName="getFigureBroadcastInformationFlowNameFigure" figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
+        <modelFacet xsi:type="gmfgen:FeatureLabelModelFacet" parser="//@labelParsers/@implementations.0">
+          <metaFeatures href="informationFlow.genmodel#//ifmm/InformationFlow/name"/>
+        </modelFacet>
+      </labels>
+      <labels visualID="5003" editPartClassName="BroadcastInformationFlowIdEditPart" itemSemanticEditPolicyClassName="BroadcastInformationFlowIdItemSemanticEditPolicy" readOnly="true" elementIcon="true">
+        <diagramRunTimeClass href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <viewmap xsi:type="gmfgen:ParentAssignedViewmap" getterName="getFigureBroadcastInformationFlowIdFigure" figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
+        <modelFacet xsi:type="gmfgen:FeatureLabelModelFacet" parser="//@labelParsers/@implementations.0" viewPattern="({0})">
+          <metaFeatures href="informationFlow.genmodel#//ifmm/InformationFlow/id"/>
+        </modelFacet>
+      </labels>
+    </topLevelNodes>
+    <topLevelNodes visualID="2002" editPartClassName="PointToPointInformationFlowEditPart" itemSemanticEditPolicyClassName="PointToPointInformationFlowItemSemanticEditPolicy" canonicalEditPolicyClassName="PointToPointInformationFlowCanonicalEditPolicy" compartments="//@diagram/@compartments.1 //@diagram/@compartments.2" graphicalNodeEditPolicyClassName="PointToPointInformationFlowGraphicalNodeEditPolicy" createCommandClassName="PointToPointInformationFlowCreateCommand">
+      <diagramRunTimeClass href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <elementType xsi:type="gmfgen:MetamodelType" editHelperClassName="PointToPointInformationFlowEditHelper"/>
+      <viewmap xsi:type="gmfgen:InnerClassViewmap" layoutType="TOOLBAR_LAYOUT" className="PointToPointInformationFlowFigure" classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class PointToPointInformationFlowFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RectangleFigure fFigurePointToPointInformationFlowInputDataContainerRectangleFigure; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RectangleFigure fFigurePointToPointInformationFlowOutputDataContainerRectangleFigure; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigurePointToPointInformationFlowNameFigure; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigurePointToPointInformationFlowIdFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public PointToPointInformationFlowFigure() {&#xA;&#x9;&#x9;&#xA;&#x9;org.eclipse.draw2d.ToolbarLayout layoutThis = new org.eclipse.draw2d.ToolbarLayout();&#xA;&#x9;layoutThis.setStretchMinorAxis(true);&#xA;&#x9;layoutThis.setMinorAlignment(org.eclipse.draw2d.ToolbarLayout.ALIGN_CENTER&#xA;);&#xA;&#xA;&#x9;layoutThis.setSpacing(0);&#xA;&#x9;layoutThis.setVertical(true);&#xA;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8)&#xA;, getMapMode().DPtoLP(8)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;org.eclipse.draw2d.RectangleFigure pointToPointInformationFlowTitleFigure0 = new org.eclipse.draw2d.RectangleFigure();&#xA;&#xA;pointToPointInformationFlowTitleFigure0.setOutlineXOR(true);&#xA;&#xA;this.add(pointToPointInformationFlowTitleFigure0);&#xA;&#xA;&#x9;org.eclipse.draw2d.ToolbarLayout layoutPointToPointInformationFlowTitleFigure0 = new org.eclipse.draw2d.ToolbarLayout();&#xA;&#x9;layoutPointToPointInformationFlowTitleFigure0.setStretchMinorAxis(true);&#xA;&#x9;layoutPointToPointInformationFlowTitleFigure0.setMinorAlignment(org.eclipse.draw2d.ToolbarLayout.ALIGN_TOPLEFT&#xA;);&#xA;&#xA;&#x9;layoutPointToPointInformationFlowTitleFigure0.setSpacing(5);&#xA;&#x9;layoutPointToPointInformationFlowTitleFigure0.setVertical(false);&#xA;&#xA;&#x9;pointToPointInformationFlowTitleFigure0.setLayoutManager(layoutPointToPointInformationFlowTitleFigure0);&#xA;&#xA;&#xA;&#xA;fFigurePointToPointInformationFlowIdFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigurePointToPointInformationFlowIdFigure.setText(&quot;&quot;);&#xA;fFigurePointToPointInformationFlowIdFigure.setBorder(new org.eclipse.draw2d.MarginBorder(getMapMode().DPtoLP(0)&#xA;, getMapMode().DPtoLP(0)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;));&#xA;&#xA;pointToPointInformationFlowTitleFigure0.add(fFigurePointToPointInformationFlowIdFigure);&#xA;&#xA;&#xA;&#xA;fFigurePointToPointInformationFlowNameFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigurePointToPointInformationFlowNameFigure.setText(&quot;&lt;...>&quot;);&#xA;fFigurePointToPointInformationFlowNameFigure.setBorder(new org.eclipse.draw2d.MarginBorder(getMapMode().DPtoLP(0)&#xA;, getMapMode().DPtoLP(0)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;));&#xA;&#xA;pointToPointInformationFlowTitleFigure0.add(fFigurePointToPointInformationFlowNameFigure);&#xA;&#xA;&#xA;&#xA;&#xA;fFigurePointToPointInformationFlowOutputDataContainerRectangleFigure = new org.eclipse.draw2d.RectangleFigure();&#xA;&#xA;fFigurePointToPointInformationFlowOutputDataContainerRectangleFigure.setFill(false);&#xA;fFigurePointToPointInformationFlowOutputDataContainerRectangleFigure.setOutline(false);&#xA;&#xA;this.add(fFigurePointToPointInformationFlowOutputDataContainerRectangleFigure);&#xA;fFigurePointToPointInformationFlowOutputDataContainerRectangleFigure.setLayoutManager(new org.eclipse.draw2d.StackLayout());&#xA;&#xA;&#xA;&#xA;fFigurePointToPointInformationFlowInputDataContainerRectangleFigure = new org.eclipse.draw2d.RectangleFigure();&#xA;&#xA;fFigurePointToPointInformationFlowInputDataContainerRectangleFigure.setFill(false);&#xA;fFigurePointToPointInformationFlowInputDataContainerRectangleFigure.setOutline(false);&#xA;&#xA;this.add(fFigurePointToPointInformationFlowInputDataContainerRectangleFigure);&#xA;fFigurePointToPointInformationFlowInputDataContainerRectangleFigure.setLayoutManager(new org.eclipse.draw2d.StackLayout());&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.draw2d.RectangleFigure getFigurePointToPointInformationFlowInputDataContainerRectangleFigure() {&#xA;&#x9;&#x9;return fFigurePointToPointInformationFlowInputDataContainerRectangleFigure;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.draw2d.RectangleFigure getFigurePointToPointInformationFlowOutputDataContainerRectangleFigure() {&#xA;&#x9;&#x9;return fFigurePointToPointInformationFlowOutputDataContainerRectangleFigure;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigurePointToPointInformationFlowNameFigure() {&#xA;&#x9;&#x9;return fFigurePointToPointInformationFlowNameFigure;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigurePointToPointInformationFlowIdFigure() {&#xA;&#x9;&#x9;return fFigurePointToPointInformationFlowIdFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;">
+        <attributes xsi:type="gmfgen:DefaultSizeAttributes" width="150"/>
+      </viewmap>
+      <modelFacet>
+        <metaClass href="informationFlow.genmodel#//ifmm/PointToPointInformationFlow"/>
+        <containmentMetaFeature href="informationFlow.genmodel#//ifmm/SystemInformaitonFlow/informationFlows"/>
+        <childMetaFeature href="informationFlow.genmodel#//ifmm/SystemInformaitonFlow/informationFlows"/>
+        <modelElementInitializer xsi:type="gmfgen:GenFeatureSeqInitializer">
+          <initializers xsi:type="gmfgen:GenFeatureValueSpec" value="//@expressionProviders/@providers.0/@expressions.3">
+            <feature href="informationFlow.genmodel#//ifmm/InformationFlow/id"/>
+          </initializers>
+          <initializers xsi:type="gmfgen:GenFeatureValueSpec" value="//@expressionProviders/@providers.0/@expressions.4">
+            <feature href="informationFlow.genmodel#//ifmm/InformationFlow/name"/>
+          </initializers>
+        </modelElementInitializer>
+      </modelFacet>
+      <labels visualID="5006" editPartClassName="PointToPointInformationFlowNameEditPart" itemSemanticEditPolicyClassName="PointToPointInformationFlowNameItemSemanticEditPolicy">
+        <diagramRunTimeClass href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <viewmap xsi:type="gmfgen:ParentAssignedViewmap" getterName="getFigurePointToPointInformationFlowNameFigure" figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
+        <modelFacet xsi:type="gmfgen:FeatureLabelModelFacet" parser="//@labelParsers/@implementations.0">
+          <metaFeatures href="informationFlow.genmodel#//ifmm/InformationFlow/name"/>
+        </modelFacet>
+      </labels>
+      <labels visualID="5007" editPartClassName="PointToPointInformationFlowIdEditPart" itemSemanticEditPolicyClassName="PointToPointInformationFlowIdItemSemanticEditPolicy" readOnly="true" elementIcon="true">
+        <diagramRunTimeClass href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <viewmap xsi:type="gmfgen:ParentAssignedViewmap" getterName="getFigurePointToPointInformationFlowIdFigure" figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
+        <modelFacet xsi:type="gmfgen:FeatureLabelModelFacet" parser="//@labelParsers/@implementations.0" viewPattern="({0})">
+          <metaFeatures href="informationFlow.genmodel#//ifmm/InformationFlow/id"/>
+        </modelFacet>
+      </labels>
+    </topLevelNodes>
+    <topLevelNodes visualID="2003" editPartClassName="ContextAwareEntityEditPart" itemSemanticEditPolicyClassName="ContextAwareEntityItemSemanticEditPolicy" canonicalEditPolicyClassName="ContextAwareEntityCanonicalEditPolicy" graphicalNodeEditPolicyClassName="ContextAwareEntityGraphicalNodeEditPolicy" createCommandClassName="ContextAwareEntityCreateCommand">
+      <diagramRunTimeClass href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <elementType xsi:type="gmfgen:MetamodelType" editHelperClassName="ContextAwareEntityEditHelper"/>
+      <viewmap xsi:type="gmfgen:InnerClassViewmap" layoutType="TOOLBAR_LAYOUT" className="ContextAwareEntityFigure" classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ContextAwareEntityFigure extends org.eclipse.draw2d.RectangleFigure {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureContextAwareEntityIdFigure; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureContextAwareEntityNameFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ContextAwareEntityFigure() {&#xA;&#x9;&#x9;&#xA;&#x9;org.eclipse.draw2d.ToolbarLayout layoutThis = new org.eclipse.draw2d.ToolbarLayout();&#xA;&#x9;layoutThis.setStretchMinorAxis(true);&#xA;&#x9;layoutThis.setMinorAlignment(org.eclipse.draw2d.ToolbarLayout.ALIGN_TOPLEFT&#xA;);&#xA;&#xA;&#x9;layoutThis.setSpacing(5);&#xA;&#x9;layoutThis.setVertical(false);&#xA;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureContextAwareEntityIdFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureContextAwareEntityIdFigure.setText(&quot;&quot;);&#xA;&#xA;this.add(fFigureContextAwareEntityIdFigure);&#xA;&#xA;&#xA;&#xA;fFigureContextAwareEntityNameFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureContextAwareEntityNameFigure.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigureContextAwareEntityNameFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureContextAwareEntityIdFigure() {&#xA;&#x9;&#x9;return fFigureContextAwareEntityIdFigure;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureContextAwareEntityNameFigure() {&#xA;&#x9;&#x9;return fFigureContextAwareEntityNameFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;">
+        <attributes xsi:type="gmfgen:DefaultSizeAttributes" width="150"/>
+      </viewmap>
+      <modelFacet>
+        <metaClass href="informationFlow.genmodel#//ifmm/ContextAwareEntity"/>
+        <containmentMetaFeature href="informationFlow.genmodel#//ifmm/SystemInformaitonFlow/entities"/>
+        <childMetaFeature href="informationFlow.genmodel#//ifmm/SystemInformaitonFlow/entities"/>
+        <modelElementInitializer xsi:type="gmfgen:GenFeatureSeqInitializer">
+          <initializers xsi:type="gmfgen:GenFeatureValueSpec" value="//@expressionProviders/@providers.0/@expressions.7">
+            <feature href="informationFlow.genmodel#//ifmm/ContextAwareEntity/id"/>
+          </initializers>
+          <initializers xsi:type="gmfgen:GenFeatureValueSpec" value="//@expressionProviders/@providers.0/@expressions.8">
+            <feature href="informationFlow.genmodel#//ifmm/ContextAwareEntity/name"/>
+          </initializers>
+        </modelElementInitializer>
+      </modelFacet>
+      <labels visualID="5008" editPartClassName="ContextAwareEntityNameEditPart" itemSemanticEditPolicyClassName="ContextAwareEntityNameItemSemanticEditPolicy">
+        <diagramRunTimeClass href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <viewmap xsi:type="gmfgen:ParentAssignedViewmap" getterName="getFigureContextAwareEntityNameFigure" figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
+        <modelFacet xsi:type="gmfgen:FeatureLabelModelFacet" parser="//@labelParsers/@implementations.0">
+          <metaFeatures href="informationFlow.genmodel#//ifmm/ContextAwareEntity/name"/>
+        </modelFacet>
+      </labels>
+      <labels visualID="5009" editPartClassName="ContextAwareEntityIdEditPart" itemSemanticEditPolicyClassName="ContextAwareEntityIdItemSemanticEditPolicy" readOnly="true" elementIcon="true">
+        <diagramRunTimeClass href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <viewmap xsi:type="gmfgen:ParentAssignedViewmap" getterName="getFigureContextAwareEntityIdFigure" figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
+        <modelFacet xsi:type="gmfgen:FeatureLabelModelFacet" parser="//@labelParsers/@implementations.0" viewPattern="({0})">
+          <metaFeatures href="informationFlow.genmodel#//ifmm/ContextAwareEntity/id"/>
+        </modelFacet>
+      </labels>
+    </topLevelNodes>
+    <links visualID="4001" editPartClassName="BroadcastInformationFlowToEntityEdgeEditPart" itemSemanticEditPolicyClassName="BroadcastInformationFlowToEntityEdgeItemSemanticEditPolicy" createCommandClassName="BroadcastInformationFlowToEntityEdgeCreateCommand" reorientCommandClassName="BroadcastInformationFlowToEntityEdgeReorientCommand">
+      <diagramRunTimeClass href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Edge"/>
+      <elementType xsi:type="gmfgen:MetamodelType" editHelperClassName="BroadcastInformationFlowToEntityEdgeEditHelper"/>
+      <viewmap xsi:type="gmfgen:InnerClassViewmap" className="BroadcastInformationFlowToEntityEdgeFigure" classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class BroadcastInformationFlowToEntityEdgeFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.PolylineConnectionEx {&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public BroadcastInformationFlowToEntityEdgeFigure() {&#xA;&#x9;&#x9;this.setLineStyle(org.eclipse.draw2d.Graphics.LINE_DASH);&#xA;&#xA;&#x9;&#x9;setTargetDecoration(createTargetDecoration());&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RotatableDecoration createTargetDecoration() {&#xA;&#x9;&#x9;org.eclipse.draw2d.PolylineDecoration df = new org.eclipse.draw2d.PolylineDecoration();&#xA;&#x9;&#x9;return df;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
+      <modelFacet xsi:type="gmfgen:TypeLinkModelFacet">
+        <metaClass href="informationFlow.genmodel#//ifmm/BroadcastInformationFlowToEntityEdge"/>
+        <containmentMetaFeature href="informationFlow.genmodel#//ifmm/SystemInformaitonFlow/edges"/>
+        <childMetaFeature href="informationFlow.genmodel#//ifmm/SystemInformaitonFlow/edges"/>
+        <sourceMetaFeature href="informationFlow.genmodel#//ifmm/BroadcastInformationFlowToEntityEdge/source"/>
+        <targetMetaFeature href="informationFlow.genmodel#//ifmm/InformationFlowToEntityEdge/target"/>
+      </modelFacet>
+      <creationConstraints sourceEnd="//@expressionProviders/@providers.0/@expressions.9"/>
+    </links>
+    <links visualID="4002" editPartClassName="EntityToBroadcastInformationFlowEdgeEditPart" itemSemanticEditPolicyClassName="EntityToBroadcastInformationFlowEdgeItemSemanticEditPolicy" createCommandClassName="EntityToBroadcastInformationFlowEdgeCreateCommand" reorientCommandClassName="EntityToBroadcastInformationFlowEdgeReorientCommand">
+      <diagramRunTimeClass href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Edge"/>
+      <elementType xsi:type="gmfgen:MetamodelType" editHelperClassName="EntityToBroadcastInformationFlowEdgeEditHelper"/>
+      <viewmap xsi:type="gmfgen:InnerClassViewmap" className="EntityToBroadcastInformationFlowEdgeFigure" classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class EntityToBroadcastInformationFlowEdgeFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.PolylineConnectionEx {&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public EntityToBroadcastInformationFlowEdgeFigure() {&#xA;&#x9;&#x9;this.setLineStyle(org.eclipse.draw2d.Graphics.LINE_DASH);&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
+      <modelFacet xsi:type="gmfgen:TypeLinkModelFacet">
+        <metaClass href="informationFlow.genmodel#//ifmm/EntityToBroadcastInformationFlowEdge"/>
+        <containmentMetaFeature href="informationFlow.genmodel#//ifmm/SystemInformaitonFlow/edges"/>
+        <childMetaFeature href="informationFlow.genmodel#//ifmm/SystemInformaitonFlow/edges"/>
+        <sourceMetaFeature href="informationFlow.genmodel#//ifmm/EntityToInformationFlowEdge/source"/>
+        <targetMetaFeature href="informationFlow.genmodel#//ifmm/EntityToBroadcastInformationFlowEdge/target"/>
+      </modelFacet>
+      <creationConstraints targetEnd="//@expressionProviders/@providers.0/@expressions.10"/>
+    </links>
+    <links visualID="4003" editPartClassName="EntityToPointToPointInformationFlowEdgeEditPart" itemSemanticEditPolicyClassName="EntityToPointToPointInformationFlowEdgeItemSemanticEditPolicy" createCommandClassName="EntityToPointToPointInformationFlowEdgeCreateCommand" reorientCommandClassName="EntityToPointToPointInformationFlowEdgeReorientCommand">
+      <diagramRunTimeClass href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Edge"/>
+      <elementType xsi:type="gmfgen:MetamodelType" editHelperClassName="EntityToPointToPointInformationFlowEdgeEditHelper"/>
+      <viewmap xsi:type="gmfgen:FigureViewmap" figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.PolylineConnectionEx"/>
+      <modelFacet xsi:type="gmfgen:TypeLinkModelFacet">
+        <metaClass href="informationFlow.genmodel#//ifmm/EntityToPointToPointInformationFlowEdge"/>
+        <containmentMetaFeature href="informationFlow.genmodel#//ifmm/SystemInformaitonFlow/edges"/>
+        <childMetaFeature href="informationFlow.genmodel#//ifmm/SystemInformaitonFlow/edges"/>
+        <sourceMetaFeature href="informationFlow.genmodel#//ifmm/EntityToInformationFlowEdge/source"/>
+        <targetMetaFeature href="informationFlow.genmodel#//ifmm/EntityToPointToPointInformationFlowEdge/target"/>
+      </modelFacet>
+      <creationConstraints targetEnd="//@expressionProviders/@providers.0/@expressions.11"/>
+    </links>
+    <links visualID="4004" editPartClassName="PointToPointInformationFlowToEntityEdgeEditPart" itemSemanticEditPolicyClassName="PointToPointInformationFlowToEntityEdgeItemSemanticEditPolicy" createCommandClassName="PointToPointInformationFlowToEntityEdgeCreateCommand" reorientCommandClassName="PointToPointInformationFlowToEntityEdgeReorientCommand">
+      <diagramRunTimeClass href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Edge"/>
+      <elementType xsi:type="gmfgen:MetamodelType" editHelperClassName="PointToPointInformationFlowToEntityEdgeEditHelper"/>
+      <viewmap xsi:type="gmfgen:InnerClassViewmap" className="PointToPointInformationFlowToEntityEdgeFigure" classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class PointToPointInformationFlowToEntityEdgeFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.PolylineConnectionEx {&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public PointToPointInformationFlowToEntityEdgeFigure() {&#xA;&#x9;&#x9;&#xA;&#x9;&#x9;setTargetDecoration(createTargetDecoration());&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RotatableDecoration createTargetDecoration() {&#xA;&#x9;&#x9;org.eclipse.draw2d.PolylineDecoration df = new org.eclipse.draw2d.PolylineDecoration();&#xA;&#x9;&#x9;return df;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
+      <modelFacet xsi:type="gmfgen:TypeLinkModelFacet">
+        <metaClass href="informationFlow.genmodel#//ifmm/PointToPointInformationFlowToEntityEdge"/>
+        <containmentMetaFeature href="informationFlow.genmodel#//ifmm/SystemInformaitonFlow/edges"/>
+        <childMetaFeature href="informationFlow.genmodel#//ifmm/SystemInformaitonFlow/edges"/>
+        <sourceMetaFeature href="informationFlow.genmodel#//ifmm/PointToPointInformationFlowToEntityEdge/source"/>
+        <targetMetaFeature href="informationFlow.genmodel#//ifmm/InformationFlowToEntityEdge/target"/>
+      </modelFacet>
+      <creationConstraints sourceEnd="//@expressionProviders/@providers.0/@expressions.12"/>
+    </links>
+    <compartments visualID="7001" editPartClassName="BroadcastInformationFlowBOutputDataEditPart" itemSemanticEditPolicyClassName="BroadcastInformationFlowBOutputDataItemSemanticEditPolicy" canonicalEditPolicyClassName="BroadcastInformationFlowBOutputDataCanonicalEditPolicy" childNodes="//@diagram/@childNodes.0" title="B-Output Data" node="//@diagram/@topLevelNodes.0">
+      <diagramRunTimeClass href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <viewmap xsi:type="gmfgen:ParentAssignedViewmap" getterName="getFigureBroadcastInformationFlowOutputDataContainerRectangleFigure" figureQualifiedClassName="org.eclipse.draw2d.RectangleFigure"/>
+    </compartments>
+    <compartments visualID="7002" editPartClassName="PointToPointInformationFlowP2POutputDataEditPart" itemSemanticEditPolicyClassName="PointToPointInformationFlowP2POutputDataItemSemanticEditPolicy" canonicalEditPolicyClassName="PointToPointInformationFlowP2POutputDataCanonicalEditPolicy" childNodes="//@diagram/@childNodes.1" title="P2P-Output Data" node="//@diagram/@topLevelNodes.1">
+      <diagramRunTimeClass href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <viewmap xsi:type="gmfgen:ParentAssignedViewmap" getterName="getFigurePointToPointInformationFlowOutputDataContainerRectangleFigure" figureQualifiedClassName="org.eclipse.draw2d.RectangleFigure"/>
+    </compartments>
+    <compartments visualID="7003" editPartClassName="PointToPointInformationFlowP2PInputDataEditPart" itemSemanticEditPolicyClassName="PointToPointInformationFlowP2PInputDataItemSemanticEditPolicy" canonicalEditPolicyClassName="PointToPointInformationFlowP2PInputDataCanonicalEditPolicy" childNodes="//@diagram/@childNodes.2" title="P2P-Input Data" node="//@diagram/@topLevelNodes.1">
+      <diagramRunTimeClass href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <viewmap xsi:type="gmfgen:ParentAssignedViewmap" getterName="getFigurePointToPointInformationFlowInputDataContainerRectangleFigure" figureQualifiedClassName="org.eclipse.draw2d.RectangleFigure"/>
+    </compartments>
+    <palette>
+      <groups title="ifmm">
+        <entries xsi:type="gmfgen:ToolEntry" title="ContextAwareEntity" description="Create new ContextAwareEntity" genNodes="//@diagram/@topLevelNodes.2"/>
+        <entries xsi:type="gmfgen:ToolEntry" title="PointToPointInformationFlow" description="Create new PointToPointInformationFlow" genNodes="//@diagram/@topLevelNodes.1"/>
+        <entries xsi:type="gmfgen:ToolEntry" title="BroadcastInformationFlow" description="Create new BroadcastInformationFlow" genNodes="//@diagram/@topLevelNodes.0"/>
+        <entries xsi:type="gmfgen:Separator"/>
+        <entries xsi:type="gmfgen:ToolEntry" title="EntityToBroadcastInformationFlowEdge" description="Create new EntityToBroadcastInformationFlowEdge" genLinks="//@diagram/@links.1"/>
+        <entries xsi:type="gmfgen:ToolEntry" title="EntityToPointToPointInformationFlowEdge" description="Create new EntityToPointToPointInformationFlowEdge" genLinks="//@diagram/@links.2"/>
+        <entries xsi:type="gmfgen:ToolEntry" title="BroadcastInformationFlowToEntityEdge" description="Create new BroadcastInformationFlowToEntityEdge" genLinks="//@diagram/@links.0"/>
+        <entries xsi:type="gmfgen:ToolEntry" title="PointToPointInformationFlowToEntityEdge" description="Create new PointToPointInformationFlowToEntityEdge" genLinks="//@diagram/@links.3"/>
+        <entries xsi:type="gmfgen:Separator"/>
+        <entries xsi:type="gmfgen:ToolEntry" title="InputData" description="Create new InputData" genNodes="//@diagram/@childNodes.2"/>
+        <entries xsi:type="gmfgen:ToolEntry" title="OutputData" description="Create new OutputData" genNodes="//@diagram/@childNodes.0 //@diagram/@childNodes.1"/>
+      </groups>
+    </palette>
+    <preferencePages xsi:type="gmfgen:GenStandardPreferencePage" iD="org.tesoriero.cauce.informationFlow.diagram.general" name="InformationFlow Diagram">
+      <children xsi:type="gmfgen:GenStandardPreferencePage" iD="org.tesoriero.cauce.informationFlow.diagram.appearance" name="Appearance" kind="Appearance"/>
+      <children xsi:type="gmfgen:GenStandardPreferencePage" iD="org.tesoriero.cauce.informationFlow.diagram.connections" name="Connections" kind="Connections"/>
+      <children xsi:type="gmfgen:GenStandardPreferencePage" iD="org.tesoriero.cauce.informationFlow.diagram.printing" name="Printing" kind="Printing"/>
+      <children xsi:type="gmfgen:GenStandardPreferencePage" iD="org.tesoriero.cauce.informationFlow.diagram.rulersAndGrid" name="Rulers And Grid" kind="RulersAndGrid"/>
+    </preferencePages>
+  </diagram>
+  <plugin>
+    <requiredPlugins>org.eclipse.gmf.tooling.runtime</requiredPlugins>
+    <requiredPlugins>org.eclipse.draw2d</requiredPlugins>
+    <requiredPlugins>org.eclipse.gmf.runtime.draw2d.ui</requiredPlugins>
+  </plugin>
+  <editor/>
+  <navigator>
+    <childReferences child="//@diagram"/>
+    <childReferences parent="//@diagram/@topLevelNodes.0" child="//@diagram/@childNodes.0"/>
+    <childReferences parent="//@diagram" child="//@diagram/@topLevelNodes.0"/>
+    <childReferences parent="//@diagram/@topLevelNodes.1" child="//@diagram/@childNodes.1"/>
+    <childReferences parent="//@diagram/@topLevelNodes.1" child="//@diagram/@childNodes.2"/>
+    <childReferences parent="//@diagram" child="//@diagram/@topLevelNodes.1"/>
+    <childReferences parent="//@diagram" child="//@diagram/@topLevelNodes.2"/>
+    <childReferences parent="//@diagram" child="//@diagram/@links.0" groupName="links" groupIcon="icons/linksNavigatorGroup.gif"/>
+    <childReferences parent="//@diagram/@links.0" child="//@diagram/@topLevelNodes.2" referenceType="out_target" groupName="target" groupIcon="icons/linkTargetNavigatorGroup.gif"/>
+    <childReferences parent="//@diagram/@topLevelNodes.2" child="//@diagram/@links.0" referenceType="in_source" groupName="incoming links" groupIcon="icons/incomingLinksNavigatorGroup.gif"/>
+    <childReferences parent="//@diagram/@links.0" child="//@diagram/@topLevelNodes.0" referenceType="in_source" groupName="source" groupIcon="icons/linkSourceNavigatorGroup.gif"/>
+    <childReferences parent="//@diagram/@topLevelNodes.0" child="//@diagram/@links.0" referenceType="out_target" groupName="outgoing links" groupIcon="icons/outgoingLinksNavigatorGroup.gif"/>
+    <childReferences parent="//@diagram" child="//@diagram/@links.1" groupName="links" groupIcon="icons/linksNavigatorGroup.gif"/>
+    <childReferences parent="//@diagram/@links.1" child="//@diagram/@topLevelNodes.0" referenceType="out_target" groupName="target" groupIcon="icons/linkTargetNavigatorGroup.gif"/>
+    <childReferences parent="//@diagram/@topLevelNodes.0" child="//@diagram/@links.1" referenceType="in_source" groupName="incoming links" groupIcon="icons/incomingLinksNavigatorGroup.gif"/>
+    <childReferences parent="//@diagram/@links.1" child="//@diagram/@topLevelNodes.2" referenceType="in_source" groupName="source" groupIcon="icons/linkSourceNavigatorGroup.gif"/>
+    <childReferences parent="//@diagram/@topLevelNodes.2" child="//@diagram/@links.1" referenceType="out_target" groupName="outgoing links" groupIcon="icons/outgoingLinksNavigatorGroup.gif"/>
+    <childReferences parent="//@diagram" child="//@diagram/@links.2" groupName="links" groupIcon="icons/linksNavigatorGroup.gif"/>
+    <childReferences parent="//@diagram/@links.2" child="//@diagram/@topLevelNodes.1" referenceType="out_target" groupName="target" groupIcon="icons/linkTargetNavigatorGroup.gif"/>
+    <childReferences parent="//@diagram/@topLevelNodes.1" child="//@diagram/@links.2" referenceType="in_source" groupName="incoming links" groupIcon="icons/incomingLinksNavigatorGroup.gif"/>
+    <childReferences parent="//@diagram/@links.2" child="//@diagram/@topLevelNodes.2" referenceType="in_source" groupName="source" groupIcon="icons/linkSourceNavigatorGroup.gif"/>
+    <childReferences parent="//@diagram/@topLevelNodes.2" child="//@diagram/@links.2" referenceType="out_target" groupName="outgoing links" groupIcon="icons/outgoingLinksNavigatorGroup.gif"/>
+    <childReferences parent="//@diagram" child="//@diagram/@links.3" groupName="links" groupIcon="icons/linksNavigatorGroup.gif"/>
+    <childReferences parent="//@diagram/@links.3" child="//@diagram/@topLevelNodes.2" referenceType="out_target" groupName="target" groupIcon="icons/linkTargetNavigatorGroup.gif"/>
+    <childReferences parent="//@diagram/@topLevelNodes.2" child="//@diagram/@links.3" referenceType="in_source" groupName="incoming links" groupIcon="icons/incomingLinksNavigatorGroup.gif"/>
+    <childReferences parent="//@diagram/@links.3" child="//@diagram/@topLevelNodes.1" referenceType="in_source" groupName="source" groupIcon="icons/linkSourceNavigatorGroup.gif"/>
+    <childReferences parent="//@diagram/@topLevelNodes.1" child="//@diagram/@links.3" referenceType="out_target" groupName="outgoing links" groupIcon="icons/outgoingLinksNavigatorGroup.gif"/>
+  </navigator>
+  <diagramUpdater/>
+  <propertySheet>
+    <tabs xsi:type="gmfgen:GenStandardPropertyTab" iD="appearance"/>
+    <tabs xsi:type="gmfgen:GenStandardPropertyTab" iD="diagram"/>
+    <tabs xsi:type="gmfgen:GenCustomPropertyTab" iD="domain" label="Core">
+      <filter xsi:type="gmfgen:TypeTabFilter">
+        <types>org.eclipse.gmf.runtime.notation.View</types>
+        <types>org.eclipse.gef.EditPart</types>
+        <generatedTypes>abstractNavigatorItem</generatedTypes>
+      </filter>
+    </tabs>
+  </propertySheet>
+  <domainGenModel href="informationFlow.genmodel#/"/>
+  <expressionProviders>
+    <providers xsi:type="gmfgen:GenExpressionInterpreter">
+      <expressions body="system.entities->collect(id)&#xD;&#xA;->union(system.informationFlows->collect(id))&#xD;&#xA;->iterate( e;  m : Integer = 0 | m.max(e)) + 1"/>
+      <expressions body="'BroadcastInformationFlow'.concat(&#xD;&#xA;let number: Integer = id in OrderedSet{1000000, 10000, 1000, 100, 10, 1}&#xD;&#xA;->iterate(denominator : Integer; s : String = '' | let numberAsString : String= OrderedSet{'0','1','2','3','4','5','6','7','8','9'}->at(number.div(denominator).mod(10) + 1)&#xD;&#xA;in if s='' and numberAsString = '0' then s else s.concat(numberAsString) endif&#xD;&#xA;))"/>
+      <expressions body="'outputData'"/>
+      <expressions body="system.entities->collect(id)&#xD;&#xA;->union(system.informationFlows->collect(id))&#xD;&#xA;->iterate( e;  m : Integer = 0 | m.max(e)) + 1"/>
+      <expressions body="'PointToPointInformationFlow'.concat(&#xD;&#xA;let number: Integer = id in OrderedSet{1000000, 10000, 1000, 100, 10, 1}&#xD;&#xA;->iterate(denominator : Integer; s : String = '' | let numberAsString : String= OrderedSet{'0','1','2','3','4','5','6','7','8','9'}->at(number.div(denominator).mod(10) + 1)&#xD;&#xA;in if s='' and numberAsString = '0' then s else s.concat(numberAsString) endif&#xD;&#xA;))"/>
+      <expressions body="'outputData'"/>
+      <expressions body="'inputData'"/>
+      <expressions body="system.entities->collect(id)&#xD;&#xA;->union(system.informationFlows->collect(id))&#xD;&#xA;->iterate( e;  m : Integer = 0 | m.max(e)) + 1"/>
+      <expressions body="'Entity'.concat(&#xD;&#xA;let number: Integer = id in OrderedSet{1000000, 10000, 1000, 100, 10, 1}&#xD;&#xA;->iterate(denominator : Integer; s : String = '' | let numberAsString : String= OrderedSet{'0','1','2','3','4','5','6','7','8','9'}->at(number.div(denominator).mod(10) + 1)&#xD;&#xA;in if s='' and numberAsString = '0' then s else s.concat(numberAsString) endif&#xD;&#xA;))"/>
+      <expressions xsi:type="gmfgen:GenConstraint" body="self.target.oclIsUndefined()"/>
+      <expressions xsi:type="gmfgen:GenConstraint" body="self.source.oclIsUndefined()"/>
+      <expressions xsi:type="gmfgen:GenConstraint" body="self.source.oclIsUndefined()"/>
+      <expressions xsi:type="gmfgen:GenConstraint" body="self.target.oclIsUndefined()"/>
+      <expressions xsi:type="gmfgen:GenConstraint" body="not source.oclIsUndefined()"/>
+      <expressions xsi:type="gmfgen:GenConstraint" body="not target.oclIsUndefined()"/>
+      <expressions xsi:type="gmfgen:GenConstraint" body="not source.oclIsUndefined()"/>
+      <expressions xsi:type="gmfgen:GenConstraint" body="not target.oclIsUndefined()"/>
+      <expressions xsi:type="gmfgen:GenConstraint" body="self.size()>0"/>
+      <expressions xsi:type="gmfgen:GenConstraint" body="system.entities->forAll(e | (e&lt;>self) implies e.name&lt;>self.name)&#xD;&#xA;and&#xD;&#xA;system.informationFlows->forAll(i | i.name&lt;>self.name)&#xD;&#xA;"/>
+      <expressions xsi:type="gmfgen:GenConstraint" body="self>0"/>
+      <expressions xsi:type="gmfgen:GenConstraint" body="system.entities->forAll(e | (e&lt;>self) implies e.id&lt;>self.id)&#xD;&#xA;and&#xD;&#xA;system.informationFlows->forAll(i | (i.id&lt;>self.id))&#xD;&#xA;"/>
+      <expressions xsi:type="gmfgen:GenConstraint" body="self>0"/>
+      <expressions xsi:type="gmfgen:GenConstraint" body="system.entities->forAll(e | e.id&lt;>self.id)&#xD;&#xA;and&#xD;&#xA;system.informationFlows->forAll(i | (i&lt;>self) implies (i.id&lt;>self.id))&#xD;&#xA;"/>
+      <expressions xsi:type="gmfgen:GenConstraint" body="self.size()>0"/>
+      <expressions xsi:type="gmfgen:GenConstraint" body="system.entities->forAll(e | e.name&lt;>self.name)&#xD;&#xA;and&#xD;&#xA;system.informationFlows->forAll(i | (i&lt;>self) implies (i.name&lt;>self.name))&#xD;&#xA;"/>
+      <expressions xsi:type="gmfgen:GenConstraint" body="self.size()>0"/>
+      <expressions xsi:type="gmfgen:GenConstraint" body="self.size()>0"/>
+      <expressions xsi:type="gmfgen:GenConstraint" body="entities->forAll(e | e.name&lt;>self.name)&#xD;&#xA;and&#xD;&#xA;informationFlows->forAll(i | i.name&lt;>self.name)&#xD;&#xA;"/>
+      <expressions xsi:type="gmfgen:GenConstraint" body="self>-1"/>
+      <expressions xsi:type="gmfgen:GenConstraint" body="entities->forAll(e | e.id&lt;>self.id)&#xD;&#xA;and&#xD;&#xA;informationFlows->forAll(i | i.id&lt;>self.id)&#xD;&#xA;"/>
+    </providers>
+  </expressionProviders>
+  <labelParsers extensibleViaService="true">
+    <implementations xsi:type="gmfgen:PredefinedParser" uses="//@diagram/@childNodes.0/@labels.0/@modelFacet //@diagram/@topLevelNodes.0/@labels.0/@modelFacet //@diagram/@topLevelNodes.0/@labels.1/@modelFacet //@diagram/@childNodes.1/@labels.0/@modelFacet //@diagram/@childNodes.2/@labels.0/@modelFacet //@diagram/@topLevelNodes.1/@labels.0/@modelFacet //@diagram/@topLevelNodes.1/@labels.1/@modelFacet //@diagram/@topLevelNodes.2/@labels.0/@modelFacet //@diagram/@topLevelNodes.2/@labels.1/@modelFacet"/>
+  </labelParsers>
+  <contextMenus context="//@diagram">
+    <items xsi:type="gmfgen:LoadResourceAction"/>
+  </contextMenus>
+</gmfgen:GenEditorGenerator>

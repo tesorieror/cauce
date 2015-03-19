@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.tesoriero.cauce.spaceReference/src" modelPluginID="org.tesoriero.cauce.spaceReference"
+    modelName="SpaceReference" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="7.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>spaceReference.ecore</foreignModel>
+  <genPackages prefix="Rsmm" disposableProviderFactory="true" ecorePackage="spaceReference.ecore#/">
+    <genClasses ecoreClass="spaceReference.ecore#//SystemInformationFlowReferenceSpace">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference spaceReference.ecore#//SystemInformationFlowReferenceSpace/referentialSpaces"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference spaceReference.ecore#//SystemInformationFlowReferenceSpace/spaceToSpaceReferenceDependencies"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference spaceReference.ecore#//SystemInformationFlowReferenceSpace/spaceToEntityReferenceDependencies"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference spaceReference.ecore#//SystemInformationFlowReferenceSpace/entityReferences"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute spaceReference.ecore#//SystemInformationFlowReferenceSpace/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute spaceReference.ecore#//SystemInformationFlowReferenceSpace/id"/>
+    </genClasses>
+    <genClasses ecoreClass="spaceReference.ecore#//ReferentialSpace">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute spaceReference.ecore#//ReferentialSpace/name"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference spaceReference.ecore#//ReferentialSpace/system"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference spaceReference.ecore#//ReferentialSpace/ongoingReferenceDependencies"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference spaceReference.ecore#//ReferentialSpace/incomingReferenceDependency"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute spaceReference.ecore#//ReferentialSpace/id"/>
+    </genClasses>
+    <genClasses ecoreClass="spaceReference.ecore#//ContextAwareEntityReference">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference spaceReference.ecore#//ContextAwareEntityReference/system"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute spaceReference.ecore#//ContextAwareEntityReference/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference spaceReference.ecore#//ContextAwareEntityReference/incomingReferenceDependency"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute spaceReference.ecore#//ContextAwareEntityReference/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute spaceReference.ecore#//ContextAwareEntityReference/entity"/>
+    </genClasses>
+    <genClasses ecoreClass="spaceReference.ecore#//SpaceToEntityReferenceDependency">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference spaceReference.ecore#//SpaceToEntityReferenceDependency/system"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference spaceReference.ecore#//SpaceToEntityReferenceDependency/child"/>
+    </genClasses>
+    <genClasses ecoreClass="spaceReference.ecore#//SpaceToSpaceReferenceDependency">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference spaceReference.ecore#//SpaceToSpaceReferenceDependency/system"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference spaceReference.ecore#//SpaceToSpaceReferenceDependency/child"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="spaceReference.ecore#//ReferenceDependency">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute spaceReference.ecore#//ReferenceDependency/cardinality"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference spaceReference.ecore#//ReferenceDependency/parent"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute spaceReference.ecore#//ReferenceDependency/id"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

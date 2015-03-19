@@ -1,0 +1,42 @@
+Change category for Model and Diagram Editor
+
+Editor 
+------
+------
+
+plugin.xml
+----------
+Extension Model : newWizards
+Category ID: org.tesoriero.cauce.models.category.ID
+Category Name: CAUCE Models
+ 
+Wizard category: org.tesoriero.cauce.models.category.ID
+
+plugin.properties
+-----------------
+_UI_TammEditor_menu = &Task Model Editor
+_UI_TammModelWizard_label = CAUCE Task Model
+_UI_TammModelWizard_description = Create a new CAUCE Task model
+
+_UI_TammEditor_label = CAUCE Task Model Editor
+
+_UI_TammEditorFilenameDefaultBase = default
+
+
+Diagram
+-------
+-------
+
+plugin.xml
+----------
+
+Extension Model : newWizards
+Category ID: org.tesoriero.cauce.diagrams.category.ID
+Category Name: CAUCE Diagrams
+
+Wizard category: org.tesoriero.cauce.diagrams.category.ID
+
+plugin.properties
+-----------------
+initDiagramActionLabel=Initialize Task Diagram diagram file
+newWizardName=CAUCE Task Diagram

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<ecmm:SystemContext xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecmm="ecmm" name="somm-diagram">
+  <entities entity="A" id="0">
+    <situations name="AtoB" id="24">
+      <memoryConditions id="26" expression="A,B" contextMemory="16"/>
+      <memoryConditions id="27" expression="A(RoomA)" contextMemory="20"/>
+      <memoryConditions id="28" expression="A(x>0)" contextMemory="22"/>
+    </situations>
+    <situations name="anA2aB" id="32">
+      <memoryConditions id="34" expression="anA,aB" contextMemory="16"/>
+    </situations>
+    <situations name="Mix" id="36">
+      <memoryConditions id="38" expression="anA,B" contextMemory="16"/>
+      <memoryConditions id="39" expression="anA(AtoB)+B(anA2aB)" contextMemory="18"/>
+      <memoryConditions id="40" expression="anA(RoomA),B(RoomB)" contextMemory="20"/>
+      <memoryConditions id="41" expression="anA(times>2)" contextMemory="22"/>
+    </situations>
+    <state xsi:type="ecmm:HolderMemory" name="roleMemory" id="16"/>
+    <state xsi:type="ecmm:StackMemory" name="taskMemory" id="18"/>
+    <state xsi:type="ecmm:StackMemory" name="spaceMemory" id="20"/>
+    <state xsi:type="ecmm:LogicMemory" name="logicMemory" id="22"/>
+    <variables name="w" id="1"/>
+    <variables name="times" id="2"/>
+    <variables name="n" id="3"/>
+    <variables name="m" id="4"/>
+    <variables name="z" id="5"/>
+    <variables name="y" id="6"/>
+    <variables name="x" id="7"/>
+  </entities>
+  <entities entity="B" id="8">
+    <situations name="AtoB" id="25">
+      <memoryConditions id="29" expression="A,B" contextMemory="17"/>
+      <memoryConditions id="30" expression="A(RoomA)" contextMemory="21"/>
+      <memoryConditions id="31" expression="A(x>0)" contextMemory="23"/>
+    </situations>
+    <situations name="anA2aB" id="33">
+      <memoryConditions id="35" expression="anA,aB" contextMemory="17"/>
+    </situations>
+    <situations name="Mix" id="37">
+      <memoryConditions id="42" expression="anA,B" contextMemory="17"/>
+      <memoryConditions id="43" expression="anA(AtoB)+B(anA2aB)" contextMemory="19"/>
+      <memoryConditions id="44" expression="anA(RoomA),B(RoomB)" contextMemory="21"/>
+      <memoryConditions id="45" expression="anA(times>2)" contextMemory="23"/>
+    </situations>
+    <state xsi:type="ecmm:HolderMemory" name="roleMemory" id="17"/>
+    <state xsi:type="ecmm:StackMemory" name="taskMemory" id="19"/>
+    <state xsi:type="ecmm:StackMemory" name="spaceMemory" id="21"/>
+    <state xsi:type="ecmm:LogicMemory" name="logicMemory" id="23"/>
+    <variables name="w" id="9"/>
+    <variables name="n" id="10"/>
+    <variables name="m" id="11"/>
+    <variables name="z" id="12"/>
+    <variables name="y" id="13"/>
+    <variables name="x" id="14"/>
+  </entities>
+  <entities entity="D" id="15"/>
+</ecmm:SystemContext>

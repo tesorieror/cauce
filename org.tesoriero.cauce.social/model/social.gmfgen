@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gmfgen:GenEditorGenerator xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:gmfgen="http://www.eclipse.org/gmf/2009/GenModel" diagramFileExtension="sommdiag">
+  <audits>
+    <categories id="Default Container" name="Default Container" description="Default Container" path="//@audits/@categories.0"/>
+    <categories id="SpecializationAuditContainer" name="SpecializationAuditContainer" description="SpecializationAuditContainer" path="//@audits/@categories.0 //@audits/@categories.1" audits="//@audits/@rules.0 //@audits/@rules.1 //@audits/@rules.2 //@audits/@rules.3"/>
+    <categories id="SocietyAuditContainer" name="SocietyAuditContainer" description="SocietyAuditContainer" path="//@audits/@categories.0 //@audits/@categories.2" audits="//@audits/@rules.4"/>
+    <categories id="IndividualInstanceAuditContainer" name="IndividualInstanceAuditContainer" description="IndividualInstanceAuditContainer" path="//@audits/@categories.0 //@audits/@categories.3" audits="//@audits/@rules.5 //@audits/@rules.6 //@audits/@rules.7 //@audits/@rules.8"/>
+    <categories id="RoleAuditContainer" name="RoleAuditContainer" description="RoleAuditContainer" path="//@audits/@categories.0 //@audits/@categories.4" audits="//@audits/@rules.9 //@audits/@rules.10 //@audits/@rules.11 //@audits/@rules.12"/>
+    <categories id="IndividualRealizationAuditContainer" name="IndividualRealizationAuditContainer" description="IndividualRealizationAuditContainer" path="//@audits/@categories.0 //@audits/@categories.5" audits="//@audits/@rules.13 //@audits/@rules.14"/>
+    <rules name="SpecializationSourceNotTargetAuditRule" description="SpecializationSourceNotTargetAuditRule" id="SpecializationSourceNotTargetAuditRule" rule="//@expressionProviders/@providers.0/@expressions.6" message="Specialization source and target must not be the same" category="//@audits/@categories.1">
+      <target xsi:type="gmfgen:GenDomainElementTarget" contextSelector="//@audits/@clientContexts.0">
+        <element href="social.genmodel#//somm/Specialization"/>
+      </target>
+    </rules>
+    <rules name="SpecializationAlreadyExistErrorAuditRule" description="SpecializationAlreadyExistErrorAuditRule" id="SpecializationAlreadyExistErrorAuditRule" rule="//@expressionProviders/@providers.0/@expressions.7" message="Specialization already exists" category="//@audits/@categories.1">
+      <target xsi:type="gmfgen:GenDomainElementTarget" contextSelector="//@audits/@clientContexts.0">
+        <element href="social.genmodel#//somm/Specialization"/>
+      </target>
+    </rules>
+    <rules name="SpecializationIdUniqueAuditRule" description="SpecializationIdUniqueAuditRule" id="SpecializationIdUniqueAuditRule" rule="//@expressionProviders/@providers.0/@expressions.8" message="Specialization ID must be unique" category="//@audits/@categories.1">
+      <target xsi:type="gmfgen:GenDomainElementTarget" contextSelector="//@audits/@clientContexts.0">
+        <element href="social.genmodel#//somm/Specialization"/>
+      </target>
+    </rules>
+    <rules name="SpecializationIdNotNullAuditRule" description="SpecializationIdNotNullAuditRule" id="SpecializationIdNotNullAuditRule" rule="//@expressionProviders/@providers.0/@expressions.9" message="Specialization ID must not be null" category="//@audits/@categories.1">
+      <target xsi:type="gmfgen:GenDomainAttributeTarget" contextSelector="//@audits/@clientContexts.0" nullAsError="true">
+        <attribute href="social.genmodel#//somm/Specialization/id"/>
+      </target>
+    </rules>
+    <rules name="SocietyNameNotNullAuditRule" description="SocietyNameNotNullAuditRule" id="SocietyNameNotNullAuditRule" rule="//@expressionProviders/@providers.0/@expressions.10" message="Society name must not be null" category="//@audits/@categories.2">
+      <target xsi:type="gmfgen:GenDomainAttributeTarget" contextSelector="//@audits/@clientContexts.0" nullAsError="true">
+        <attribute href="social.genmodel#//somm/Society/name"/>
+      </target>
+    </rules>
+    <rules name="IndividualInstanceIdNotNullAuditRule" description="IndividualInstanceIdNotNullAuditRule" id="IndividualInstanceIdNotNullAuditRule" rule="//@expressionProviders/@providers.0/@expressions.11" message="IndividualInstance ID must not be null" category="//@audits/@categories.3">
+      <target xsi:type="gmfgen:GenDomainAttributeTarget" contextSelector="//@audits/@clientContexts.0" nullAsError="true">
+        <attribute href="social.genmodel#//somm/IndividualInstance/id"/>
+      </target>
+    </rules>
+    <rules name="IndividualInstanceIdUniqueAuditRule" description="IndividualInstanceIdUniqueAuditRule" id="IndividualInstanceIdUniqueAuditRule" rule="//@expressionProviders/@providers.0/@expressions.12" message="IndividualInstance ID must be unique" category="//@audits/@categories.3">
+      <target xsi:type="gmfgen:GenDomainElementTarget" contextSelector="//@audits/@clientContexts.0">
+        <element href="social.genmodel#//somm/IndividualInstance"/>
+      </target>
+    </rules>
+    <rules name="IndividualInstanceNameNotNullAuditRule" description="IndividualInstanceNameNotNullAuditRule" id="IndividualInstanceNameNotNullAuditRule" rule="//@expressionProviders/@providers.0/@expressions.13" message="IndividualInstance name must not be null" category="//@audits/@categories.3">
+      <target xsi:type="gmfgen:GenDomainAttributeTarget" contextSelector="//@audits/@clientContexts.0" nullAsError="true">
+        <attribute href="social.genmodel#//somm/IndividualInstance/name"/>
+      </target>
+    </rules>
+    <rules name="IndividualInstanceNameUniqueAuditRule" description="IndividualInstanceNameUniqueAuditRule" id="IndividualInstanceNameUniqueAuditRule" rule="//@expressionProviders/@providers.0/@expressions.14" message="IndividualInstance name must be unique" category="//@audits/@categories.3">
+      <target xsi:type="gmfgen:GenDomainElementTarget" contextSelector="//@audits/@clientContexts.0">
+        <element href="social.genmodel#//somm/IndividualInstance"/>
+      </target>
+    </rules>
+    <rules name="RoleIdNotNullAuditRule" description="RoleIdNotNullAuditRule" id="RoleIdNotNullAuditRule" rule="//@expressionProviders/@providers.0/@expressions.15" message="Role ID must not be null" category="//@audits/@categories.4">
+      <target xsi:type="gmfgen:GenDomainAttributeTarget" contextSelector="//@audits/@clientContexts.0" nullAsError="true">
+        <attribute href="social.genmodel#//somm/Role/id"/>
+      </target>
+    </rules>
+    <rules name="RoleIdUniqueAuditRule" description="RoleIdUniqueAuditRule" id="RoleIdUniqueAuditRule" rule="//@expressionProviders/@providers.0/@expressions.16" message="Role ID must be unique" category="//@audits/@categories.4">
+      <target xsi:type="gmfgen:GenDomainElementTarget" contextSelector="//@audits/@clientContexts.0">
+        <element href="social.genmodel#//somm/Role"/>
+      </target>
+    </rules>
+    <rules name="RoleNameNotNullAuditRule" description="RoleNameNotNullAuditRule" id="RoleNameNotNullAuditRule" rule="//@expressionProviders/@providers.0/@expressions.17" message="Role name must not be null" category="//@audits/@categories.4">
+      <target xsi:type="gmfgen:GenDomainAttributeTarget" contextSelector="//@audits/@clientContexts.0" nullAsError="true">
+        <attribute href="social.genmodel#//somm/Role/name"/>
+      </target>
+    </rules>
+    <rules name="RoleNameUniqueAuditRule" description="RoleNameUniqueAuditRule" id="RoleNameUniqueAuditRule" rule="//@expressionProviders/@providers.0/@expressions.18" message="Role name must be unique" category="//@audits/@categories.4">
+      <target xsi:type="gmfgen:GenDomainElementTarget" contextSelector="//@audits/@clientContexts.0">
+        <element href="social.genmodel#//somm/Role"/>
+      </target>
+    </rules>
+    <rules name="IndividualRealizationIdNotNullAuditRule" description="IndividualRealizationIdNotNullAuditRule" id="IndividualRealizationIdNotNullAuditRule" rule="//@expressionProviders/@providers.0/@expressions.19" message="IndividualRealization ID must not be null" category="//@audits/@categories.5">
+      <target xsi:type="gmfgen:GenDomainAttributeTarget" contextSelector="//@audits/@clientContexts.0" nullAsError="true">
+        <attribute href="social.genmodel#//somm/IndividualRealization/id"/>
+      </target>
+    </rules>
+    <rules name="IndividualRealizationIdUniqueAuditRule" description="IndividualRealizationIdUniqueAuditRule" id="IndividualRealizationIdUniqueAuditRule" rule="//@expressionProviders/@providers.0/@expressions.20" message="IndividualRealization ID must be unique" category="//@audits/@categories.5">
+      <target xsi:type="gmfgen:GenDomainElementTarget" contextSelector="//@audits/@clientContexts.0">
+        <element href="social.genmodel#//somm/IndividualRealization"/>
+      </target>
+    </rules>
+    <clientContexts ruleTargets="//@audits/@rules.0/@target //@audits/@rules.1/@target //@audits/@rules.2/@target //@audits/@rules.3/@target //@audits/@rules.4/@target //@audits/@rules.5/@target //@audits/@rules.6/@target //@audits/@rules.7/@target //@audits/@rules.8/@target //@audits/@rules.9/@target //@audits/@rules.10/@target //@audits/@rules.11/@target //@audits/@rules.12/@target //@audits/@rules.13/@target //@audits/@rules.14/@target"/>
+  </audits>
+  <diagram visualID="1000" editPartClassName="SocietyEditPart" itemSemanticEditPolicyClassName="SocietyItemSemanticEditPolicy" canonicalEditPolicyClassName="SocietyCanonicalEditPolicy" notationViewProviderPriority="High" editPartProviderPriority="High" iconProviderPriority="High" shortcutsDecoratorProviderPriority="High" validationProviderPriority="Low" validationEnabled="true" validationDecorators="true" validationDecoratorProviderPriority="High" liveValidationUIFeedback="true">
+    <diagramRunTimeClass href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Diagram"/>
+    <elementType xsi:type="gmfgen:MetamodelType" editHelperClassName="SocietyEditHelper"/>
+    <viewmap xsi:type="gmfgen:FigureViewmap" figureQualifiedClassName="org.eclipse.draw2d.FreeformLayer"/>
+    <domainDiagramElement href="social.genmodel#//somm/Society"/>
+    <topLevelNodes visualID="2001" editPartClassName="IndividualInstanceEditPart" itemSemanticEditPolicyClassName="IndividualInstanceItemSemanticEditPolicy" canonicalEditPolicyClassName="IndividualInstanceCanonicalEditPolicy" graphicalNodeEditPolicyClassName="IndividualInstanceGraphicalNodeEditPolicy" createCommandClassName="IndividualInstanceCreateCommand">
+      <diagramRunTimeClass href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <elementType xsi:type="gmfgen:MetamodelType" editHelperClassName="IndividualInstanceEditHelper"/>
+      <viewmap xsi:type="gmfgen:InnerClassViewmap" className="InstanceFigure" classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class InstanceFigure extends org.eclipse.draw2d.Ellipse {&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public InstanceFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;this.setForegroundColor(org.eclipse.draw2d.ColorConstants.black);&#xA;this.setPreferredSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(40)&#xA;, getMapMode().DPtoLP(40)&#xA;));&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;">
+        <attributes xsi:type="gmfgen:StyleAttributes" fixedForeground="true"/>
+        <attributes xsi:type="gmfgen:DefaultSizeAttributes" height="40"/>
+      </viewmap>
+      <modelFacet>
+        <metaClass href="social.genmodel#//somm/IndividualInstance"/>
+        <containmentMetaFeature href="social.genmodel#//somm/Society/individuals"/>
+        <childMetaFeature href="social.genmodel#//somm/Society/individuals"/>
+        <modelElementInitializer xsi:type="gmfgen:GenFeatureSeqInitializer">
+          <initializers xsi:type="gmfgen:GenFeatureValueSpec" value="//@expressionProviders/@providers.0/@expressions.0">
+            <feature href="social.genmodel#//somm/IndividualInstance/id"/>
+          </initializers>
+          <initializers xsi:type="gmfgen:GenFeatureValueSpec" value="//@expressionProviders/@providers.0/@expressions.1">
+            <feature href="social.genmodel#//somm/IndividualInstance/name"/>
+          </initializers>
+        </modelElementInitializer>
+      </modelFacet>
+      <labels xsi:type="gmfgen:GenExternalNodeLabel" visualID="5001" editPartClassName="IndividualInstanceNameEditPart" itemSemanticEditPolicyClassName="IndividualInstanceNameItemSemanticEditPolicy">
+        <diagramRunTimeClass href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <viewmap xsi:type="gmfgen:InnerClassViewmap" className="InstanceNameFigure" classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class InstanceNameFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureIntanceNameLabelFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public InstanceNameFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setText(&quot;&lt;...>&quot;);&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureIntanceNameLabelFigure() {&#xA;&#x9;&#x9;return fFigureIntanceNameLabelFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
+        <modelFacet xsi:type="gmfgen:FeatureLabelModelFacet" parser="//@labelParsers/@implementations.0" viewPattern="" editorPattern="" editPattern="">
+          <metaFeatures href="social.genmodel#//somm/IndividualInstance/name"/>
+        </modelFacet>
+      </labels>
+      <labels xsi:type="gmfgen:GenExternalNodeLabel" visualID="5002" editPartClassName="IndividualInstanceIdEditPart" itemSemanticEditPolicyClassName="IndividualInstanceIdItemSemanticEditPolicy" readOnly="true" elementIcon="true">
+        <diagramRunTimeClass href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <viewmap xsi:type="gmfgen:FigureViewmap" figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
+        <modelFacet xsi:type="gmfgen:FeatureLabelModelFacet" parser="//@labelParsers/@implementations.0" viewPattern="({0})">
+          <metaFeatures href="social.genmodel#//somm/IndividualInstance/id"/>
+        </modelFacet>
+      </labels>
+    </topLevelNodes>
+    <topLevelNodes visualID="2002" editPartClassName="RoleEditPart" itemSemanticEditPolicyClassName="RoleItemSemanticEditPolicy" canonicalEditPolicyClassName="RoleCanonicalEditPolicy" graphicalNodeEditPolicyClassName="RoleGraphicalNodeEditPolicy" createCommandClassName="RoleCreateCommand">
+      <diagramRunTimeClass href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <elementType xsi:type="gmfgen:MetamodelType" editHelperClassName="RoleEditHelper"/>
+      <viewmap xsi:type="gmfgen:InnerClassViewmap" layoutType="TOOLBAR_LAYOUT" className="RoleFigure" classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class RoleFigure extends org.eclipse.draw2d.RectangleFigure {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureRoleIdFigure; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureRoleNameFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public RoleFigure() {&#xA;&#x9;&#x9;&#xA;&#x9;org.eclipse.draw2d.ToolbarLayout layoutThis = new org.eclipse.draw2d.ToolbarLayout();&#xA;&#x9;layoutThis.setStretchMinorAxis(true);&#xA;&#x9;layoutThis.setMinorAlignment(org.eclipse.draw2d.ToolbarLayout.ALIGN_TOPLEFT&#xA;);&#xA;&#xA;&#x9;layoutThis.setSpacing(5);&#xA;&#x9;layoutThis.setVertical(false);&#xA;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;&#x9;this.setForegroundColor(org.eclipse.draw2d.ColorConstants.black);&#xA;&#xA;this.setBorder(new org.eclipse.draw2d.MarginBorder(getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureRoleIdFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureRoleIdFigure.setText(&quot;&quot;);&#xA;&#xA;this.add(fFigureRoleIdFigure);&#xA;&#xA;&#xA;&#xA;fFigureRoleNameFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureRoleNameFigure.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigureRoleNameFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureRoleIdFigure() {&#xA;&#x9;&#x9;return fFigureRoleIdFigure;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureRoleNameFigure() {&#xA;&#x9;&#x9;return fFigureRoleNameFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;">
+        <attributes xsi:type="gmfgen:StyleAttributes" fixedForeground="true"/>
+      </viewmap>
+      <modelFacet>
+        <metaClass href="social.genmodel#//somm/Role"/>
+        <containmentMetaFeature href="social.genmodel#//somm/Society/roles"/>
+        <childMetaFeature href="social.genmodel#//somm/Society/roles"/>
+        <modelElementInitializer xsi:type="gmfgen:GenFeatureSeqInitializer">
+          <initializers xsi:type="gmfgen:GenFeatureValueSpec" value="//@expressionProviders/@providers.0/@expressions.2">
+            <feature href="social.genmodel#//somm/Role/id"/>
+          </initializers>
+          <initializers xsi:type="gmfgen:GenFeatureValueSpec" value="//@expressionProviders/@providers.0/@expressions.3">
+            <feature href="social.genmodel#//somm/Role/name"/>
+          </initializers>
+        </modelElementInitializer>
+      </modelFacet>
+      <labels visualID="5003" editPartClassName="RoleNameEditPart" itemSemanticEditPolicyClassName="RoleNameItemSemanticEditPolicy">
+        <diagramRunTimeClass href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <viewmap xsi:type="gmfgen:ParentAssignedViewmap" getterName="getFigureRoleNameFigure" figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
+        <modelFacet xsi:type="gmfgen:FeatureLabelModelFacet" parser="//@labelParsers/@implementations.0" viewPattern="" editorPattern="" editPattern="">
+          <metaFeatures href="social.genmodel#//somm/Role/name"/>
+        </modelFacet>
+      </labels>
+      <labels visualID="5004" editPartClassName="RoleIdEditPart" itemSemanticEditPolicyClassName="RoleIdItemSemanticEditPolicy" readOnly="true" elementIcon="true">
+        <diagramRunTimeClass href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <viewmap xsi:type="gmfgen:ParentAssignedViewmap" getterName="getFigureRoleIdFigure" figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
+        <modelFacet xsi:type="gmfgen:FeatureLabelModelFacet" parser="//@labelParsers/@implementations.0" viewPattern="({0})">
+          <metaFeatures href="social.genmodel#//somm/Role/id"/>
+        </modelFacet>
+      </labels>
+    </topLevelNodes>
+    <links visualID="4001" editPartClassName="SpecializationEditPart" itemSemanticEditPolicyClassName="SpecializationItemSemanticEditPolicy" createCommandClassName="SpecializationCreateCommand" reorientCommandClassName="SpecializationReorientCommand">
+      <diagramRunTimeClass href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Edge"/>
+      <elementType xsi:type="gmfgen:MetamodelType" editHelperClassName="SpecializationEditHelper"/>
+      <viewmap xsi:type="gmfgen:InnerClassViewmap" className="SpecializationEdgeFigure" classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class SpecializationEdgeFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.PolylineConnectionEx {&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public SpecializationEdgeFigure() {&#xA;&#x9;&#x9;this.setFill(false);&#xA;&#x9;this.setForegroundColor(THIS_FORE&#xA;);&#xA;&#xA;&#x9;&#x9;setTargetDecoration(createTargetDecoration());&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RotatableDecoration createTargetDecoration() {&#xA;&#x9;&#x9;org.eclipse.draw2d.PolygonDecoration df = new org.eclipse.draw2d.PolygonDecoration();&#xA;&#x9;df.setForegroundColor(org.eclipse.draw2d.ColorConstants.black);&#xA;&#x9;df.setBackgroundColor(org.eclipse.draw2d.ColorConstants.white);&#xA;org.eclipse.draw2d.geometry.PointList pl = new org.eclipse.draw2d.geometry.PointList();&#xA;pl.addPoint(getMapMode().DPtoLP(-2)&#xA;, getMapMode().DPtoLP(2)&#xA;);&#xA;pl.addPoint(getMapMode().DPtoLP(0)&#xA;, getMapMode().DPtoLP(0)&#xA;);&#xA;pl.addPoint(getMapMode().DPtoLP(-2)&#xA;, getMapMode().DPtoLP(-2)&#xA;);&#xA;df.setTemplate(pl);&#xA;df.setScale(getMapMode().DPtoLP(7)&#xA;, getMapMode().DPtoLP(3)&#xA;);&#xA;&#x9;&#x9;return df;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_FORE = new org.eclipse.swt.graphics.Color(null, 0, 0, 0);&#xA;&#xA;">
+        <attributes xsi:type="gmfgen:StyleAttributes" fixedForeground="true"/>
+      </viewmap>
+      <modelFacet xsi:type="gmfgen:TypeLinkModelFacet">
+        <metaClass href="social.genmodel#//somm/Specialization"/>
+        <containmentMetaFeature href="social.genmodel#//somm/Society/generalizations"/>
+        <childMetaFeature href="social.genmodel#//somm/Society/generalizations"/>
+        <modelElementInitializer xsi:type="gmfgen:GenFeatureSeqInitializer">
+          <initializers xsi:type="gmfgen:GenFeatureValueSpec" value="//@expressionProviders/@providers.0/@expressions.4">
+            <feature href="social.genmodel#//somm/Specialization/id"/>
+          </initializers>
+        </modelElementInitializer>
+        <sourceMetaFeature href="social.genmodel#//somm/Specialization/source"/>
+        <targetMetaFeature href="social.genmodel#//somm/Specialization/target"/>
+      </modelFacet>
+    </links>
+    <links visualID="4002" editPartClassName="IndividualRealizationEditPart" itemSemanticEditPolicyClassName="IndividualRealizationItemSemanticEditPolicy" createCommandClassName="IndividualRealizationCreateCommand" reorientCommandClassName="IndividualRealizationReorientCommand">
+      <diagramRunTimeClass href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Edge"/>
+      <elementType xsi:type="gmfgen:MetamodelType" editHelperClassName="IndividualRealizationEditHelper"/>
+      <viewmap xsi:type="gmfgen:InnerClassViewmap" className="InstatiationEdgeFigure" classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class InstatiationEdgeFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.PolylineConnectionEx {&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public InstatiationEdgeFigure() {&#xA;&#x9;&#x9;this.setFill(false);&#xA;this.setLineStyle(org.eclipse.draw2d.Graphics.LINE_DASH);&#xA;&#x9;this.setForegroundColor(THIS_FORE&#xA;);&#xA;&#xA;&#x9;&#x9;setTargetDecoration(createTargetDecoration());&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RotatableDecoration createTargetDecoration() {&#xA;&#x9;&#x9;org.eclipse.draw2d.PolylineDecoration df = new org.eclipse.draw2d.PolylineDecoration();&#xA;&#x9;&#x9;return df;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_FORE = new org.eclipse.swt.graphics.Color(null, 0, 0, 0);&#xA;&#xA;">
+        <attributes xsi:type="gmfgen:StyleAttributes" fixedForeground="true"/>
+      </viewmap>
+      <modelFacet xsi:type="gmfgen:TypeLinkModelFacet">
+        <metaClass href="social.genmodel#//somm/IndividualRealization"/>
+        <containmentMetaFeature href="social.genmodel#//somm/Society/relaizations"/>
+        <childMetaFeature href="social.genmodel#//somm/Society/relaizations"/>
+        <modelElementInitializer xsi:type="gmfgen:GenFeatureSeqInitializer">
+          <initializers xsi:type="gmfgen:GenFeatureValueSpec" value="//@expressionProviders/@providers.0/@expressions.5">
+            <feature href="social.genmodel#//somm/IndividualRealization/id"/>
+          </initializers>
+        </modelElementInitializer>
+        <sourceMetaFeature href="social.genmodel#//somm/IndividualRealization/source"/>
+        <targetMetaFeature href="social.genmodel#//somm/IndividualRealization/target"/>
+      </modelFacet>
+    </links>
+    <palette>
+      <groups title="somm" description="Social metamodel">
+        <entries xsi:type="gmfgen:ToolEntry" title="Role" description="Create new Role Instance" genNodes="//@diagram/@topLevelNodes.1"/>
+        <entries xsi:type="gmfgen:ToolEntry" title="Individual" description="Create new Individual Instance" genNodes="//@diagram/@topLevelNodes.0"/>
+        <entries xsi:type="gmfgen:Separator"/>
+        <entries xsi:type="gmfgen:ToolEntry" title="Generalization" description="Create new Generalization relationship" genLinks="//@diagram/@links.0"/>
+        <entries xsi:type="gmfgen:ToolEntry" title="Realization" description="Creaste new Realization relationship" genLinks="//@diagram/@links.1"/>
+      </groups>
+    </palette>
+    <preferencePages xsi:type="gmfgen:GenStandardPreferencePage" iD="org.tesoriero.cauce.social.diagram.general" name="Social Diagram">
+      <children xsi:type="gmfgen:GenStandardPreferencePage" iD="org.tesoriero.cauce.social.diagram.appearance" name="Appearance" kind="Appearance"/>
+      <children xsi:type="gmfgen:GenStandardPreferencePage" iD="org.tesoriero.cauce.social.diagram.connections" name="Connections" kind="Connections"/>
+      <children xsi:type="gmfgen:GenStandardPreferencePage" iD="org.tesoriero.cauce.social.diagram.printing" name="Printing" kind="Printing"/>
+      <children xsi:type="gmfgen:GenStandardPreferencePage" iD="org.tesoriero.cauce.social.diagram.rulersAndGrid" name="Rulers And Grid" kind="RulersAndGrid"/>
+    </preferencePages>
+  </diagram>
+  <plugin>
+    <requiredPlugins>org.eclipse.gmf.tooling.runtime</requiredPlugins>
+    <requiredPlugins>org.eclipse.draw2d</requiredPlugins>
+    <requiredPlugins>org.eclipse.gmf.runtime.draw2d.ui</requiredPlugins>
+  </plugin>
+  <editor/>
+  <navigator>
+    <childReferences child="//@diagram"/>
+    <childReferences parent="//@diagram" child="//@diagram/@topLevelNodes.0"/>
+    <childReferences parent="//@diagram" child="//@diagram/@topLevelNodes.1"/>
+    <childReferences parent="//@diagram" child="//@diagram/@links.0" groupName="links" groupIcon="icons/linksNavigatorGroup.gif"/>
+    <childReferences parent="//@diagram/@links.0" child="//@diagram/@topLevelNodes.1" referenceType="out_target" groupName="target" groupIcon="icons/linkTargetNavigatorGroup.gif"/>
+    <childReferences parent="//@diagram/@topLevelNodes.1" child="//@diagram/@links.0" referenceType="in_source" groupName="incoming links" groupIcon="icons/incomingLinksNavigatorGroup.gif"/>
+    <childReferences parent="//@diagram/@links.0" child="//@diagram/@topLevelNodes.1" referenceType="in_source" groupName="source" groupIcon="icons/linkSourceNavigatorGroup.gif"/>
+    <childReferences parent="//@diagram/@topLevelNodes.1" child="//@diagram/@links.0" referenceType="out_target" groupName="outgoing links" groupIcon="icons/outgoingLinksNavigatorGroup.gif"/>
+    <childReferences parent="//@diagram" child="//@diagram/@links.1" groupName="links" groupIcon="icons/linksNavigatorGroup.gif"/>
+    <childReferences parent="//@diagram/@links.1" child="//@diagram/@topLevelNodes.1" referenceType="out_target" groupName="target" groupIcon="icons/linkTargetNavigatorGroup.gif"/>
+    <childReferences parent="//@diagram/@topLevelNodes.1" child="//@diagram/@links.1" referenceType="in_source" groupName="incoming links" groupIcon="icons/incomingLinksNavigatorGroup.gif"/>
+    <childReferences parent="//@diagram/@links.1" child="//@diagram/@topLevelNodes.0" referenceType="in_source" groupName="source" groupIcon="icons/linkSourceNavigatorGroup.gif"/>
+    <childReferences parent="//@diagram/@topLevelNodes.0" child="//@diagram/@links.1" referenceType="out_target" groupName="outgoing links" groupIcon="icons/outgoingLinksNavigatorGroup.gif"/>
+  </navigator>
+  <diagramUpdater/>
+  <propertySheet>
+    <tabs xsi:type="gmfgen:GenStandardPropertyTab" iD="appearance"/>
+    <tabs xsi:type="gmfgen:GenStandardPropertyTab" iD="diagram"/>
+    <tabs xsi:type="gmfgen:GenCustomPropertyTab" iD="domain" label="Core">
+      <filter xsi:type="gmfgen:TypeTabFilter">
+        <types>org.eclipse.gmf.runtime.notation.View</types>
+        <types>org.eclipse.gef.EditPart</types>
+        <generatedTypes>abstractNavigatorItem</generatedTypes>
+      </filter>
+    </tabs>
+  </propertySheet>
+  <domainGenModel href="social.genmodel#/"/>
+  <expressionProviders>
+    <providers xsi:type="gmfgen:GenExpressionInterpreter">
+      <expressions body="society.individuals->iterate(c; m:Integer=0 | m.max(c.id)).max(society.roles->iterate(c; m:Integer=0 | m.max(c.id))).max(society.generalizations->iterate(c; m:Integer=0 | m.max(c.id))).max(society.relaizations->iterate(c; m:Integer=0 | m.max(c.id))) +1"/>
+      <expressions body="'Individual'.concat(&#xD;&#xA;let number: Integer = id &#xD;&#xA;in OrderedSet{1000000, 10000, 1000, 100, 10, 1}&#xD;&#xA;->iterate(denominator : Integer; s : String = '' | let numberAsString : String= OrderedSet{'0','1','2','3','4','5','6','7','8','9'}->at(number.div(denominator).mod(10) + 1)&#xD;&#xA;in if s='' and numberAsString = '0' then s else s.concat(numberAsString) endif&#xD;&#xA;))"/>
+      <expressions body="society.individuals->iterate(c; m:Integer=0 | m.max(c.id)).max(society.roles->iterate(c; m:Integer=0 | m.max(c.id))).max(society.generalizations->iterate(c; m:Integer=0 | m.max(c.id))).max(society.relaizations->iterate(c; m:Integer=0 | m.max(c.id))) +1"/>
+      <expressions body="'Role'.concat(&#xD;&#xA;let number: Integer = id &#xD;&#xA;in OrderedSet{1000000, 10000, 1000, 100, 10, 1}&#xD;&#xA;->iterate(denominator : Integer; s : String = '' | let numberAsString : String= OrderedSet{'0','1','2','3','4','5','6','7','8','9'}->at(number.div(denominator).mod(10) + 1)&#xD;&#xA;in if s='' and numberAsString = '0' then s else s.concat(numberAsString) endif&#xD;&#xA;))"/>
+      <expressions body="society.individuals->iterate(c; m:Integer=0 | m.max(c.id)).max(society.roles->iterate(c; m:Integer=0 | m.max(c.id))).max(society.generalizations->iterate(c; m:Integer=0 | m.max(c.id))).max(society.relaizations->iterate(c; m:Integer=0 | m.max(c.id))) +1"/>
+      <expressions body="society.individuals->iterate(c; m:Integer=0 | m.max(c.id)).max(society.roles->iterate(c; m:Integer=0 | m.max(c.id))).max(society.generalizations->iterate(c; m:Integer=0 | m.max(c.id))).max(society.relaizations->iterate(c; m:Integer=0 | m.max(c.id))) +1"/>
+      <expressions xsi:type="gmfgen:GenConstraint" body="source&lt;>target"/>
+      <expressions xsi:type="gmfgen:GenConstraint" body="society.generalizations->forAll(g| (g&lt;>self) implies ((g.source&lt;>self.source) or (g.target&lt;>self.target)))"/>
+      <expressions xsi:type="gmfgen:GenConstraint" body="society.generalizations->forAll(g | (g &lt;> self) implies (g.id &lt;> self.id)) and&#xD;&#xA;society.individuals->forAll(i | (i.id &lt;> self.id)) and&#xD;&#xA;society.roles->forAll(r | r.id &lt;> self.id) and&#xD;&#xA;society.relaizations->forAll(real| real.id&lt;>self.id)"/>
+      <expressions xsi:type="gmfgen:GenConstraint" body="self>0"/>
+      <expressions xsi:type="gmfgen:GenConstraint" body="self.size()>0"/>
+      <expressions xsi:type="gmfgen:GenConstraint" body="self>0"/>
+      <expressions xsi:type="gmfgen:GenConstraint" body="society.generalizations->forAll(g | g.id &lt;> self.id) and&#xD;&#xA;society.individuals->forAll(i | (i &lt;> self) implies (i.id &lt;> self.id)) and&#xD;&#xA;society.roles->forAll(r | r.id &lt;> self.id) and&#xD;&#xA;society.relaizations->forAll(real| real.id&lt;>self.id)"/>
+      <expressions xsi:type="gmfgen:GenConstraint" body="self.size()>0"/>
+      <expressions xsi:type="gmfgen:GenConstraint" body="society.individuals->forAll(i | (i &lt;> self) implies (i.name &lt;> self.name)) and&#xD;&#xA;society.roles->forAll(r | r.name &lt;> self.name)&#xD;&#xA;"/>
+      <expressions xsi:type="gmfgen:GenConstraint" body="self>0"/>
+      <expressions xsi:type="gmfgen:GenConstraint" body="society.generalizations->forAll(g | g.id &lt;> self.id) and&#xD;&#xA;society.individuals->forAll(i | (i.id &lt;> self.id)) and&#xD;&#xA;society.roles->forAll(r | (r &lt;> self) implies (r.id &lt;> self.id)) and&#xD;&#xA;society.relaizations->forAll(real| real.id&lt;>self.id)"/>
+      <expressions xsi:type="gmfgen:GenConstraint" body="self.size()>0"/>
+      <expressions xsi:type="gmfgen:GenConstraint" body="society.individuals->forAll(i |(i.name &lt;> self.name)) and&#xD;&#xA;society.roles->forAll(r |  (r &lt;> self) implies (r.name &lt;> self.name))&#xD;&#xA;"/>
+      <expressions xsi:type="gmfgen:GenConstraint" body="self>0"/>
+      <expressions xsi:type="gmfgen:GenConstraint" body="society.generalizations->forAll(g | (g.id &lt;> self.id)) and&#xD;&#xA;society.individuals->forAll(i | (i.id &lt;> self.id)) and&#xD;&#xA;society.roles->forAll(r | r.id &lt;> self.id) and&#xD;&#xA;society.relaizations->forAll(real| (real &lt;> self) implies (real.id&lt;>self.id))"/>
+    </providers>
+  </expressionProviders>
+  <labelParsers extensibleViaService="true">
+    <implementations xsi:type="gmfgen:PredefinedParser" uses="//@diagram/@topLevelNodes.0/@labels.0/@modelFacet //@diagram/@topLevelNodes.0/@labels.1/@modelFacet //@diagram/@topLevelNodes.1/@labels.0/@modelFacet //@diagram/@topLevelNodes.1/@labels.1/@modelFacet"/>
+  </labelParsers>
+  <contextMenus context="//@diagram">
+    <items xsi:type="gmfgen:LoadResourceAction"/>
+  </contextMenus>
+</gmfgen:GenEditorGenerator>

@@ -1,0 +1,7 @@
+# Tracing options for the org.tesoriero.cauce.task.diagram plug-in
+
+# Common issues
+org.tesoriero.cauce.task.diagram/debug=false
+
+# Visual IDs
+org.tesoriero.cauce.task.diagram/debug/visualID=false

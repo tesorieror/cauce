@@ -1,0 +1,7 @@
+# Tracing options for the org.tesoriero.cauce.social.diagram plug-in
+
+# Common issues
+org.tesoriero.cauce.social.diagram/debug=false
+
+# Visual IDs
+org.tesoriero.cauce.social.diagram/debug/visualID=false

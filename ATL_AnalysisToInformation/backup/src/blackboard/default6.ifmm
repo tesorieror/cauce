@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ifmm:SystemInformaitonFlow xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ifmm="ifmm">
+  <entities id="1" name="Guest" ongoingInformationFlows="//@edges.0 //@edges.1 //@edges.4 //@edges.12 //@edges.13 //@edges.18 //@edges.19 //@edges.20 //@edges.34 //@edges.38 //@edges.42 //@edges.46 //@edges.55 //@edges.58 //@edges.60 //@edges.61 //@edges.62 //@edges.63 //@edges.70 //@edges.72 //@edges.74 //@edges.78 //@edges.80" incomingInformationFlows="//@edges.11 //@edges.17 //@edges.30 //@edges.31 //@edges.33 //@edges.37 //@edges.41 //@edges.45 //@edges.49 //@edges.53 //@edges.57 //@edges.77"/>
+  <entities id="3" name="RFIDReader" ongoingInformationFlows="//@edges.6 //@edges.7"/>
+  <entities id="7" name="Reception" incomingInformationFlows="//@edges.2 //@edges.3 //@edges.5"/>
+  <entities id="13" name="LocationManager" ongoingInformationFlows="//@edges.10" incomingInformationFlows="//@edges.8 //@edges.9"/>
+  <entities id="23" name="SessionSelector" ongoingInformationFlows="//@edges.28 //@edges.29 //@edges.32" incomingInformationFlows="//@edges.26 //@edges.27 //@edges.39 //@edges.71"/>
+  <entities id="24" name="SessionNameEntry" ongoingInformationFlows="//@edges.16" incomingInformationFlows="//@edges.15 //@edges.73"/>
+  <entities id="25" name="DeleteControl" ongoingInformationFlows="//@edges.25" incomingInformationFlows="//@edges.65"/>
+  <entities id="26" name="CreateControl" ongoingInformationFlows="//@edges.14" incomingInformationFlows="//@edges.64"/>
+  <entities id="27" name="JoinControl" ongoingInformationFlows="//@edges.24" incomingInformationFlows="//@edges.81"/>
+  <entities id="29" name="SessionManager" ongoingInformationFlows="//@edges.36 //@edges.56" incomingInformationFlows="//@edges.21 //@edges.22 //@edges.23 //@edges.35 //@edges.43 //@edges.47 //@edges.54 //@edges.75 //@edges.79"/>
+  <entities id="42" name="Canvas" ongoingInformationFlows="//@edges.50 //@edges.76" incomingInformationFlows="//@edges.59 //@edges.66"/>
+  <entities id="43" name="SaveControl" ongoingInformationFlows="//@edges.48" incomingInformationFlows="//@edges.67"/>
+  <entities id="44" name="PrintControl" ongoingInformationFlows="//@edges.44" incomingInformationFlows="//@edges.68"/>
+  <entities id="45" name="ExitSessionControl" ongoingInformationFlows="//@edges.40" incomingInformationFlows="//@edges.69"/>
+  <entities id="52" name="FigureInterpreter" ongoingInformationFlows="//@edges.52" incomingInformationFlows="//@edges.51"/>
+  <informationFlows xsi:type="ifmm:PointToPointInformationFlow" id="8" name="Guest_toReception-LoginAdmin" source="//@edges.0" target="//@edges.2">
+    <outputData definition="chairID"/>
+    <outputData definition="userID"/>
+    <inputData definition="LoginEvent"/>
+  </informationFlows>
+  <informationFlows xsi:type="ifmm:PointToPointInformationFlow" id="9" name="Guest_toReception-LoginUser" source="//@edges.1" target="//@edges.3">
+    <outputData definition="chairID"/>
+    <outputData definition="userID"/>
+    <inputData definition="LoginEvent"/>
+  </informationFlows>
+  <informationFlows xsi:type="ifmm:PointToPointInformationFlow" id="10" name="Guest_toReception-Logout" source="//@edges.4" target="//@edges.5">
+    <outputData definition="chairID"/>
+  </informationFlows>
+  <informationFlows xsi:type="ifmm:PointToPointInformationFlow" id="14" name="RFIDReader_to_LocationManager-Reading" source="//@edges.6" target="//@edges.8">
+    <outputData definition="readerID"/>
+    <outputData definition="rfid"/>
+  </informationFlows>
+  <informationFlows xsi:type="ifmm:PointToPointInformationFlow" id="15" name="RFIDReader_to_LocationManager-NotReading" source="//@edges.7" target="//@edges.9">
+    <outputData definition="readerID"/>
+  </informationFlows>
+  <informationFlows xsi:type="ifmm:BroadcastInformationFlow" id="16" name="LocationManager_to_Guest-anEvent0" source="//@edges.10" target="//@edges.11">
+    <data definition="userID"/>
+    <data definition="chairID"/>
+    <data definition="ChairType"/>
+    <data definition="ChairEvent"/>
+  </informationFlows>
+  <informationFlows xsi:type="ifmm:PointToPointInformationFlow" id="20" name="Guest-to-CreateControl-LoginEvent" source="//@edges.13" target="//@edges.64">
+    <outputData definition="LoginEvent"/>
+  </informationFlows>
+  <informationFlows xsi:type="ifmm:PointToPointInformationFlow" id="21" name="Guest-to-DeleteControl-LoginEvent" source="//@edges.12" target="//@edges.65">
+    <outputData definition="LoginEvent"/>
+  </informationFlows>
+  <informationFlows xsi:type="ifmm:PointToPointInformationFlow" id="28" name="CreateControl_to_SessionNameEntry-Event" source="//@edges.14" target="//@edges.15">
+    <outputData definition="ButtonEvent"/>
+  </informationFlows>
+  <informationFlows xsi:type="ifmm:PointToPointInformationFlow" id="30" name="SessionNameEntry_to_Guest-CreateSession" source="//@edges.16" target="//@edges.17">
+    <outputData definition="sessionName"/>
+    <outputData definition="ButtonEvent"/>
+  </informationFlows>
+  <informationFlows xsi:type="ifmm:PointToPointInformationFlow" id="31" name="Guest_to_SessionManager-JoinSession" source="//@edges.19" target="//@edges.22">
+    <outputData definition="sessionID"/>
+    <outputData definition="userID"/>
+  </informationFlows>
+  <informationFlows xsi:type="ifmm:PointToPointInformationFlow" id="32" name="Guest_to_SessionManager-DeleteSession" source="//@edges.18" target="//@edges.23">
+    <outputData definition="sessionID"/>
+  </informationFlows>
+  <informationFlows xsi:type="ifmm:PointToPointInformationFlow" id="33" name="Guest_to_SessionManager-CreateSesssion" source="//@edges.20" target="//@edges.21">
+    <outputData definition="sessionName"/>
+    <outputData definition="userID"/>
+  </informationFlows>
+  <informationFlows xsi:type="ifmm:PointToPointInformationFlow" id="34" name="DeleteControl_to_SessionSelector-Event" source="//@edges.25" target="//@edges.26">
+    <outputData definition="ButtonEvent"/>
+  </informationFlows>
+  <informationFlows xsi:type="ifmm:PointToPointInformationFlow" id="35" name="JoinControl_to_SessionSelector-Event" source="//@edges.24" target="//@edges.27">
+    <outputData definition="ButtonEvent"/>
+  </informationFlows>
+  <informationFlows xsi:type="ifmm:PointToPointInformationFlow" id="36" name="SessionSelector_to_Guest-JoinSession" source="//@edges.28" target="//@edges.30">
+    <outputData definition="sessionID"/>
+  </informationFlows>
+  <informationFlows xsi:type="ifmm:PointToPointInformationFlow" id="37" name="SessionSelector_to_Guest-DeleteSession" source="//@edges.29" target="//@edges.31">
+    <outputData definition="sessionID"/>
+  </informationFlows>
+  <informationFlows xsi:type="ifmm:PointToPointInformationFlow" id="38" name="SessionSelector_toGuest-GetSessions" source="//@edges.32" target="//@edges.33">
+    <inputData definition="sessions"/>
+  </informationFlows>
+  <informationFlows xsi:type="ifmm:PointToPointInformationFlow" id="39" name="Guest_to_SessionManager-GetSessions" source="//@edges.34" target="//@edges.35">
+    <inputData definition="sessions"/>
+  </informationFlows>
+  <informationFlows xsi:type="ifmm:BroadcastInformationFlow" id="40" name="SessionManager_to_Guest-SessionEvent" source="//@edges.36" target="//@edges.37">
+    <data definition="SessionEvent"/>
+    <data definition="sessionID"/>
+    <data definition="userID"/>
+  </informationFlows>
+  <informationFlows xsi:type="ifmm:PointToPointInformationFlow" id="41" name="Guest_to_SessionSelector-SessionEvent" source="//@edges.38" target="//@edges.39">
+    <outputData definition="SessionEvent"/>
+  </informationFlows>
+  <informationFlows xsi:type="ifmm:PointToPointInformationFlow" id="46" name="ExitSessionControl_to_Guest-ExitSession" source="//@edges.40" target="//@edges.41">
+    <outputData definition="ButtonEvent"/>
+  </informationFlows>
+  <informationFlows xsi:type="ifmm:PointToPointInformationFlow" id="47" name="Guest_to_SessionManager-ExitSession" source="//@edges.42" target="//@edges.43">
+    <outputData definition="sessionID"/>
+    <outputData definition="userID"/>
+  </informationFlows>
+  <informationFlows xsi:type="ifmm:PointToPointInformationFlow" id="48" name="PrintControl_to_Guest-Print" source="//@edges.44" target="//@edges.45">
+    <outputData definition="ButtonEvent"/>
+  </informationFlows>
+  <informationFlows xsi:type="ifmm:PointToPointInformationFlow" id="49" name="Guest_to_SessionManager-Print" source="//@edges.46" target="//@edges.47">
+    <outputData definition="sessionID"/>
+    <outputData definition="userID"/>
+  </informationFlows>
+  <informationFlows xsi:type="ifmm:PointToPointInformationFlow" id="50" name="SaveControl_to_Guest-Save" source="//@edges.48" target="//@edges.49">
+    <outputData definition="ButtonEvent"/>
+  </informationFlows>
+  <informationFlows xsi:type="ifmm:PointToPointInformationFlow" id="51" name="Canvas_to_FigureInterpreter" source="//@edges.50" target="//@edges.51">
+    <outputData definition="MouseEvent"/>
+    <outputData definition="(x, y)"/>
+  </informationFlows>
+  <informationFlows xsi:type="ifmm:PointToPointInformationFlow" id="53" name="FigureInterpreter_to_Guest-Draw" source="//@edges.52" target="//@edges.53">
+    <outputData definition="Figure"/>
+  </informationFlows>
+  <informationFlows xsi:type="ifmm:PointToPointInformationFlow" id="54" name="Guest_to_SessionManager-Draw" source="//@edges.55" target="//@edges.54">
+    <outputData definition="sessionID"/>
+    <outputData definition="userID"/>
+    <outputData definition="Figure"/>
+  </informationFlows>
+  <informationFlows xsi:type="ifmm:BroadcastInformationFlow" id="55" name="SessionManager_to_Guest-EditorEvent" source="//@edges.56" target="//@edges.57">
+    <data definition="EditorEvent"/>
+    <data definition="sessionID"/>
+    <data definition="userID"/>
+  </informationFlows>
+  <informationFlows xsi:type="ifmm:PointToPointInformationFlow" id="56" name="Guest_to_Canvas-EditorEvent" source="//@edges.58" target="//@edges.59">
+    <outputData definition="EditorEvent"/>
+  </informationFlows>
+  <informationFlows xsi:type="ifmm:PointToPointInformationFlow" id="57" name="Guest_to_ExitSession-LoginEvent" source="//@edges.60" target="//@edges.69">
+    <outputData definition="LoginEvent"/>
+  </informationFlows>
+  <informationFlows xsi:type="ifmm:PointToPointInformationFlow" id="58" name="Guest_to_PrintControl-LoginEvent" source="//@edges.61" target="//@edges.68">
+    <outputData definition="LoginEvent"/>
+  </informationFlows>
+  <informationFlows xsi:type="ifmm:PointToPointInformationFlow" id="59" name="Guest_to_SaveControl-LoginEvent" source="//@edges.62" target="//@edges.67">
+    <outputData definition="LoginEvent"/>
+  </informationFlows>
+  <informationFlows xsi:type="ifmm:PointToPointInformationFlow" id="60" name="Guest_to_Canvas-LoginEvent" source="//@edges.63" target="//@edges.66">
+    <outputData definition="LoginEvent"/>
+  </informationFlows>
+  <informationFlows xsi:type="ifmm:PointToPointInformationFlow" id="61" name="Guest_to_SessionSelector-LoginEvent" source="//@edges.70" target="//@edges.71">
+    <outputData definition="LoginEvent"/>
+  </informationFlows>
+  <informationFlows xsi:type="ifmm:PointToPointInformationFlow" id="62" name="Guest_to_SessionNameEntry-LoginEvent" source="//@edges.72" target="//@edges.73">
+    <outputData definition="LoginEvent"/>
+  </informationFlows>
+  <informationFlows xsi:type="ifmm:PointToPointInformationFlow" id="63" name="Guest_to_SessionManager-SaveSession" source="//@edges.74" target="//@edges.75">
+    <outputData definition="sessionID"/>
+  </informationFlows>
+  <informationFlows xsi:type="ifmm:PointToPointInformationFlow" id="64" name="Canvas_to_Guest-GetFigures" source="//@edges.76" target="//@edges.77">
+    <inputData definition="Figures"/>
+  </informationFlows>
+  <informationFlows xsi:type="ifmm:PointToPointInformationFlow" id="65" name="Guest_to_SessionManager-GetFigures" source="//@edges.78" target="//@edges.79">
+    <outputData definition="sessionID"/>
+    <inputData definition="Figures"/>
+  </informationFlows>
+  <informationFlows xsi:type="ifmm:PointToPointInformationFlow" id="66" name="Guest-to-JoinControl-LoginEvent" source="//@edges.80" target="//@edges.81">
+    <outputData definition="LoginEvent"/>
+  </informationFlows>
+  <edges xsi:type="ifmm:EntityToPointToPointInformationFlowEdge" source="1" target="8"/>
+  <edges xsi:type="ifmm:EntityToPointToPointInformationFlowEdge" source="1" target="9"/>
+  <edges xsi:type="ifmm:PointToPointInformationFlowToEntityEdge" target="7" source="8"/>
+  <edges xsi:type="ifmm:PointToPointInformationFlowToEntityEdge" target="7" source="9"/>
+  <edges xsi:type="ifmm:EntityToPointToPointInformationFlowEdge" source="1" target="10"/>
+  <edges xsi:type="ifmm:PointToPointInformationFlowToEntityEdge" target="7" source="10"/>
+  <edges xsi:type="ifmm:EntityToPointToPointInformationFlowEdge" source="3" target="14"/>
+  <edges xsi:type="ifmm:EntityToPointToPointInformationFlowEdge" source="3" target="15"/>
+  <edges xsi:type="ifmm:PointToPointInformationFlowToEntityEdge" target="13" source="14"/>
+  <edges xsi:type="ifmm:PointToPointInformationFlowToEntityEdge" target="13" source="15"/>
+  <edges xsi:type="ifmm:EntityToBroadcastInformationFlowEdge" source="13" target="16"/>
+  <edges xsi:type="ifmm:BroadcastInformationFlowToEntityEdge" target="1" source="16"/>
+  <edges xsi:type="ifmm:EntityToPointToPointInformationFlowEdge" source="1" target="21"/>
+  <edges xsi:type="ifmm:EntityToPointToPointInformationFlowEdge" source="1" target="20"/>
+  <edges xsi:type="ifmm:EntityToPointToPointInformationFlowEdge" source="26" target="28"/>
+  <edges xsi:type="ifmm:PointToPointInformationFlowToEntityEdge" target="24" source="28"/>
+  <edges xsi:type="ifmm:EntityToPointToPointInformationFlowEdge" source="24" target="30"/>
+  <edges xsi:type="ifmm:PointToPointInformationFlowToEntityEdge" target="1" source="30"/>
+  <edges xsi:type="ifmm:EntityToPointToPointInformationFlowEdge" source="1" target="32"/>
+  <edges xsi:type="ifmm:EntityToPointToPointInformationFlowEdge" source="1" target="31"/>
+  <edges xsi:type="ifmm:EntityToPointToPointInformationFlowEdge" source="1" target="33"/>
+  <edges xsi:type="ifmm:PointToPointInformationFlowToEntityEdge" target="29" source="33"/>
+  <edges xsi:type="ifmm:PointToPointInformationFlowToEntityEdge" target="29" source="31"/>
+  <edges xsi:type="ifmm:PointToPointInformationFlowToEntityEdge" target="29" source="32"/>
+  <edges xsi:type="ifmm:EntityToPointToPointInformationFlowEdge" source="27" target="35"/>
+  <edges xsi:type="ifmm:EntityToPointToPointInformationFlowEdge" source="25" target="34"/>
+  <edges xsi:type="ifmm:PointToPointInformationFlowToEntityEdge" target="23" source="34"/>
+  <edges xsi:type="ifmm:PointToPointInformationFlowToEntityEdge" target="23" source="35"/>
+  <edges xsi:type="ifmm:EntityToPointToPointInformationFlowEdge" source="23" target="36"/>
+  <edges xsi:type="ifmm:EntityToPointToPointInformationFlowEdge" source="23" target="37"/>
+  <edges xsi:type="ifmm:PointToPointInformationFlowToEntityEdge" target="1" source="36"/>
+  <edges xsi:type="ifmm:PointToPointInformationFlowToEntityEdge" target="1" source="37"/>
+  <edges xsi:type="ifmm:EntityToPointToPointInformationFlowEdge" source="23" target="38"/>
+  <edges xsi:type="ifmm:PointToPointInformationFlowToEntityEdge" target="1" source="38"/>
+  <edges xsi:type="ifmm:EntityToPointToPointInformationFlowEdge" source="1" target="39"/>
+  <edges xsi:type="ifmm:PointToPointInformationFlowToEntityEdge" target="29" source="39"/>
+  <edges xsi:type="ifmm:EntityToBroadcastInformationFlowEdge" source="29" target="40"/>
+  <edges xsi:type="ifmm:BroadcastInformationFlowToEntityEdge" target="1" source="40"/>
+  <edges xsi:type="ifmm:EntityToPointToPointInformationFlowEdge" source="1" target="41"/>
+  <edges xsi:type="ifmm:PointToPointInformationFlowToEntityEdge" target="23" source="41"/>
+  <edges xsi:type="ifmm:EntityToPointToPointInformationFlowEdge" source="45" target="46"/>
+  <edges xsi:type="ifmm:PointToPointInformationFlowToEntityEdge" target="1" source="46"/>
+  <edges xsi:type="ifmm:EntityToPointToPointInformationFlowEdge" source="1" target="47"/>
+  <edges xsi:type="ifmm:PointToPointInformationFlowToEntityEdge" target="29" source="47"/>
+  <edges xsi:type="ifmm:EntityToPointToPointInformationFlowEdge" source="44" target="48"/>
+  <edges xsi:type="ifmm:PointToPointInformationFlowToEntityEdge" target="1" source="48"/>
+  <edges xsi:type="ifmm:EntityToPointToPointInformationFlowEdge" source="1" target="49"/>
+  <edges xsi:type="ifmm:PointToPointInformationFlowToEntityEdge" target="29" source="49"/>
+  <edges xsi:type="ifmm:EntityToPointToPointInformationFlowEdge" source="43" target="50"/>
+  <edges xsi:type="ifmm:PointToPointInformationFlowToEntityEdge" target="1" source="50"/>
+  <edges xsi:type="ifmm:EntityToPointToPointInformationFlowEdge" source="42" target="51"/>
+  <edges xsi:type="ifmm:PointToPointInformationFlowToEntityEdge" target="52" source="51"/>
+  <edges xsi:type="ifmm:EntityToPointToPointInformationFlowEdge" source="52" target="53"/>
+  <edges xsi:type="ifmm:PointToPointInformationFlowToEntityEdge" target="1" source="53"/>
+  <edges xsi:type="ifmm:PointToPointInformationFlowToEntityEdge" target="29" source="54"/>
+  <edges xsi:type="ifmm:EntityToPointToPointInformationFlowEdge" source="1" target="54"/>
+  <edges xsi:type="ifmm:EntityToBroadcastInformationFlowEdge" source="29" target="55"/>
+  <edges xsi:type="ifmm:BroadcastInformationFlowToEntityEdge" target="1" source="55"/>
+  <edges xsi:type="ifmm:EntityToPointToPointInformationFlowEdge" source="1" target="56"/>
+  <edges xsi:type="ifmm:PointToPointInformationFlowToEntityEdge" target="42" source="56"/>
+  <edges xsi:type="ifmm:EntityToPointToPointInformationFlowEdge" source="1" target="57"/>
+  <edges xsi:type="ifmm:EntityToPointToPointInformationFlowEdge" source="1" target="58"/>
+  <edges xsi:type="ifmm:EntityToPointToPointInformationFlowEdge" source="1" target="59"/>
+  <edges xsi:type="ifmm:EntityToPointToPointInformationFlowEdge" source="1" target="60"/>
+  <edges xsi:type="ifmm:PointToPointInformationFlowToEntityEdge" target="26" source="20"/>
+  <edges xsi:type="ifmm:PointToPointInformationFlowToEntityEdge" target="25" source="21"/>
+  <edges xsi:type="ifmm:PointToPointInformationFlowToEntityEdge" target="42" source="60"/>
+  <edges xsi:type="ifmm:PointToPointInformationFlowToEntityEdge" target="43" source="59"/>
+  <edges xsi:type="ifmm:PointToPointInformationFlowToEntityEdge" target="44" source="58"/>
+  <edges xsi:type="ifmm:PointToPointInformationFlowToEntityEdge" target="45" source="57"/>
+  <edges xsi:type="ifmm:EntityToPointToPointInformationFlowEdge" source="1" target="61"/>
+  <edges xsi:type="ifmm:PointToPointInformationFlowToEntityEdge" target="23" source="61"/>
+  <edges xsi:type="ifmm:EntityToPointToPointInformationFlowEdge" source="1" target="62"/>
+  <edges xsi:type="ifmm:PointToPointInformationFlowToEntityEdge" target="24" source="62"/>
+  <edges xsi:type="ifmm:EntityToPointToPointInformationFlowEdge" source="1" target="63"/>
+  <edges xsi:type="ifmm:PointToPointInformationFlowToEntityEdge" target="29" source="63"/>
+  <edges xsi:type="ifmm:EntityToPointToPointInformationFlowEdge" source="42" target="64"/>
+  <edges xsi:type="ifmm:PointToPointInformationFlowToEntityEdge" target="1" source="64"/>
+  <edges xsi:type="ifmm:EntityToPointToPointInformationFlowEdge" source="1" target="65"/>
+  <edges xsi:type="ifmm:PointToPointInformationFlowToEntityEdge" target="29" source="65"/>
+  <edges xsi:type="ifmm:EntityToPointToPointInformationFlowEdge" source="1" target="66"/>
+  <edges xsi:type="ifmm:PointToPointInformationFlowToEntityEdge" target="27" source="66"/>
+</ifmm:SystemInformaitonFlow>

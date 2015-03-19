@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<rsmm:SystemInformationFlowReferenceSpace xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:rsmm="rsmm" name="somm-diagram" id="1">
+  <referentialSpaces name="somm-diagramSpace" ongoingReferenceDependencies="4 6" id="2"/>
+  <spaceToEntityReferenceDependencies cardinality="999" parent="2" id="4" child="3"/>
+  <spaceToEntityReferenceDependencies cardinality="999" parent="2" id="6" child="5"/>
+  <entityReferences name="PDA" incomingReferenceDependency="4" id="3" entity="PDA"/>
+  <entityReferences name="CardiacPulseSensor" incomingReferenceDependency="6" id="5" entity="CardiacPulseSensor"/>
+</rsmm:SystemInformationFlowReferenceSpace>

@@ -1,0 +1,506 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecmm:SystemContext xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecmm="ecmm" name="somm-diagram">
+  <entities entity="Guest" id="5">
+    <situations name="init-Guest" id="37">
+      <actions memory="36" expression="(on,0)" id="39"/>
+      <actions memory="1" expression="Guest" id="97"/>
+      <actions memory="4" expression="('USERID',userID)" id="98"/>
+      <actions memory="177" expression="NotLoginEvent" id="155"/>
+      <actions memory="4" expression="('EDITOR_EVENT',NoEditorEvent)" id="430"/>
+      <actions memory="417" expression="NoSessionEvent" id="434"/>
+      <memoryConditions id="38" expression="off" contextMemory="36"/>
+    </situations>
+    <situations name="SessionEvent" id="30">
+      <actions memory="417" expression="SessionEvent" id="420"/>
+      <actions memory="4" expression="('SESSIONID_PAR', sessionID)" id="421"/>
+      <memoryConditions id="35" expression="User" contextMemory="1"/>
+      <memoryConditions id="408" expression="SessionManager" contextMemory="318"/>
+      <memoryConditions id="422" expression="Guest.dataMemory('USERID')=userID" contextMemory="107"/>
+      <memoryConditions id="423" expression="NoSessionEvent" contextMemory="417"/>
+      <sensingConditions id="407" informationflow="SessionManager_to_Guest-SessionEvent"/>
+    </situations>
+    <situations name="Guest-anEvent-0" id="31">
+      <actions memory="2" expression="aGuest(ChairEvent, ChairType)" id="129"/>
+      <actions memory="4" expression="('CHAIRID', chairID)" id="134"/>
+      <actions memory="4" expression="('CHAIRTYPE', ChairType)" id="135"/>
+      <memoryConditions id="131" expression="Guest.dataMemory('USERID')=userID" contextMemory="107"/>
+      <memoryConditions id="137" expression="Guest" contextMemory="1"/>
+      <memoryConditions id="138" expression="LocationManager" contextMemory="112"/>
+      <sensingConditions id="130" informationflow="LocationManager_to_Guest-anEvent0"/>
+    </situations>
+    <situations name="LogoutEvent" id="48">
+      <actions memory="1" expression="Guest" id="185"/>
+      <actions memory="177" expression="NotLoginEvent" id="193"/>
+      <memoryConditions id="49" expression="User" contextMemory="1"/>
+      <memoryConditions id="186" expression="LogoutEvent" contextMemory="177"/>
+    </situations>
+    <situations name="JoinSession" id="51">
+      <actions memory="2" expression="User(Released, Join)" id="389"/>
+      <memoryConditions id="52" expression="User" contextMemory="1"/>
+      <memoryConditions id="53" expression="SessionSelector" contextMemory="2"/>
+      <memoryConditions id="391" expression="[]" contextMemory="2"/>
+      <sensingConditions id="392" informationflow="SessionSelector_to_Guest-JoinSession"/>
+    </situations>
+    <situations name="CreateSession" id="55">
+      <actions memory="2" expression="Admin(ButtonEvent, Create)" id="314"/>
+      <memoryConditions id="56" expression="Admin" contextMemory="1"/>
+      <memoryConditions id="315" expression="SessionNameEntry" contextMemory="199"/>
+      <memoryConditions id="326" expression="[]" contextMemory="2"/>
+      <sensingConditions id="316" informationflow="SessionNameEntry_to_Guest-CreateSession"/>
+    </situations>
+    <situations name="DeleteSession" id="58">
+      <actions memory="2" expression="Admin(Released, Delete)" id="390"/>
+      <memoryConditions id="59" expression="Admin" contextMemory="1"/>
+      <memoryConditions id="60" expression="SessionSelector" contextMemory="296"/>
+      <memoryConditions id="387" expression="[]" contextMemory="2"/>
+      <sensingConditions id="388" informationflow="SessionSelector_to_Guest-DeleteSession"/>
+    </situations>
+    <situations name="Draw" id="61">
+      <actions memory="4" expression="session" id="64"/>
+      <memoryConditions id="62" expression="User" contextMemory="1"/>
+      <memoryConditions id="63" expression="FigureInterpreter(MouseReleased, Canvas), FigureInterpreter(MouseMoved, Canvas)*,FigureInterpreter(MousePressed, Canvas),*" contextMemory="449"/>
+      <memoryConditions id="454" expression="FigureInterpreter" contextMemory="439"/>
+      <sensingConditions id="455" informationflow="FigureInterpreter_to_Guest-Draw"/>
+    </situations>
+    <situations name="Print" id="65">
+      <actions memory="2" expression="User(Released, Print)" id="68"/>
+      <memoryConditions id="66" expression="User" contextMemory="1"/>
+      <memoryConditions id="67" expression="[]" contextMemory="2"/>
+      <memoryConditions id="404" expression="PrintControl" contextMemory="253"/>
+      <sensingConditions id="405" informationflow="PrintControl_to_Guest-Print"/>
+    </situations>
+    <situations name="Exit" id="69">
+      <actions memory="2" expression="User(Released, Exit)" id="403"/>
+      <memoryConditions id="70" expression="User" contextMemory="1"/>
+      <memoryConditions id="71" expression="[]" contextMemory="2"/>
+      <memoryConditions id="401" expression="ExitSessionControl" contextMemory="239"/>
+      <sensingConditions id="402" informationflow="ExitSessionControl_to_Guest-ExitSession"/>
+    </situations>
+    <situations name="Save" id="75">
+      <actions memory="2" expression="User(Released, Save)" id="78"/>
+      <memoryConditions id="76" expression="User" contextMemory="1"/>
+      <memoryConditions id="77" expression="[]" contextMemory="2"/>
+      <memoryConditions id="406" expression="SaveControl" contextMemory="266"/>
+    </situations>
+    <situations name="LoginErrorEvent" id="79">
+      <actions memory="177" expression="NotLoginEvent" id="168"/>
+      <memoryConditions id="80" expression="Guest" contextMemory="1"/>
+      <memoryConditions id="81" expression="LoginErrorEvent" contextMemory="177"/>
+    </situations>
+    <situations name="LoginAdminEvent" id="181">
+      <actions memory="1" expression="Admin" id="184"/>
+      <actions memory="177" expression="NotLoginEvent" id="191"/>
+      <memoryConditions id="182" expression="Guest" contextMemory="1"/>
+      <memoryConditions id="183" expression="AdminLoginEvent" contextMemory="177"/>
+    </situations>
+    <situations name="LoginUserEvent" id="187">
+      <actions memory="1" expression="User" id="188"/>
+      <actions memory="177" expression="NotLoginEvent" id="192"/>
+      <memoryConditions id="189" expression="User" contextMemory="1"/>
+      <memoryConditions id="190" expression="UserLoginEvent" contextMemory="177"/>
+    </situations>
+    <situations name="GetSessions" id="393">
+      <memoryConditions id="394" expression="User" contextMemory="1"/>
+      <memoryConditions id="395" expression="SessionSelector" contextMemory="296"/>
+      <sensingConditions id="396" informationflow="SessionSelector_toGuest-GetSessions"/>
+    </situations>
+    <situations name="EditorEvent" id="409">
+      <memoryConditions id="411" expression="User" contextMemory="1"/>
+      <memoryConditions id="412" expression="SessionManager" contextMemory="318"/>
+      <memoryConditions id="433" expression="Guest.dataMemory('SESSIONID')=sessionID" contextMemory="435"/>
+      <sensingConditions id="410" informationflow="SessionManager_to_Guest-EditorEvent"/>
+    </situations>
+    <situations name="JoinSession-Event" id="413">
+      <actions memory="417" expression="NoSessionEvent" id="425"/>
+      <actions memory="4" expression="('SESSIONID', Guest.dataMemory('SESSIONID_PAR'))" id="436"/>
+      <memoryConditions id="414" expression="JoinEvent" contextMemory="417"/>
+      <memoryConditions id="424" expression="User" contextMemory="1"/>
+    </situations>
+    <situations name="LeaveSession-Event" id="426">
+      <actions memory="417" expression="NoSessionEvent" id="429"/>
+      <actions memory="4" expression="('SESSIONID','null')" id="437"/>
+      <memoryConditions id="427" expression="LeaveSession" contextMemory="417"/>
+      <memoryConditions id="428" expression="User" contextMemory="1"/>
+    </situations>
+    <state xsi:type="ecmm:HolderMemory" name="Guest.roleMemory" id="1"/>
+    <state xsi:type="ecmm:StackMemory" name="Guest.spaceMemory" id="2"/>
+    <state xsi:type="ecmm:DictionaryMemory" name="Guest.dataMemory" id="4"/>
+    <state xsi:type="ecmm:TimeMemory" name="Guest.initMemory" id="36"/>
+    <state xsi:type="ecmm:LogicMemory" name="Guest.isMe" id="107"/>
+    <state xsi:type="ecmm:HolderMemory" name="Guest.loginEventMemory" id="177"/>
+    <state xsi:type="ecmm:HolderMemory" name="Guest.sessionEventMemory" id="417"/>
+    <state xsi:type="ecmm:LogicMemory" name="Guest.isNoEditorEvent" id="431"/>
+    <state xsi:type="ecmm:LogicMemory" name="Guest.isMySession" id="435"/>
+    <variables name="chairID" definition="String" id="10"/>
+    <variables name="userID" definition="String" id="12"/>
+    <variables name="ChairEvent" definition=" Take + Leave" id="132"/>
+    <variables name="ChairType" definition=" AdminChair + UserChair" id="133"/>
+    <variables name="LoginEvent" definition=" NotLoginEvent + LoginErrorEvent + AdminLoginEvent + UserLoginEvent + LogoutEvent" id="164"/>
+    <variables name="SessionEvent" definition=" NoSessionEvent + JoinEvent + LeaveEvent" id="418"/>
+    <variables name="EditorEvent" definition=" NoEditorEvent + DrawEvent + PrintEvent + SaveEvent" id="419"/>
+    <variables name="Figue" definition=" (x, y)*" id="467"/>
+    <variables name="x" definition="Integer" id="468"/>
+    <variables name="y" definition="Integer" id="469"/>
+    <variables name="sessions" definition="(sessionID, sessionName, lastAccess)*" id="470"/>
+    <variables name="sessionID" definition="String" id="471"/>
+    <variables name="sessionName" definition="String" id="472"/>
+    <variables name="lastAccess" definition="Date" id="473"/>
+  </entities>
+  <entities entity="RFIDReader" id="84">
+    <situations name="init-RFIDReader" id="120">
+      <actions memory="119" expression="(on,0)" id="121"/>
+      <actions memory="123" expression="('READERID',readerID)" id="122"/>
+      <actions memory="86" expression="RFIDReader" id="124"/>
+      <memoryConditions id="150" expression="off" contextMemory="119"/>
+    </situations>
+    <state xsi:type="ecmm:HolderMemory" name="RFIDReader.roleMemory" id="86"/>
+    <state xsi:type="ecmm:TimeMemory" name="RFIDReader.initMemory" id="119"/>
+    <state xsi:type="ecmm:DictionaryMemory" name="RFIDReader.dataMemory" id="123"/>
+    <variables name="readerID" definition="String" id="87"/>
+    <variables name="rfid" definition="String" id="88"/>
+  </entities>
+  <entities entity="LocationManager" id="111">
+    <situations name="init-LocationManager" id="113">
+      <actions memory="114" expression="(on,0)" id="115"/>
+      <actions memory="112" expression="LocationManager" id="116"/>
+      <memoryConditions id="149" expression="off" contextMemory="114"/>
+    </situations>
+    <situations name="RFIDReaderNotReadingSituation" id="92">
+      <memoryConditions id="103" expression="LocationManager" contextMemory="112"/>
+      <memoryConditions id="104" expression="RFIDReader" contextMemory="86"/>
+      <sensingConditions id="94" informationflow="RFIDReader_to_Guest-NotReading"/>
+    </situations>
+    <situations name="RFIDReaderReadingSituation" id="91">
+      <memoryConditions id="95" expression="LocationManager" contextMemory="112"/>
+      <memoryConditions id="96" expression="RFIDReader" contextMemory="86"/>
+      <sensingConditions id="93" informationflow="RFIDReader_to_Guest-Reading"/>
+    </situations>
+    <state xsi:type="ecmm:HolderMemory" name="LocationManager.roleMemory" id="112"/>
+    <state xsi:type="ecmm:TimeMemory" name="LocationManager.initMemory" id="114"/>
+    <variables name="readerID" definition="String" id="117"/>
+    <variables name="userID" definition="String" id="118"/>
+    <variables name="ChairType" definition=" AdminChair + UserChair" id="125"/>
+    <variables name="rfid" definition="String" id="126"/>
+    <variables name="chairID" definition="String" id="127"/>
+    <variables name="ChairEvent" definition=" Take + Leave" id="128"/>
+  </entities>
+  <entities entity="Reception" id="139">
+    <situations name="LoginAdmin" id="40">
+      <actions memory="2" expression="[]" id="140"/>
+      <actions memory="177" expression="LoginEvent" id="173"/>
+      <memoryConditions id="41" expression="Guest" contextMemory="1"/>
+      <memoryConditions id="42" expression="Guest(Take, AdminChair)" contextMemory="2"/>
+      <memoryConditions id="153" expression="Reception" contextMemory="144"/>
+      <sensingConditions id="142" informationflow="Guest_toReception-LoginAdmin"/>
+    </situations>
+    <situations name="LoginUser" id="44">
+      <actions memory="2" expression="[]" id="141"/>
+      <actions memory="177" expression="LoginEvent" id="174"/>
+      <memoryConditions id="45" expression="Guest" contextMemory="1"/>
+      <memoryConditions id="46" expression="Guest(Take, UserChair)" contextMemory="2"/>
+      <memoryConditions id="152" expression="Reception" contextMemory="144"/>
+      <sensingConditions id="143" informationflow="Guest_toReception-LoginUser"/>
+    </situations>
+    <situations name="init-Reception" id="146">
+      <actions memory="145" expression="(on, 0)" id="148"/>
+      <actions memory="144" expression="Reception" id="151"/>
+      <memoryConditions id="147" expression="(off)" contextMemory="145"/>
+    </situations>
+    <situations name="Logout" id="72">
+      <actions memory="177" expression="LoginEvent" id="157"/>
+      <actions memory="2" expression="[]" id="170"/>
+      <memoryConditions id="73" expression="User" contextMemory="1"/>
+      <memoryConditions id="74" expression="User(Leave, ChairType)" contextMemory="2"/>
+      <memoryConditions id="195" expression="Reception" contextMemory="144"/>
+      <sensingConditions id="158" informationflow="Guest_toReception-Logout"/>
+    </situations>
+    <state xsi:type="ecmm:HolderMemory" name="Reception.roleMemory" id="144"/>
+    <state xsi:type="ecmm:TimeMemory" name="Reception.initMemory" id="145"/>
+    <variables name="LoginEvent" definition=" NotLoginEvent + LoginErrorEvent + AdminLoginEvent + UserLoginEvent + LogoutEvent" id="487"/>
+    <variables name="userID" definition="String" id="488"/>
+    <variables name="chairID" definition="String" id="489"/>
+  </entities>
+  <entities entity="SessionNameEntry" id="196">
+    <situations name="init-SessionNameEntry" id="205">
+      <actions memory="202" expression="(on,0)" id="211"/>
+      <actions memory="199" expression="SessionNameEntry" id="217"/>
+      <memoryConditions id="208" expression="off" contextMemory="202"/>
+    </situations>
+    <situations name="LoginEvent" id="220">
+      <actions memory="223" expression="LoginEvent" id="224"/>
+      <memoryConditions id="221" expression="SessionNameEntry" contextMemory="199"/>
+      <memoryConditions id="222" expression="Guest" contextMemory="1"/>
+      <sensingConditions id="225" informationflow="Guest_to_SessionNameEntry-LoginEvent"/>
+    </situations>
+    <situations name="CreateSession" id="309">
+      <memoryConditions id="310" expression="SessionNameEntry" contextMemory="199"/>
+      <memoryConditions id="311" expression="CreateControl" contextMemory="200"/>
+      <sensingConditions id="312" informationflow="CreateControl_to_SessionNameEntry-Event"/>
+    </situations>
+    <state xsi:type="ecmm:HolderMemory" name="SessionNameEntry.roleMemory" id="199"/>
+    <state xsi:type="ecmm:TimeMemory" name="SessionNameEntry.initMemory" id="202"/>
+    <state xsi:type="ecmm:HolderMemory" name="SessionNameEntry.loginEventMemory" id="223"/>
+    <variables name="LoginEvent" definition=" NotLoginEvent + LoginErrorEvent + AdminLoginEvent + UserLoginEvent + LogoutEvent" id="214"/>
+    <variables name="ButtonEvent" definition=" Pressed + Released + Clicked" id="313"/>
+    <variables name="sessionName" definition="String" id="474"/>
+  </entities>
+  <entities entity="DeleteControl" id="197">
+    <situations name="init-DeleteControl" id="207">
+      <actions memory="204" expression="(on, 0)" id="213"/>
+      <actions memory="201" expression="DeleteControl" id="219"/>
+      <memoryConditions id="210" expression="off" contextMemory="204"/>
+    </situations>
+    <situations name="LoginEvent" id="232">
+      <actions memory="234" expression="LoginEvent" id="236"/>
+      <memoryConditions id="233" expression="DeleteControl" contextMemory="201"/>
+      <memoryConditions id="235" expression="Guest" contextMemory="1"/>
+      <sensingConditions id="237" informationflow="Guest-to-DeleteControl-LoginEvent"/>
+    </situations>
+    <state xsi:type="ecmm:HolderMemory" name="DeleteControl.roleMemory" id="201"/>
+    <state xsi:type="ecmm:TimeMemory" name="DeleteControl.initMemory" id="204"/>
+    <state xsi:type="ecmm:HolderMemory" name="DeleteControl.loginEventMemory" id="234"/>
+    <variables name="LoginEvent" definition=" NotLoginEvent + LoginErrorEvent + AdminLoginEvent + UserLoginEvent + LogoutEvent" id="216"/>
+    <variables name="ButtonEvent" definition=" Pressed + Released + Clicked" id="486"/>
+  </entities>
+  <entities entity="CreateControl" id="198">
+    <situations name="init-CreateControl" id="206">
+      <actions memory="203" expression="(on, 0)" id="212"/>
+      <actions memory="200" expression="CreateControl" id="218"/>
+      <memoryConditions id="209" expression="off" contextMemory="203"/>
+    </situations>
+    <situations name="LoginEvent" id="226">
+      <actions memory="231" expression="LoginEvent" id="230"/>
+      <memoryConditions id="227" expression="CreateControl" contextMemory="200"/>
+      <memoryConditions id="228" expression="Guest" contextMemory="1"/>
+      <sensingConditions id="229" informationflow="Guest-to-CreateControl-LoginEvent"/>
+    </situations>
+    <state xsi:type="ecmm:HolderMemory" name="CreateControl.roleMemory" id="200"/>
+    <state xsi:type="ecmm:TimeMemory" name="CreateControl.initMemory" id="203"/>
+    <state xsi:type="ecmm:HolderMemory" name="CreateControl.loginEventMemory" id="231"/>
+    <variables name="LoginEvent" definition=" NotLoginEvent + LoginErrorEvent + AdminLoginEvent + UserLoginEvent + LogoutEvent" id="215"/>
+    <variables name="ButtonEvent" definition=" Pressed + Released + Clicked" id="481"/>
+  </entities>
+  <entities entity="ExitSessionControl" id="238">
+    <situations name="init-ExitControl" id="242">
+      <actions memory="119" expression="(on,0)" id="244"/>
+      <actions memory="239" expression="ExitControl" id="245"/>
+      <memoryConditions id="243" expression="off" contextMemory="240"/>
+    </situations>
+    <situations name="LoginEvent" id="246">
+      <actions memory="241" expression="LoginEvent" id="250"/>
+      <memoryConditions id="247" expression="ExitSessionControl" contextMemory="239"/>
+      <memoryConditions id="248" expression="Guest" contextMemory="1"/>
+      <sensingConditions id="249" informationflow="Guest_to_ExitSession-LoginEvent"/>
+    </situations>
+    <state xsi:type="ecmm:HolderMemory" name="ExitSessionControl.roleMemory" id="239"/>
+    <state xsi:type="ecmm:TimeMemory" name="ExitSessionControl.initMemory" id="240"/>
+    <state xsi:type="ecmm:HolderMemory" name="ExitSessionControl.loginEventMemory" id="241"/>
+    <variables name="LoginEvent" definition=" NotLoginEvent + LoginErrorEvent + AdminLoginEvent + UserLoginEvent + LogoutEvent" id="251"/>
+    <variables name="ButtonEvent" definition=" Pressed + Released + Clicked" id="484"/>
+  </entities>
+  <entities entity="PrintControl" id="252">
+    <situations name="init-PrintControl" id="256">
+      <actions memory="254" expression="(on, 0)" id="258"/>
+      <actions memory="253" expression="PrintControl" id="259"/>
+      <memoryConditions id="257" expression="off" contextMemory="254"/>
+    </situations>
+    <situations name="LoginEvent" id="260">
+      <actions memory="255" expression="LoginEvent" id="263"/>
+      <memoryConditions id="261" expression="PrintControl" contextMemory="253"/>
+      <memoryConditions id="276" expression="Guest" contextMemory="1"/>
+      <sensingConditions id="262" informationflow="Guest_to_PrintControl-LoginEvent"/>
+    </situations>
+    <state xsi:type="ecmm:HolderMemory" name="PrintControl.roleMemory" id="253"/>
+    <state xsi:type="ecmm:TimeMemory" name="PrintControl.initMemory" id="254"/>
+    <state xsi:type="ecmm:HolderMemory" name="PrintControl.loginEventMemory" id="255"/>
+    <variables name="LoginEvent" definition=" NotLoginEvent + LoginErrorEvent + AdminLoginEvent + UserLoginEvent + LogoutEvent" id="264"/>
+    <variables name="ButtonEvent" definition=" Pressed + Released + Clicked" id="485"/>
+  </entities>
+  <entities entity="SaveControl" id="265">
+    <situations name="init-SaveControl" id="269">
+      <actions memory="267" expression="(on,0)" id="271"/>
+      <actions memory="266" expression="SaveControl" id="272"/>
+      <memoryConditions id="270" expression="off" contextMemory="267"/>
+    </situations>
+    <situations name="LoginEvent" id="273">
+      <actions memory="268" expression="LoginEvent" id="278"/>
+      <memoryConditions id="274" expression="SaveControl" contextMemory="266"/>
+      <memoryConditions id="275" expression="Guest" contextMemory="1"/>
+      <sensingConditions id="277" informationflow="Guest_to_SaveControl-LoginEvent"/>
+    </situations>
+    <state xsi:type="ecmm:HolderMemory" name="SaveControl.roleMemory" id="266"/>
+    <state xsi:type="ecmm:TimeMemory" name="SaveControl.initMemory" id="267"/>
+    <state xsi:type="ecmm:HolderMemory" name="SaveControl.loginEventMemory" id="268"/>
+    <variables name="LoginEvent" definition=" NotLoginEvent + LoginErrorEvent + AdminLoginEvent + UserLoginEvent + LogoutEvent" id="279"/>
+    <variables name="ButtonEvent" definition=" Pressed + Released + Clicked" id="483"/>
+  </entities>
+  <entities entity="Canvas" id="280">
+    <situations name="init-Canvas" id="284">
+      <actions memory="282" expression="(on,0)" id="287"/>
+      <actions memory="281" expression="Canvas" id="288"/>
+      <memoryConditions id="285" expression="off" contextMemory="282"/>
+    </situations>
+    <situations name="LoginEvent" id="289">
+      <actions memory="283" expression="LoginEvent" id="292"/>
+      <memoryConditions id="290" expression="Canvas" contextMemory="281"/>
+      <memoryConditions id="293" expression="Guest" contextMemory="1"/>
+      <sensingConditions id="291" informationflow="Guest_to_Canvas-LoginEvent"/>
+    </situations>
+    <situations name="EditorEvent" id="456">
+      <actions memory="460" expression="EditorEvent" id="461"/>
+      <memoryConditions id="457" expression="User" contextMemory="1"/>
+      <memoryConditions id="458" expression="Canvas" contextMemory="281"/>
+      <sensingConditions id="459" informationflow="FigureInterpreter_to_Guest-Draw"/>
+    </situations>
+    <state xsi:type="ecmm:HolderMemory" name="Canvas.roleMemory" id="281"/>
+    <state xsi:type="ecmm:TimeMemory" name="Canvas.initMemory" id="282"/>
+    <state xsi:type="ecmm:HolderMemory" name="Canvas.loginEventMemory" id="283"/>
+    <state xsi:type="ecmm:HolderMemory" name="Canvas.editorEventMemory" id="460"/>
+    <variables name="LoginEvent" definition=" NotLoginEvent + LoginErrorEvent + AdminLoginEvent + UserLoginEvent + LogoutEvent" id="294"/>
+    <variables name="EditorEvent" definition=" NoEditorEvent + DrawEvent + PrintEvent + SaveEvent" id="462"/>
+  </entities>
+  <entities entity="SessionSelector" id="295">
+    <situations name="init-SessionSelector" id="299">
+      <actions memory="297" expression="(on, 0)" id="301"/>
+      <actions memory="296" expression="SessionSelector" id="302"/>
+      <memoryConditions id="300" expression="off" contextMemory="297"/>
+    </situations>
+    <situations name="LoginEvent" id="303">
+      <actions memory="298" expression="LoginEvent" id="307"/>
+      <memoryConditions id="304" expression="SessionSelector" contextMemory="296"/>
+      <memoryConditions id="305" expression="Guest" contextMemory="1"/>
+      <sensingConditions id="306" informationflow="Guest_to_SessionSelector-LoginEvent"/>
+    </situations>
+    <situations name="DeleteSession" id="365">
+      <memoryConditions id="366" expression="SessionSelector" contextMemory="296"/>
+      <memoryConditions id="367" expression="DeleteControl" contextMemory="201"/>
+      <sensingConditions id="368" informationflow="DeleteControl_to_SessionSelector-Event"/>
+    </situations>
+    <situations name="JoinSession" id="369">
+      <memoryConditions id="370" expression="SessionSelector" contextMemory="296"/>
+      <memoryConditions id="371" expression="JoinControl" contextMemory="373"/>
+      <sensingConditions id="386" informationflow="JoinControl_to_SessionSelector-Event"/>
+    </situations>
+    <state xsi:type="ecmm:HolderMemory" name="SessionSelector.roleMemory" id="296"/>
+    <state xsi:type="ecmm:TimeMemory" name="SessionSelector.initMemory" id="297"/>
+    <state xsi:type="ecmm:HolderMemory" name="SessionSelector.loginEventMemory" id="298"/>
+    <variables name="LoginEvent" definition=" NotLoginEvent + LoginErrorEvent + AdminLoginEvent + UserLoginEvent + LogoutEvent" id="308"/>
+    <variables name="ButtonEvent" definition=" Pressed + Released + Clicked" id="475"/>
+    <variables name="SessionEvent" definition=" NoSessionEvent + JoinEvent + LeaveEvent" id="476"/>
+    <variables name="sessions" definition="(sessionID, sessionName, lastAccess)*" id="477"/>
+    <variables name="sessionID" definition="String" id="478"/>
+    <variables name="sessionName" definition="String" id="479"/>
+    <variables name="lastAccess" definition="Date" id="480"/>
+  </entities>
+  <entities entity="SessionManager" id="317">
+    <situations name="CreateSession" id="320">
+      <actions memory="2" expression="[]" id="325"/>
+      <memoryConditions id="321" expression="SessionManager" contextMemory="318"/>
+      <memoryConditions id="322" expression="Admin" contextMemory="1"/>
+      <memoryConditions id="323" expression="Admin(Release, Create)" contextMemory="2"/>
+      <sensingConditions id="324" informationflow="Guest_to_SessionManager-CreateSesssion"/>
+    </situations>
+    <situations name="DeleteSession" id="327">
+      <actions memory="2" expression="[]" id="331"/>
+      <memoryConditions id="328" expression="SessionManager" contextMemory="318"/>
+      <memoryConditions id="329" expression="Admin" contextMemory="1"/>
+      <memoryConditions id="332" expression="Admin(Release, Delete)" contextMemory="2"/>
+      <sensingConditions id="330" informationflow="Guest_to_SessionManager-DeleteSession"/>
+    </situations>
+    <situations name="JoinSession" id="333">
+      <actions memory="2" expression="[]" id="338"/>
+      <memoryConditions id="334" expression="SessionManager" contextMemory="318"/>
+      <memoryConditions id="335" expression="User" contextMemory="1"/>
+      <memoryConditions id="336" expression="User(Release, Join)" contextMemory="2"/>
+      <sensingConditions id="337" informationflow="Guest_to_SessionManager-JoinSession"/>
+    </situations>
+    <situations name="SaveSession" id="339">
+      <actions memory="2" expression="[]" id="344"/>
+      <memoryConditions id="340" expression="SessionManager" contextMemory="318"/>
+      <memoryConditions id="341" expression="User" contextMemory="1"/>
+      <memoryConditions id="342" expression="User(Release, Save)" contextMemory="2"/>
+      <sensingConditions id="343" informationflow="Guest_to_SessionManager-SaveSession"/>
+    </situations>
+    <situations name="ExitSession" id="345">
+      <actions memory="2" expression="[]" id="350"/>
+      <memoryConditions id="346" expression="SessionManager" contextMemory="296"/>
+      <memoryConditions id="347" expression="User" contextMemory="1"/>
+      <memoryConditions id="348" expression="User(Release,Exit)" contextMemory="2"/>
+      <sensingConditions id="349" informationflow="Guest_to_SessionManager-ExitSession"/>
+    </situations>
+    <situations name="Print" id="351">
+      <actions memory="2" expression="[]" id="356"/>
+      <memoryConditions id="352" expression="SessionManager" contextMemory="318"/>
+      <memoryConditions id="353" expression="User" contextMemory="1"/>
+      <memoryConditions id="354" expression="User(Release, Print)" contextMemory="2"/>
+      <sensingConditions id="355" informationflow="Guest_to_SessionManager-Print"/>
+    </situations>
+    <situations name="Draw" id="357">
+      <memoryConditions id="358" expression="SessionManager" contextMemory="318"/>
+      <memoryConditions id="359" expression="User" contextMemory="1"/>
+      <sensingConditions id="360" informationflow="Guest_to_SessionManager-Draw"/>
+    </situations>
+    <situations name="init-SessionManager" id="361">
+      <actions memory="319" expression="(on, 0)" id="363"/>
+      <actions memory="318" expression="SessionManager" id="364"/>
+      <memoryConditions id="362" expression="off" contextMemory="319"/>
+    </situations>
+    <situations name="GetSessions" id="397">
+      <memoryConditions id="398" expression="SessionManager" contextMemory="318"/>
+      <memoryConditions id="399" expression="User" contextMemory="1"/>
+      <sensingConditions id="400" informationflow="Guest_to_SessionManager-GetSessions"/>
+    </situations>
+    <situations name="GetFigures" id="463">
+      <memoryConditions id="465" expression="SessionManager" contextMemory="318"/>
+      <memoryConditions id="466" expression="Guest" contextMemory="1"/>
+      <sensingConditions id="464" informationflow="Guest_to_SessionManager-GetFigures"/>
+    </situations>
+    <state xsi:type="ecmm:HolderMemory" name="SessionManager.roleMemory" id="318"/>
+    <state xsi:type="ecmm:TimeMemory" name="SessionManager.initMemory" id="319"/>
+    <variables name="EditorEvent" definition=" NoEditorEvent + DrawEvent + PrintEvent + SaveEvent" id="490"/>
+    <variables name="sessionID" definition="String" id="491"/>
+    <variables name="userID" definition="String" id="492"/>
+    <variables name="Figue" definition=" (x, y)*" id="493"/>
+    <variables name="x" definition="Integer" id="494"/>
+    <variables name="y" definition="Integer" id="495"/>
+    <variables name="SessionEvent" definition=" NoSessionEvent + JoinEvent + LeaveEvent" id="496"/>
+    <variables name="sessions" definition="(sessionID, sessionName, lastAccess)*" id="497"/>
+    <variables name="sessionName" definition="String" id="498"/>
+    <variables name="lastAccess" definition="Date" id="499"/>
+  </entities>
+  <entities entity="JoinControl" id="372">
+    <situations name="init-JoinControl" id="376">
+      <actions memory="374" expression="(on, 0)" id="378"/>
+      <actions memory="373" expression="JoinControl" id="379"/>
+      <memoryConditions id="377" expression="off" contextMemory="374"/>
+    </situations>
+    <situations name="LoginEvent" id="380">
+      <actions memory="375" expression="LoginEvent" id="384"/>
+      <memoryConditions id="381" expression="JoinControl" contextMemory="373"/>
+      <memoryConditions id="382" expression="User" contextMemory="1"/>
+      <sensingConditions id="383" informationflow="Guest-to-JoinControl-LoginEvent"/>
+    </situations>
+    <state xsi:type="ecmm:HolderMemory" name="JoinControl.roleMemory" id="373"/>
+    <state xsi:type="ecmm:TimeMemory" name="JoinControl.initMemory" id="374"/>
+    <state xsi:type="ecmm:HolderMemory" name="JoinControl.loginEventMemory" id="375"/>
+    <variables name="LoginEvent" definition=" NotLoginEvent + LoginErrorEvent + AdminLoginEvent + UserLoginEvent + LogoutEvent" id="385"/>
+    <variables name="ButtonEvent" definition=" Pressed + Released + Clicked" id="482"/>
+  </entities>
+  <entities entity="FigureInterpreter" id="438">
+    <situations name="init-FigureInterpreter" id="442">
+      <actions memory="440" expression="(on, 0)" id="444"/>
+      <actions memory="439" expression="FigureInterpreter" id="445"/>
+      <memoryConditions id="443" expression="off" contextMemory="440"/>
+    </situations>
+    <situations name="Canvas-Event" id="446">
+      <actions memory="449" expression="FigureInterpreter(MouseEvent, Canvas),*" id="448"/>
+      <memoryConditions id="452" expression="FigureInterpreter" contextMemory="439"/>
+      <memoryConditions id="453" expression="Canvas" contextMemory="281"/>
+      <sensingConditions id="447" informationflow="Canvas_to_FigureInterpreter"/>
+    </situations>
+    <state xsi:type="ecmm:HolderMemory" name="FigureInterpreter.roleMemory" id="439"/>
+    <state xsi:type="ecmm:TimeMemory" name="FigureInterpreter.initMemory" id="440"/>
+    <state xsi:type="ecmm:HolderMemory" name="FigureInterpreter.canvasEventMemory" id="441"/>
+    <state xsi:type="ecmm:StackMemory" name="FigureInterpreter.spaceMemory" id="449"/>
+  </entities>
+</ecmm:SystemContext>

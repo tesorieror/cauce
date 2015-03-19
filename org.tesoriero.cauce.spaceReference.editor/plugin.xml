@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated spaceReference -->
+      <wizard
+            id="rsmm.presentation.RsmmModelWizardID"
+            name="%_UI_RsmmModelWizard_label"
+            class="rsmm.presentation.RsmmModelWizard"
+            category="org.tesoriero.cauce.model.category.ID"
+            icon="icons/full/obj16/RsmmModelFile.gif">
+         <description>%_UI_RsmmModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated spaceReference -->
+      <editor
+            id="rsmm.presentation.RsmmEditorID"
+            name="%_UI_RsmmEditor_label"
+            icon="icons/full/obj16/RsmmModelFile.gif"
+            extensions="rsmm"
+            class="rsmm.presentation.RsmmEditor"
+            contributorClass="rsmm.presentation.RsmmActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<rsmm:SystemInformationFlowReferenceSpace xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:rsmm="rsmm" name="somm-diagram">
+  <referentialSpaces name="The System" ongoingReferenceDependencies="3 5 7" id="1"/>
+  <spaceToEntityReferenceDependencies cardinality="999" parent="1" id="3" child="2"/>
+  <spaceToEntityReferenceDependencies cardinality="999" parent="1" id="5" child="4"/>
+  <spaceToEntityReferenceDependencies cardinality="999" parent="1" id="7" child="6"/>
+  <entityReferences name="A" incomingReferenceDependency="3" id="2" entity="A"/>
+  <entityReferences name="B" incomingReferenceDependency="5" id="4" entity="B"/>
+  <entityReferences name="D" incomingReferenceDependency="7" id="6" entity="D"/>
+</rsmm:SystemInformationFlowReferenceSpace>
